@@ -8,6 +8,14 @@ function loadImage(url) {
     });
 }
 
+class SpriteSheet {
+    constructor(image, w = 16, h = 16) {
+        this.image = image;
+        this.width = w;
+        this.height = h;
+    }
+}
+
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
