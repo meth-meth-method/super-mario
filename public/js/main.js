@@ -52,6 +52,4 @@ loadImage('/img/tiles.png')
     const sprites = new SpriteSheet(image);
     sprites.define('ground', 0, 0);
     sprites.draw('ground', context, 64, 32);
-
-    context.drawImage(image, 0, 0, 16, 16, 32, 32, 16, 16);
 });
