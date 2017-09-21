@@ -14,7 +14,7 @@ loadImage('/img/tiles.png')
     sprites.define('sky', 3, 23);
     for (let x = 0; x < 30; ++x) {
         for (let y = 0; y < 15; ++y) {
-            sprites.draw('sky', context, x * 16, y * 16);
+            sprites.drawTile('sky', context, x, y);
         }
     }
     sprites.draw('ground', context, 64, 32);
