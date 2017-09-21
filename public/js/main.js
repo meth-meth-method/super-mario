@@ -34,6 +34,11 @@ class SpriteSheet {
                 this.height);
         this.tiles.set(name, buffer);
     }
+
+    draw(name, context, x, y) {
+        const buffer = this.tiles.get(name);
+        context.drawImage(buffer, x, y);
+    }
 }
 
 const canvas = document.getElementById('screen');
