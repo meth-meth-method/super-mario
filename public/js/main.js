@@ -13,6 +13,7 @@ class SpriteSheet {
         this.image = image;
         this.width = w;
         this.height = h;
+        this.tiles = new Map();
     }
 
     define(name, x, y) {
@@ -31,6 +32,7 @@ class SpriteSheet {
                 0,
                 this.width,
                 this.height);
+        this.tiles.set(name, buffer);
     }
 }
 
