@@ -16,5 +16,5 @@ context.fillRect(0, 0, 100, 100);
 
 loadImage('/img/tiles.png')
 .then(image => {
-    context.drawImage(image, 0, 0, 32, 32);
+    context.drawImage(image, 0, 0, 16, 16, 0, 0, 32, 32);
 });
