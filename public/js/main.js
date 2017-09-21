@@ -11,5 +11,7 @@ loadImage('/img/tiles.png')
 .then(image => {
     const sprites = new SpriteSheet(image);
     sprites.define('ground', 0, 0);
+    sprites.define('sky', 3, 23);
+    sprites.draw('sky', context, 0, 0);
     sprites.draw('ground', context, 64, 32);
 });
