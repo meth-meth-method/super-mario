@@ -2,18 +2,10 @@ import Compositor from './Compositor.js';
 import {Vec2} from './math.js';
 import {loadLevel} from './loaders.js';
 import {loadMarioSprite, loadBackgroundSprites} from './sprites.js';
-import {createBackgroundLayer} from './layers.js';
+import {createBackgroundLayer, createSpriteLayer} from './layers.js';
 
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
-
-function createSpriteLayer(entities) {
-    return function drawSpriteLayer(context) {
-        entities.forEach(entity => {
-            entity.draw(context);
-        });
-    };
-}
 
 
 class Entity {
