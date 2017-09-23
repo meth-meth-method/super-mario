@@ -14,18 +14,25 @@ function drawBackground(background, context, sprites) {
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
-loadImage('/img/tiles.png')
-.then(image => {
-    console.log('Image loaded', image);
-    const sprites = new SpriteSheet(image, 16, 16);
-    sprites.define('ground', 0, 0);
-    sprites.define('sky', 3, 23);
 
-    loadLevel('1-1')
-    .then(level => {
-        console.log('Level loader', level);
-        level.backgrounds.forEach(background => {
-            drawBackground(background, context, sprites);
-        });
+function loadBackgroundSprites() {
+    return loadImage('/img/tiles.png')
+    .then(image => {
+        console.log('Image loaded', image);
+        const sprites = new SpriteSheet(image, 16, 16);
+        sprites.define('ground', 0, 0);
+        sprites.define('sky', 3, 23);
+        return sprites;
+    });
+}
+
+Promise.all([
+    loadBackgroundSprites(),
+    loadLevel('1-1'),
+])
+.then(([sprites, level]) => {
+    console.log('Level loader', level);
+    level.backgrounds.forEach(background => {
+        drawBackground(background, context, sprites);
     });
 });
