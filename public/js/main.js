@@ -9,7 +9,9 @@ const context = canvas.getContext('2d');
 
 function createSpriteLayer(sprite, pos) {
     return function drawSpriteLayer(context) {
-        sprite.draw('idle', context, pos.x, pos.y);
+        for (let i = 0; i < 20; ++i) {
+            sprite.draw('idle', context, pos.x + i * 16, pos.y);
+        }
     };
 }
 
@@ -26,8 +28,8 @@ Promise.all([
     comp.layers.push(createBackgroundLayer(level.backgrounds, backgroundSprites));
 
     const pos = {
-        x: 64,
-        y: 64,
+        x: 0,
+        y: 0,
     };
 
     comp.layers.push(createSpriteLayer(marioSprite, pos));
