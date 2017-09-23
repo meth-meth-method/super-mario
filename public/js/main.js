@@ -35,15 +35,23 @@ Promise.all([
         marioSprite.draw('idle', context, this.pos.x, this.pos.y);
     };
 
+    mario.update = function updateMario() {
+        this.pos.y += this.vel.y;
+        this.vel.y += 0.5;
+    };
+
     const entities = [mario];
 
     const spriteLayer = createSpriteLayer(entities);
     comp.layers.push(spriteLayer);
 
     function update() {
+        entities.forEach(entity => {
+            entity.update();
+        });
+
         comp.draw(context);
-        mario.pos.y += mario.vel.y;
-        mario.vel.y += 0.5;
+
         requestAnimationFrame(update);
     }
 
