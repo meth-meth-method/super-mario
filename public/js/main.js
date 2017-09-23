@@ -14,13 +14,14 @@ function drawBackground(background, context, sprites) {
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
-
-loadImage('/img/characters.gif')
-.then(image => {
-    const mario = new SpriteSheet(image, 16, 16);
-    mario.define('idle', 0, 0);
-    mario.draw('idle', context, 0, 0);
-});
+function loadMarioSprite() {
+    return loadImage('/img/characters.gif')
+    .then(image => {
+        const mario = new SpriteSheet(image, 16, 16);
+        mario.define('idle', 17, 3);
+        return mario;
+    });
+}
 
 
 function loadBackgroundSprites() {
@@ -36,12 +37,15 @@ function loadBackgroundSprites() {
 
 
 Promise.all([
+    loadMarioSprite(),
     loadBackgroundSprites(),
     loadLevel('1-1'),
 ])
-.then(([sprites, level]) => {
+.then(([marioSprite, sprites, level]) => {
     console.log('Level loader', level);
     level.backgrounds.forEach(background => {
         drawBackground(background, context, sprites);
     });
+
+    marioSprite.draw('idle', context, 64, 64);
 });
