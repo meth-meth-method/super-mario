@@ -23,8 +23,13 @@ Promise.all([
 ])
 .then(([marioSprite, sprites, level]) => {
     console.log('Level loader', level);
+
+    const backgroundBuffer = document.createElement('canvas');
+    backgroundBuffer.width = 256;
+    backgroundBuffer.height = 240;
+
     level.backgrounds.forEach(background => {
-        drawBackground(background, context, sprites);
+        drawBackground(background, backgroundBuffer.getContext('2d'), sprites);
     });
 
     const pos = {
@@ -37,6 +42,7 @@ Promise.all([
     }
 
     function update() {
+        context.drawImage(backgroundBuffer, 0, 0);
         drawMario();
         pos.x += 2;
         pos.y += 1;
