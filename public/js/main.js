@@ -1,19 +1,11 @@
 import Compositor from './Compositor.js';
-import {Vec2} from './math.js';
+import Entity from './Entity.js';
 import {loadLevel} from './loaders.js';
 import {loadMarioSprite, loadBackgroundSprites} from './sprites.js';
 import {createBackgroundLayer, createSpriteLayer} from './layers.js';
 
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
-
-
-class Entity {
-    constructor() {
-        this.pos = new Vec2(0, 0);
-        this.vel = new Vec2(0, 0);
-    }
-}
 
 
 Promise.all([
