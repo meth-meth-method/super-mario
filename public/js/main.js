@@ -28,13 +28,18 @@ Promise.all([
         y: 64,
     };
 
+    const vel = {
+        x: 0,
+        y: 0,
+    };
+
     const spriteLayer = createSpriteLayer(marioSprite, pos);
     comp.layers.push(spriteLayer);
 
-    let fallSpeed = 0.2;
     function update() {
         comp.draw(context);
-        pos.y += fallSpeed;
+        pos.y += vel.y;
+        vel.y += 0.5;
         requestAnimationFrame(update);
     }
 
