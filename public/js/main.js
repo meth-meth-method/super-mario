@@ -27,5 +27,10 @@ Promise.all([
         drawBackground(background, context, sprites);
     });
 
+    const pos = {
+        x: 64,
+        y: 64,
+    };
+
     marioSprite.draw('idle', context, 64, 64);
 });
