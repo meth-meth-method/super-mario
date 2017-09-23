@@ -1,4 +1,5 @@
 import Compositor from './Compositor.js';
+import {Vec2} from './math.js';
 import {loadLevel} from './loaders.js';
 import {loadMarioSprite, loadBackgroundSprites} from './sprites.js';
 import {createBackgroundLayer} from './layers.js';
@@ -12,12 +13,6 @@ function createSpriteLayer(sprite, pos) {
     };
 }
 
-class Vec2 {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-    }
-}
 
 Promise.all([
     loadMarioSprite(),
@@ -32,7 +27,7 @@ Promise.all([
 
 
     const pos = new Vec2(64, 64);
-    const vel = new Vec2(0, 5);
+    const vel = new Vec2(0, 0);
 
     const spriteLayer = createSpriteLayer(marioSprite, pos);
     comp.layers.push(spriteLayer);
