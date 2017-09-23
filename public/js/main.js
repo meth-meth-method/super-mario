@@ -7,9 +7,11 @@ import {createBackgroundLayer} from './layers.js';
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
-function createSpriteLayer(sprite, pos) {
+function createSpriteLayer(entities) {
     return function drawSpriteLayer(context) {
-        sprite.draw('idle', context, pos.x, pos.y);
+        entities.forEach(entity => {
+            entity.draw(context);
+        });
     };
 }
 
@@ -43,7 +45,7 @@ Promise.all([
 
     const entities = [mario];
 
-    const spriteLayer = createSpriteLayer(marioSprite, mario.pos);
+    const spriteLayer = createSpriteLayer(entities);
     comp.layers.push(spriteLayer);
 
     function update() {
