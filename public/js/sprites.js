@@ -1,3 +1,5 @@
+import {loadImage} from './loaders.js';
+
 export function loadMarioSprite() {
     return loadImage('/img/characters.gif')
     .then(image => {
