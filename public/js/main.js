@@ -31,10 +31,10 @@ Promise.all([
     const spriteLayer = createSpriteLayer(marioSprite, pos);
     comp.layers.push(spriteLayer);
 
+    let fallSpeed = 0.2;
     function update() {
         comp.draw(context);
-        pos.x += 2;
-        pos.y += 2;
+        pos.y += fallSpeed;
         requestAnimationFrame(update);
     }
 
