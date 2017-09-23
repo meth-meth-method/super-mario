@@ -15,6 +15,14 @@ const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
 
+loadImage('/img/characters.gif')
+.then(image => {
+    const mario = new SpriteSheet(image, 16, 16);
+    mario.define('idle', 0, 0);
+    mario.draw('idle', context, 0, 0);
+});
+
+
 function loadBackgroundSprites() {
     return loadImage('/img/tiles.png')
     .then(image => {
@@ -25,6 +33,7 @@ function loadBackgroundSprites() {
         return sprites;
     });
 }
+
 
 Promise.all([
     loadBackgroundSprites(),
