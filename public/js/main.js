@@ -26,6 +26,20 @@ class Compositor {
     }
 }
 
+function createBackgroundLayer(backgrounds, sprites) {
+    const buffer = document.createElement('canvas');
+    buffer.width = 256;
+    buffer.height = 240;
+
+    backgrounds.forEach(background => {
+        drawBackground(background, buffer.getContext('2d'), sprites);
+    });
+
+    return function drawBackgroundLayer(context) {
+        context.drawImage(buffer, 0, 0);
+    };
+}
+
 
 Promise.all([
     loadMarioSprite(),
@@ -35,13 +49,8 @@ Promise.all([
 .then(([marioSprite, sprites, level]) => {
     console.log('Level loader', level);
 
-    const backgroundBuffer = document.createElement('canvas');
-    backgroundBuffer.width = 256;
-    backgroundBuffer.height = 240;
-
-    level.backgrounds.forEach(background => {
-        drawBackground(background, backgroundBuffer.getContext('2d'), sprites);
-    });
+    const comp = new Compositor();
+    comp.layers.push(createBackgroundLayer(level.backgrounds, sprites));
 
     const pos = {
         x: 64,
@@ -53,7 +62,7 @@ Promise.all([
     }
 
     function update() {
-        context.drawImage(backgroundBuffer, 0, 0);
+        comp.draw(context);
         drawMario();
         pos.x += 2;
         pos.y += 1;
