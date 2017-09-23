@@ -33,10 +33,15 @@ Promise.all([
     const backgroundLayer = createBackgroundLayer(level.backgrounds, backgroundSprites);
     comp.layers.push(backgroundLayer);
 
-
     const mario = new Entity();
     mario.pos.x = 64;
     mario.pos.y = 64;
+
+    mario.draw = function drawMario(context) {
+        marioSprite.draw('idle', context, this.pos.x, this.pos.y);
+    };
+
+    const entities = [mario];
 
     const spriteLayer = createSpriteLayer(marioSprite, mario.pos);
     comp.layers.push(spriteLayer);
