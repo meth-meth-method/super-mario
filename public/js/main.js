@@ -36,5 +36,12 @@ Promise.all([
         marioSprite.draw('idle', context, pos.x, pos.y);
     }
 
-    drawMario();
+    function update() {
+        drawMario();
+        pos.x += 2;
+        pos.y += 1;
+        requestAnimationFrame(update);
+    }
+
+    update();
 });
