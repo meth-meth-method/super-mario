@@ -29,8 +29,8 @@ function loadBackgroundSprites() {
     .then(image => {
         console.log('Image loaded', image);
         const sprites = new SpriteSheet(image, 16, 16);
-        sprites.define('ground', 0, 0);
-        sprites.define('sky', 3, 23);
+        sprites.defineTile('ground', 0, 0);
+        sprites.defineTile('sky', 3, 23);
         return sprites;
     });
 }
