@@ -32,5 +32,9 @@ Promise.all([
         y: 64,
     };
 
-    marioSprite.draw('idle', context, 64, 64);
+    function drawMario() {
+        marioSprite.draw('idle', context, pos.x, pos.y);
+    }
+
+    drawMario();
 });
