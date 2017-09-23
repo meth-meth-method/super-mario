@@ -14,6 +14,17 @@ function drawBackground(background, context, sprites) {
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
+class Compositor {
+    constructor() {
+        this.layers = [];
+    }
+
+    draw(context) {
+        this.layers.forEach(layer => {
+            layer(context);
+        });
+    }
+}
 
 
 Promise.all([
