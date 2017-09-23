@@ -34,16 +34,17 @@ Promise.all([
     comp.layers.push(backgroundLayer);
 
 
-    const pos = new Vec2(64, 64);
-    const vel = new Vec2(0, 0);
+    const mario = new Entity();
+    mario.pos.x = 64;
+    mario.pos.y = 64;
 
-    const spriteLayer = createSpriteLayer(marioSprite, pos);
+    const spriteLayer = createSpriteLayer(marioSprite, mario.pos);
     comp.layers.push(spriteLayer);
 
     function update() {
         comp.draw(context);
-        pos.y += vel.y;
-        vel.y += 0.5;
+        mario.pos.y += mario.vel.y;
+        mario.vel.y += 0.5;
         requestAnimationFrame(update);
     }
 
