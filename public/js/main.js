@@ -18,7 +18,7 @@ Promise.all([
     const comp = new Compositor();
 
     const backgroundLayer = createBackgroundLayer(level.backgrounds, backgroundSprites);
-    comp.layers.push(backgroundLayer);
+    //comp.layers.push(backgroundLayer);
 
     mario.pos.x = 64;
     mario.pos.y = 180;
