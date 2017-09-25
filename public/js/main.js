@@ -38,7 +38,7 @@ Promise.all([
         console.log(deltaTime, time);
 
         entities.forEach(entity => {
-            entity.update();
+            entity.update(deltaTime);
             entity.vel.y += 0.5;
         });
 
@@ -50,5 +50,5 @@ Promise.all([
         lastTime = time;
     }
 
-    update();
+    update(0);
 });
