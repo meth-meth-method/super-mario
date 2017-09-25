@@ -30,8 +30,12 @@ Promise.all([
     const spriteLayer = createSpriteLayer(entities);
     comp.layers.push(spriteLayer);
 
+    let deltaTime = 0;
+    let lastTime = 0;
     function update(time) {
-        console.log(time);
+        deltaTime = time - lastTime;
+
+        console.log(deltaTime, time);
 
         entities.forEach(entity => {
             entity.update();
@@ -42,6 +46,8 @@ Promise.all([
 
         //setTimeout(update, 1000/144);
         requestAnimationFrame(update);
+
+        lastTime = time;
     }
 
     update();
