@@ -44,7 +44,7 @@ Promise.all([
 
         comp.draw(context);
 
-        setTimeout(update, 1000/30, performance.now());
+        setTimeout(update, 1000/144, performance.now());
         //requestAnimationFrame(update);
 
         lastTime = time;
