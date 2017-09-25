@@ -30,7 +30,9 @@ Promise.all([
     const spriteLayer = createSpriteLayer(entities);
     comp.layers.push(spriteLayer);
 
-    function update() {
+    function update(time) {
+        console.log(time);
+
         entities.forEach(entity => {
             entity.update();
             entity.vel.y += 0.5;
@@ -38,8 +40,8 @@ Promise.all([
 
         comp.draw(context);
 
-        setTimeout(update, 1000/144);
-        // requestAnimationFrame(update);
+        //setTimeout(update, 1000/144);
+        requestAnimationFrame(update);
     }
 
     update();
