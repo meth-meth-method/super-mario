@@ -22,6 +22,7 @@ Promise.all([
 
     mario.pos.x = 64;
     mario.pos.y = 180;
+    mario.vel.x = 3;
     mario.vel.y = -10;
 
     const entities = [mario];
