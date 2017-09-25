@@ -12,7 +12,6 @@ export function createMario() {
 
         mario.update = function updateMario() {
             this.pos.y += this.vel.y;
-            this.vel.y += 0.5;
         }
 
         return mario;

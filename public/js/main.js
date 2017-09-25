@@ -31,6 +31,7 @@ Promise.all([
     function update() {
         entities.forEach(entity => {
             entity.update();
+            entity.vel.y += 0.5;
         });
 
         comp.draw(context);
