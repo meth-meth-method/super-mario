@@ -39,6 +39,7 @@ Promise.all([
 
         entities.forEach(entity => {
             entity.update(deltaTime);
+            console.log(entity.pos);
             entity.vel.y += 0.5;
         });
 
