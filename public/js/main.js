@@ -31,20 +31,23 @@ Promise.all([
     comp.layers.push(spriteLayer);
 
     const deltaTime = 1/60;
+    let accumulatedTime = 0;
     let lastTime = 0;
     function update(time) {
-        //deltaTime = (time - lastTime) / 1000;
+        accumulatedTime += (time - lastTime) / 1000;
 
-        console.log(deltaTime, time);
+        while (accumulatedTime > deltaTime) {
+            entities.forEach(entity => {
+                entity.update(deltaTime);
+                entity.vel.y += 30;
+            });
 
-        entities.forEach(entity => {
-            entity.update(deltaTime);
-            entity.vel.y += 30;
-        });
+            comp.draw(context);
 
-        comp.draw(context);
+            accumulatedTime -= deltaTime;
+        }
 
-        setTimeout(update, 1000/144, performance.now());
+        setTimeout(update, 1000/30, performance.now());
         //requestAnimationFrame(update);
 
         lastTime = time;
