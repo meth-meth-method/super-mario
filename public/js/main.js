@@ -24,6 +24,8 @@ class Timer {
 
             lastTime = time;
 
+            this.draw();
+
             this.enqueue();
         };
     }
@@ -65,6 +67,8 @@ Promise.all([
             entity.update(deltaTime);
             entity.vel.y += 30;
         });
+    };
+    timer.draw = function draw() {
         comp.draw(context);
     };
 
