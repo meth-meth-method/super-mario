@@ -38,7 +38,7 @@ Promise.all([
 
         comp.draw(context);
 
-        setTimeout(update, 1000/10);
+        setTimeout(update, 1000/144);
         // requestAnimationFrame(update);
     }
 
