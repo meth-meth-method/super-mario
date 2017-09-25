@@ -30,10 +30,10 @@ Promise.all([
     const spriteLayer = createSpriteLayer(entities);
     comp.layers.push(spriteLayer);
 
-    let deltaTime = 0;
+    const deltaTime = 1/60;
     let lastTime = 0;
     function update(time) {
-        deltaTime = (time - lastTime) / 1000;
+        //deltaTime = (time - lastTime) / 1000;
 
         console.log(deltaTime, time);
 
