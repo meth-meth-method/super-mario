@@ -6,13 +6,11 @@ import {createBackgroundLayer} from './layers.js';
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
-
 function createSpriteLayer(sprite, pos) {
     return function drawSpriteLayer(context) {
         sprite.draw('idle', context, pos.x, pos.y);
     };
 }
-
 
 Promise.all([
     loadMarioSprite(),
@@ -20,22 +18,23 @@ Promise.all([
     loadLevel('1-1'),
 ])
 .then(([marioSprite, backgroundSprites, level]) => {
-    console.log('Level loader', level);
-
     const comp = new Compositor();
-    comp.layers.push(createBackgroundLayer(level.backgrounds, backgroundSprites));
+
+    const backgroundLayer = createBackgroundLayer(level.backgrounds, backgroundSprites);
+    comp.layers.push(backgroundLayer);
 
     const pos = {
         x: 64,
         y: 64,
     };
 
-    comp.layers.push(createSpriteLayer(marioSprite, pos));
+    const spriteLayer = createSpriteLayer(marioSprite, pos);
+    comp.layers.push(spriteLayer);
 
     function update() {
         comp.draw(context);
         pos.x += 2;
-        pos.y += 1;
+        pos.y += 2;
         requestAnimationFrame(update);
     }
 

@@ -26,12 +26,7 @@ export default class SpriteSheet {
     }
 
     defineTile(name, x, y) {
-        this.define(
-            name,
-            x * this.width,
-            y * this.height,
-            this.width,
-            this.height);
+        this.define(name, x * this.width, y * this.height, this.width, this.height);
     }
 
     draw(name, context, x, y) {
