@@ -47,8 +47,7 @@ Promise.all([
             accumulatedTime -= deltaTime;
         }
 
-        setTimeout(update, 1000/30, performance.now());
-        //requestAnimationFrame(update);
+        requestAnimationFrame(update);
 
         lastTime = time;
     }
