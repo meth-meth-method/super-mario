@@ -33,7 +33,7 @@ Promise.all([
     let deltaTime = 0;
     let lastTime = 0;
     function update(time) {
-        deltaTime = time - lastTime;
+        deltaTime = (time - lastTime) / 1000;
 
         console.log(deltaTime, time);
 
