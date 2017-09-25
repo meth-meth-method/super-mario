@@ -22,8 +22,8 @@ Promise.all([
 
     mario.pos.x = 64;
     mario.pos.y = 180;
-    mario.vel.x = 3;
-    mario.vel.y = -10;
+    mario.vel.x = 200;
+    mario.vel.y = -600;
 
     const entities = [mario];
 
@@ -39,8 +39,7 @@ Promise.all([
 
         entities.forEach(entity => {
             entity.update(deltaTime);
-            console.log(entity.pos);
-            entity.vel.y += 0.5;
+            entity.vel.y += 30;
         });
 
         comp.draw(context);
