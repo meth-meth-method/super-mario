@@ -21,7 +21,8 @@ Promise.all([
     comp.layers.push(backgroundLayer);
 
     mario.pos.x = 64;
-    mario.pos.y = 64;
+    mario.pos.y = 180;
+    mario.vel.y = -10;
 
     const entities = [mario];
 
