@@ -3,11 +3,11 @@ import {loadMarioSprite} from './sprites.js';
 
 export function createMario() {
     return loadMarioSprite()
-    .then(marioSprite => {
+    .then(sprite => {
         const mario = new Entity();
 
         mario.draw = function drawMario(context) {
-            marioSprite.draw('idle', context, this.pos.x, this.pos.y);
+            sprite.draw('idle', context, this.pos.x, this.pos.y);
         }
 
         mario.update = function updateMario(deltaTime) {

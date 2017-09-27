@@ -1,5 +1,5 @@
 export default class Timer {
-    constructor(deltaTime) {
+    constructor(deltaTime = 1/60) {
         let accumulatedTime = 0;
         let lastTime = 0;
 
@@ -13,10 +13,8 @@ export default class Timer {
 
             lastTime = time;
 
-            this.draw();
-
             this.enqueue();
-        };
+        }
     }
 
     enqueue() {
