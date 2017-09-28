@@ -8,13 +8,16 @@ function drawBackground(background, context, sprites) {
     });
 }
 
-export function createBackgroundLayer(backgrounds, sprites) {
+export function createBackgroundLayer(tiles, sprites) {
     const buffer = document.createElement('canvas');
     buffer.width = 256;
     buffer.height = 240;
 
-    backgrounds.forEach(background => {
-        drawBackground(background, buffer.getContext('2d'), sprites);
+    const context = buffer.getContext('2d');
+    tiles.grid.forEach((column, x) => {
+        column.forEach((tile, y) => {
+            sprites.drawTile(tile.graphic, context, x, y);
+        });
     });
 
     return function drawBackgroundLayer(context) {
