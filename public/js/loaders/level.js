@@ -4,16 +4,21 @@ import {createBackgroundLayer, createSpriteLayer} from '../layers.js';
 
 function createTiles(level, backgrounds) {
     backgrounds.forEach(background => {
-        background.ranges.forEach(([x1, x2, y1, y2]) => {
-            for (let x = x1; x < x2; ++x) {
-                for (let y = y1; y < y2; ++y) {
-                    level.tiles.set(x, y, {
-                        graphic: background.tile,
-                    });
-                }
-            }
-        });
+        const tiler = createTiler(level, background);
+        background.ranges.forEach(tiler);
     });
+}
+
+function createTiler(level, background) {
+    return function rangeTiler([x1, x2, y1, y2]) {
+        for (let x = x1; x < x2; ++x) {
+            for (let y = y1; y < y2; ++y) {
+                level.tiles.set(x, y, {
+                    graphic: background.tile,
+                });
+            }
+        }
+    };
 }
 
 export function loadLevel(name) {
