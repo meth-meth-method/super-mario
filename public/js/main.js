@@ -30,9 +30,11 @@ Promise.all([
     });
     input.listenTo(window);
 
+    level.entities.add(mario);
+
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
-        mario.update(deltaTime);
+        level.update(deltaTime);
 
         level.comp.draw(context);
 
