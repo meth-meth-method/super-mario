@@ -7,4 +7,10 @@ export default class Level {
         this.tiles = new Matrix();
         this.entities = new Set();
     }
+
+    update(deltaTime) {
+        this.entities.forEach(entity => {
+            entity.update(deltaTime);
+        });
+    }
 }

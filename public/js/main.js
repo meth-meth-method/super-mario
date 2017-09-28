@@ -14,10 +14,13 @@ Promise.all([
     mario.pos.set(64, 180);
     mario.vel.set(200, -600);
 
+    level.entities.add(mario);
+
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
+        level.update(deltaTime);
         level.comp.draw(context);
-        mario.update(deltaTime);
+
         mario.vel.y += gravity;
     }
 
