@@ -33,7 +33,7 @@ export function loadLevel(name) {
 
         createTiles(level, levelSpec.backgrounds);
 
-        const backgroundLayer = createBackgroundLayer(levelSpec.backgrounds, backgroundSprites);
+        const backgroundLayer = createBackgroundLayer(level.tiles, backgroundSprites);
         level.comp.layers.push(backgroundLayer);
 
         const spriteLayer = createSpriteLayer(level.entities);
