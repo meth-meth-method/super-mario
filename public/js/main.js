@@ -1,6 +1,7 @@
 import Timer from './Timer.js';
 import {loadLevel} from './loaders/level.js';
 import {createMario} from './entities.js';
+import {setupInput} from './keyboard.js';
 
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
@@ -13,6 +14,8 @@ Promise.all([
     const gravity = 30;
     mario.pos.set(64, 180);
     mario.vel.set(0, -600);
+
+    setupInput(mario);
 
     level.entities.add(mario);
 
