@@ -9,12 +9,22 @@ function noop() {
 
 function createSolid(x1, y1, x2, y2) {
     return function solid(entity) {
-        if (entity.vel.y > 0) {
+        if (entity.bounds.right > x1 && entity.bounds.left < x2) {
+            if (entity.vel.y > 0) {
+                entity.bounds.bottom = y1;
+            } else if (entity.vel.y < 0) {
+                entity.bounds.top = y2;
+            }
             entity.vel.y = 0;
-            entity.pos.y = y1;
-        } else if (entity.vel.y < 0) {
-            entity.vel.y = 0;
-            entity.pos.y = y2;
+        }
+
+        if (entity.bounds.bottom > y1 && entity.bounds.top < y2) {
+            if (entity.vel.x > 0) {
+                entity.bounds.right = x1;
+            } else if (entity.vel.x < 0) {
+                entity.bounds.left = x2;
+            }
+            entity.vel.x = 0;
         }
     };
 }

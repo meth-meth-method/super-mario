@@ -21,42 +21,45 @@ export default class TileCollisionDetector {
         }
     }
 
+    testHorizontal(entity) {
+        const x = [
+            entity.bounds.left,
+            entity.bounds.right,
+        ];
+
+        let y;
+        if (entity.vel.y > 0) {
+            y = entity.bounds.bottom;
+        } else if (entity.vel.y < 0) {
+            y = entity.bounds.top;
+        }
+
+        x.forEach(x => {
+            this.testTile(entity, x, y);
+        });
+    }
+
+    testVertical(entity) {
+        const y = [
+            entity.bounds.top,
+            entity.bounds.bottom,
+        ];
+
+        let x;
+        if (entity.vel.x > 0) {
+            x = entity.bounds.right;
+        } else if (entity.vel.x < 0) {
+            x = entity.bounds.left;
+        }
+
+        y.forEach(y => {
+            this.testTile(entity, x, y);
+        });
+    }
+
     testEntity(entity) {
-        {
-            const x = [
-                entity.bounds.left,
-                entity.bounds.right,
-            ];
-
-            let y;
-            if (entity.vel.y > 0) {
-                y = entity.bounds.bottom;
-            } else if (entity.vel.y < 0) {
-                y = entity.bounds.top;
-            }
-
-            x.forEach(x => {
-                this.testTile(entity, x, y);
-            });
-        }
-
-        {
-            const y = [
-                entity.bounds.top,
-                entity.bounds.bottom,
-            ];
-
-            let x;
-            if (entity.vel.x > 0) {
-                x = entity.bounds.right;
-            } else if (entity.vel.x < 0) {
-                x = entity.bounds.left;
-            }
-
-            y.forEach(y => {
-                this.testTile(entity, x, y);
-            });
-        }
+        this.testVertical(entity);
+        this.testHorizontal(entity);
     }
 
     test() {
