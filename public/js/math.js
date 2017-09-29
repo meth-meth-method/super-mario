@@ -3,6 +3,14 @@ export class Matrix {
         this.grid = [];
     }
 
+    forEach(fn) {
+        this.grid.forEach((col, x) => {
+            col.forEach((tile, y) => {
+                fn(tile, x, y);
+            });
+        });
+    }
+
     get(x, y) {
         const col = this.grid[x];
         if (col) {
