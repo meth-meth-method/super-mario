@@ -1,3 +1,6 @@
+const TILE_SIZE = 16;
+const ERROR_MARGIN = 0.0000000001;
+
 export default class TileCollisionDetector {
     constructor(tiles, entities) {
         this.tiles = tiles;
@@ -8,60 +11,50 @@ export default class TileCollisionDetector {
         return this.tiles.get(tileX, tileY);
     }
 
-    lookupTile(x, y) {
-        return this.getTile(
-            Math.floor(x / 16),
-            Math.floor(y / 16));
-    }
-
-    testTile(entity, x, y) {
-        const tile = this.lookupTile(x, y);
-        if (tile) {
-            tile.collide(entity);
-        }
-    }
-
-    testEntity(entity) {
-        {
-            const x = [
-                entity.bounds.left,
-                entity.bounds.right,
-            ];
-
-            let y;
-            if (entity.vel.y > 0) {
-                y = entity.bounds.bottom;
-            } else if (entity.vel.y < 0) {
-                y = entity.bounds.top;
-            }
-
-            x.forEach(x => {
-                this.testTile(entity, x, y);
+    range(xRange, yRange, fn) {
+        xRange.forEach(x => {
+            yRange.forEach(y => {
+                const tileX = Math.floor(x / TILE_SIZE);
+                const tileY = Math.floor(y / TILE_SIZE);
+                const tile = this.getTile(tileX, tileY);
+                if (tile) {
+                    fn(tile, tileX, tileY);
+                }
             });
-        }
-
-        {
-            const y = [
-                entity.bounds.top,
-                entity.bounds.bottom,
-            ];
-
-            let x;
-            if (entity.vel.x > 0) {
-                x = entity.bounds.right;
-            } else if (entity.vel.x < 0) {
-                x = entity.bounds.left;
-            }
-
-            y.forEach(y => {
-                this.testTile(entity, x, y);
-            });
-        }
+        });
     }
 
-    test() {
+    iterateIntersecting(entity, callback) {
+        const {left, right, top, bottom} = entity.bounds;
+
+        this.range([
+            left,
+            right - ERROR_MARGIN,
+        ], [
+            top,
+            bottom - ERROR_MARGIN,
+        ], callback);
+    }
+
+    testX(entity) {
+        this.iterateIntersecting(entity, tile => {
+            tile.collideX(entity);
+        });
+    }
+
+    testY(entity) {
+        this.iterateIntersecting(entity, tile => {
+            tile.collideY(entity);
+        });
+    }
+
+    update(deltaTime) {
         this.entities.forEach(entity => {
-            this.testEntity(entity);
+            entity.pos.x += entity.vel.x * deltaTime;
+            this.testX(entity);
+
+            entity.pos.y += entity.vel.y * deltaTime;
+            this.testY(entity);
         });
     }
 }
