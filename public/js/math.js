@@ -11,6 +11,10 @@ export class Matrix {
         });
     }
 
+    clear() {
+        this.grid = [];
+    }
+
     get(x, y) {
         const col = this.grid[x];
         if (col) {

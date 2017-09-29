@@ -22,3 +22,22 @@ export function createSpriteLayer(entities) {
         });
     };
 }
+
+export function createCollisionLayer(level) {
+    const usedTile = new Matrix();
+    const getTile = level.collision.getTile;
+    level.collision.getTile = function fakeGetTile(x, y) {
+        usedTile.set(x, y, true);
+        return getTile.call(level.collision, x, y);
+    }
+
+    return function drawCollisions(context) {
+        context.strokeStyle = 'blue';
+        usedTile.forEach((value, x, y) => {
+            context.beginPath();
+            context.rect(x * 16, y * 16, 16, 16);
+            context.stroke();
+        });
+        usedTile.clear();
+    };
+}
