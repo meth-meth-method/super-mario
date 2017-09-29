@@ -3,9 +3,10 @@ export default class Timer {
         let accumulatedTime = 0;
         let lastTime = 0;
         this.frameId = null;
+        this.speed = 1;
 
         this.updateProxy = (time) => {
-            accumulatedTime += (time - lastTime) / 1000;
+            accumulatedTime += ((time - lastTime) / 1000) * this.speed;
 
             while (accumulatedTime > deltaTime) {
                 this.update(deltaTime);
