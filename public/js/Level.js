@@ -1,31 +1,6 @@
 import Compositor from './Compositor.js';
+import TileCollision from './collision/Tile.js';
 import {Matrix} from './math.js';
-
-class TileCollisionDetector {
-    constructor(tiles, entities) {
-        this.tiles = tiles;
-        this.entities = entities;
-    }
-
-    lookupTile(pos) {
-        const x = Math.floor(pos.x / 16);
-        const y = Math.floor(pos.y / 16);
-        return this.tiles.get(x, y);
-    }
-
-    testEntity(entity) {
-        const tile = this.lookupTile(entity.pos);
-        if (tile) {
-            tile.collide(entity);
-        }
-    }
-
-    test() {
-        this.entities.forEach(entity => {
-            this.testEntity(entity);
-        });
-    }
-}
 
 export default class Level {
     constructor() {
@@ -33,7 +8,7 @@ export default class Level {
         this.tiles = new Matrix();
         this.entities = new Set();
 
-        this.collision = new TileCollisionDetector(this.tiles, this.entities);
+        this.collision = new TileCollision(this.tiles, this.entities);
     }
 
     update(deltaTime) {
