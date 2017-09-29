@@ -7,6 +7,7 @@ export function createMario() {
     return loadMarioSprite()
     .then(sprite => {
         const mario = new Entity();
+        mario.size.set(12, 16);
 
         mario.addTrait(new Velocity());
         mario.addTrait(new Jump());
