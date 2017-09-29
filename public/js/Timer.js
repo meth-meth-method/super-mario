@@ -2,6 +2,7 @@ export default class Timer {
     constructor(deltaTime = 1/60) {
         let accumulatedTime = 0;
         let lastTime = 0;
+        this.frameId = null;
 
         this.updateProxy = (time) => {
             accumulatedTime += (time - lastTime) / 1000;
@@ -18,10 +19,14 @@ export default class Timer {
     }
 
     enqueue() {
-        requestAnimationFrame(this.updateProxy);
+        this.frameId = requestAnimationFrame(this.updateProxy);
     }
 
     start() {
         this.enqueue();
+    }
+
+    stop() {
+        cancelAnimationFrame(this.frameId);
     }
 }
