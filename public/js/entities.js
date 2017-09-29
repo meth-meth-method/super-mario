@@ -5,6 +5,7 @@ export function createMario() {
     return loadMarioSprite()
     .then(sprite => {
         const mario = new Entity();
+        mario.size.set(12, 16);
 
         mario.draw = function drawMario(context) {
             sprite.draw('idle', context, this.pos.x, this.pos.y);
