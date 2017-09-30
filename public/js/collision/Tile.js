@@ -1,65 +1,85 @@
+import {Vec2} from '../math.js';
+
+const TILE_SIZE = 16;
+
+function overlap({bounds}, tileX, tileY) {
+    return bounds.right > tileX * TILE_SIZE
+        && bounds.bottom > tileY * TILE_SIZE;
+}
+
 export default class TileCollisionDetector {
     constructor(tiles, entities) {
         this.tiles = tiles;
         this.entities = entities;
+        this.previous = new Map();
     }
 
     getTile(tileX, tileY) {
         return this.tiles.get(tileX, tileY);
     }
 
-    lookupTile(x, y) {
-        return this.getTile(
-            Math.floor(x / 16),
-            Math.floor(y / 16));
-    }
-
-    testTile(entity, x, y) {
-        const tile = this.lookupTile(x, y);
-        if (tile) {
-            tile.collide(entity);
-        }
-    }
-
-    testHorizontal(entity) {
-        const x = [
-            entity.bounds.left,
-            entity.bounds.right,
-        ];
-
-        let y;
-        if (entity.vel.y > 0) {
-            y = entity.bounds.bottom;
-        } else if (entity.vel.y < 0) {
-            y = entity.bounds.top;
-        }
-
-        x.forEach(x => {
-            this.testTile(entity, x, y);
+    range(xRange, yRange, fn) {
+        xRange.forEach(x => {
+            yRange.forEach(y => {
+                const tileX = Math.floor(x / 16);
+                const tileY = Math.floor(y / 16);
+                const tile = this.getTile(tileX, tileY);
+                if (tile) {
+                    fn(tile, tileX, tileY);
+                }
+            });
         });
     }
 
-    testVertical(entity) {
-        const y = [
-            entity.bounds.top,
-            entity.bounds.bottom,
-        ];
+    testX(entity) {
+        const {top, bottom, pos} = this.previous.get(entity);
+        const deltaX = entity.pos.x - pos.x;
 
         let x;
-        if (entity.vel.x > 0) {
+        if (deltaX > 0) {
             x = entity.bounds.right;
-        } else if (entity.vel.x < 0) {
+        } else if (deltaX < 0) {
             x = entity.bounds.left;
+        } else {
+            return;
         }
 
-        y.forEach(y => {
-            this.testTile(entity, x, y);
+        this.range([x], [top, bottom], (tile, x, y) => {
+            if (overlap(entity, x, y) && tile.collideX) {
+                tile.collideX(entity);
+            }
+        });
+    }
+
+    testY(entity) {
+        const {left, right, pos} = this.previous.get(entity);
+        const deltaY = entity.pos.y - pos.y;
+
+        let y;
+        if (deltaY > 0) {
+            y = entity.bounds.bottom;
+        } else if (deltaY < 0) {
+            y = entity.bounds.top;
+        } else {
+            return;
+        }
+
+        this.range([left, right], [y], (tile, x, y) => {
+            if (overlap(entity, x, y) && tile.collideY) {
+                tile.collideY(entity);
+            }
         });
     }
 
     testEntity(entity) {
-        this.testVertical(entity);
-        this.testHorizontal(entity);
+        if (!this.previous.has(entity)) {
+            this.previous.set(entity, entity.bounds.clone());
+        }
+
+        this.testX(entity);
+        this.testY(entity);
+
+        this.previous.get(entity).copy(entity.bounds);
     }
 
     test() {
