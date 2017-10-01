@@ -29,8 +29,9 @@ Promise.all([
 
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
-        comp.draw(context);
         mario.update(deltaTime);
+
+        comp.draw(context);
 
         mario.vel.y += gravity * deltaTime;
     }
