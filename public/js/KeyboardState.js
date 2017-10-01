@@ -3,12 +3,15 @@ const RELEASED = 0;
 
 export default class KeyboardState {
     constructor() {
+        // Holds the current state of a given key
         this.keyStates = new Map();
+
+        // Holds the callback functions for a key code
         this.keyMap = new Map();
     }
 
-    addMapping(code, callback) {
-        this.keyMap.set(code, callback);
+    addMapping(keyCode, callback) {
+        this.keyMap.set(keyCode, callback);
     }
 
     handleEvent(event) {
@@ -16,28 +19,28 @@ export default class KeyboardState {
 
         if (!this.keyMap.has(keyCode)) {
             // Did not have key mapped.
-            return false;
+            return;
         }
 
-        // Key is mapped; prevent default.
         event.preventDefault();
 
         const keyState = event.type === 'keydown' ? PRESSED : RELEASED;
 
-        // Did key state change?
-        if (this.keyStates.get(keyCode) !== keyState) {
-            if (this.keyMap.has(keyCode)) {
-                this.keyMap.get(keyCode)(keyState, event);
-            }
-
-            this.keyStates.set(keyCode, keyState);
+        if (this.keyStates.get(keyCode) === keyState) {
+            return;
         }
 
-        return true;
+        this.keyStates.set(keyCode, keyState);
+        console.log(this.keyStates);
+
+        this.keyMap.get(keyCode)(keyState);
     }
 
     listenTo(window) {
-        window.addEventListener('keydown', event => this.handleEvent(event));
-        window.addEventListener('keyup', event => this.handleEvent(event));
+        ['keydown', 'keyup'].forEach(eventName => {
+            window.addEventListener(eventName, event => {
+                this.handleEvent(event);
+            });
+        });
     }
 }
