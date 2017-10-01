@@ -16,6 +16,8 @@ Promise.all([
     const gravity = 2000;
     mario.pos.set(64, 180);
 
+    level.entities.add(mario);
+
 
     const SPACE = 32;
     const input = new Keyboard();
