@@ -25,7 +25,7 @@ export default class TileCollisionDetector {
         });
     }
 
-    iterateIntersecting(entity, fn) {
+    iterateIntersecting(entity, callback) {
         const {left, right, top, bottom} = entity.bounds;
 
         this.range([
@@ -34,7 +34,7 @@ export default class TileCollisionDetector {
         ], [
             top,
             bottom - ERROR_MARGIN,
-        ], fn);
+        ], callback);
     }
 
     testX(entity) {
