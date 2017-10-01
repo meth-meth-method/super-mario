@@ -4,28 +4,30 @@ import {createBackgroundLayer, createSpriteLayer} from '../layers.js';
 
 const TILE_SIZE = 16;
 
-function noop() {
-}
+const NOOP = {
+    collideX: () => {},
+    collideY: () => {},
+};
 
 function createSolid(x1, y1, x2, y2) {
-    return function solid(entity) {
-        if (entity.bounds.right > x1 && entity.bounds.left < x2) {
-            if (entity.vel.y > 0) {
-                entity.bounds.bottom = y1;
-            } else if (entity.vel.y < 0) {
-                entity.bounds.top = y2;
-            }
-            entity.vel.y = 0;
-        }
-
-        if (entity.bounds.bottom > y1 && entity.bounds.top < y2) {
+    return {
+        collideX: function collideX(entity) {
             if (entity.vel.x > 0) {
                 entity.bounds.right = x1;
             } else if (entity.vel.x < 0) {
                 entity.bounds.left = x2;
             }
             entity.vel.x = 0;
-        }
+        },
+
+        collideY: function collideY(entity) {
+            if (entity.vel.y > 0) {
+                entity.bounds.bottom = y1;
+            } else if (entity.vel.y < 0) {
+                entity.bounds.top = y2;
+            }
+            entity.vel.y = 0;
+        },
     };
 }
 
@@ -38,7 +40,7 @@ function createCollider(name, x, y) {
     if (name === 'ground') {
         return createSolid(x1, y1, x2, y2);
     } else {
-        return noop;
+        return NOOP;
     }
 }
 
@@ -55,10 +57,12 @@ function createTiler(level, background) {
             for (let y = y1; y < y2; ++y) {
                 const name = background.tile;
 
-                level.tiles.set(x, y, {
+                const collider = createCollider(name, x, y);
+                const tile = Object.assign({
                     graphic: name,
-                    collide: createCollider(name, x, y),
-                });
+                }, collider);
+
+                level.tiles.set(x, y, tile);
             }
         }
     };
