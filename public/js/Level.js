@@ -16,6 +16,6 @@ export default class Level {
             entity.update(deltaTime);
         });
 
-        this.collision.test();
+        this.collision.update(deltaTime);
     }
 }
