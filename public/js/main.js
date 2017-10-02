@@ -23,6 +23,7 @@ Promise.all([
     level.comp.layers.push(createCollisionLayer(level));
 
     const timer = new Timer(1/60);
+    timer.speed = 0.1;
     timer.update = function update(deltaTime) {
         level.update(deltaTime);
         level.comp.draw(context);
