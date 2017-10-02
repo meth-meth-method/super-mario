@@ -35,11 +35,9 @@ export default class KeyboardState {
         this.keyMap.get(keyCode)(keyState);
     }
 
-    listenTo(window) {
-        ['keydown', 'keyup'].forEach(eventName => {
-            window.addEventListener(eventName, event => {
-                this.handleEvent(event);
-            });
-        });
+    listenTo(target) {
+        ['keydown', 'keyup'].forEach(eventName =>
+            target.addEventListener(eventName, this)
+        );
     }
 }
