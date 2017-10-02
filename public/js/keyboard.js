@@ -13,11 +13,11 @@ export function setupInput(entity) {
         let prevent = true;
 
         if (c === 32 && t) {
-            entity.jump();
+            entity.vel.y = -500;
         } else if (c === 68) {
-            entity.go(t ? 1 : -1);
+            entity.go.x = 200;
         } else if (c === 65) {
-            entity.go(t ? -1 : 1);
+            entity.go.x = -200;
         } else {
             prevent = false;
         }

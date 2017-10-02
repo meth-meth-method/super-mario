@@ -12,7 +12,6 @@ export default class TileCollisionDetector {
     }
 
     range(xRange, yRange, fn) {
-        console.log(xRange, yRange);
         xRange.forEach(x => {
             yRange.forEach(y => {
                 const tileX = Math.floor(x / TILE_SIZE);
@@ -50,7 +49,6 @@ export default class TileCollisionDetector {
     }
 
     update(deltaTime) {
-        console.log(i++)
         this.entities.forEach(entity => {
             entity.pos.x += entity.vel.x * deltaTime;
             this.testX(entity);

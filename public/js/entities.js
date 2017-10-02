@@ -6,12 +6,17 @@ export function createMario() {
     .then(sprite => {
         const mario = new Entity();
         mario.size.set(12, 16);
+        mario.go = {
+            x: 0,
+            y: 0,
+        };
 
         mario.draw = function drawMario(context) {
             sprite.draw('idle', context, this.pos.x, this.pos.y);
         }
 
         mario.update = function updateMario(deltaTime) {
+            this.vel.x = this.go.x;
         }
 
         return mario;
