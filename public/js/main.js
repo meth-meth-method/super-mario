@@ -1,6 +1,7 @@
 import Timer from './Timer.js';
 import {loadLevel} from './loaders.js';
 import {createMario} from './entities.js';
+import {createCollisionLayer} from './layers.js';
 
 import Keyboard from './KeyboardState.js';
 
@@ -19,6 +20,7 @@ Promise.all([
 
     level.entities.add(mario);
 
+    level.comp.layers.push(createCollisionLayer(level));
 
     const SPACE = 32;
     const input = new Keyboard();
