@@ -1,5 +1,5 @@
 import Compositor from './Compositor.js';
-import TileCollision from './collision/Tile.js';
+import TileCollisionDetector from './collision/Tile.js';
 import {Matrix} from './math.js';
 
 export default class Level {
