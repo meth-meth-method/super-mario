@@ -18,6 +18,14 @@ export function setupInput(entity) {
             entity.go.x = 200;
         } else if (c === 65) {
             entity.go.x = -200;
+        } else if (c === 104) {
+            entity.size.y += 4;
+        } else if (c === 98) {
+            entity.size.y -= 4;
+        } else if (c === 100) {
+            entity.size.x -= 4;
+        } else if (c === 102) {
+            entity.size.x += 4;
         } else {
             prevent = false;
         }
