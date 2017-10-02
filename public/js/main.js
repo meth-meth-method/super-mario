@@ -20,7 +20,7 @@ Promise.all([
     level.entities.add(mario);
 
 
-    const SPACE = 32;
+    const SPACE = 'Space';
     const input = new Keyboard();
     input.addMapping(SPACE, keyState => {
         if (keyState) {
