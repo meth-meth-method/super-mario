@@ -5,7 +5,7 @@ export function createMario() {
     return loadMarioSprite()
     .then(sprite => {
         const mario = new Entity();
-        mario.size.set(12, 16);
+        mario.size.set(32, 32);
         mario.go = {
             x: 0,
             y: 0,
