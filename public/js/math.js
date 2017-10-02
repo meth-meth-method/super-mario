@@ -3,10 +3,10 @@ export class Matrix {
         this.grid = [];
     }
 
-    forEach(fn) {
-        this.grid.forEach((col, x) => {
-            col.forEach((tile, y) => {
-                fn(tile, x, y);
+    forEach(callback) {
+        this.grid.forEach((column, x) => {
+            column.forEach((value, y) => {
+                callback(value, x, y);
             });
         });
     }

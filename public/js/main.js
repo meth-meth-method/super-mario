@@ -13,8 +13,9 @@ Promise.all([
     loadLevel('1-1'),
 ])
 .then(([mario, level]) => {
+
     const gravity = 2000;
-    mario.pos.set(64, 180);
+    mario.pos.set(64, 64);
 
     level.entities.add(mario);
 
@@ -30,7 +31,6 @@ Promise.all([
     });
     input.listenTo(window);
 
-    level.entities.add(mario);
 
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
