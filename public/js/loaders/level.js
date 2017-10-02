@@ -12,18 +12,18 @@ const NOOP = {
 function createSolid(x1, y1, x2, y2) {
     return {
         collideX: function collideX(entity) {
-            if (entity.vel.x > 0) {
+            if (entity.vel.x > 0 && entity.bounds.right > x1) {
                 entity.bounds.right = x1;
-            } else if (entity.vel.x < 0) {
+            } else if (entity.vel.x < 0 && entity.bounds.left < x2) {
                 entity.bounds.left = x2;
             }
             entity.vel.x = 0;
         },
 
         collideY: function collideY(entity) {
-            if (entity.vel.y > 0) {
+            if (entity.vel.y > 0 && entity.bounds.bottom > y1) {
                 entity.bounds.bottom = y1;
-            } else if (entity.vel.y < 0) {
+            } else if (entity.vel.y < 0 && entity.bounds.top < y2) {
                 entity.bounds.top = y2;
             }
             entity.vel.y = 0;
