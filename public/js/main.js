@@ -8,19 +8,18 @@ const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
 Promise.all([
-    Promise.all(new Array(100).fill(0).map(() => createMario())),
+    createMario(),
     loadLevel('1-1'),
 ])
-.then(([marios, level]) => {
-    marios.forEach(mario => {
-        const input = setupKeyboard(mario);
-        input.listenTo(window);
+.then(([mario, level]) => {
+    mario.pos.set(64, 64);
 
-        mario.pos.set(200 * Math.random(), 64);
-        level.entities.add(mario);
-    });
+    level.entities.add(mario);
 
     level.comp.layers.push(createCollisionLayer(level));
+
+    const input = setupKeyboard(mario);
+    input.listenTo(window);
 
     ['mousedown', 'mousemove'].forEach(eventName => {
         canvas.addEventListener(eventName, event => {
