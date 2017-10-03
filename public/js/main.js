@@ -32,7 +32,6 @@ Promise.all([
     });
 
     const timer = new Timer(1/60);
-    timer.speed = 0.2;
     timer.update = function update(deltaTime) {
         level.update(deltaTime);
         level.comp.draw(context);
