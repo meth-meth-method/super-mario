@@ -31,6 +31,14 @@ Promise.all([
     });
     input.listenTo(window);
 
+    ['mousedown', 'mousemove'].forEach(eventName => {
+        canvas.addEventListener(eventName, event => {
+            if (event.buttons === 1) {
+                mario.vel.set(0, 0);
+                mario.pos.set(event.offsetX, event.offsetY);
+            }
+        });
+    });
 
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
