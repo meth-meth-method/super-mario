@@ -12,11 +12,13 @@ export default class TileResolver {
         const tile = this.matrix.get(indexX, indexY);
         if (tile) {
             const y1 = indexY * this.tileSize;
+            const y2 = y1 + this.tileSize;
             return {
                 tile,
                 indexX,
                 indexY,
                 y1,
+                y2,
             };
         }
     }
