@@ -12,8 +12,6 @@ Promise.all([
     loadLevel('1-1'),
 ])
 .then(([mario, level]) => {
-
-    const gravity = 2000;
     mario.pos.set(64, 64);
 
     level.entities.add(mario);
@@ -36,10 +34,7 @@ Promise.all([
     timer.speed = 0.2;
     timer.update = function update(deltaTime) {
         level.update(deltaTime);
-
         level.comp.draw(context);
-
-        mario.vel.y += gravity * deltaTime;
     }
 
     timer.start();
