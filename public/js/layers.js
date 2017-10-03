@@ -37,13 +37,27 @@ export function createCollisionLayer(level) {
         return getByIndexOriginal.call(tileResolver, x, y);
     }
 
-    return function drawCollisions(context) {
+    function drawTiles(context) {
         context.strokeStyle = 'blue';
         resolvedTiles.forEach((value, x, y) => {
             context.beginPath();
             context.rect(x * tileSize, y * tileSize, tileSize, tileSize);
             context.stroke();
         });
+    }
+
+    function drawCollisionBoxes(context) {
+        context.strokeStyle = 'red';
+        level.entities.forEach(entity => {
+            context.beginPath();
+            context.rect(entity.pos.x, entity.pos.y, entity.size.x, entity.size.y);
+            context.stroke();
+        });
+    }
+
+    return function drawCollisions(context) {
+        drawTiles(context);
+        drawCollisionBoxes(context);
         resolvedTiles.clear();
     };
 }
