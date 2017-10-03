@@ -52,9 +52,4 @@ export default class TileCollider {
             }
         });
     }
-
-    test(entity) {
-        this.checkX(entity);
-        this.checkY(entity);
-    }
 }
