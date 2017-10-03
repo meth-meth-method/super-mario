@@ -8,7 +8,7 @@ export default class TileCollider {
     checkY(entity) {
         const matches = this.tiles.matchByRange(
             entity.pos.x, entity.pos.x + entity.size.x,
-            entity.pos.y, entity.pos.y);
+            entity.pos.y, entity.pos.y + entity.size.y);
 
         matches.forEach(match => {
             if (match.tile.name !== 'ground') {
