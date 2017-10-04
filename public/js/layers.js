@@ -1,5 +1,3 @@
-import {Matrix} from './math.js';
-
 export function createBackgroundLayer(level, sprites) {
     const buffer = document.createElement('canvas');
     buffer.width = 256;
@@ -25,39 +23,37 @@ export function createSpriteLayer(entities) {
 }
 
 export function createCollisionLayer(level) {
+    const resolvedTiles = [];
+
     const tileResolver = level.tileCollider.tiles;
     const tileSize = tileResolver.tileSize;
 
-    const resolvedTiles = new Matrix();
-
     const getByIndexOriginal = tileResolver.getByIndex;
-
     tileResolver.getByIndex = function getByIndexFake(x, y) {
-        resolvedTiles.set(x, y, true);
+        resolvedTiles.push({x, y});
         return getByIndexOriginal.call(tileResolver, x, y);
     }
 
-    function drawTiles(context) {
+    return function drawCollision(context) {
         context.strokeStyle = 'blue';
-        resolvedTiles.forEach((value, x, y) => {
+        resolvedTiles.forEach(({x, y}) => {
             context.beginPath();
-            context.rect(x * tileSize, y * tileSize, tileSize, tileSize);
+            context.rect(
+                x * tileSize,
+                y * tileSize,
+                tileSize, tileSize);
             context.stroke();
         });
-    }
 
-    function drawCollisionBoxes(context) {
         context.strokeStyle = 'red';
         level.entities.forEach(entity => {
             context.beginPath();
-            context.rect(entity.pos.x, entity.pos.y, entity.size.x, entity.size.y);
+            context.rect(
+                entity.pos.x, entity.pos.y,
+                entity.size.x, entity.size.y);
             context.stroke();
         });
-    }
 
-    return function drawCollisions(context) {
-        drawTiles(context);
-        drawCollisionBoxes(context);
-        resolvedTiles.clear();
+        resolvedTiles.length = 0;
     };
 }

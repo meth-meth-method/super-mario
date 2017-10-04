@@ -9,6 +9,7 @@ export default class Level {
         this.comp = new Compositor();
         this.entities = new Set();
         this.tiles = new Matrix();
+
         this.tileCollider = new TileCollider(this.tiles);
     }
 
