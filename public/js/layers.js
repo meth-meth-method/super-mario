@@ -9,8 +9,8 @@ export function createBackgroundLayer(level, sprites) {
         sprites.drawTile(tile.name, context, x, y);
     });
 
-    return function drawBackgroundLayer(context) {
-        context.drawImage(buffer, 0, 0);
+    return function drawBackgroundLayer(context, camera) {
+        context.drawImage(buffer, -camera.pos.x, -camera.pos.y);
     };
 }
 
