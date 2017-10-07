@@ -12,6 +12,11 @@ export function loadImage(url) {
     });
 }
 
+function loadJSON(url) {
+    return fetch(url)
+    .then(r => r.json());
+}
+
 function createTiles(level, backgrounds) {
     backgrounds.forEach(background => {
         background.ranges.forEach(([xStart, xLen, yStart, yLen]) => {
@@ -30,9 +35,7 @@ function createTiles(level, backgrounds) {
 
 export function loadLevel(name) {
     return Promise.all([
-        fetch(`/levels/${name}.json`)
-        .then(r => r.json()),
-
+        loadJSON(`/levels/${name}.json`),
         loadBackgroundSprites(),
     ])
     .then(([levelSpec, backgroundSprites]) => {
