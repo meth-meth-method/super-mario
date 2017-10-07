@@ -3,7 +3,7 @@
 
     "backgrounds": [
         {
-            "tile": "sky",
+            "sprite": "sky",
             "ranges": [
                 [
                     0, 212,
@@ -12,7 +12,8 @@
             ]
         },
         {
-            "tile": "ground",
+            "sprite": "ground",
+            "type": "ground",
             "ranges": [
                 [
                     0, 212,
@@ -21,7 +22,7 @@
             ]
         },
         {
-            "tile": "sky",
+            "sprite": "sky",
             "ranges": [
                 [
                     75, 2,
@@ -30,7 +31,8 @@
             ]
         },
         {
-            "tile": "ground",
+            "sprite": "ground",
+            "type": "ground",
             "ranges": [
                 [
                     5, 3,
