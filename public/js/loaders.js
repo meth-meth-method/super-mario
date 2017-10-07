@@ -56,10 +56,11 @@ function createTiles(level, backgrounds) {
 }
 
 export function loadLevel(name) {
-    return Promise.all([
-        loadJSON(`/levels/${name}.json`),
-        loadSpriteSheet('underworld'),
-    ])
+    return loadJSON(`/levels/${name}.json`)
+    .then(levelSpec => Promise.all([
+        levelSpec,
+        loadSpriteSheet(levelSpec.spriteSheet),
+    ]))
     .then(([levelSpec, backgroundSprites]) => {
         const level = new Level();
 
