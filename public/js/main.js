@@ -8,6 +8,19 @@ import {setupKeyboard} from './input.js';
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
+function setupMouseControl(canvas, entity, camera) {
+    ['mousedown', 'mousemove'].forEach(eventName => {
+        canvas.addEventListener(eventName, event => {
+            if (event.buttons === 1) {
+                entity.vel.set(0, 0);
+                entity.pos.set(
+                    event.offsetX + camera.pos.x,
+                    event.offsetY + camera.pos.y);
+            }
+        });
+    });
+}
+
 Promise.all([
     createMario(),
     loadLevel('1-1'),
@@ -25,16 +38,7 @@ Promise.all([
     const input = setupKeyboard(mario);
     input.listenTo(window);
 
-    ['mousedown', 'mousemove'].forEach(eventName => {
-        canvas.addEventListener(eventName, event => {
-            if (event.buttons === 1) {
-                mario.vel.set(0, 0);
-                mario.pos.set(
-                    event.offsetX + camera.pos.x,
-                    event.offsetY + camera.pos.y);
-            }
-        });
-    });
+    setupMouseControl(canvas, mario, camera);
 
 
     const timer = new Timer(1/60);
