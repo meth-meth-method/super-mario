@@ -10,7 +10,7 @@ export function createBackgroundLayer(level, sprites) {
     });
 
     return function drawBackgroundLayer(context, camera) {
-        context.drawImage(buffer, -camera.pos.x, -camera.pos.y);
+        context.drawImage(buffer, -Math.floor(camera.pos.x), -Math.floor(camera.pos.y));
     };
 }
 
@@ -30,8 +30,8 @@ export function createSpriteLayer(entities, maxWidth = 64, maxHeight = 64) {
 
             context.drawImage(
                 spriteBuffer,
-                entity.pos.x - pos.x,
-                entity.pos.y - pos.y);
+                Math.floor(entity.pos.x - pos.x),
+                Math.floor(entity.pos.y - pos.y));
         });
     };
 }
