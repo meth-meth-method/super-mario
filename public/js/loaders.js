@@ -1,7 +1,6 @@
 import Level from './Level.js';
 import SpriteSheet from './SpriteSheet.js';
 import {createBackgroundLayer, createSpriteLayer} from './layers.js';
-import {loadBackgroundSprites} from './sprites.js';
 
 export function loadImage(url) {
     return new Promise(resolve => {
