@@ -1,8 +1,6 @@
-import TileResolver from './TileResolver.js';
-
 export default class TileCollider {
-    constructor(tileMatrix) {
-        this.tiles = new TileResolver(tileMatrix);
+    constructor(tileResolver) {
+        this.tiles = tileResolver;
     }
 
     checkX(entity) {
