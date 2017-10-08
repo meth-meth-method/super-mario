@@ -75,6 +75,7 @@ function createTiles(level, backgrounds) {
     });
 }
 
+
 export function loadLevel(name) {
     return loadJSON(`/levels/${name}.json`)
     .then(levelSpec => Promise.all([
