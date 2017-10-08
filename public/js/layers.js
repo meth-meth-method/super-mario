@@ -13,7 +13,7 @@ export function createBackgroundLayer(level, sprites) {
             const col = tiles.grid[x];
             if (col) {
                 col.forEach((tile, y) => {
-                    sprites.drawTile(tile.name, context, x, y);
+                    sprites.drawTile(tile.name, context, x - startIndex, y);
                 });
             }
         }
@@ -25,7 +25,9 @@ export function createBackgroundLayer(level, sprites) {
         const drawTo = drawFrom + bufferWidth;
         redraw(drawFrom, drawTo);
 
-        context.drawImage(buffer, -Math.floor(camera.pos.x), -Math.floor(camera.pos.y));
+        context.drawImage(buffer,
+            -Math.floor(camera.pos.x) % resolver.tileSize,
+            -Math.floor(camera.pos.y));
     };
 }
 
