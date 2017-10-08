@@ -14,6 +14,7 @@ Promise.all([
 ])
 .then(([mario, level]) => {
     const camera = new Camera();
+    window.camera = camera;
 
     mario.pos.set(64, 64);
 
