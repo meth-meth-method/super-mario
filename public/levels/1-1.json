@@ -3,7 +3,7 @@
 
     "backgrounds": [
         {
-            "sprite": "sky",
+            "tile": "sky",
             "ranges": [
                 [
                     0, 212,
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "sprite": "ground",
+            "tile": "ground",
             "type": "ground",
             "ranges": [
                 [
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "sprite": "sky",
+            "tile": "sky",
             "ranges": [
                 [
                     75, 2,
@@ -39,7 +39,7 @@
             ]
         },
         {
-            "sprite": "ground",
+            "tile": "ground",
             "type": "ground",
             "ranges": [
                 [
@@ -76,7 +76,7 @@
             ]
         },
         {
-            "sprite": "bricks",
+            "tile": "bricks",
             "type": "ground",
             "ranges": [
                 [
@@ -124,7 +124,7 @@
             ]
         },
         {
-            "sprite": "chance",
+            "tile": "chance",
             "type": "ground",
             "ranges": [
                 [23, 9],
@@ -146,7 +146,7 @@
             ]
         },
         {
-            "sprite": "chocolate",
+            "tile": "chocolate",
             "type": "ground",
             "ranges": [
                 [141, 1, 9],

@@ -1,6 +1,6 @@
 export function createBackgroundLayer(level, sprites) {
     const tiles = level.tiles;
-    const resolver = level.tileResolver;
+    const resolver = level.tileCollider.tiles;
 
     const buffer = document.createElement('canvas');
     buffer.width = 256 + 16;
@@ -8,9 +8,8 @@ export function createBackgroundLayer(level, sprites) {
 
     const context = buffer.getContext('2d');
 
-    let startIndex;
-    let endIndex;
-    function redraw(drawFrom, drawTo) {
+    let startIndex, endIndex;
+    function redraw(drawFrom, drawTo)  {
         if (drawFrom === startIndex && drawTo === endIndex) {
             return;
         }
@@ -29,35 +28,33 @@ export function createBackgroundLayer(level, sprites) {
     }
 
     return function drawBackgroundLayer(context, camera) {
-        const bufferWidth = resolver.toIndex(camera.size.x);
+        const drawWidth = resolver.toIndex(camera.size.x);
         const drawFrom = resolver.toIndex(camera.pos.x);
-        const drawTo = drawFrom + bufferWidth;
+        const drawTo = drawFrom + drawWidth;
         redraw(drawFrom, drawTo);
 
         context.drawImage(buffer,
-            -Math.floor(camera.pos.x) % resolver.tileSize,
-            -Math.floor(camera.pos.y));
+            -camera.pos.x % 16,
+            -camera.pos.y);
     };
 }
 
-export function createSpriteLayer(entities, maxWidth = 64, maxHeight = 64) {
+export function createSpriteLayer(entities, width = 64, height = 64) {
     const spriteBuffer = document.createElement('canvas');
-    spriteBuffer.width = maxWidth;
-    spriteBuffer.height = maxHeight;
+    spriteBuffer.width = width;
+    spriteBuffer.height = height;
     const spriteBufferContext = spriteBuffer.getContext('2d');
 
     return function drawSpriteLayer(context, camera) {
-        const {pos} = camera;
-
         entities.forEach(entity => {
-            spriteBufferContext.clearRect(0, 0, maxWidth, maxHeight);
+            spriteBufferContext.clearRect(0, 0, width, height);
 
             entity.draw(spriteBufferContext);
 
             context.drawImage(
                 spriteBuffer,
-                Math.floor(entity.pos.x - pos.x),
-                Math.floor(entity.pos.y - pos.y));
+                entity.pos.x - camera.pos.x,
+                entity.pos.y - camera.pos.y);
         });
     };
 }
