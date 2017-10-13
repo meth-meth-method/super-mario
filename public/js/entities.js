@@ -12,6 +12,7 @@ export function createMario() {
         mario.addTrait(new Go());
         mario.addTrait(new Jump());
 
+        const frames = ['run-1', 'run-2', 'run-3'];
         function routeFrame(mario) {
             if (mario.go.dir !== 0) {
                 return 'run-1';
