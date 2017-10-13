@@ -62,12 +62,20 @@ function loadSpriteSheet(name) {
             sheetSpec.tileW,
             sheetSpec.tileH);
 
-        sheetSpec.tiles.forEach(tileSpec => {
-            sprites.defineTile(
-                tileSpec.name,
-                tileSpec.index[0],
-                tileSpec.index[1]);
-        });
+        if (sheetSpec.tiles) {
+            sheetSpec.tiles.forEach(tileSpec => {
+                sprites.defineTile(
+                    tileSpec.name,
+                    tileSpec.index[0],
+                    tileSpec.index[1]);
+            });
+        }
+
+        if (sheetSpec.frames) {
+            sheetSpec.frames.forEach(frame => {
+                sprites.define(frame.name, ...frame.rect);
+            });
+        }
 
         return sprites;
     });
