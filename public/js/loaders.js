@@ -50,7 +50,7 @@ function createTiles(level, backgrounds) {
     });
 }
 
-function loadSpriteSheet(name) {
+export function loadSpriteSheet(name) {
     return loadJSON(`/sprites/${name}.json`)
     .then(sheetSpec => Promise.all([
         sheetSpec,
