@@ -12,8 +12,13 @@ export function createMario() {
         mario.addTrait(new Go());
         mario.addTrait(new Jump());
 
+        function routeFrame(mario) {
+            return 'idle';
+        }
+
         mario.draw = function drawMario(context) {
-            sprite.draw('idle', context, 0, 0);
+
+            sprite.draw(routeFrame(this), context, 0, 0);
         }
 
         return mario;
