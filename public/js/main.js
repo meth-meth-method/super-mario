@@ -3,6 +3,7 @@ import Timer from './Timer.js';
 import {loadLevel} from './loaders/level.js';
 import {loadEntities} from './loaders/entities.js';
 import {setupKeyboard} from './input.js';
+import {createCollisionLayer} from './layers.js';
 
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
@@ -22,6 +23,8 @@ Promise.all([
         input.listenTo(window);
         return mario;
     }
+
+    level.comp.layers.push(createCollisionLayer(level));
 
     const mario = spawnMario(64, 64);
 
