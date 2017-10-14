@@ -1,7 +1,8 @@
 export default class BoundingBox {
-    constructor(pos, size) {
+    constructor(pos, size, offset) {
         this.pos = pos;
         this.size = size;
+        this.offset = offset;
     }
 
     get bottom() {
