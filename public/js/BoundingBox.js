@@ -6,19 +6,19 @@ export default class BoundingBox {
     }
 
     get bottom() {
-        return this.pos.y + this.size.y;
+        return this.pos.y + this.size.y + this.offset.y;
     }
 
     set bottom(y) {
-        this.pos.y = y - this.size.y;
+        this.pos.y = y - (this.size.y + this.offset.y);
     }
 
     get top() {
-        return this.pos.y;
+        return this.pos.y + this.offset.y;
     }
 
     set top(y) {
-        this.pos.y = y;
+        this.pos.y = y - this.offset.y;
     }
 
     get left() {
