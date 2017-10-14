@@ -22,7 +22,7 @@ export function createMario() {
         }
 
         mario.draw = function drawMario(context) {
-            sprite.draw(routeFrame(this), context, 0, 0, this.go.dir < 0);
+            sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
         }
 
         return mario;
