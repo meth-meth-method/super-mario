@@ -1,0 +1,18 @@
+{
+    "imageURL": "/img/characters.gif",
+
+    "frames": [
+        {
+            "name": "walk-1",
+            "rect": [296, 187, 16, 16]
+        },
+        {
+            "name": "walk-2",
+            "rect": [315, 187, 16, 16]
+        },
+        {
+            "name": "flat",
+            "rect": [277, 43, 16, 16]
+        }
+    ]
+}
