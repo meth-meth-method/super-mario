@@ -33,6 +33,11 @@ Promise.all([
     goomba.pos.x = 220;
     level.entities.add(goomba);
 
+    const koopa = entityFactory.koopa();
+    koopa.pos.x = 320;
+    level.entities.add(koopa);
+
+
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
         level.update(deltaTime);
