@@ -11,6 +11,14 @@ export function loadMario() {
     .then(createMarioFactory);
 }
 
+function createAnim(frames, frameLen) {
+    return function resolveFrame(distance) {
+        const frameIndex = Math.floor(distance / frameLen) % frames.length;
+        const frameName = frames[frameIndex];
+        return frameName;
+    }
+}
+
 function createMarioFactory(sprite) {
     const runAnim = sprite.animations.get('run');
 
