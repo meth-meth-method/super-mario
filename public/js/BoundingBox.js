@@ -22,18 +22,18 @@ export default class BoundingBox {
     }
 
     get left() {
-        return this.pos.x;
+        return this.pos.x + this.offset.x;
     }
 
     set left(x) {
-        this.pos.x = x;
+        this.pos.x = x - this.offset.x;
     }
 
     get right() {
-        return this.pos.x + this.size.x;
+        return this.pos.x + this.size.x + this.offset.x;
     }
 
     set right(x) {
-        this.pos.x = x - this.size.x;
+        this.pos.x = x - (this.size.x + this.offset.x);
     }
 }
