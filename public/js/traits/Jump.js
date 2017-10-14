@@ -7,7 +7,8 @@ export default class Jump extends Trait {
         this.ready = 0;
         this.duration = 0.3;
         this.engageTime = 0;
-
+        this.requestTime = 0;
+        this.gracePeriod = 0.1;
         this.velocity = 200;
     }
 
@@ -16,12 +17,11 @@ export default class Jump extends Trait {
     }
 
     start() {
-        if (this.ready > 0) {
-            this.engageTime = this.duration;
-        }
+        this.requestTime = this.gracePeriod;
     }
 
     cancel() {
+        this.requestTime = 0;
         this.engageTime = 0;
     }
 
@@ -34,6 +34,14 @@ export default class Jump extends Trait {
     }
 
     update(entity, deltaTime) {
+        if (this.requestTime > 0) {
+            if (this.ready > 0) {
+                this.engageTime = this.duration;
+                this.requestTime = 0;
+            }
+            this.requestTime -= deltaTime;
+        }
+
         if (this.engageTime > 0) {
             entity.vel.y = -(this.velocity + Math.abs(entity.vel.x) * 0.3);
             this.engageTime -= deltaTime;
