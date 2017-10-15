@@ -7,6 +7,12 @@ export default class Timer {
         this.updateProxy = (time) => {
             accumulatedTime += (time - lastTime) / 1000;
 
+            if (accumulatedTime > 0.5) {
+                console.log(
+                    'Accumulated Time: ', accumulatedTime,
+                    'Simulation Cycles Behind', accumulatedTime / deltaTime);
+            }
+
             while (accumulatedTime > deltaTime) {
                 this.update(deltaTime);
                 accumulatedTime -= deltaTime;
