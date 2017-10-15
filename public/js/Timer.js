@@ -1,24 +1,26 @@
 export default class Timer {
     constructor(deltaTime = 1/60) {
         let accumulatedTime = 0;
-        let lastTime = 0;
+        this.lastTime = null;
         this.frameId = null;
 
         this.updateProxy = (time) => {
-            accumulatedTime += (time - lastTime) / 1000;
+            if (this.lastTime !== null) {
+                accumulatedTime += (time - this.lastTime) / 1000;
 
-            if (accumulatedTime > 0.5) {
-                console.log(
-                    'Accumulated Time: ', accumulatedTime,
-                    'Simulation Cycles Behind', accumulatedTime / deltaTime);
+                if (accumulatedTime > 0.5) {
+                    console.log(
+                        'Accumulated Time: ', accumulatedTime,
+                        'Simulation Cycles Behind', accumulatedTime / deltaTime);
+                }
+
+                while (accumulatedTime > deltaTime) {
+                    this.update(deltaTime);
+                    accumulatedTime -= deltaTime;
+                }
             }
 
-            while (accumulatedTime > deltaTime) {
-                this.update(deltaTime);
-                accumulatedTime -= deltaTime;
-            }
-
-            lastTime = time;
+            this.lastTime = time;
 
             this.enqueue();
         }
