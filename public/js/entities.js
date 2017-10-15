@@ -18,6 +18,7 @@ export function createMario() {
             if (mario.go.dir !== 0) {
                 return runAnim(mario.go.distance);
             }
+
             return 'idle';
         }
 

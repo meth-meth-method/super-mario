@@ -3,8 +3,8 @@ export default class SpriteSheet {
         this.image = image;
         this.width = width;
         this.height = height;
-        this.animations = new Map();
         this.tiles = new Map();
+        this.animations = new Map();
     }
 
     defineAnim(name, animation) {
@@ -18,6 +18,7 @@ export default class SpriteSheet {
             buffer.height = height;
 
             const context = buffer.getContext('2d');
+
             if (flip) {
                 context.scale(-1, 1);
                 context.translate(-width, 0);

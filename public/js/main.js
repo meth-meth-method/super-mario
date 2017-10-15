@@ -19,9 +19,9 @@ Promise.all([
 
     mario.pos.set(64, 64);
 
-    level.comp.layers.push(
-        //createCollisionLayer(level),
-        createCameraLayer(camera));
+    /*level.comp.layers.push(
+        createCollisionLayer(level),
+        createCameraLayer(camera));*/
 
 
     level.entities.add(mario);

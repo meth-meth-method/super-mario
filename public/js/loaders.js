@@ -73,8 +73,8 @@ export function loadSpriteSheet(name) {
         }
 
         if (sheetSpec.frames) {
-            sheetSpec.frames.forEach(frame => {
-                sprites.define(frame.name, ...frame.rect);
+            sheetSpec.frames.forEach(frameSpec => {
+                sprites.define(frameSpec.name, ...frameSpec.rect);
             });
         }
 
