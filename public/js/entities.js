@@ -13,9 +13,10 @@ export function createMario() {
         mario.addTrait(new Jump());
 
         const frames = ['run-1', 'run-2', 'run-3'];
+        const frameDistance = 10;
         function routeFrame(mario) {
             if (mario.go.dir !== 0) {
-                const frameIndex = Math.floor(mario.go.distance) % frames.length;
+                const frameIndex = Math.floor(mario.go.distance / frameDistance) % frames.length;
                 const frameName = frames[frameIndex];
                 console.log(frameName);
                 return frameName;
