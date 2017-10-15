@@ -18,7 +18,7 @@ function createKoopaFactory(sprite) {
     return function createKoopa() {
         const koopa = new Entity();
         koopa.size.set(16, 16);
-        koopa.offset.y = -8;
+        koopa.offset.y = 8;
 
         koopa.addTrait(new PendulumWalk());
         koopa.pendulumWalk.speed = -30;
