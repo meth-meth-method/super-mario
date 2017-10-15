@@ -18,7 +18,7 @@ export function createMario() {
                 const frameIndex = Math.floor(mario.go.distance) % frames.length;
                 const frameName = frames[frameIndex];
                 console.log(frameName);
-                return 'run-1';
+                return frameName;
             }
             return 'idle';
         }
