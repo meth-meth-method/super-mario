@@ -34,5 +34,9 @@ export default class Timer {
         window.addEventListener('blur', () => {
             this.stop();
         });
+
+        window.addEventListener('focus', () => {
+            this.start();
+        });
     }
 }
