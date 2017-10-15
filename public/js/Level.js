@@ -4,7 +4,7 @@ import {Matrix} from './math.js';
 
 export default class Level {
     constructor() {
-        this.gravity = 2000;
+        this.gravity = 1500;
         this.totalTime = 0;
 
         this.comp = new Compositor();
