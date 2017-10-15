@@ -27,7 +27,7 @@ export default class Timer {
     }
 
     enqueue() {
-        this.frameId = requestAnimationFrame(this.updateProxy);
+        this.frameId = this.window.requestAnimationFrame(this.updateProxy);
     }
 
     start() {
@@ -36,15 +36,17 @@ export default class Timer {
 
     stop() {
         this.lastTime = null;
-        cancelAnimationFrame(this.frameId);
+        this.window.cancelAnimationFrame(this.frameId);
     }
 
     listenTo(window) {
-        window.addEventListener('blur', () => {
+        this.window = window;
+
+        this.window.addEventListener('blur', () => {
             this.stop();
         });
 
-        window.addEventListener('focus', () => {
+        this.window.addEventListener('focus', () => {
             this.start();
         });
     }
