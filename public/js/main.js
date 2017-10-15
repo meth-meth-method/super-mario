@@ -38,6 +38,6 @@ Promise.all([
 
         level.comp.draw(context, camera);
     }
-
+    timer.listenTo(window);
     timer.start();
 });

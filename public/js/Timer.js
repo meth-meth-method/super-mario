@@ -29,4 +29,10 @@ export default class Timer {
     stop() {
         cancelAnimationFrame(this.frameId);
     }
+
+    listenTo(window) {
+        window.addEventListener('blur', () => {
+            this.stop();
+        });
+    }
 }
