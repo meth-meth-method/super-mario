@@ -3,6 +3,14 @@ import Go from './traits/Go.js';
 import Jump from './traits/Jump.js';
 import {loadSpriteSheet} from './loaders.js';
 
+function createAnim(frames, frameLen) {
+    return function resolveFrame(distance) {
+        const frameIndex = Math.floor(distance / frameLen) % frames.length;
+        const frameName = frames[frameIndex];
+        return frameName;
+    };
+}
+
 export function createMario() {
     return loadSpriteSheet('mario')
     .then(sprite => {
@@ -12,14 +20,10 @@ export function createMario() {
         mario.addTrait(new Go());
         mario.addTrait(new Jump());
 
-        const frames = ['run-1', 'run-2', 'run-3'];
-        const frameDistance = 10;
+        const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 10);
         function routeFrame(mario) {
             if (mario.go.dir !== 0) {
-                const frameIndex = Math.floor(mario.go.distance / frameDistance) % frames.length;
-                const frameName = frames[frameIndex];
-                console.log(frameName);
-                return frameName;
+                return runAnim(mario.go.distance);
             }
             return 'idle';
         }
