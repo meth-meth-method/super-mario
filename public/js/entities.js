@@ -15,6 +15,7 @@ export function createMario() {
         const frames = ['run-1', 'run-2', 'run-3'];
         function routeFrame(mario) {
             if (mario.go.dir !== 0) {
+                console.log(mario.go.distance);
                 return 'run-1';
             }
             return 'idle';
