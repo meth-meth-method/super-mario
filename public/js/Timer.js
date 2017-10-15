@@ -35,6 +35,7 @@ export default class Timer {
     }
 
     stop() {
+        this.lastTime = null;
         cancelAnimationFrame(this.frameId);
     }
 
