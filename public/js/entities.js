@@ -13,6 +13,9 @@ export function createMario() {
         mario.addTrait(new Jump());
 
         function routeFrame(mario) {
+            if (mario.go.dir !== 0) {
+                return 'run-1';
+            }
             return 'idle';
         }
 
