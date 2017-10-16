@@ -4,6 +4,7 @@ export default class Jump extends Trait {
     constructor() {
         super('jump');
 
+        this.ready = false;
         this.duration = 0.5;
         this.engageTime = 0;
 
@@ -19,13 +20,19 @@ export default class Jump extends Trait {
     }
 
     obstruct(entity, side) {
-        console.log('Jump trait received obstruct signal', side);
+        if (side === 'bottom') {
+            this.ready = true;
+        }
     }
 
     update(entity, deltaTime) {
+        console.log('Can Jump?', this.ready);
+
         if (this.engageTime > 0) {
             entity.vel.y = -this.velocity;
             this.engageTime -= deltaTime;
         }
+
+        this.ready = false;
     }
 }
