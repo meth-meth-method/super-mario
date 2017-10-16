@@ -18,6 +18,10 @@ export default class Jump extends Trait {
         this.engageTime = 0;
     }
 
+    obstruct(entity, side) {
+        console.log('Jump trait received obstruct signal', side);
+    }
+
     update(entity, deltaTime) {
         if (this.engageTime > 0) {
             entity.vel.y = -this.velocity;
