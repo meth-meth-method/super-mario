@@ -68,6 +68,8 @@ export default class TileCollider {
                 if (entity.pos.y < match.y2) {
                     entity.pos.y = match.y2;
                     entity.vel.y = 0;
+
+                    entity.obstruct('top');
                 }
             }
         });
