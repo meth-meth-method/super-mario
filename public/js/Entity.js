@@ -24,6 +24,10 @@ export default class Entity {
         this[trait.NAME] = trait;
     }
 
+    obstruct(side) {
+        console.log(side);
+    }
+
     update(deltaTime) {
         this.traits.forEach(trait => {
             trait.update(this, deltaTime);
