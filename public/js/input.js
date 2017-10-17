@@ -11,6 +11,10 @@ export function setupKeyboard(mario) {
         }
     });
 
+    input.addMapping('KeyO', keyState => {
+        mario.turbo(keyState);
+    });
+
     input.addMapping('KeyD', keyState => {
         mario.go.dir += keyState ? 1 : -1;
     });
