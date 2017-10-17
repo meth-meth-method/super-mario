@@ -13,7 +13,7 @@ export function createMario() {
         mario.addTrait(new Go());
         mario.addTrait(new Jump());
 
-        const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 10);
+        const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 6);
         function routeFrame(mario) {
             if (mario.jump.falling) {
                 return 'jump';
