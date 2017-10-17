@@ -11,6 +11,7 @@ export class Trait {
     }
 
     obstruct() {
+
     }
 
     update() {

@@ -19,7 +19,11 @@ export default class Go extends Trait {
         if (this.dir !== 0) {
             entity.vel.x += this.acceleration * deltaTime * this.dir;
 
-            if (!entity.jump || !entity.jump.falling) {
+            if (entity.jump) {
+                if (entity.jump.falling === false) {
+                    this.heading = this.dir;
+                }
+            } else {
                 this.heading = this.dir;
             }
 
@@ -31,7 +35,7 @@ export default class Go extends Trait {
         }
 
         const drag = this.dragFactor * entity.vel.x * absX;
-        entity.vel.x += -drag;
+        entity.vel.x -= drag;
 
         this.distance += absX * deltaTime;
     }

@@ -29,10 +29,7 @@ export function createMario() {
             }
 
             if (mario.go.distance > 0) {
-                if (
-                    (mario.vel.x > 0 && mario.go.dir < 0) ||
-                    (mario.vel.x < 0 && mario.go.dir > 0)
-                ) {
+                if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
                     return 'break';
                 }
 
