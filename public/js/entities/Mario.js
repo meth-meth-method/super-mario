@@ -7,7 +7,7 @@ import {createAnim} from '../anim.js';
 const SLOW_DRAG = 1/1000;
 const FAST_DRAG = 1/5000;
 
-export function createMario() {
+export function loadMario() {
     return loadSpriteSheet('mario')
     .then(sprite => {
         const mario = new Entity();
