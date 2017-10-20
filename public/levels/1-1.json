@@ -2,6 +2,23 @@
     "spriteSheet": "overworld",
 
     "patterns": {
+        "pipe-section-vert": {
+            "backgrounds": [
+                {
+                    "tile": "pipe-vert-left",
+                    "ranges": [
+                        [0, 0]
+                    ]
+                },
+                {
+                    "tile": "pipe-vert-right",
+                    "ranges": [
+                        [1, 0]
+                    ]
+                }
+            ]
+        },
+
         "pipe-2h": {
             "backgrounds": [
                 {
@@ -17,15 +34,9 @@
                     ]
                 },
                 {
-                    "tile": "pipe-vert-left",
+                    "pattern": "pipe-section-vert",
                     "ranges": [
                         [0, 1]
-                    ]
-                },
-                {
-                    "tile": "pipe-vert-right",
-                    "ranges": [
-                        [1, 1]
                     ]
                 }
             ]
