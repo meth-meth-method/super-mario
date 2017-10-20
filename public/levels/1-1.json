@@ -19,7 +19,7 @@
             ]
         },
 
-        "pipe-2h": {
+        "pipe-cap-vert": {
             "backgrounds": [
                 {
                     "tile": "pipe-insert-vert-left",
@@ -31,6 +31,17 @@
                     "tile": "pipe-insert-vert-right",
                     "ranges": [
                         [1, 0]
+                    ]
+                }
+            ]
+        },
+
+        "pipe-2h": {
+            "backgrounds": [
+                {
+                    "pattern": "pipe-cap-vert",
+                    "ranges": [
+                        [0, 0]
                     ]
                 },
                 {
