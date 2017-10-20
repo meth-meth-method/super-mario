@@ -36,6 +36,23 @@
         {
             "name": "chance-3",
             "index": [26, 0]
+        },
+
+        {
+            "name": "pipe-insert-vert-left",
+            "index": [0, 8]
+        },
+        {
+            "name": "pipe-insert-vert-right",
+            "index": [1, 8]
+        },
+        {
+            "name": "pipe-vert-left",
+            "index": [0, 9]
+        },
+        {
+            "name": "pipe-vert-right",
+            "index": [1, 9]
         }
     ],
 
