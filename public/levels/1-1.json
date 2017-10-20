@@ -6,12 +6,14 @@
             "backgrounds": [
                 {
                     "tile": "pipe-vert-left",
+                    "type": "ground",
                     "ranges": [
                         [0, 0]
                     ]
                 },
                 {
                     "tile": "pipe-vert-right",
+                    "type": "ground",
                     "ranges": [
                         [1, 0]
                     ]
@@ -23,12 +25,14 @@
             "backgrounds": [
                 {
                     "tile": "pipe-insert-vert-left",
+                    "type": "ground",
                     "ranges": [
                         [0, 0]
                     ]
                 },
                 {
                     "tile": "pipe-insert-vert-right",
+                    "type": "ground",
                     "ranges": [
                         [1, 0]
                     ]
