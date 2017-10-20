@@ -9,42 +9,45 @@ const FAST_DRAG = 1/5000;
 
 export function loadMario() {
     return loadSpriteSheet('mario')
-    .then(createMario);
+    .then(createMarioFactory);
 }
 
-function createMario(sprite) {
-    const mario = new Entity();
-    mario.size.set(14, 16);
+function createMarioFactory(sprite) {
 
-    mario.addTrait(new Go());
-    mario.go.dragFactor = SLOW_DRAG;
+    return function createMario() {
+        const mario = new Entity();
+        mario.size.set(14, 16);
 
-    mario.addTrait(new Jump());
+        mario.addTrait(new Go());
+        mario.go.dragFactor = SLOW_DRAG;
 
-    mario.turbo = function setTurboState(turboOn) {
-        this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
-    }
+        mario.addTrait(new Jump());
 
-    const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 6);
-    function routeFrame(mario) {
-        if (mario.jump.falling) {
-            return 'jump';
+        mario.turbo = function setTurboState(turboOn) {
+            this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
         }
 
-        if (mario.go.distance > 0) {
-            if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
-                return 'break';
+        const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 6);
+        function routeFrame(mario) {
+            if (mario.jump.falling) {
+                return 'jump';
             }
 
-            return runAnim(mario.go.distance);
+            if (mario.go.distance > 0) {
+                if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
+                    return 'break';
+                }
+
+                return runAnim(mario.go.distance);
+            }
+
+            return 'idle';
         }
 
-        return 'idle';
-    }
+        mario.draw = function drawMario(context) {
+            sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
+        }
 
-    mario.draw = function drawMario(context) {
-        sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
+        return mario;
     }
-
-    return mario;
 }

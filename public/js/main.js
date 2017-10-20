@@ -11,9 +11,10 @@ Promise.all([
     loadMario(),
     loadLevel('1-1'),
 ])
-.then(([mario, level]) => {
+.then(([createMario, level]) => {
     const camera = new Camera();
 
+    const mario = createMario();
     mario.pos.set(64, 64);
 
 
