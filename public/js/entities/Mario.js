@@ -13,6 +13,9 @@ export function loadMario() {
 }
 
 function createMarioFactory(sprite) {
+    console.log('Creating run animation function');
+    const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 6);
+
     return function createMario() {
         const mario = new Entity();
         mario.size.set(14, 16);
@@ -25,9 +28,6 @@ function createMarioFactory(sprite) {
         mario.turbo = function setTurboState(turboOn) {
             this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
         }
-
-        console.log('Creating run animation function');
-        const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 6);
 
         console.log('Creating routeFrame function');
         function routeFrame(mario) {
