@@ -58,6 +58,46 @@
                     ]
                 }
             ]
+        },
+
+        "pipe-3h": {
+            "backgrounds": [
+                {
+                    "pattern": "pipe-cap-vert",
+                    "ranges": [
+                        [0, 0]
+                    ]
+                },
+                {
+                    "pattern": "pipe-section-vert",
+                    "ranges": [
+                        [
+                            0, 1,
+                            1, 2
+                        ]
+                    ]
+                }
+            ]
+        },
+
+        "pipe-4h": {
+            "backgrounds": [
+                {
+                    "pattern": "pipe-cap-vert",
+                    "ranges": [
+                        [0, 0]
+                    ]
+                },
+                {
+                    "pattern": "pipe-section-vert",
+                    "ranges": [
+                        [
+                            0, 1,
+                            1, 3
+                        ]
+                    ]
+                }
+            ]
         }
     },
 
@@ -251,16 +291,16 @@
             ]
         },
         {
-            "pattern": "pipe-2h",
+            "pattern": "pipe-3h",
             "ranges": [
-                [45, 11]
+                [45, 10]
             ]
         },
         {
-            "pattern": "pipe-2h",
+            "pattern": "pipe-4h",
             "ranges": [
-                [53, 11],
-                [64, 11]
+                [53, 9],
+                [64, 9]
             ]
         }
     ]
