@@ -33,6 +33,8 @@ export function loadMario() {
 }
 
 function createMarioFactory(sprite) {
+    const runAnim = sprite.animations.get('run');
+
     function drawMario(context) {
         sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
     }
