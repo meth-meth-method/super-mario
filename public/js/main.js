@@ -3,6 +3,7 @@ import Timer from './Timer.js';
 import {loadLevel} from './loaders/level.js';
 import {createMario} from './entities.js';
 import {setupKeyboard} from './input.js';
+import {createCollisionLayer, createCameraLayer} from './layers.js';
 
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
@@ -16,6 +17,10 @@ Promise.all([
     window.camera = camera;
 
     mario.pos.set(64, 64);
+
+    level.comp.layers.push(
+        createCollisionLayer(level),
+        createCameraLayer(camera));
 
 
     level.entities.add(mario);
