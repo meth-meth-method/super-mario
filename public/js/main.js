@@ -14,14 +14,20 @@ Promise.all([
 .then(([createMario, level]) => {
     const camera = new Camera();
 
-    const mario = createMario();
-    mario.pos.set(64, 64);
+    function spawnMario(posX, posY) {
+        const mario = createMario();
+        mario.pos.set(posX, posY);
+        level.entities.add(mario);
+        const input = setupKeyboard(mario);
+        input.listenTo(window);
+        return mario;
+    }
 
+    const mario = spawnMario(64, 64);
 
-    level.entities.add(mario);
-
-    const input = setupKeyboard(mario);
-    input.listenTo(window);
+    canvas.addEventListener('click', event => {
+        spawnMario(event.offsetX + camera.pos.x, event.offsetY);
+    });
 
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
