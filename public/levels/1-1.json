@@ -180,6 +180,30 @@
                 [185, 8, 11],
                 [184, 9, 12]
             ]
+        },
+        {
+            "tile": "pipe-insert-vert-left",
+            "ranges": [
+                [0, 0]
+            ]
+        },
+        {
+            "tile": "pipe-insert-vert-right",
+            "ranges": [
+                [1, 0]
+            ]
+        },
+        {
+            "tile": "pipe-vert-left",
+            "ranges": [
+                [0, 1]
+            ]
+        },
+        {
+            "tile": "pipe-vert-right",
+            "ranges": [
+                [1, 1]
+            ]
         }
     ]
 }
