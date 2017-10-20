@@ -15,6 +15,23 @@ export function loadMario() {
 function createMarioFactory(sprite) {
     console.log('Creating run animation function');
     const runAnim = createAnim(['run-1', 'run-2', 'run-3'], 6);
+    console.log('Creating routeFrame function');
+
+    function routeFrame(mario) {
+        if (mario.jump.falling) {
+            return 'jump';
+        }
+
+        if (mario.go.distance > 0) {
+            if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
+                return 'break';
+            }
+
+            return runAnim(mario.go.distance);
+        }
+
+        return 'idle';
+    }
 
     return function createMario() {
         const mario = new Entity();
@@ -27,23 +44,6 @@ function createMarioFactory(sprite) {
 
         mario.turbo = function setTurboState(turboOn) {
             this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
-        }
-
-        console.log('Creating routeFrame function');
-        function routeFrame(mario) {
-            if (mario.jump.falling) {
-                return 'jump';
-            }
-
-            if (mario.go.distance > 0) {
-                if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
-                    return 'break';
-                }
-
-                return runAnim(mario.go.distance);
-            }
-
-            return 'idle';
         }
 
         mario.draw = function drawMario(context) {
