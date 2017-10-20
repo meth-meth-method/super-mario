@@ -42,8 +42,6 @@ function createMarioFactory(sprite) {
         mario.size.set(14, 16);
 
         mario.addTrait(new Go());
-        mario.go.dragFactor = SLOW_DRAG;
-
         mario.addTrait(new Jump());
 
         mario.turbo = function setTurboState(turboOn) {
@@ -51,6 +49,8 @@ function createMarioFactory(sprite) {
         }
 
         mario.draw = drawMario;
+
+        mario.turbo(false);
 
         return mario;
     }
