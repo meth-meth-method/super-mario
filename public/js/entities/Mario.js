@@ -33,6 +33,10 @@ function createMarioFactory(sprite) {
         return 'idle';
     }
 
+    function drawMario(context) {
+        sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
+    }
+
     return function createMario() {
         const mario = new Entity();
         mario.size.set(14, 16);
@@ -46,9 +50,7 @@ function createMarioFactory(sprite) {
             this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
         }
 
-        mario.draw = function drawMario(context) {
-            sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
-        }
+        mario.draw = drawMario;
 
         return mario;
     }
