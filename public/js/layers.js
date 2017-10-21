@@ -1,8 +1,7 @@
 import TileResolver from './TileResolver.js';
 
-export function createBackgroundLayer(level, sprites) {
-    const tiles = level.tiles;
-    const resolver = level.tileCollider.tiles;
+export function createBackgroundLayer(level, tiles, sprites) {
+    const resolver = new TileResolver(tiles);
 
     const buffer = document.createElement('canvas');
     buffer.width = 256 + 16;

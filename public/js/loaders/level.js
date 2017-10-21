@@ -99,9 +99,7 @@ export function loadLevel(name) {
         level.setCollisionGrid(collisionGrid);
 
         const backgroundGrid = createBackgroundGrid(levelSpec.tiles, levelSpec.patterns);
-        level.tiles = backgroundGrid;
-
-        const backgroundLayer = createBackgroundLayer(level, backgroundSprites);
+        const backgroundLayer = createBackgroundLayer(level, backgroundGrid, backgroundSprites);
         level.comp.layers.push(backgroundLayer);
 
         const spriteLayer = createSpriteLayer(level.entities);
