@@ -59,21 +59,23 @@ export function createCollisionLayer(level) {
     const resolvedTiles = [];
 
     const tileResolver = level.tileCollider.tiles;
-    const tileSize = tileResolver.tileSize;
-
     const getByIndexOriginal = tileResolver.getByIndex;
     tileResolver.getByIndex = function getByIndexFake(x, y) {
-        resolvedTiles.push({x, y});
-        return getByIndexOriginal.call(tileResolver, x, y);
+        const match = getByIndexOriginal.call(tileResolver, x, y);
+        if (match) {
+            resolvedTiles.push(match);
+        }
+        return match;
     }
 
     return function drawCollision(context, camera) {
         context.strokeStyle = 'blue';
-        resolvedTiles.forEach(({x, y}) => {
+        resolvedTiles.forEach(({tile, x1, x2, y1, y2}) => {
             context.strokeRect(
-                x * tileSize - camera.pos.x,
-                y * tileSize - camera.pos.y,
-                tileSize, tileSize);
+                x1 - camera.pos.x,
+                y1 - camera.pos.y,
+                x2 - x1,
+                y2 - y1);
         });
 
         context.strokeStyle = 'red';
