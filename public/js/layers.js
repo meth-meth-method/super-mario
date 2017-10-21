@@ -55,10 +55,10 @@ export function createSpriteLayer(entities, width = 64, height = 64) {
     };
 }
 
-export function createCollisionLayer(level) {
+function createTileColliderLayer(tileCollider) {
     const resolvedTiles = [];
 
-    const tileResolver = level.tileCollider.tiles;
+    const tileResolver = tileCollider.tiles;
     const getByIndexOriginal = tileResolver.getByIndex;
     tileResolver.getByIndex = function getByIndexFake(x, y) {
         const match = getByIndexOriginal.call(tileResolver, x, y);
@@ -68,7 +68,7 @@ export function createCollisionLayer(level) {
         return match;
     }
 
-    return function drawCollision(context, camera) {
+    return function drawTileCollisions(context, camera) {
         context.strokeStyle = 'blue';
         resolvedTiles.forEach(({tile, x1, x2, y1, y2}) => {
             context.strokeRect(
@@ -78,6 +78,18 @@ export function createCollisionLayer(level) {
                 y2 - y1);
         });
 
+        resolvedTiles.length = 0;
+    };
+}
+
+export function createCollisionLayer(level) {
+    const layers = [
+        createTileColliderLayer(level.tileCollider),
+    ];
+
+    return function drawCollision(context, camera) {
+        layers.forEach(drawLayer => drawLayer(context, camera));
+
         context.strokeStyle = 'red';
         level.entities.forEach(entity => {
             context.strokeRect(
@@ -86,8 +98,6 @@ export function createCollisionLayer(level) {
                 entity.size.x,
                 entity.size.y);
         });
-
-        resolvedTiles.length = 0;
     };
 }
 
