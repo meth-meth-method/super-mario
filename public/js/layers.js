@@ -82,22 +82,27 @@ function createTileColliderLayer(tileCollider) {
     };
 }
 
-export function createCollisionLayer(level) {
-    const layers = [
-        createTileColliderLayer(level.tileCollider),
-    ];
-
-    return function drawCollision(context, camera) {
-        layers.forEach(drawLayer => drawLayer(context, camera));
-
+function createEntityRectLayer(entities) {
+    return function drawEntityRects(context, camera) {
         context.strokeStyle = 'red';
-        level.entities.forEach(entity => {
+        entities.forEach(entity => {
             context.strokeRect(
                 entity.pos.x - camera.pos.x,
                 entity.pos.y - camera.pos.y,
                 entity.size.x,
                 entity.size.y);
         });
+    };
+}
+
+export function createCollisionLayer(level) {
+    const layers = [
+        createTileColliderLayer(level.tileCollider),
+        createEntityRectLayer(level.entities),
+    ];
+
+    return function drawCollision(context, camera) {
+        layers.forEach(drawLayer => drawLayer(context, camera));
     };
 }
 
