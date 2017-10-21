@@ -11,10 +11,12 @@ export default class Level {
         this.entities = new Set();
         this.tiles = new Matrix();
 
+        this.collisionGrid = null;
         this.tileCollider = null;
     }
 
     setCollisionGrid(matrix) {
+        this.collisionGrid = matrix;
         this.tileCollider = new TileCollider(matrix);
     }
 

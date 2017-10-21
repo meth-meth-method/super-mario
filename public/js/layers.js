@@ -1,3 +1,5 @@
+import TileResolver from './TileResolver.js';
+
 export function createBackgroundLayer(level, sprites) {
     const tiles = level.tiles;
     const resolver = level.tileCollider.tiles;
@@ -95,8 +97,32 @@ function createEntityRectLayer(entities) {
     };
 }
 
+function createCollisionGridLayer(collisionGrid) {
+    const tileResolver = new TileResolver(collisionGrid);
+
+    return function drawTileCollisions(context, camera) {
+        const collisionTiles = tileResolver.searchByRange(
+            camera.pos.x,
+            camera.pos.x + camera.size.x,
+            camera.pos.y,
+            camera.pos.y + camera.size.y);
+
+        context.strokeStyle = 'orange';
+        collisionTiles.forEach(({tile, x1, x2, y1, y2}) => {
+            if (tile.type === 'ground') {
+                context.strokeRect(
+                    x1 - camera.pos.x,
+                    y1 - camera.pos.y,
+                    x2 - x1,
+                    y2 - y1);
+            }
+        });
+    };
+}
+
 export function createCollisionLayer(level) {
     const layers = [
+        createCollisionGridLayer(level.collisionGrid),
         createTileColliderLayer(level.tileCollider),
         createEntityRectLayer(level.entities),
     ];
