@@ -4,8 +4,7 @@ import {loadLevel} from './loaders.js';
 import {createMario} from './entities.js';
 import {setupKeyboard} from './input.js';
 
-const canvas = document.getElementById('screen');
-const context = canvas.getContext('2d');
+const canvi = [...document.querySelectorAll('.layer')];
 
 Promise.all([
     createMario(),
@@ -31,7 +30,11 @@ Promise.all([
             camera.pos.x = mario.pos.x - 100;
         }
 
-        level.comp.draw(context, camera);
+        level.comp.layers.forEach((layer, i) => {
+            const context = canvi[i].getContext('2d');
+            context.clearRect(0, 0, 256, 240);
+            layer(context, camera);
+        });
     }
 
     timer.start();

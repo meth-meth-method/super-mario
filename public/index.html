@@ -2,9 +2,72 @@
 <html>
 <head>
     <title>Super Mario</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .layers {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .layers,
+        .layers > .layer {
+            height: 600px;
+            width: 600px;
+        }
+
+        .layers > .layer {
+            border: solid 1px #9c27b0;
+            position: absolute;
+        }
+    </style>
     <script type="module" src="/js/main.js"></script>
 </head>
 <body>
-    <canvas id="screen" width="640" height="640"></canvas>
+    <div class="layers">
+        <canvas class="layer" id="screen" width="256" height="240"></canvas>
+        <canvas class="layer" width="256" height="240"></canvas>
+        <canvas class="layer" width="256" height="240"></canvas>
+    </div>
+
+    <script>
+        const layers = [...document.querySelectorAll('canvas')];
+        let x = 0;
+        let y = 0;
+        let distance = 0;
+
+        function update() {
+            layers.forEach((layer, i) => {
+                layer.style.transform = [
+                    `rotateX(${y}deg)`,
+                    `rotateY(${-x}deg)`,
+                    `translateZ(${i * distance}px)`,
+                ].join(' ');
+            });
+        }
+
+        document.addEventListener('mousewheel', event => {
+            distance += event.wheelDelta * 0.2;
+            update();
+        });
+
+        document.addEventListener('mousemove', event => {
+            if (event.buttons === 1) {
+                x += event.movementX;
+                y += event.movementY;
+                update();
+            }
+        });
+    </script>
 </body>
 </html>
