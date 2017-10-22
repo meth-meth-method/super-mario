@@ -58,88 +58,53 @@ export function createSpriteLayer(entities, width = 64, height = 64) {
     };
 }
 
-function createTileColliderLayer(tileCollider) {
+export function createCollisionLayer(level) {
     const resolvedTiles = [];
 
-    const tileResolver = tileCollider.tiles;
+    const tileResolver = level.tileCollider.tiles;
+    const tileSize = tileResolver.tileSize;
+
     const getByIndexOriginal = tileResolver.getByIndex;
     tileResolver.getByIndex = function getByIndexFake(x, y) {
-        const match = getByIndexOriginal.call(tileResolver, x, y);
-        if (match) {
-            resolvedTiles.push(match);
-        }
-        return match;
+        resolvedTiles.push({x, y});
+        return getByIndexOriginal.call(tileResolver, x, y);
     }
 
-    return function drawTileCollisions(context, camera) {
+    return function drawCollision(context, camera) {
         context.strokeStyle = 'blue';
-        resolvedTiles.forEach(({tile, x1, x2, y1, y2}) => {
-            context.strokeRect(
-                x1 - camera.pos.x,
-                y1 - camera.pos.y,
-                x2 - x1,
-                y2 - y1);
+        resolvedTiles.forEach(({x, y}) => {
+            context.beginPath();
+            context.rect(
+                x * tileSize - camera.pos.x,
+                y * tileSize - camera.pos.y,
+                tileSize, tileSize);
+            context.stroke();
+        });
+
+        context.strokeStyle = 'red';
+        level.entities.forEach(entity => {
+            context.beginPath();
+            context.rect(
+                entity.pos.x - camera.pos.x,
+                entity.pos.y - camera.pos.y,
+                entity.size.x,
+                entity.size.y);
+            context.stroke();
         });
 
         resolvedTiles.length = 0;
     };
 }
 
-function createEntityRectLayer(entities) {
-    return function drawEntityRects(context, camera) {
-        context.strokeStyle = 'red';
-        entities.forEach(entity => {
-            context.strokeRect(
-                entity.pos.x - camera.pos.x,
-                entity.pos.y - camera.pos.y,
-                entity.size.x,
-                entity.size.y);
-        });
-    };
-}
-
-function createCollisionGridLayer(collisionGrid) {
-    const tileResolver = new TileResolver(collisionGrid);
-
-    return function drawTileCollisions(context, camera) {
-        const collisionTiles = tileResolver.searchByRange(
-            camera.pos.x,
-            camera.pos.x + camera.size.x,
-            camera.pos.y,
-            camera.pos.y + camera.size.y);
-
-        context.strokeStyle = 'orange';
-        collisionTiles.forEach(({tile, x1, x2, y1, y2}) => {
-            if (tile.type === 'ground') {
-                context.strokeRect(
-                    x1 - camera.pos.x,
-                    y1 - camera.pos.y,
-                    x2 - x1,
-                    y2 - y1);
-            }
-        });
-    };
-}
-
-export function createCollisionLayer(level) {
-    const layers = [
-        createCollisionGridLayer(level.collisionGrid),
-        createTileColliderLayer(level.tileCollider),
-        createEntityRectLayer(level.entities),
-    ];
-
-    return function drawCollision(context, camera) {
-        layers.forEach(drawLayer => drawLayer(context, camera));
-    };
-}
-
 export function createCameraLayer(cameraToDraw) {
     return function drawCameraRect(context, fromCamera) {
         context.strokeStyle = 'purple';
-        context.strokeRect(
+        context.beginPath();
+        context.rect(
             cameraToDraw.pos.x - fromCamera.pos.x,
             cameraToDraw.pos.y - fromCamera.pos.y,
             cameraToDraw.size.x,
             cameraToDraw.size.y);
+        context.stroke();
     };
 }
