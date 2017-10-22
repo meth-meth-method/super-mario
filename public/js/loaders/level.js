@@ -36,7 +36,9 @@ function* expandRanges(ranges) {
     }
 }
 
-function createTiles(level, tiles, patterns, callback) {
+function expandTiles(tiles, patterns) {
+    const expandedTiles = [];
+
     function walkTiles(tiles, offsetX, offsetY) {
         for (const tile of tiles) {
             for (const {x, y} of expandRanges(tile.ranges)) {
@@ -48,13 +50,19 @@ function createTiles(level, tiles, patterns, callback) {
                     console.log(patterns[tile.pattern]);
                     walkTiles(patterns[tile.pattern].tiles, derivedX, derivedY);
                 } else {
-                    callback(tile, derivedX, derivedY);
+                    expandedTiles.push({
+                        tile,
+                        x: derivedX,
+                        y: derivedY,
+                    });
                 }
             }
         }
     }
 
     walkTiles(tiles, 0, 0);
+
+    return expandedTiles;
 }
 
 export function loadLevel(name) {
@@ -66,12 +74,12 @@ export function loadLevel(name) {
     .then(([levelSpec, backgroundSprites]) => {
         const level = new Level();
 
-        createTiles(level, levelSpec.tiles, levelSpec.patterns, (tile, x, y) => {
+        for (const {tile, x, y} of expandTiles(levelSpec.tiles, levelSpec.patterns)) {
             level.tiles.set(x, y, {
                 name: tile.name,
                 type: tile.type,
             });
-        });
+        }
 
         const backgroundLayer = createBackgroundLayer(level, backgroundSprites);
         level.comp.layers.push(backgroundLayer);
