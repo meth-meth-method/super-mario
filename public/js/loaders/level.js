@@ -11,10 +11,14 @@ function createTiles(level, backgrounds) {
         const yEnd = yStart + yLen;
         for (let x = xStart; x < xEnd; ++x) {
             for (let y = yStart; y < yEnd; ++y) {
-                level.tiles.set(x, y, {
-                    name: background.tile,
-                    type: background.type,
-                });
+                if (background.pattern) {
+                    console.log('Pattern %s at %d, %d', background.pattern, x, y);
+                } else {
+                    level.tiles.set(x, y, {
+                        name: background.tile,
+                        type: background.type,
+                    });
+                }
             }
         }
     }
