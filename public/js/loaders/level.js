@@ -14,6 +14,7 @@ function createTiles(level, backgrounds, patterns) {
                 if (background.pattern) {
                     console.log('Pattern %s at %d, %d', background.pattern, x, y);
                     console.log(patterns[background.pattern]);
+                    createTiles(level, patterns[background.pattern].backgrounds, patterns);
                 } else {
                     level.tiles.set(x, y, {
                         name: background.tile,
