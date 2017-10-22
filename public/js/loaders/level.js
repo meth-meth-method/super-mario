@@ -4,7 +4,7 @@ import {loadJSON, loadSpriteSheet} from '../loaders.js';
 import {createBackgroundLayer, createSpriteLayer} from '../layers.js';
 import {createAnim} from '../anim.js';
 
-function createTiles(level, backgrounds) {
+function createTiles(level, backgrounds, patterns) {
 
     function applyRange(background, xStart, xLen, yStart, yLen) {
         const xEnd = xStart + xLen;
@@ -13,6 +13,7 @@ function createTiles(level, backgrounds) {
             for (let y = yStart; y < yEnd; ++y) {
                 if (background.pattern) {
                     console.log('Pattern %s at %d, %d', background.pattern, x, y);
+                    console.log(patterns[background.pattern]);
                 } else {
                     level.tiles.set(x, y, {
                         name: background.tile,
@@ -50,7 +51,7 @@ export function loadLevel(name) {
     .then(([levelSpec, backgroundSprites]) => {
         const level = new Level();
 
-        createTiles(level, levelSpec.backgrounds);
+        createTiles(level, levelSpec.backgrounds, levelSpec.patterns);
 
         const backgroundLayer = createBackgroundLayer(level, backgroundSprites);
         level.comp.layers.push(backgroundLayer);
