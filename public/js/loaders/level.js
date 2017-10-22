@@ -4,19 +4,22 @@ import {loadJSON, loadSpriteSheet} from '../loaders.js';
 import {createBackgroundLayer, createSpriteLayer} from '../layers.js';
 import {createAnim} from '../anim.js';
 
-function createTiles(level, backgrounds, patterns) {
+function createTiles(level, backgrounds, patterns, offsetX = 0, offsetY = 0) {
 
     function applyRange(background, xStart, xLen, yStart, yLen) {
         const xEnd = xStart + xLen;
         const yEnd = yStart + yLen;
         for (let x = xStart; x < xEnd; ++x) {
             for (let y = yStart; y < yEnd; ++y) {
+                const derivedX = x + offsetX;
+                const derivedY = y + offsetY;
+
                 if (background.pattern) {
-                    console.log('Pattern %s at %d, %d', background.pattern, x, y);
+                    console.log('Pattern %s at %d, %d', background.pattern, derivedX, derivedY);
                     console.log(patterns[background.pattern]);
-                    createTiles(level, patterns[background.pattern].backgrounds, patterns);
+                    createTiles(level, patterns[background.pattern].backgrounds, patterns, derivedX, derivedY);
                 } else {
-                    level.tiles.set(x, y, {
+                    level.tiles.set(derivedX, derivedY, {
                         name: background.tile,
                         type: background.type,
                     });
