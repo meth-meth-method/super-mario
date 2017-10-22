@@ -37,7 +37,7 @@ function* expandRanges(ranges) {
 }
 
 function createTiles(level, tiles, patterns, offsetX = 0, offsetY = 0) {
-    tiles.forEach(tile => {
+    for (const tile of tiles) {
         for (const {x, y} of expandRanges(tile.ranges)) {
             const derivedX = x + offsetX;
             const derivedY = y + offsetY;
@@ -53,7 +53,7 @@ function createTiles(level, tiles, patterns, offsetX = 0, offsetY = 0) {
                 });
             }
         }
-    });
+    }
 }
 
 export function loadLevel(name) {
