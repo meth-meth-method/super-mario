@@ -1,5 +1,5 @@
-import {loadMario} from './entities/Mario.js';
-import {loadGoomba} from './entities/Goomba.js';
+import {loadMario} from '../entities/Mario.js';
+import {loadGoomba} from '../entities/Goomba.js';
 
 export function loadEntities() {
     const entityFactories = {};

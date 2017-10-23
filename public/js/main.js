@@ -1,7 +1,7 @@
 import Camera from './Camera.js';
 import Timer from './Timer.js';
 import {loadLevel} from './loaders/level.js';
-import {loadEntities} from './entities.js';
+import {loadEntities} from './loaders/entities.js';
 import {setupKeyboard} from './input.js';
 
 const canvas = document.getElementById('screen');
