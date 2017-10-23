@@ -17,7 +17,6 @@ function createGoombaFactory(sprite) {
     return function createGoomba() {
         const goomba = new Entity();
         goomba.size.set(16, 16);
-        goomba.lifetime = 0;
 
         goomba.addTrait({
             NAME: 'walk',
@@ -29,7 +28,6 @@ function createGoombaFactory(sprite) {
             },
             update(goomba, deltaTime) {
                 goomba.vel.x = this.speed;
-                goomba.lifetime += deltaTime;
             },
         });
 
