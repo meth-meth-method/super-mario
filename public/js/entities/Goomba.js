@@ -1,4 +1,5 @@
 import Entity, {Sides} from '../Entity.js';
+import PendulumWalk from '../traits/PendulumWalk.js';
 import {loadSpriteSheet} from '../loaders.js';
 import {createAnim} from '../anim.js';
 
@@ -18,18 +19,8 @@ function createGoombaFactory(sprite) {
         const goomba = new Entity();
         goomba.size.set(16, 16);
 
-        goomba.addTrait({
-            NAME: 'walk',
-            speed: -30,
-            obstruct(goomba, side) {
-                if (side === Sides.LEFT || side === Sides.RIGHT) {
-                    this.speed = -this.speed;
-                }
-            },
-            update(goomba, deltaTime) {
-                goomba.vel.x = this.speed;
-            },
-        });
+        goomba.addTrait(new PendulumWalk());
+        goomba.pendulumWalk.speed = -30;
 
         goomba.draw = drawGoomba;
 
