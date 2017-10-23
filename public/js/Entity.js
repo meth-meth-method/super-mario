@@ -3,6 +3,8 @@ import {Vec2} from './math.js';
 export const Sides = {
     TOP: Symbol('top'),
     BOTTOM: Symbol('bottom'),
+    LEFT: Symbol('left'),
+    RIGHT: Symbol('right'),
 };
 
 export class Trait {
