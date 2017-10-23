@@ -12,7 +12,7 @@ function createKoopaFactory(sprite) {
     const walkAnim = createAnim(['walk-1', 'walk-2'], 0.15);
 
     function drawKoopa(context) {
-        sprite.draw(walkAnim(this.lifetime), context, 0, 0);
+        sprite.draw(walkAnim(this.lifetime), context, 0, 0, this.vel.x < 0);
     }
 
     return function createKoopa() {
