@@ -1,7 +1,6 @@
 import Entity, {Sides} from '../Entity.js';
 import PendulumWalk from '../traits/PendulumWalk.js';
 import {loadSpriteSheet} from '../loaders.js';
-import {createAnim} from '../anim.js';
 
 export function loadKoopa() {
     return loadSpriteSheet('koopa')
@@ -9,7 +8,7 @@ export function loadKoopa() {
 }
 
 function createKoopaFactory(sprite) {
-    const walkAnim = createAnim(['walk-1', 'walk-2'], 0.15);
+    const walkAnim = sprite.animations.get('walk');
 
     function drawKoopa(context) {
         sprite.draw(walkAnim(this.lifetime), context, 0, 0, this.vel.x < 0);
@@ -21,7 +20,6 @@ function createKoopaFactory(sprite) {
         koopa.offset.y = 8;
 
         koopa.addTrait(new PendulumWalk());
-        koopa.pendulumWalk.speed = -30;
 
         koopa.draw = drawKoopa;
 

@@ -1,7 +1,7 @@
 import Camera from './Camera.js';
 import Timer from './Timer.js';
 import {loadLevel} from './loaders/level.js';
-import {loadEntities} from './loaders/entities.js';
+import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers.js';
 
@@ -12,34 +12,31 @@ Promise.all([
     loadEntities(),
     loadLevel('1-1'),
 ])
-.then(([entityFactory, level]) => {
+.then(([entity, level]) => {
+    console.log(entity);
+
     const camera = new Camera();
+    window.camera = camera;
 
-    function spawnMario(posX, posY) {
-        const mario = entityFactory.mario();
-        mario.pos.set(posX, posY);
-        level.entities.add(mario);
-        const input = setupKeyboard(mario);
-        input.listenTo(window);
-        return mario;
-    }
+    const mario = entity.mario();
+    mario.pos.set(64, 64);
 
-    level.comp.layers.push(createCollisionLayer(level));
-
-    const mario = spawnMario(64, 64);
-
-    canvas.addEventListener('click', event => {
-        spawnMario(event.offsetX + camera.pos.x, event.offsetY);
-    });
-
-    const goomba = entityFactory.goomba();
+    const goomba = entity.goomba();
     goomba.pos.x = 220;
     level.entities.add(goomba);
 
-    const koopa = entityFactory.koopa();
-    koopa.pos.x = 320;
+
+    const koopa = entity.koopa();
+    koopa.pos.x = 260;
     level.entities.add(koopa);
 
+
+    level.entities.add(mario);
+
+    level.comp.layers.push(createCollisionLayer(level));
+
+    const input = setupKeyboard(mario);
+    input.listenTo(window);
 
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {

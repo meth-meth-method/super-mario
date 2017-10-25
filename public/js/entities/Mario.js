@@ -11,14 +11,6 @@ export function loadMario() {
     .then(createMarioFactory);
 }
 
-function createAnim(frames, frameLen) {
-    return function resolveFrame(distance) {
-        const frameIndex = Math.floor(distance / frameLen) % frames.length;
-        const frameName = frames[frameIndex];
-        return frameName;
-    }
-}
-
 function createMarioFactory(sprite) {
     const runAnim = sprite.animations.get('run');
 
@@ -38,6 +30,10 @@ function createMarioFactory(sprite) {
         return 'idle';
     }
 
+    function setTurboState(turboOn) {
+        this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
+    }
+
     function drawMario(context) {
         sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
     }
@@ -49,10 +45,7 @@ function createMarioFactory(sprite) {
         mario.addTrait(new Go());
         mario.addTrait(new Jump());
 
-        mario.turbo = function setTurboState(turboOn) {
-            this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
-        }
-
+        mario.turbo = setTurboState;
         mario.draw = drawMario;
 
         mario.turbo(false);

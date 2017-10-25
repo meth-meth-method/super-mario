@@ -14,5 +14,16 @@
             "name": "flat",
             "rect": [277, 43, 16, 16]
         }
+    ],
+
+    "animations": [
+        {
+            "name": "walk",
+            "frameLen": 0.15,
+            "frames": [
+                "walk-1",
+                "walk-2"
+            ]
+        }
     ]
 }
