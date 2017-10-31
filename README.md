@@ -14,7 +14,8 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 6. [Scrolling](https://www.youtube.com/watch?v=6Q_F5b-yvXI&index=6&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 7. [Animation](https://www.youtube.com/watch?v=p0yNWxPj-5A&index=7&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 8. [Mario Mechanics](https://www.youtube.com/watch?v=lGngRMfDz1o&index=8&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
-9. [Background Patterns & Layers](https://www.youtube.com/watch?v=I1RTsqUz-t0&index=9&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx&t=2s)
+9. [Background Patterns & Layers](https://www.youtube.com/watch?v=I1RTsqUz-t0&index=9&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
+10. [Synchronous Entity Spawning](https://www.youtube.com/watch?v=C4pZW-0xrDQ&index=10&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 
 ## Contributing
 
