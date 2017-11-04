@@ -11,6 +11,14 @@ function setupCollision(levelSpec, level) {
     level.setCollisionGrid(collisionGrid);
 }
 
+function setupBackgrounds(levelSpec, level, backgroundSprites) {
+    levelSpec.layers.forEach(layer => {
+        const backgroundGrid = createBackgroundGrid(layer.tiles, levelSpec.patterns);
+        const backgroundLayer = createBackgroundLayer(level, backgroundGrid, backgroundSprites);
+        level.comp.layers.push(backgroundLayer);
+    });
+}
+
 export function loadLevel(name) {
     return loadJSON(`/levels/${name}.json`)
     .then(levelSpec => Promise.all([
@@ -21,12 +29,7 @@ export function loadLevel(name) {
         const level = new Level();
 
         setupCollision(levelSpec, level);
-
-        levelSpec.layers.forEach(layer => {
-            const backgroundGrid = createBackgroundGrid(layer.tiles, levelSpec.patterns);
-            const backgroundLayer = createBackgroundLayer(level, backgroundGrid, backgroundSprites);
-            level.comp.layers.push(backgroundLayer);
-        });
+        setupBackgrounds(levelSpec, level, backgroundSprites);
 
         const spriteLayer = createSpriteLayer(level.entities);
         level.comp.layers.push(spriteLayer);
