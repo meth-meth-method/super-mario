@@ -1,6 +1,6 @@
 import Camera from './Camera.js';
 import Timer from './Timer.js';
-import {loadLevel} from './loaders/level.js';
+import {createLevelLoader} from './loaders/level.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers.js';
@@ -10,7 +10,7 @@ const context = canvas.getContext('2d');
 
 Promise.all([
     loadEntities(),
-    loadLevel('1-1'),
+    createLevelLoader()('1-1'),
 ])
 .then(([entityFactory, level]) => {
     console.log(entityFactory);
