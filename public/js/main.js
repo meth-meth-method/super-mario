@@ -12,21 +12,21 @@ Promise.all([
     loadEntities(),
     loadLevel('1-1'),
 ])
-.then(([entity, level]) => {
-    console.log(entity);
+.then(([entityFactory, level]) => {
+    console.log(entityFactory);
 
     const camera = new Camera();
     window.camera = camera;
 
-    const mario = entity.mario();
+    const mario = entityFactory.mario();
     mario.pos.set(64, 64);
 
-    const goomba = entity.goomba();
+    const goomba = entityFactory.goomba();
     goomba.pos.x = 220;
     level.entities.add(goomba);
 
 
-    const koopa = entity.koopa();
+    const koopa = entityFactory.koopa();
     koopa.pos.x = 260;
     level.entities.add(koopa);
 
