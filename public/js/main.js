@@ -8,15 +8,17 @@ import {createCollisionLayer} from './layers.js';
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
-Promise.all([
-    loadEntities(),
-    createLevelLoader()('1-1'),
-])
+loadEntities()
+.then(entityFactory => Promise.all([
+    entityFactory,
+    createLevelLoader(entityFactory),
+]))
+.then(([entityFactory, loadLevel]) => Promise.all([
+    entityFactory,
+    loadLevel('1-1'),
+]))
 .then(([entityFactory, level]) => {
-    console.log(entityFactory);
-
     const camera = new Camera();
-    window.camera = camera;
 
     const mario = entityFactory.mario();
     mario.pos.set(64, 64);
