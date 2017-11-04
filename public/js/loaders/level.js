@@ -93,10 +93,8 @@ function* expandRanges(ranges) {
     }
 }
 
-function expandTiles(tiles, patterns) {
-    const expandedTiles = [];
-
-    function walkTiles(tiles, offsetX, offsetY) {
+function* expandTiles(tiles, patterns) {
+    function* walkTiles(tiles, offsetX, offsetY) {
         for (const tile of tiles) {
             for (const {x, y} of expandRanges(tile.ranges)) {
                 const derivedX = x + offsetX;
@@ -104,19 +102,17 @@ function expandTiles(tiles, patterns) {
 
                 if (tile.pattern) {
                     const tiles = patterns[tile.pattern].tiles;
-                    walkTiles(tiles, derivedX, derivedY);
+                    yield* walkTiles(tiles, derivedX, derivedY);
                 } else {
-                    expandedTiles.push({
+                    yield {
                         tile,
                         x: derivedX,
                         y: derivedY,
-                    });
+                    };
                 }
             }
         }
     }
 
-    walkTiles(tiles, 0, 0);
-
-    return expandedTiles;
+    yield* walkTiles(tiles, 0, 0);
 }
