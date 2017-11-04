@@ -3,6 +3,14 @@ import Level from '../Level.js';
 import {createBackgroundLayer, createSpriteLayer} from '../layers.js';
 import {loadJSON, loadSpriteSheet} from '../loaders.js';
 
+function setupCollision(levelSpec, level) {
+    const mergedTiles = levelSpec.layers.reduce((mergedTiles, layerSpec) => {
+        return mergedTiles.concat(layerSpec.tiles);
+    }, []);
+    const collisionGrid = createCollisionGrid(mergedTiles, levelSpec.patterns);
+    level.setCollisionGrid(collisionGrid);
+}
+
 export function loadLevel(name) {
     return loadJSON(`/levels/${name}.json`)
     .then(levelSpec => Promise.all([
@@ -12,11 +20,7 @@ export function loadLevel(name) {
     .then(([levelSpec, backgroundSprites]) => {
         const level = new Level();
 
-        const mergedTiles = levelSpec.layers.reduce((mergedTiles, layerSpec) => {
-            return mergedTiles.concat(layerSpec.tiles);
-        }, []);
-        const collisionGrid = createCollisionGrid(mergedTiles, levelSpec.patterns);
-        level.setCollisionGrid(collisionGrid);
+        setupCollision(levelSpec, level);
 
         levelSpec.layers.forEach(layer => {
             const backgroundGrid = createBackgroundGrid(layer.tiles, levelSpec.patterns);
