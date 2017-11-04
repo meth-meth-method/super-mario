@@ -21,8 +21,8 @@ function setupBackgrounds(levelSpec, level, backgroundSprites) {
 
 function setupEntities(levelSpec, level, entityFactory) {
     console.log(entityFactory);
-    levelSpec.entities.forEach(entitySpec => {
-        console.log(entitySpec);
+    levelSpec.entities.forEach(({name, pos: [x, y]}) => {
+        console.log(name, x, y);
     });
 
     const spriteLayer = createSpriteLayer(level.entities);
