@@ -19,6 +19,11 @@ function setupBackgrounds(levelSpec, level, backgroundSprites) {
     });
 }
 
+function setupEntities(levelSpec, level) {
+    const spriteLayer = createSpriteLayer(level.entities);
+    level.comp.layers.push(spriteLayer);
+}
+
 export function loadLevel(name) {
     return loadJSON(`/levels/${name}.json`)
     .then(levelSpec => Promise.all([
@@ -30,9 +35,7 @@ export function loadLevel(name) {
 
         setupCollision(levelSpec, level);
         setupBackgrounds(levelSpec, level, backgroundSprites);
-
-        const spriteLayer = createSpriteLayer(level.entities);
-        level.comp.layers.push(spriteLayer);
+        setupEntities(levelSpec, level);
 
         return level;
     });
