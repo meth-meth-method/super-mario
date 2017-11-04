@@ -19,7 +19,9 @@ function setupBackgrounds(levelSpec, level, backgroundSprites) {
     });
 }
 
-function setupEntities(levelSpec, level) {
+function setupEntities(levelSpec, level, entityFactory) {
+    console.log(entityFactory);
+
     const spriteLayer = createSpriteLayer(level.entities);
     level.comp.layers.push(spriteLayer);
 }
