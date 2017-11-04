@@ -23,6 +23,10 @@ function setupEntities(levelSpec, level, entityFactory) {
     console.log(entityFactory);
     levelSpec.entities.forEach(({name, pos: [x, y]}) => {
         console.log(name, x, y);
+        const createEntity = entityFactory[name];
+        const entity = createEntity();
+        entity.pos.set(x, y);
+        level.entities.add(entity);
     });
 
     const spriteLayer = createSpriteLayer(level.entities);
