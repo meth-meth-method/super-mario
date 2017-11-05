@@ -9,7 +9,7 @@ async function main(canvas) {
     const context = canvas.getContext('2d');
 
     const entityFactory = await loadEntities();
-    const loadLevel = createLevelLoader(entityFactory);
+    const loadLevel = await createLevelLoader(entityFactory);
 
     const level = await loadLevel('1-1');
 
