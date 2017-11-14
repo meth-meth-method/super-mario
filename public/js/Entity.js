@@ -13,6 +13,10 @@ export class Trait {
         this.NAME = name;
     }
 
+    collides(us, them) {
+        console.log('Us', us, 'Them', them);
+    }
+
     obstruct() {
 
     }
@@ -40,7 +44,9 @@ export default class Entity {
     }
 
     collides(entity) {
-        console.log(this, 'colliding with', entity);
+        this.traits.forEach(trait => {
+            trait.collides(this, entity);
+        });
     }
 
     obstruct(side) {
