@@ -39,6 +39,10 @@ export default class Entity {
         this[trait.NAME] = trait;
     }
 
+    collides(entity) {
+        console.log(this, 'colliding with', entity);
+    }
+
     obstruct(side) {
         this.traits.forEach(trait => {
             trait.obstruct(this, side);
