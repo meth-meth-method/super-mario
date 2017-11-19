@@ -15,6 +15,7 @@ class Behavior extends Trait {
 
     collides(us, them) {
         if (them.stomper) {
+            them.stomper.bounce();
             us.killable.kill();
             us.pendulumWalk.speed = 0;
         }
