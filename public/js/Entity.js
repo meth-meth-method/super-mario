@@ -14,7 +14,7 @@ export class Trait {
     }
 
     collides(us, them) {
-        console.log('Us', us, 'Them', them);
+
     }
 
     obstruct() {
