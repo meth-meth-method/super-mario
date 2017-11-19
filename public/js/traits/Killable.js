@@ -4,9 +4,20 @@ export default class Killable extends Trait {
     constructor() {
         super('killable');
         this.dead = false;
+        this.deadTime = null;
+        this.removeAfter = 2;
     }
 
     kill(by) {
         this.dead = true;
+    }
+
+    update(entity, deltaTime, level) {
+        if (this.dead) {
+            this.deadTime += deltaTime;
+            if (this.deadTime > this.removeAfter) {
+                level.entities.delete(entity);
+            }
+        }
     }
 }
