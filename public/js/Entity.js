@@ -22,7 +22,7 @@ export class Trait {
     }
 
     update() {
-        console.warn('Unhandled update call in Trait');
+
     }
 }
 
