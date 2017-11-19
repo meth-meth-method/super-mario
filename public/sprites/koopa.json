@@ -9,6 +9,14 @@
         {
             "name": "walk-2",
             "rect": [315, 206, 16, 24]
+        },
+        {
+            "name": "hiding",
+            "rect": [144, 206, 16, 24]
+        },
+        {
+            "name": "hiding-with-legs",
+            "rect": [163, 206, 16, 24]
         }
     ],
 
