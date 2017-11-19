@@ -7,7 +7,8 @@ export default class Stomper extends Trait {
         this.queueBounce = false;
     }
 
-    bounce() {
+    bounce(us, them) {
+        us.bounds.bottom = them.bounds.top;
         this.queueBounce = true;
     }
 
