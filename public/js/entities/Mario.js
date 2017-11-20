@@ -49,6 +49,8 @@ function createMarioFactory(sprite) {
         mario.addTrait(new Stomper());
         mario.addTrait(new Killable());
 
+        mario.killable.removeAfter = 0;
+
         mario.turbo = setTurboState;
         mario.draw = drawMario;
 
