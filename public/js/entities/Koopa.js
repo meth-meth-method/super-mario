@@ -15,6 +15,9 @@ class Behavior extends Trait {
     constructor() {
         super('behavior');
         this.state = STATE_WALKING;
+
+        this.hideTime = null;
+        this.hideDuration = 5;
     }
 
     collides(us, them) {
@@ -41,7 +44,22 @@ class Behavior extends Trait {
     hide(us) {
         us.vel.x = 0;
         us.pendulumWalk.speed = 0;
+        this.hideTime = 0;
         this.state = STATE_HIDING;
+    }
+
+    unhide(us) {
+        us.pendulumWalk.speed = 100;
+        this.state = STATE_WALKING;
+    }
+
+    update(us, deltaTime) {
+        if (this.state === STATE_HIDING) {
+            if (this.hideTime > this.hideDuration) {
+                this.unhide(us);
+            }
+            this.hideTime += deltaTime;
+        }
     }
 }
 
