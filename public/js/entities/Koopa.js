@@ -1,6 +1,6 @@
 import Entity, {Sides, Trait} from '../Entity.js';
 import Killable from '../traits/Killable.js';
-import PendulumWalk from '../traits/PendulumWalk.js';
+import PendulumMove from '../traits/PendulumMove.js';
 import {loadSpriteSheet} from '../loaders.js';
 
 export function loadKoopa() {
@@ -42,8 +42,8 @@ class Behavior extends Trait {
         if (this.state === STATE_WALKING) {
             them.killable.kill();
         } else if (this.state === STATE_HIDING) {
-            us.pendulumWalk.enabled = true;
-            us.pendulumWalk.speed = this.panicSpeed * Math.sign(them.vel.x);
+            us.pendulumMove.enabled = true;
+            us.pendulumMove.speed = this.panicSpeed * Math.sign(them.vel.x);
             this.state = STATE_PANIC;
         } else if (this.state === STATE_PANIC) {
             const travelDir = Math.sign(us.vel.x);
@@ -66,13 +66,13 @@ class Behavior extends Trait {
 
     hide(us) {
         us.vel.x = 0;
-        us.pendulumWalk.enabled = false;
+        us.pendulumMove.enabled = false;
         this.hideTime = 0;
         this.state = STATE_HIDING;
     }
 
     unhide(us) {
-        us.pendulumWalk.enabled = true;
+        us.pendulumMove.enabled = true;
         this.state = STATE_WALKING;
     }
 
@@ -106,7 +106,7 @@ function createKoopaFactory(sprite) {
         koopa.size.set(16, 16);
         koopa.offset.y = 8;
 
-        koopa.addTrait(new PendulumWalk());
+        koopa.addTrait(new PendulumMove());
         koopa.addTrait(new Killable());
         koopa.addTrait(new Behavior());
 
