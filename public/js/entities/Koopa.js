@@ -8,9 +8,13 @@ export function loadKoopa() {
     .then(createKoopaFactory);
 }
 
+const STATE_WALKING = Symbol('walking');
+const STATE_HIDING = Symbol('hiding');
+
 class Behavior extends Trait {
     constructor() {
         super('behavior');
+        this.state = STATE_WALKING;
     }
 
     collides(us, them) {
@@ -20,13 +24,24 @@ class Behavior extends Trait {
 
         if (them.stomper) {
             if (them.vel.y > us.vel.y) {
+                this.handleStomp(us, them);
                 them.stomper.bounce(them, us);
-                us.killable.kill();
-                us.pendulumWalk.speed = 0;
             } else {
                 them.killable.kill();
             }
         }
+    }
+
+    handleStomp(us, them) {
+        if (this.state === STATE_WALKING) {
+            this.hide(us)
+        }
+    }
+
+    hide(us) {
+        us.vel.x = 0;
+        us.pendulumWalk.speed = 0;
+        this.state = STATE_HIDING;
     }
 }
 
