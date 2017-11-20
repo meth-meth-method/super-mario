@@ -43,13 +43,13 @@ class Behavior extends Trait {
 
     hide(us) {
         us.vel.x = 0;
-        us.pendulumWalk.speed = 0;
+        us.pendulumWalk.enabled = false;
         this.hideTime = 0;
         this.state = STATE_HIDING;
     }
 
     unhide(us) {
-        us.pendulumWalk.speed = 100;
+        us.pendulumWalk.enabled = true;
         this.state = STATE_WALKING;
     }
 
