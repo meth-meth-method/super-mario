@@ -49,6 +49,9 @@ function createKoopaFactory(sprite) {
     const walkAnim = sprite.animations.get('walk');
 
     function routeAnim(koopa) {
+        if (koopa.behavior.state === STATE_HIDING) {
+            return 'hiding';
+        }
         return walkAnim(koopa.lifetime);
     }
 
