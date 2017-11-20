@@ -1,7 +1,7 @@
 import Camera from './Camera.js';
-import Timer from './Timer.js';
 import Entity from './Entity.js';
 import PlayerController from './traits/PlayerController.js';
+import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
@@ -27,11 +27,10 @@ async function main(canvas) {
     const camera = new Camera();
 
     const mario = entityFactory.mario();
-    mario.pos.set(64, 64);
-    level.entities.add(mario);
 
     const playerEnv = createPlayerEnv(mario);
     level.entities.add(playerEnv);
+
 
     level.comp.layers.push(createCollisionLayer(level));
 

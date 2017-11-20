@@ -15,13 +15,14 @@ const STATE_PANIC = Symbol('panic');
 class Behavior extends Trait {
     constructor() {
         super('behavior');
-        this.state = STATE_WALKING;
 
-        this.hideTime = null;
+        this.hideTime = 0;
         this.hideDuration = 5;
 
         this.walkSpeed = null;
         this.panicSpeed = 300;
+
+        this.state = STATE_WALKING;
     }
 
     collides(us, them) {
@@ -54,11 +55,11 @@ class Behavior extends Trait {
 
     handleStomp(us, them) {
         if (this.state === STATE_WALKING) {
-            this.hide(us)
+            this.hide(us);
         } else if (this.state === STATE_HIDING) {
             us.killable.kill();
-            us.canCollide = false;
             us.vel.set(100, -200);
+            us.canCollide = false;
         } else if (this.state === STATE_PANIC) {
             this.hide(us);
         }
@@ -71,7 +72,7 @@ class Behavior extends Trait {
             this.walkSpeed = us.pendulumMove.speed;
         }
         this.hideTime = 0;
-        this.state = STATE_HIDING;
+        this.state = STATE_HIDING
     }
 
     unhide(us) {
@@ -88,13 +89,14 @@ class Behavior extends Trait {
 
     update(us, deltaTime) {
         if (this.state === STATE_HIDING) {
+            this.hideTime += deltaTime;
             if (this.hideTime > this.hideDuration) {
                 this.unhide(us);
             }
-            this.hideTime += deltaTime;
         }
     }
 }
+
 
 function createKoopaFactory(sprite) {
     const walkAnim = sprite.animations.get('walk');
@@ -114,7 +116,6 @@ function createKoopaFactory(sprite) {
 
         return walkAnim(koopa.lifetime);
     }
-
 
     function drawKoopa(context) {
         sprite.draw(routeAnim(this), context, 0, 0, this.vel.x < 0);

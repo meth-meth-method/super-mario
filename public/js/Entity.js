@@ -45,9 +45,9 @@ export default class Entity {
         this[trait.NAME] = trait;
     }
 
-    collides(entity) {
+    collides(candidate) {
         this.traits.forEach(trait => {
-            trait.collides(this, entity);
+            trait.collides(this, candidate);
         });
     }
 
