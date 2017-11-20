@@ -40,6 +40,7 @@ class Behavior extends Trait {
             this.hide(us)
         } else if (this.state === STATE_HIDING) {
             us.killable.kill();
+            us.canCollide = false;
             us.vel.set(100, -200);
         }
     }
