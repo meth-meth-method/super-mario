@@ -59,6 +59,8 @@ class Behavior extends Trait {
             us.killable.kill();
             us.canCollide = false;
             us.vel.set(100, -200);
+        } else if (this.state === STATE_PANIC) {
+            this.hide(us);
         }
     }
 
