@@ -11,6 +11,7 @@ export function loadGoomba() {
 class Behavior extends Trait {
     constructor() {
         super('behavior');
+        this.flat = false;
     }
 
     collides(us, them) {
@@ -21,6 +22,7 @@ class Behavior extends Trait {
         if (them.stomper) {
             if (them.vel.y > us.vel.y) {
                 us.killable.kill();
+                this.flat = true;
                 us.pendulumMove.speed = 0;
             } else {
                 them.killable.kill();
@@ -33,7 +35,7 @@ function createGoombaFactory(sprite) {
     const walkAnim = sprite.animations.get('walk');
 
     function routeAnim(goomba) {
-        if (goomba.killable.dead) {
+        if (goomba.behavior.flat) {
             return 'flat';
         }
 
