@@ -38,6 +38,9 @@ class Behavior extends Trait {
     handleStomp(us, them) {
         if (this.state === STATE_WALKING) {
             this.hide(us)
+        } else if (this.state === STATE_HIDING) {
+            us.killable.kill();
+            us.vel.set(100, -200);
         }
     }
 
