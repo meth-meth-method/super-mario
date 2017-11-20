@@ -18,6 +18,8 @@ class Behavior extends Trait {
 
         this.hideTime = null;
         this.hideDuration = 5;
+
+        this.panicSpeed = 300;
     }
 
     collides(us, them) {
@@ -30,8 +32,17 @@ class Behavior extends Trait {
                 this.handleStomp(us, them);
                 them.stomper.bounce(them, us);
             } else {
-                them.killable.kill();
+                this.handleNudge(us, them);
             }
+        }
+    }
+
+    handleNudge(us, them) {
+        if (this.state === STATE_WALKING) {
+            them.killable.kill();
+        } else if (this.state === STATE_HIDING) {
+            us.pendulumWalk.enabled = true;
+            us.pendulumWalk.speed = this.panicSpeed * Math.sign(them.vel.x);
         }
     }
 
