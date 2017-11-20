@@ -33,8 +33,13 @@ class Behavior extends Trait {
 function createKoopaFactory(sprite) {
     const walkAnim = sprite.animations.get('walk');
 
+    function routeAnim(koopa) {
+        return walkAnim(koopa.lifetime);
+    }
+
+
     function drawKoopa(context) {
-        sprite.draw(walkAnim(this.lifetime), context, 0, 0, this.vel.x < 0);
+        sprite.draw(routeAnim(this), context, 0, 0, this.vel.x < 0);
     }
 
     return function createKoopa() {
