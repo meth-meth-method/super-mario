@@ -32,7 +32,6 @@ class Behavior extends Trait {
         if (them.stomper) {
             if (them.vel.y > us.vel.y) {
                 this.handleStomp(us, them);
-                them.stomper.bounce(them, us);
             } else {
                 this.handleNudge(us, them);
             }

@@ -12,6 +12,12 @@ export default class Stomper extends Trait {
         this.queueBounce = true;
     }
 
+    collides(us, them) {
+        if (them.killable && us.vel.y > them.vel.y) {
+            this.bounce(us, them);
+        }
+    }
+
     update(entity) {
         if (this.queueBounce) {
             entity.vel.y = -this.bounceSpeed;
