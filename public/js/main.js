@@ -3,6 +3,7 @@ import Entity from './Entity.js';
 import PlayerController from './traits/PlayerController.js';
 import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
+import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers/collision.js';
@@ -19,7 +20,11 @@ function createPlayerEnv(playerEntity) {
 async function main(canvas) {
     const context = canvas.getContext('2d');
 
-    const entityFactory = await loadEntities();
+    const [entityFactory, font] = await Promise.all([
+        loadEntities(),
+        loadFont(),
+    ]);
+
     const loadLevel = await createLevelLoader(entityFactory);
 
     const level = await loadLevel('1-1');
