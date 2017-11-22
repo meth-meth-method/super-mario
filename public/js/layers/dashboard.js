@@ -11,6 +11,7 @@ export function createDashboardLayer(font, playerEnv) {
 
     font.print("MARIO", bufferContext, 16, LINE1);
     font.print("WORLD", bufferContext, 152, LINE1);
+    font.print("1-1", bufferContext, 160, LINE2);
     font.print("TIME", bufferContext, 208, LINE1);
 
     return function drawDashboardLayer(context) {
