@@ -8,9 +8,9 @@ class Font {
         this.sprites = sprites;
     }
 
-    print(text, context) {
+    print(text, context, x, y) {
         [...text].forEach((char, pos) => {
-            this.sprites.draw(char, context, pos * 8, 0);
+            this.sprites.draw(char, context, pos * 8 + x, y);
         });
     }
 }
