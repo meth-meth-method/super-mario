@@ -13,10 +13,10 @@ function createBoundingBoxLayer(entities) {
     }
 }
 
-export function createCollisionLayer(level) {
+function createTileCandidateLayer(tileCollider) {
     const resolvedTiles = [];
 
-    const tileResolver = level.tileCollider.tiles;
+    const tileResolver = tileCollider.tiles;
     const tileSize = tileResolver.tileSize;
 
     const getByIndexOriginal = tileResolver.getByIndex;
@@ -25,9 +25,7 @@ export function createCollisionLayer(level) {
         return getByIndexOriginal.call(tileResolver, x, y);
     }
 
-    const drawBoundingBoxes = createBoundingBoxLayer(level.entities);
-
-    return function drawCollision(context, camera) {
+    return function drawTileCandidates(context, camera) {
         context.strokeStyle = 'blue';
         resolvedTiles.forEach(({x, y}) => {
             context.beginPath();
@@ -38,8 +36,16 @@ export function createCollisionLayer(level) {
             context.stroke();
         });
 
-        drawBoundingBoxes(context, camera);
-
         resolvedTiles.length = 0;
+    };
+}
+
+export function createCollisionLayer(level) {
+    const drawTileCandidates = createTileCandidateLayer(level.tileCollider);
+    const drawBoundingBoxes = createBoundingBoxLayer(level.entities);
+
+    return function drawCollision(context, camera) {
+        drawBoundingBoxes(context, camera);
+        drawTileCandidates(context, camera);
     };
 }
