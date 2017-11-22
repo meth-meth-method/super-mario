@@ -20,6 +20,6 @@ export default class PlayerController extends Trait {
             level.entities.add(this.player);
         }
 
-        this.time -= deltaTime;
+        this.time -= deltaTime * 2;
     }
 }
