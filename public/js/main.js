@@ -5,7 +5,7 @@ import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
-import {createCollisionLayer} from './layers.js';
+import {createCollisionLayer} from './layers/collision.js';
 
 function createPlayerEnv(playerEntity) {
     const playerEnv = new Entity();
