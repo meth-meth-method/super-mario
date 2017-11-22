@@ -9,6 +9,6 @@ export function createDashboardLayer(font) {
         font.print("WORLD", context, 152, LINE1);
         font.print("TIME", context, 208, LINE1);
 
-        font.print(score.toString(), context, 16, LINE2);
+        font.print(score.toString().padStart(6, "0"), context, 16, LINE2);
     };
 }
