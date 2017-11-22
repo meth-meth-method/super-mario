@@ -1,7 +1,7 @@
 import {loadImage} from '../loaders.js';
 import SpriteSheet from '../SpriteSheet.js';
 
-const CHARS =  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~;
+const CHARS = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
 
 export function loadFont() {
     return loadImage('./img/font.png')
