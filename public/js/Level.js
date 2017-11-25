@@ -41,6 +41,10 @@ export default class Level {
             }
         });
 
+        this.entities.forEach(entity => {
+            entity.finalize();
+        });
+
         this.totalTime += deltaTime;
     }
 }
