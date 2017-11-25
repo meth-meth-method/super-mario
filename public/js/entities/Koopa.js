@@ -60,6 +60,7 @@ class Behavior extends Trait {
         } else if (this.state === STATE_HIDING) {
             us.killable.kill();
             us.vel.set(100, -200);
+            us.solid.enabled = false;
         } else if (this.state === STATE_PANIC) {
             this.hide(us);
         }

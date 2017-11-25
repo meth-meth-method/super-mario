@@ -3,9 +3,14 @@ import {Sides, Trait} from '../Entity.js';
 export default class Solid extends Trait {
     constructor() {
         super('solid');
+        this.enabled = true;
     }
 
     obstruct(entity, side, match) {
+        if (!this.enabled) {
+            return;
+        }
+
         if (side === Sides.BOTTOM) {
             entity.bounds.bottom = match.y1;
             entity.vel.y = 0;
