@@ -47,9 +47,9 @@ function createMarioFactory(sprite) {
         mario.size.set(14, 16);
 
         mario.addTrait(new Physics());
+        mario.addTrait(new Solid());
         mario.addTrait(new Go());
         mario.addTrait(new Jump());
-        mario.addTrait(new Solid());
         mario.addTrait(new Killable());
         mario.addTrait(new Stomper());
 
