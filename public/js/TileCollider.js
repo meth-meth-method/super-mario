@@ -64,9 +64,6 @@ export default class TileCollider {
 
             if (entity.vel.y > 0) {
                 if (entity.bounds.bottom > match.y1) {
-                    entity.bounds.bottom = match.y1;
-                    entity.vel.y = 0;
-
                     entity.obstruct(Sides.BOTTOM, match);
                 }
             } else if (entity.vel.y < 0) {
