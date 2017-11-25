@@ -5,7 +5,7 @@ export default class Solid extends Trait {
         super('solid');
     }
 
-    obstruct(entity, side) {
-        console.log(side);
+    obstruct(entity, side, match) {
+        console.log(side, match);
     }
 }
