@@ -9,7 +9,7 @@ export default class Killable extends Trait {
     }
 
     kill() {
-        this.dead = true;
+        this.queue(() => this.dead = true);
     }
 
     revive() {
