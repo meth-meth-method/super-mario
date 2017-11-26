@@ -21,6 +21,14 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 13. [Tech Debt & Presentation](https://www.youtube.com/watch?v=0d8SK9WQEDY&index=13&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 
 
+## Running
+
+* Clone repository.
+* Run `npm install`.
+* Run `npm start`.
+* Go to `http://localhost:5000`.
+
+
 ## Contributing
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
