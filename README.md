@@ -22,6 +22,14 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 14. [Dashboard & Fonts](https://www.youtube.com/watch?v=d_Cw7ZrRUCA&index=14&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 
 
+## Running
+
+* Clone repository.
+* Run `npm install`.
+* Run `npm start`.
+* Go to `http://localhost:5000`.
+
+
 ## Contributing
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
