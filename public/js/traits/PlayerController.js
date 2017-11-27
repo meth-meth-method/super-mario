@@ -18,8 +18,8 @@ export default class PlayerController extends Trait {
             this.player.killable.revive();
             this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
             level.entities.add(this.player);
+        } else {
+            this.time -= deltaTime * 2;
         }
-
-        this.time -= deltaTime * 2;
     }
 }

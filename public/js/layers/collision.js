@@ -1,5 +1,5 @@
-function createBoundingBoxLayer(entities) {
-    return function drawBoundingBoxes(context, camera) {
+function createEntityLayer(entities) {
+    return function drawBoundingBox(context, camera) {
         context.strokeStyle = 'red';
         entities.forEach(entity => {
             context.beginPath();
@@ -10,7 +10,7 @@ function createBoundingBoxLayer(entities) {
                 entity.size.y);
             context.stroke();
         });
-    }
+    };
 }
 
 function createTileCandidateLayer(tileCollider) {
@@ -37,15 +37,16 @@ function createTileCandidateLayer(tileCollider) {
         });
 
         resolvedTiles.length = 0;
-    };
+    }
 }
 
 export function createCollisionLayer(level) {
+
     const drawTileCandidates = createTileCandidateLayer(level.tileCollider);
-    const drawBoundingBoxes = createBoundingBoxLayer(level.entities);
+    const drawBoundingBoxes = createEntityLayer(level.entities);
 
     return function drawCollision(context, camera) {
-        drawBoundingBoxes(context, camera);
         drawTileCandidates(context, camera);
+        drawBoundingBoxes(context, camera);
     };
 }

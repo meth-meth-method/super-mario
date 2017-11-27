@@ -11,10 +11,11 @@ class Font {
 
     print(text, context, x, y) {
         [...text].forEach((char, pos) => {
-            this.sprites.draw(char, context, pos * this.size + x, y);
+            this.sprites.draw(char, context, x + pos * this.size, y);
         });
     }
 }
+
 
 export function loadFont() {
     return loadImage('./img/font.png')
