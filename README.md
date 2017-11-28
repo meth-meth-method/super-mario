@@ -19,6 +19,7 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 11. [JSON Entity Spawning](https://www.youtube.com/watch?v=y99x_sBEeP8&index=11&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 12. [Entity Interaction](https://www.youtube.com/watch?v=W6z1uDfE9PI&index=12&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 13. [Tech Debt & Presentation](https://www.youtube.com/watch?v=0d8SK9WQEDY&index=13&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
+14. [Dashboard & Fonts](https://www.youtube.com/watch?v=d_Cw7ZrRUCA&index=14&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 
 
 ## Contributing
