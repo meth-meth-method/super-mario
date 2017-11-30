@@ -32,8 +32,8 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 
 ## Derivative Works
 
-### TypeScript Version by [@kingdaro](https://github.com/kingdaro/)
-https://github.com/kingdaro/super-mario-typescript
+* #### TypeScript Version by [@kingdaro](https://github.com/kingdaro/)
+  https://github.com/kingdaro/super-mario-typescript
 
 
 
