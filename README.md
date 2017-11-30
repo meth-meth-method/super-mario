@@ -30,7 +30,7 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 * Go to `http://localhost:5000`.
 
 
-## Derivative Works
+## Maintained Forks
 
 * #### TypeScript version by [@kingdaro](https://github.com/kingdaro/)
   https://github.com/kingdaro/super-mario-typescript
