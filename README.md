@@ -30,6 +30,15 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 * Go to `http://localhost:5000`.
 
 
+## Maintained Forks
+
+* #### TypeScript version by [@kingdaro](https://github.com/kingdaro/)
+  https://github.com/kingdaro/super-mario-typescript
+  
+* #### TypeScript in-browser editor by [@AFE-GmdG](https://github.com/AFE-GmdG)
+  https://just-run.it/#/rySrbk86W/9
+
+
 ## Contributing
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
