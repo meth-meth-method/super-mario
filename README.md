@@ -30,6 +30,13 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 * Go to `http://localhost:5000`.
 
 
+## Derivative Works
+
+### TypeScript Version by [@kingdaro](https://github.com/kingdaro/)
+https://github.com/kingdaro/super-mario-typescript
+
+
+
 ## Contributing
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
