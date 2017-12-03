@@ -1,86 +1,88 @@
-import {Vec2} from './math.js';
-import BoundingBox from './BoundingBox.js';
+import {
+  Vec2
+} from './math.js'
+import BoundingBox from './BoundingBox.js'
 
 export const Sides = {
-    TOP: Symbol('top'),
-    BOTTOM: Symbol('bottom'),
-    LEFT: Symbol('left'),
-    RIGHT: Symbol('right'),
-};
+  TOP: Symbol('top'),
+  BOTTOM: Symbol('bottom'),
+  LEFT: Symbol('left'),
+  RIGHT: Symbol('right')
+}
 
 export class Trait {
-    constructor(name) {
-        this.NAME = name;
+  constructor (name) {
+    this.NAME = name
 
-        this.tasks = [];
-    }
+    this.tasks = []
+  }
 
-    finalize() {
-        this.tasks.forEach(task => task());
-        this.tasks.length = 0;
-    }
+  finalize () {
+    this.tasks.forEach(task => task())
+    this.tasks.length = 0
+  }
 
-    queue(task) {
-        this.tasks.push(task);
-    }
+  queue (task) {
+    this.tasks.push(task)
+  }
 
-    collides(us, them) {
+  collides (us, them) {
 
-    }
+  }
 
-    obstruct() {
+  obstruct () {
 
-    }
+  }
 
-    update() {
+  update () {
 
-    }
+  }
 }
 
 export default class Entity {
-    constructor() {
-        this.pos = new Vec2(0, 0);
-        this.vel = new Vec2(0, 0);
-        this.size = new Vec2(0, 0);
-        this.offset = new Vec2(0, 0);
-        this.bounds = new BoundingBox(this.pos, this.size, this.offset);
-        this.lifetime = 0;
+  constructor () {
+    this.pos = new Vec2(0, 0)
+    this.vel = new Vec2(0, 0)
+    this.size = new Vec2(0, 0)
+    this.offset = new Vec2(0, 0)
+    this.bounds = new BoundingBox(this.pos, this.size, this.offset)
+    this.lifetime = 0
 
-        this.traits = [];
-    }
+    this.traits = []
+  }
 
-    addTrait(trait) {
-        this.traits.push(trait);
-        this[trait.NAME] = trait;
-    }
+  addTrait (trait) {
+    this.traits.push(trait)
+    this[trait.NAME] = trait
+  }
 
-    collides(candidate) {
-        this.traits.forEach(trait => {
-            trait.collides(this, candidate);
-        });
-    }
+  collides (candidate) {
+    this.traits.forEach(trait => {
+      trait.collides(this, candidate)
+    })
+  }
 
-    obstruct(side, match) {
-        this.traits.forEach(trait => {
-            trait.obstruct(this, side, match);
-        });
-    }
+  obstruct (side, match) {
+    this.traits.forEach(trait => {
+      trait.obstruct(this, side, match)
+    })
+  }
 
-    draw() {
+  draw () {
 
-    }
+  }
 
-    finalize() {
-        this.traits.forEach(trait => {
-            trait.finalize();
-        });
-    }
+  finalize () {
+    this.traits.forEach(trait => {
+      trait.finalize()
+    })
+  }
 
-    update(deltaTime, level) {
-        this.traits.forEach(trait => {
-            trait.update(this, deltaTime, level);
-        });
+  update (deltaTime, level) {
+    this.traits.forEach(trait => {
+      trait.update(this, deltaTime, level)
+    })
 
-        this.lifetime += deltaTime;
-    }
+    this.lifetime += deltaTime
+  }
 }
