@@ -1,6 +1,6 @@
 # Code Super Mario Bros. in JavaScript
 
-Create a Super Mario game in vanilla JavaScript from scratch. 
+Create a Super Mario game in vanilla JavaScript from scratch.
 
 This project is built during my YouTube series [Code Super Mario in JS](https://www.youtube.com/playlist?list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx); a series by my channel [Meth Meth Method](https://www.youtube.com/MethMethMethod).
 
@@ -41,12 +41,33 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 
 * #### TypeScript version by [@kingdaro](https://github.com/kingdaro/)
   https://github.com/kingdaro/super-mario-typescript
-  
+
 * #### TypeScript in-browser editor by [@AFE-GmdG](https://github.com/AFE-GmdG)
   https://just-run.it/#/rySrbk86W/9
 
 
 ## Contributing
 
-Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
+Please contribute if you see something wrong, but I can unfortunately not merge your PR directly into
 `master` as I use Git commits as a script for creating the tutorial and commits out of sequence would throw me off.
+
+## How to setup ESlint for Atom:
+
+You need to Install `linter-eslint` package in Preferences -> Install.
+
+Following instructions for `linter-eslint`, you need to:
+
+1. Install npm dependencies globally in your terminal.
+
+```
+  npm i -g eslint@4.12.1 eslint-config-standard:@10.2.1 eslint-import-resolver-webpack:@0.8.3 eslint-plugin-import:@2.8.0 eslint-plugin-node:@5.2.1 eslint-plugin-promise:@3.6.0 eslint-plugin-standard:@3.0.1 webpack:@3.9.1
+```
+
+And activate checkboxes in `linter-eslint` plugin settings:
+
+- Fix on save
+- Use global ESlint installation
+
+For other editors configuration may differ.
+
+Enjoy.

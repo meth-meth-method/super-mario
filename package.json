@@ -10,6 +10,73 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "serve": "^6.1.0"
+    "serve": "6.4.1"
+  },
+  "devDependencies": {
+    "eslint": "4.12.1",
+    "eslint-config-standard": "10.2.1",
+    "eslint-import-resolver-webpack": "0.8.3",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "webpack": "3.9.1"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "standard"
+    ],
+    "plugins": [
+      "import"
+    ],
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "globals": {
+      "__DEV__": false,
+      "__PROD__": false,
+      "__PLAYER_DEBUG__": false,
+      "__BASENAME__": false
+    },
+    "settings": {
+      "ecmascript": 6,
+      "import/resolver": "webpack"
+    },
+    "rules": {
+      "indent": 1,
+      "semi": 0,
+      "spaced-comment": 0,
+      "brace-style": 0,
+      "no-trailing-spaces": 0,
+      "import/default": 2,
+      "import/no-unresolved": [
+        2,
+        {
+          "commonjs": true,
+          "amd": true
+        }
+      ],
+      "import/named": 2,
+      "import/namespace": 2,
+      "import/export": 2,
+      "import/no-duplicates": 2,
+      "import/imports-first": 2
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true,
+        "modules": true,
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "destructuring": true,
+        "spread": true,
+        "templateStrings": true,
+        "forOf": true
+      }
+    }
   }
 }
