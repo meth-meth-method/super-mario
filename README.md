@@ -45,7 +45,9 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 * #### TypeScript in-browser editor by [@AFE-GmdG](https://github.com/AFE-GmdG)
   https://just-run.it/#/rySrbk86W/9
 
-
+* #### Python implementation by [@mx0c](https://github.com/mx0c)
+  https://github.com/mx0c/super-mario-python
+  
 ## Contributing
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
