@@ -37,7 +37,7 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 * Go to `http://localhost:5000`.
 
 
-## Maintained Forks
+## Reproductions
 
 * #### TypeScript version by [@kingdaro](https://github.com/kingdaro/)
   https://github.com/kingdaro/super-mario-typescript
@@ -47,7 +47,11 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 
 * #### Python implementation by [@mx0c](https://github.com/mx0c)
   https://github.com/mx0c/super-mario-python
-  
+
+* #### TypeScript version by [@x1c0](https://github.com/x1c0)
+  https://github.com/x1c0/super-mario-typescript
+
+
 ## Contributing
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
