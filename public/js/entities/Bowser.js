@@ -31,14 +31,6 @@ class Behavior extends Trait {
             }
         }
     }
-
-    obstruct(us, side, match){
-        if (side === Sides.LEFT){
-            us.go.dir = 1;
-        } else if (side === Sides.RIGHT){
-            us.go.dir = -1;
-        }
-    }
 }
 
 
@@ -54,7 +46,7 @@ function createBowserFactory(sprite) {
     }
 
     function drawBowser(context) {
-        sprite.draw(routeAnim(this), context, 0, 0, this.go.heading > 0);
+        sprite.draw(routeAnim(this), context, 0, 0, this.vel.x < 0);
     }
 
     return function createBowser() {
