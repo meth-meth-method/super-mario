@@ -363,5 +363,7 @@
             "name": "bowser",
             "pos": [260,0]
         }
-    ]
+    ],
+
+    "backgroundSong": "/audio/level1-1.mp3"
 }
