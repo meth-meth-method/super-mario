@@ -52,6 +52,7 @@ function createBowserFactory(sprite) {
     return function createBowser() {
         const bowser = new Entity('bowser');
         bowser.size.set(36, 36);
+        bowser.offset.y = -1;
 
         bowser.addTrait(new Physics());
         bowser.addTrait(new Solid());
