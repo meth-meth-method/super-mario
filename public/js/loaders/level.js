@@ -33,8 +33,9 @@ function setupEntities(levelSpec, level, entityFactory) {
 }
 
 function playBackgroundSong(levelSpec){
-    const player = new Audio(levelSpec.backgroundSong);
-    player.play();
+    const song = new Audio(levelSpec.backgroundSong);
+    song.loop = true;
+    song.play();
 }
 
 export function createLevelLoader(entityFactory) {

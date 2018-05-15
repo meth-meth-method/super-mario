@@ -38,5 +38,12 @@
                 "run-3"
             ]
         }
+    ],
+
+    "sounds": [
+        {
+            "name": "jump",
+            "url": "/audio/mario_jump.mp3"
+        }
     ]
 }
