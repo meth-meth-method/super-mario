@@ -32,6 +32,14 @@ function setupEntities(levelSpec, level, entityFactory) {
     level.comp.layers.push(spriteLayer);
 }
 
+function playBackgroundSong(levelSpec){
+    const song = new Audio(levelSpec.backgroundSong);
+    song.volume = .2;
+
+    song.loop = true;
+    song.play();
+}
+
 export function createLevelLoader(entityFactory) {
     return function loadLevel(name) {
         return loadJSON(`/levels/${name}.json`)
@@ -45,6 +53,7 @@ export function createLevelLoader(entityFactory) {
             setupCollision(levelSpec, level);
             setupBackgrounds(levelSpec, level, backgroundSprites);
             setupEntities(levelSpec, level, entityFactory);
+            playBackgroundSong(levelSpec);
 
             return level;
         });

@@ -5,10 +5,15 @@ export default class SpriteSheet {
         this.height = height;
         this.tiles = new Map();
         this.animations = new Map();
+        this.sounds = new Map();
     }
 
     defineAnim(name, animation) {
         this.animations.set(name, animation);
+    }
+
+    defineSound(name, url){
+        this.sounds.set(name, new Audio(url));
     }
 
     define(name, x, y, width, height) {

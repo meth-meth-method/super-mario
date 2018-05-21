@@ -11,6 +11,7 @@ export default class Jump extends Trait {
         this.gracePeriod = 0.1;
         this.speedBoost = 0.3;
         this.velocity = 200;
+        this.sound = null;
     }
 
     get falling() {
@@ -19,6 +20,10 @@ export default class Jump extends Trait {
 
     start() {
         this.requestTime = this.gracePeriod;
+
+        if (this.sound){
+            this.sound.play();
+        }
     }
 
     cancel() {
@@ -29,6 +34,11 @@ export default class Jump extends Trait {
     obstruct(entity, side) {
         if (side === Sides.BOTTOM) {
             this.ready = 1;
+
+            if (this.sound){
+                this.sound.currentTime = 0;
+            }
+
         } else if (side === Sides.TOP) {
             this.cancel();
         }

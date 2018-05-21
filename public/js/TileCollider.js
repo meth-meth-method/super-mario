@@ -16,6 +16,12 @@ export default class TileCollider {
             return;
         }
 
+        if (entity.bounds.left <= 0){
+            const leftMostTile = {x2: 0}
+            entity.obstruct(Sides.LEFT, leftMostTile);
+            return;
+        }
+
         const matches = this.tiles.searchByRange(
             x, x,
             entity.bounds.top, entity.bounds.bottom);

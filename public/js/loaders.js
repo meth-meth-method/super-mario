@@ -50,6 +50,12 @@ export function loadSpriteSheet(name) {
             });
         }
 
+        if (sheetSpec.sounds) {
+            sheetSpec.sounds.forEach(sound => {
+                sprites.defineSound(sound.name, sound.url);
+            });
+        }
+
         return sprites;
     });
 }
