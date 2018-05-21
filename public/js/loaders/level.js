@@ -34,6 +34,8 @@ function setupEntities(levelSpec, level, entityFactory) {
 
 function playBackgroundSong(levelSpec){
     const song = new Audio(levelSpec.backgroundSong);
+    song.volume = .2;
+
     song.loop = true;
     song.play();
 }
