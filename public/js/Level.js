@@ -18,9 +18,9 @@ export default class Level {
         this.tileCollider = new TileCollider(matrix);
     }
 
-    update(deltaTime, audioBoard) {
+    update(gameContext) {
         this.entities.forEach(entity => {
-            entity.update(deltaTime, this, audioBoard);
+            entity.update(gameContext, this);
         });
 
         this.entities.forEach(entity => {
@@ -31,6 +31,6 @@ export default class Level {
             entity.finalize();
         });
 
-        this.totalTime += deltaTime;
+        this.totalTime += gameContext.deltaTime;
     }
 }

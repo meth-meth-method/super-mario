@@ -34,11 +34,11 @@ export default class Jump extends Trait {
         }
     }
 
-    update(entity, deltaTime, level, audioBoard) {
-        console.log(audioBoard);
+    update(entity, gameContext, level) {
+        const deltaTime = gameContext.deltaTime;
         if (this.requestTime > 0) {
             if (this.ready > 0) {
-                audioBoard.playAudio('jump');
+                gameContext.audioBoard.playAudio('jump');
                 this.engageTime = this.duration;
                 this.requestTime = 0;
             }

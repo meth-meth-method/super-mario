@@ -72,9 +72,15 @@ async function main(canvas) {
     const input = setupKeyboard(mario);
     input.listenTo(window);
 
+    const gameContext = {
+        audioBoard,
+        deltaTime: null,
+    };
+
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
-        level.update(deltaTime, audioBoard);
+        gameContext.deltaTime = deltaTime;
+        level.update(gameContext);
 
         camera.pos.x = Math.max(0, mario.pos.x - 100);
 
