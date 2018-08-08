@@ -38,6 +38,7 @@ export default class Jump extends Trait {
         console.log(audioBoard);
         if (this.requestTime > 0) {
             if (this.ready > 0) {
+                audioBoard.playAudio('jump');
                 this.engageTime = this.duration;
                 this.requestTime = 0;
             }
