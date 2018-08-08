@@ -19,6 +19,24 @@ function createPlayerEnv(playerEntity) {
     return playerEnv;
 }
 
+class AudioBoard {
+    constructor(context) {
+        this.context = context;
+        this.buffers = new Map();
+    }
+
+    addAudio(name, buffer) {
+        this.buffers.set(name, buffer);
+    }
+
+    playAudio(name) {
+        const source = this.context.createBufferSource();
+        source.connect(this.context.destination);
+        source.buffer = this.buffers.get(name);
+        source.start(0);
+    }
+}
+
 async function main(canvas) {
     const context = canvas.getContext('2d');
 
@@ -28,14 +46,12 @@ async function main(canvas) {
     ]);
 
     const audioContext = new AudioContext();
+    const audioBoard = new AudioBoard(audioContext);
     const loadAudio = await createAudioLoader(audioContext);
     loadAudio('/audio/jump.ogg')
     .then(buffer => {
-        console.log(buffer);
-        const source = audioContext.createBufferSource();
-        source.connect(audioContext.destination);
-        source.buffer = buffer;
-        source.start(0);
+        audioBoard.addAudio('jump', buffer);
+        audioBoard.playAudio('jump');
     });
 
 
