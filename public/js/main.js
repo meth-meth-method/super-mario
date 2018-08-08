@@ -47,14 +47,14 @@ async function main(canvas) {
 
     const audioContext = new AudioContext();
     const audioBoard = new AudioBoard(audioContext);
-    const loadAudio = await createAudioLoader(audioContext);
+    const loadAudio = createAudioLoader(audioContext);
+    const loadLevel = createLevelLoader(entityFactory);
+
     loadAudio('/audio/jump.ogg')
     .then(buffer => {
         audioBoard.addAudio('jump', buffer);
     });
 
-
-    const loadLevel = await createLevelLoader(entityFactory);
 
     const level = await loadLevel('1-1');
 
