@@ -54,6 +54,10 @@ async function main(canvas) {
     .then(buffer => {
         audioBoard.addAudio('jump', buffer);
     });
+    loadAudio('/audio/stomp.ogg')
+    .then(buffer => {
+        audioBoard.addAudio('stomp', buffer);
+    });
 
 
     const level = await loadLevel('1-1');
