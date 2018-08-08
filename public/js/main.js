@@ -32,6 +32,10 @@ async function main(canvas) {
     loadAudio('/audio/jump.ogg')
     .then(buffer => {
         console.log(buffer);
+        const source = audioContext.createBufferSource();
+        source.connect(audioContext.destination);
+        source.buffer = buffer;
+        source.start(0);
     });
 
 
