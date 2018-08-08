@@ -76,9 +76,9 @@ export default class Entity {
         });
     }
 
-    update(deltaTime, level) {
+    update(deltaTime, level, audioBoard) {
         this.traits.forEach(trait => {
-            trait.update(this, deltaTime, level);
+            trait.update(this, deltaTime, level, audioBoard);
         });
 
         this.lifetime += deltaTime;
