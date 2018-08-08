@@ -3,6 +3,7 @@ import Entity from './Entity.js';
 import PlayerController from './traits/PlayerController.js';
 import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
+import {createAudioLoader} from './loaders/audio.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
@@ -25,6 +26,14 @@ async function main(canvas) {
         loadEntities(),
         loadFont(),
     ]);
+
+    const audioContext = new AudioContext();
+    const loadAudio = await createAudioLoader(audioContext);
+    loadAudio('/audio/jump.ogg')
+    .then(buffer => {
+        console.log(buffer);
+    });
+
 
     const loadLevel = await createLevelLoader(entityFactory);
 
