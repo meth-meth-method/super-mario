@@ -15,9 +15,9 @@ export default class PendulumMove extends Trait {
         }
     }
 
-    update(entity, {audioBoard}) {
+    update(entity, {audioContext}) {
         if (this.bumped) {
-            audioBoard.playAudio('bump');
+            entity.audio.playAudio('bump', audioContext);
             this.bumped = false;
         }
 
