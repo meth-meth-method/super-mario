@@ -34,8 +34,7 @@ export default class Jump extends Trait {
         }
     }
 
-    update(entity, gameContext, level) {
-        const deltaTime = gameContext.deltaTime;
+    update(entity, {deltaTime}) {
         if (this.requestTime > 0) {
             if (this.ready > 0) {
                 this.sounds.add('jump');

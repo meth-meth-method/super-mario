@@ -13,8 +13,8 @@ export function loadEntities(audioContext) {
 
     return Promise.all([
         loadMario(audioContext).then(addAs('mario')),
-        loadGoomba().then(addAs('goomba')),
-        loadKoopa().then(addAs('koopa')),
+        loadGoomba(audioContext).then(addAs('goomba')),
+        loadKoopa(audioContext).then(addAs('koopa')),
     ])
     .then(() => entityFactories);
 }

@@ -1,10 +1,8 @@
-import AudioBoard from './AudioBoard.js';
 import Camera from './Camera.js';
 import Entity from './Entity.js';
 import PlayerController from './traits/PlayerController.js';
 import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
-import {createAudioLoader} from './loaders/audio.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
@@ -29,9 +27,8 @@ async function main(canvas) {
         loadFont(),
     ]);
 
-    const loadAudio = createAudioLoader(audioContext);
-    const loadLevel = createLevelLoader(entityFactory);
 
+    const loadLevel = await createLevelLoader(entityFactory);
 
     const level = await loadLevel('1-1');
 
@@ -68,4 +65,10 @@ async function main(canvas) {
 }
 
 const canvas = document.getElementById('screen');
-main(canvas);
+
+const start = () => {
+    window.removeEventListener('click', start);
+    main(canvas);
+};
+
+window.addEventListener('click', start);

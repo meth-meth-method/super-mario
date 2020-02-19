@@ -16,12 +16,12 @@ export function loadMario(audioContext) {
         loadSpriteSheet('mario'),
         loadAudioBoard('mario', audioContext),
     ])
-    .then(([sprite, audioBoard]) => {
-        return createMarioFactory(sprite, audioBoard);
+    .then(([sprite, audio]) => {
+        return createMarioFactory(sprite, audio);
     });
 }
 
-function createMarioFactory(sprite, audioBoard) {
+function createMarioFactory(sprite, audio) {
     const runAnim = sprite.animations.get('run');
 
     function routeFrame(mario) {
@@ -50,7 +50,7 @@ function createMarioFactory(sprite, audioBoard) {
 
     return function createMario() {
         const mario = new Entity();
-        mario.audio = audioBoard;
+        mario.audio = audio;
         mario.size.set(14, 16);
 
         mario.addTrait(new Physics());
