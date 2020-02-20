@@ -5,25 +5,29 @@ export default class PlayerController extends Trait {
     constructor() {
         super('playerController');
         this.checkpoint = new Vec2(0, 0);
-        this.player = null;
+        this.players = new Set();
         this.score = 0;
         this.time = 300;
+
+        this.handleStomp = () => {
+            this.score += 100;
+        };
     }
 
-    setPlayer(entity) {
-        this.player = entity;
-        entity.stomper.events.listen('stomp', () => {
-            this.score += 100;
-        });
+    addPlayer(entity) {
+        this.players.add(entity);
+        entity.stomper.events.listen('stomp', this.handleStomp);
     }
 
     update(entity, {deltaTime}, level) {
-        if (!level.entities.has(this.player)) {
-            this.player.killable.revive();
-            this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
-            level.entities.add(this.player);
-        } else {
-            this.time -= deltaTime * 2;
-        }
+        this.players.forEach(player => {
+            if (!level.entities.has(player)) {
+                player.killable.revive();
+                player.pos.set(this.checkpoint.x, this.checkpoint.y);
+                level.entities.add(player);
+            }
+        });
+
+        this.time -= deltaTime * 2;
     }
 }

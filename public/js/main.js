@@ -9,12 +9,11 @@ import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
 
-function createPlayerEnv(playerEntity) {
+function createPlayerEnv() {
     const playerEnv = new Entity();
-    const playerControl = new PlayerController();
-    playerControl.checkpoint.set(64, 64);
-    playerControl.setPlayer(playerEntity);
-    playerEnv.addTrait(playerControl);
+    const playerController = new PlayerController();
+    playerController.checkpoint.set(64, 64);
+    playerEnv.addTrait(playerController);
     return playerEnv;
 }
 
@@ -36,7 +35,8 @@ async function main(canvas) {
 
     const mario = entityFactory.mario();
 
-    const playerEnv = createPlayerEnv(mario);
+    const playerEnv = createPlayerEnv();
+    playerEnv.playerController.addPlayer(mario);
     level.entities.add(playerEnv);
 
 
