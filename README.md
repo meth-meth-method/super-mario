@@ -21,6 +21,7 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 13. [Tech Debt & Presentation](https://www.youtube.com/watch?v=0d8SK9WQEDY&index=13&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 14. [Dashboard & Fonts](https://www.youtube.com/watch?v=d_Cw7ZrRUCA&index=14&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx)
 15. [Audio Playback](https://www.youtube.com/watch?v=5lV78W48Km4&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx&index=15)
+16. [Event Emitter](https://www.youtube.com/watch?v=PL5ow4inwzM&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx&index=16)
 
 ### Roadmap
 
