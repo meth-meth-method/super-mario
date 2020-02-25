@@ -12,7 +12,8 @@ export default class PlayerController extends Trait {
 
     setPlayer(entity) {
         this.player = entity;
-        entity.stomper.events.listen('stomp', () => {
+
+        this.player.stomper.events.listen('stomp', () => {
             this.score += 100;
         });
     }
