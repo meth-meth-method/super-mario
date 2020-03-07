@@ -380,7 +380,7 @@
                     "pattern": "cannon-2h",
                     "ranges": [
                         [
-                            6, 11
+                            6, 7
                         ]
                     ]
                 }
@@ -396,6 +396,10 @@
         {
             "name": "goomba",
             "pos": [220, 0]
+        },
+        {
+            "name": "bullet-bill",
+            "pos": [128, 112]
         }
     ]
 }
