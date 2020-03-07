@@ -127,6 +127,24 @@
                     ]
                 }
             ]
+        },
+        "cannon-2h": {
+            "tiles": [
+                {
+                    "name": "cannon-1",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 0]
+                    ]
+                },
+                {
+                    "name": "cannon-3",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 1]
+                    ]
+                }
+            ]
         }
     },
 
@@ -352,6 +370,18 @@
                         [118, 2],
                         [128, 3],
                         [138, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "cannon-2h",
+                    "ranges": [
+                        [
+                            6, 11
+                        ]
                     ]
                 }
             ]
