@@ -6,7 +6,7 @@ export function loadCannon(entityFactory) {
 }
 
 function createCannonFactory(entityFactory) {
-    const createBullet = entityFactory['bullet-bill'];
+    const createBullet = entityFactory.bulletBill;
 
     const bulletEmitter = (entity, level) => {
         const bullet = createBullet();

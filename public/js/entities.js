@@ -15,7 +15,7 @@ export async function loadEntities(audioContext) {
         loadMario(audioContext).then(addAs('mario')),
         loadGoomba(audioContext).then(addAs('goomba')),
         loadKoopa(audioContext).then(addAs('koopa')),
-        loadBulletBill(audioContext).then(addAs('bullet-bill')),
+        loadBulletBill(audioContext).then(addAs('bulletBill')),
     ]);
 
     entityFactories['cannon'] = loadCannon(entityFactories);
