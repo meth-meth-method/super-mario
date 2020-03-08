@@ -4,7 +4,7 @@ import {loadGoomba} from './entities/Goomba.js';
 import {loadKoopa} from './entities/Koopa.js';
 
 
-export function loadEntities(audioContext) {
+export async function loadEntities(audioContext) {
     const entityFactories = {};
 
     function addAs(name) {
@@ -16,6 +16,13 @@ export function loadEntities(audioContext) {
         loadGoomba(audioContext).then(addAs('goomba')),
         loadKoopa(audioContext).then(addAs('koopa')),
         loadBulletBill(audioContext).then(addAs('bullet-bill')),
+
+    await Promise.all([
+        loadMario().then(addAs('mario')),
+        loadGoomba().then(addAs('goomba')),
+        loadKoopa().then(addAs('koopa')),
+        loadBulletBill().then(addAs('bullet-bill')),
     ])
-    .then(() => entityFactories);
+
+    return entityFactories;
 }
