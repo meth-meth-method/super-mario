@@ -19,6 +19,7 @@ function createCannonFactory(entityFactory) {
         const cannon = new Entity();
 
         const emitter = new Emitter();
+        emitter.interval = 4;
         emitter.emitters.push(bulletEmitter);
 
         cannon.addTrait(emitter);
