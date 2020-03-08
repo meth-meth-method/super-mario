@@ -16,3 +16,11 @@ export function createPlayer(factory) {
     entity.addTrait(new Player());
     return entity;
 }
+
+export function* findPlayers (level) {
+    for (const entity of level.entities) {
+        if (entity.player) {
+            yield entity;
+        }
+    }
+}

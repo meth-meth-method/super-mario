@@ -1,3 +1,4 @@
+import {findPlayers} from '../player.js';
 import Entity, {Trait} from '../Entity.js';
 import Emitter from '../traits/Emitter.js';
 
@@ -7,14 +8,6 @@ export function loadCannon(entityFactory) {
 
 function createCannonFactory(entityFactory) {
     const createBullet = entityFactory.bulletBill;
-
-    function* findPlayers (level) {
-        for (const entity of level.entities) {
-            if (entity.player) {
-                yield entity;
-            }
-        }
-    }
 
     const bulletEmitter = (entity, level) => {
         for (const player of findPlayers(level)) {
