@@ -8,7 +8,21 @@ export function loadCannon(entityFactory) {
 function createCannonFactory(entityFactory) {
     const createBullet = entityFactory.bulletBill;
 
+    function* findPlayers (level) {
+        for (const entity of level.entities) {
+            if (entity.player) {
+                yield entity;
+            }
+        }
+    }
+
     const bulletEmitter = (entity, level) => {
+        for (const player of findPlayers(level)) {
+            if (player.pos.x > entity.pos.x - 30 && player.pos.x < entity.pos.x + 30) {
+                return;
+            }
+        }
+
         const bullet = createBullet();
         bullet.vel.set(80, 0);
         bullet.pos.copy(entity.pos);
