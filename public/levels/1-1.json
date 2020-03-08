@@ -400,6 +400,10 @@
         {
             "name": "bullet-bill",
             "pos": [128, 112]
+        },
+        {
+            "name": "cannon",
+            "pos": [104, 112]
         }
     ]
 }
