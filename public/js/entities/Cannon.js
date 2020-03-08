@@ -10,7 +10,7 @@ function createCannonFactory(entityFactory) {
 
     const bulletEmitter = (entity, level) => {
         const bullet = createBullet();
-        bullet.vel.set(10, 0);
+        bullet.vel.set(80, 0);
         bullet.pos.copy(entity.pos);
         level.entities.add(bullet);
     };
