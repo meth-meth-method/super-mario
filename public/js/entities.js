@@ -18,7 +18,7 @@ export async function loadEntities(audioContext) {
         loadBulletBill(audioContext).then(addAs('bulletBill')),
     ]);
 
-    entityFactories['cannon'] = loadCannon(entityFactories);
+    await loadCannon(entityFactories, audioContext).then(addAs('cannon'));
 
     return entityFactories;
 }

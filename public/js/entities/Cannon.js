@@ -1,12 +1,16 @@
 import {findPlayers} from '../player.js';
 import Entity, {Trait} from '../Entity.js';
 import Emitter from '../traits/Emitter.js';
+import {loadAudioBoard} from '../loaders/audio.js';
 
-export function loadCannon(entityFactory) {
-    return createCannonFactory(entityFactory);
+export function loadCannon(entityFactory, audioContext) {
+    return loadAudioBoard('cannon', audioContext)
+    .then(audio => {
+        return createCannonFactory(entityFactory, audio);
+    });
 }
 
-function createCannonFactory(entityFactory) {
+function createCannonFactory(entityFactory, audio) {
     const createBullet = entityFactory.bulletBill;
 
     const bulletEmitter = (entity, level) => {
@@ -24,6 +28,7 @@ function createCannonFactory(entityFactory) {
 
     return function createCannon() {
         const cannon = new Entity();
+        cannon.audio = audio;
 
         const emitter = new Emitter();
         emitter.interval = 4;
