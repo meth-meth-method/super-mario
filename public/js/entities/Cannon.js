@@ -20,6 +20,8 @@ function createCannonFactory(entityFactory, audio) {
             }
         }
 
+        entity.sounds.add('shoot');
+
         const bullet = createBullet();
         bullet.vel.set(80, 0);
         bullet.pos.copy(entity.pos);
