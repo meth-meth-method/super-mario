@@ -3,9 +3,9 @@ import {Trait} from '../Entity.js';
 export default class Emitter extends Trait {
     constructor() {
         super('emitter');
-        this.emitters = [];
         this.interval = 2;
         this.coolDown = this.interval;
+        this.emitters = [];
     }
 
     emit(entity, level) {
