@@ -1,13 +1,14 @@
-import Entity, {Trait} from '../Entity.js';
-import Velocity from '../traits/Velocity.js';
-import Gravity from '../traits/Gravity.js';
+import Entity, {Sides, Trait} from '../Entity.js';
 import Killable from '../traits/Killable.js';
+import Gravity from '../traits/Gravity.js';
+import Velocity from '../traits/Velocity.js';
 import {loadSpriteSheet} from '../loaders.js';
 
-export function loadBulletBill() {
-    return loadSpriteSheet('bullet-bill')
-    .then(createBulletBillFactory);
+export function loadBullet() {
+    return loadSpriteSheet('bullet')
+    .then(createBulletFactory);
 }
+
 
 class Behavior extends Trait {
     constructor() {
@@ -20,6 +21,7 @@ class Behavior extends Trait {
             return;
         }
 
+        console.log('Collision in Bullet', them.vel.y);
         if (them.stomper) {
             if (them.vel.y > us.vel.y) {
                 us.killable.kill();
@@ -30,27 +32,28 @@ class Behavior extends Trait {
         }
     }
 
-    update(entity, deltaTime, level) {
+    update(entity, gameContext, level) {
         if (entity.killable.dead) {
-            this.gravity.update(entity, deltaTime, level);
+            this.gravity.update(entity, gameContext, level);
         }
     }
 }
 
-function createBulletBillFactory(sprite) {
-    function drawBulletBill(context) {
-        sprite.draw('bullet', context, 0, 0);
+
+function createBulletFactory(sprite) {
+    function drawBullet(context) {
+        sprite.draw('bullet', context, 0, 0, this.vel.x < 0);
     }
 
-    return function createBulletBill() {
+    return function createBullet() {
         const bullet = new Entity();
         bullet.size.set(16, 14);
 
         bullet.addTrait(new Velocity());
-        bullet.addTrait(new Killable());
         bullet.addTrait(new Behavior());
+        bullet.addTrait(new Killable());
 
-        bullet.draw = drawBulletBill;
+        bullet.draw = drawBullet;
 
         return bullet;
     };

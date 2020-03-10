@@ -34,7 +34,8 @@ export class Vec2 {
     }
 
     copy(vec2) {
-        this.set(vec2.x, vec2.y);
+        this.x = vec2.x;
+        this.y = vec2.y;
     }
 
     set(x, y) {

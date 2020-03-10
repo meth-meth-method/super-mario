@@ -1,6 +1,6 @@
 import Entity from './Entity.js';
-import PlayerController from './traits/PlayerController.js';
 import Player from './traits/Player.js';
+import PlayerController from './traits/PlayerController.js';
 
 export function createPlayerEnv(playerEntity) {
     const playerEnv = new Entity();
@@ -11,13 +11,12 @@ export function createPlayerEnv(playerEntity) {
     return playerEnv;
 }
 
-export function createPlayer(factory) {
-    const entity = factory();
+export function createPlayer(entity) {
     entity.addTrait(new Player());
     return entity;
 }
 
-export function* findPlayers (level) {
+export function* findPlayers(level) {
     for (const entity of level.entities) {
         if (entity.player) {
             yield entity;

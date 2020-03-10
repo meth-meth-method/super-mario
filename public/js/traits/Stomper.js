@@ -7,10 +7,8 @@ export default class Stomper extends Trait {
     }
 
     bounce(us, them) {
-        this.queue(() => {
-            us.bounds.bottom = them.bounds.top;
-            us.vel.y = -this.bounceSpeed;
-        });
+        us.bounds.bottom = them.bounds.top;
+        us.vel.y = -this.bounceSpeed;
     }
 
     collides(us, them) {
@@ -19,7 +17,7 @@ export default class Stomper extends Trait {
         }
 
         if (us.vel.y > them.vel.y) {
-            this.bounce(us, them);
+            this.queue(() => this.bounce(us, them));
             us.sounds.add('stomp');
             this.events.emit('stomp', us, them);
         }
