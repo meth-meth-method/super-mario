@@ -32,7 +32,7 @@ export default class TileCollider {
                 entity.bounds.top, entity.bounds.bottom);
 
             matches.forEach(match => {
-                this.handle(0, match, entity);
+                this.handle(0, match, entity, tiles);
             });
         }
     }
@@ -53,17 +53,17 @@ export default class TileCollider {
                 y, y);
 
             matches.forEach(match => {
-                this.handle(1, match, entity);
+                this.handle(1, match, entity, tiles);
             });
         }
     }
 
-    handle(index, match, entity) {
+    handle(index, match, entity, tiles) {
         const type = match.tile.type;
         const handler = handlers[type];
         if (!handler) {
             return;
         }
-        handler[index](match, entity);
+        handler[index](match, entity, tiles);
     }
 }
