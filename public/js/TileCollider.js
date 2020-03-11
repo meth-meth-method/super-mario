@@ -1,31 +1,8 @@
 import TileResolver from './TileResolver.js';
-import {Sides} from './Entity.js';
+import {ground} from './tiles/ground.js';
 
 const handlers = {
-    "ground": [
-        function handleX(match, entity) {
-            if (entity.vel.x > 0) {
-                if (entity.bounds.right > match.x1) {
-                    entity.obstruct(Sides.RIGHT, match);
-                }
-            } else if (entity.vel.x < 0) {
-                if (entity.bounds.left < match.x2) {
-                    entity.obstruct(Sides.LEFT, match);
-                }
-            }
-        },
-        function handleY(match, entity) {
-            if (entity.vel.y > 0) {
-                if (entity.bounds.bottom > match.y1) {
-                    entity.obstruct(Sides.BOTTOM, match);
-                }
-            } else if (entity.vel.y < 0) {
-                if (entity.bounds.top < match.y2) {
-                    entity.obstruct(Sides.TOP, match);
-                }
-            }
-        }
-    ],
+    ground,
 };
 
 export default class TileCollider {
