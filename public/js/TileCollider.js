@@ -1,6 +1,33 @@
 import TileResolver from './TileResolver.js';
 import {Sides} from './Entity.js';
 
+const handlers = {
+    "ground": [
+        function handleX(match, entity) {
+            if (entity.vel.x > 0) {
+                if (entity.bounds.right > match.x1) {
+                    entity.obstruct(Sides.RIGHT, match);
+                }
+            } else if (entity.vel.x < 0) {
+                if (entity.bounds.left < match.x2) {
+                    entity.obstruct(Sides.LEFT, match);
+                }
+            }
+        },
+        function handleY(match, entity) {
+            if (entity.vel.y > 0) {
+                if (entity.bounds.bottom > match.y1) {
+                    entity.obstruct(Sides.BOTTOM, match);
+                }
+            } else if (entity.vel.y < 0) {
+                if (entity.bounds.top < match.y2) {
+                    entity.obstruct(Sides.TOP, match);
+                }
+            }
+        }
+    ],
+};
+
 export default class TileCollider {
     constructor(tileMatrix) {
         this.tiles = new TileResolver(tileMatrix);
@@ -21,19 +48,7 @@ export default class TileCollider {
             entity.bounds.top, entity.bounds.bottom);
 
         matches.forEach(match => {
-            if (match.tile.type !== 'ground') {
-                return;
-            }
-
-            if (entity.vel.x > 0) {
-                if (entity.bounds.right > match.x1) {
-                    entity.obstruct(Sides.RIGHT, match);
-                }
-            } else if (entity.vel.x < 0) {
-                if (entity.bounds.left < match.x2) {
-                    entity.obstruct(Sides.LEFT, match);
-                }
-            }
+            this.handle(0, match, entity);
         });
     }
 
@@ -52,19 +67,16 @@ export default class TileCollider {
             y, y);
 
         matches.forEach(match => {
-            if (match.tile.type !== 'ground') {
-                return;
-            }
-
-            if (entity.vel.y > 0) {
-                if (entity.bounds.bottom > match.y1) {
-                    entity.obstruct(Sides.BOTTOM, match);
-                }
-            } else if (entity.vel.y < 0) {
-                if (entity.bounds.top < match.y2) {
-                    entity.obstruct(Sides.TOP, match);
-                }
-            }
+            this.handle(1, match, entity);
         });
+    }
+
+    handle(index, match, entity) {
+        const type = match.tile.type;
+        const handler = handlers[type];
+        if (!handler) {
+            return;
+        }
+        handler[index](match, entity);
     }
 }
