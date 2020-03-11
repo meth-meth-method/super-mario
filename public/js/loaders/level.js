@@ -8,13 +8,13 @@ function setupCollision(levelSpec, level) {
     const mergedTiles = levelSpec.layers.reduce((mergedTiles, layerSpec) => {
         return mergedTiles.concat(layerSpec.tiles);
     }, []);
-    const collisionGrid = createCollisionGrid(mergedTiles, levelSpec.patterns);
+    const collisionGrid = createGrid(mergedTiles, levelSpec.patterns);
     level.setCollisionGrid(collisionGrid);
 }
 
 function setupBackgrounds(levelSpec, level, backgroundSprites) {
     levelSpec.layers.forEach(layer => {
-        const backgroundGrid = createBackgroundGrid(layer.tiles, levelSpec.patterns);
+        const backgroundGrid = createGrid(layer.tiles, levelSpec.patterns);
         const backgroundLayer = createBackgroundLayer(level, backgroundGrid, backgroundSprites);
         level.comp.layers.push(backgroundLayer);
     });
@@ -51,26 +51,15 @@ export function createLevelLoader(entityFactory) {
     }
 }
 
-function createCollisionGrid(tiles, patterns) {
+function createGrid(tiles, patterns) {
     const grid = new Matrix();
 
     for (const {tile, x, y} of expandTiles(tiles, patterns)) {
-        grid.set(x, y, {type: tile.type});
+        grid.set(x, y, tile);
     }
 
     return grid;
 }
-
-function createBackgroundGrid(tiles, patterns) {
-    const grid = new Matrix();
-
-    for (const {tile, x, y} of expandTiles(tiles, patterns)) {
-        grid.set(x, y, {name: tile.name});
-    }
-
-    return grid;
-}
-
 
 function* expandSpan(xStart, xLen, yStart, yLen) {
     const xEnd = xStart + xLen;
