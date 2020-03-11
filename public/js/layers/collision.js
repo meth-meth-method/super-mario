@@ -13,10 +13,9 @@ function createEntityLayer(entities) {
     };
 }
 
-function createTileCandidateLayer(tileCollider) {
+function createTileCandidateLayer(tileResolver) {
     const resolvedTiles = [];
 
-    const tileResolver = tileCollider.tiles;
     const tileSize = tileResolver.tileSize;
 
     const getByIndexOriginal = tileResolver.getByIndex;
@@ -42,11 +41,11 @@ function createTileCandidateLayer(tileCollider) {
 
 export function createCollisionLayer(level) {
 
-    const drawTileCandidates = createTileCandidateLayer(level.tileCollider);
+    const drawTileCandidates = level.tileCollider.resolvers.map(createTileCandidateLayer);
     const drawBoundingBoxes = createEntityLayer(level.entities);
 
     return function drawCollision(context, camera) {
-        drawTileCandidates(context, camera);
+        drawTileCandidates.forEach(draw => draw(context, camera));
         drawBoundingBoxes(context, camera);
     };
 }
