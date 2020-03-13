@@ -8,8 +8,8 @@ function setupBackgrounds(levelSpec, level, backgroundSprites) {
     levelSpec.layers.forEach(layer => {
         const grid = createGrid(layer.tiles, levelSpec.patterns);
         const backgroundLayer = createBackgroundLayer(level, grid, backgroundSprites);
-        level.tileCollider.addGrid(grid);
         level.comp.layers.push(backgroundLayer);
+        level.tileCollider.addGrid(grid);
     });
 }
 
@@ -52,6 +52,7 @@ function createGrid(tiles, patterns) {
 
     return grid;
 }
+
 
 function* expandSpan(xStart, xLen, yStart, yLen) {
     const xEnd = xStart + xLen;
