@@ -27,7 +27,7 @@ function setupEntities(levelSpec, level, entityFactory) {
 
 export function createLevelLoader(entityFactory) {
     return function loadLevel(name) {
-        return loadJSON(`/levels/${name}.json`)
+        return loadJSON(`../../levels/${name}.json`)
         .then(levelSpec => Promise.all([
             levelSpec,
             loadSpriteSheet(levelSpec.spriteSheet),
