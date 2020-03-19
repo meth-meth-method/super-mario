@@ -1,12 +1,12 @@
 export default class MusicPlayer {
-    constructor(audio) {
+    constructor() {
         this.tracks = new Map();
     }
 
     addTrack(name, url) {
         const audio = new Audio();
-        audio.src = url;
         audio.loop = true;
+        audio.src = url;
         this.tracks.set(name, audio);
     }
 
