@@ -5,7 +5,7 @@ import {loadEntities} from './entities.js';
 import {createPlayer, createPlayerEnv} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers/collision.js';
-import {createDashboardLayer} from './layers/dashboard.js';
+import {createDashboardRenderer} from './layers/dashboard.js';
 
 async function main(canvas) {
     const videoContext = canvas.getContext('2d');
@@ -15,6 +15,8 @@ async function main(canvas) {
         loadEntities(audioContext),
         loadFont(),
     ]);
+
+    const createDashboardLayer = createDashboardRenderer(font);
 
 
     const loadLevel = await createLevelLoader(entityFactory);
@@ -29,7 +31,7 @@ async function main(canvas) {
     level.entities.add(playerEnv);
 
     level.comp.layers.push(createCollisionLayer(level));
-    level.comp.layers.push(createDashboardLayer(font, level));
+    level.comp.layers.push(createDashboardLayer(level));
 
     const inputRouter = setupKeyboard(window);
     inputRouter.addReceiver(mario);
