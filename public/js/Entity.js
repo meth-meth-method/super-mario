@@ -13,8 +13,6 @@ export const Sides = {
 export class Trait {
     constructor(name) {
         this.NAME = name;
-
-        this.events = new EventEmitter();
         this.tasks = [];
     }
 
@@ -43,6 +41,7 @@ export class Trait {
 export default class Entity {
     constructor() {
         this.audio = new AudioBoard();
+        this.events = new EventEmitter();
         this.sounds = new Set();
 
         this.pos = new Vec2(0, 0);

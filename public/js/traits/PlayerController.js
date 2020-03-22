@@ -1,4 +1,5 @@
 import {Trait} from '../Entity.js';
+import Stomper from '../traits/Stomper.js';
 import {Vec2} from '../math.js';
 
 export default class PlayerController extends Trait {
@@ -13,7 +14,7 @@ export default class PlayerController extends Trait {
     setPlayer(entity) {
         this.player = entity;
 
-        this.player.stomper.events.listen('stomp', () => {
+        this.player.events.listen(Stomper.EVENT_STOMP, () => {
             this.score += 100;
         });
     }
