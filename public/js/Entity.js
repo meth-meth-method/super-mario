@@ -11,27 +11,26 @@ export const Sides = {
 };
 
 export class Trait {
+    static EVENT_TASK = Symbol('task');
+
     constructor(name) {
         this.NAME = name;
-        this.tasks = [];
         this.listeners = [];
     }
 
-    listen(name, callback) {
-        this.listeners.push({name, callback});
+    listen(name, callback, count = Infinity) {
+        this.listeners.push({name, callback, count});
     }
 
     finalize(entity) {
-        for (const listener of this.listeners) {
+        this.listeners = this.listeners.filter(listener => {
             entity.events.process(listener.name, listener.callback);
-        }
-
-        this.tasks.forEach(task => task());
-        this.tasks.length = 0;
+            return --listener.count;
+        });
     }
 
     queue(task) {
-        this.tasks.push(task);
+        this.listen(Trait.EVENT_TASK, task, 1);
     }
 
     collides(us, them) {
@@ -85,6 +84,8 @@ export default class Entity {
     }
 
     finalize() {
+        this.events.emit(Trait.EVENT_TASK);
+
         this.traits.forEach(trait => {
             trait.finalize(this);
         });
