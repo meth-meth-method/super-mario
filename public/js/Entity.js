@@ -1,7 +1,7 @@
 import {Vec2} from './math.js';
 import AudioBoard from './AudioBoard.js';
 import BoundingBox from './BoundingBox.js';
-import EventEmitter from './EventEmitter.js';
+import EventBuffer from './EventBuffer.js';
 
 export const Sides = {
     TOP: Symbol('top'),
@@ -14,9 +14,18 @@ export class Trait {
     constructor(name) {
         this.NAME = name;
         this.tasks = [];
+        this.listeners = [];
     }
 
-    finalize() {
+    listen(name, callback) {
+        this.listeners.push({name, callback});
+    }
+
+    finalize(entity) {
+        for (const listener of this.listeners) {
+            entity.events.process(listener.name, listener.callback);
+        }
+
         this.tasks.forEach(task => task());
         this.tasks.length = 0;
     }
@@ -41,7 +50,7 @@ export class Trait {
 export default class Entity {
     constructor() {
         this.audio = new AudioBoard();
-        this.events = new EventEmitter();
+        this.events = new EventBuffer();
         this.sounds = new Set();
 
         this.pos = new Vec2(0, 0);
@@ -77,8 +86,10 @@ export default class Entity {
 
     finalize() {
         this.traits.forEach(trait => {
-            trait.finalize();
+            trait.finalize(this);
         });
+
+        this.events.clear();
     }
 
     playSounds(audioBoard, audioContext) {
