@@ -13,10 +13,6 @@ export default class PlayerController extends Trait {
 
     setPlayer(entity) {
         this.player = entity;
-
-        this.player.events.listen(Stomper.EVENT_STOMP, () => {
-            this.score += 100;
-        });
     }
 
     update(entity, {deltaTime}, level) {
