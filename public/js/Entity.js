@@ -19,7 +19,9 @@ export class Trait {
     }
 
     listen(name, callback, count = Infinity) {
-        this.listeners.push({name, callback, count});
+        const listener = {name, callback, count};
+        this.listeners.push(listener);
+        console.log("Added listener", this, name);
     }
 
     finalize(entity) {
@@ -51,6 +53,8 @@ export default class Entity {
         this.audio = new AudioBoard();
         this.events = new EventBuffer();
         this.sounds = new Set();
+
+        this.events = new EventBuffer();
 
         this.pos = new Vec2(0, 0);
         this.vel = new Vec2(0, 0);

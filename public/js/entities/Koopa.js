@@ -89,7 +89,8 @@ class Behavior extends Trait {
         this.state = STATE_PANIC;
     }
 
-    update(us, {deltaTime}) {
+    update(us, gameContext) {
+        const deltaTime = gameContext.deltaTime;
         if (this.state === STATE_HIDING) {
             this.hideTime += deltaTime;
             if (this.hideTime > this.hideDuration) {
