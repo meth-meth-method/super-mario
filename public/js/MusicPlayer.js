@@ -18,4 +18,11 @@ export default class MusicPlayer {
         audio.play();
         return audio;
     }
+
+    waitForEnd(audio) {
+        audio.loop = false;
+        return new Promise(resolve => {
+            audio.addEventListener('ended', resolve, {once: true});
+        });
+    }
 }
