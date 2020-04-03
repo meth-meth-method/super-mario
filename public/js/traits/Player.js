@@ -4,6 +4,7 @@ import Stomper from '../traits/Stomper.js';
 export default class Player extends Trait {
     constructor() {
         super('player');
+        this.name = "UNNAMED";
         this.coins = 0;
         this.lives = 3;
         this.score = 0;

@@ -8,7 +8,6 @@ import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
 
-
 async function main(canvas) {
     const context = canvas.getContext('2d');
     const audioContext = new AudioContext();
@@ -26,14 +25,14 @@ async function main(canvas) {
     const camera = new Camera();
 
     const mario = createPlayer(entityFactory.mario());
-    window.mario = mario;
+    mario.player.name = "MARIO";
+    level.entities.add(mario);
 
     const playerEnv = createPlayerEnv(mario);
     level.entities.add(playerEnv);
 
-
     level.comp.layers.push(createCollisionLayer(level));
-    level.comp.layers.push(createDashboardLayer(font, playerEnv));
+    level.comp.layers.push(createDashboardLayer(font, level));
 
     const input = setupKeyboard(mario);
     input.listenTo(window);

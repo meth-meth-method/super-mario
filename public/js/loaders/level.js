@@ -9,16 +9,21 @@ import {loadSpriteSheet} from './sprite.js';
 import {loadJSON} from '../loaders.js';
 
 function createTimer() {
-    const entity = new Entity();
-    entity.addTrait(new LevelTimer());
-    return entity;
+    const timer = new Entity();
+    timer.addTrait(new LevelTimer());
+    return timer;
 }
 
 function setupBehavior(level) {
     const timer = createTimer();
     level.entities.add(timer);
-    level.events.listen(LevelTimer.EVENT_TIMER_OK, () => level.music.playTheme());
-    level.events.listen(LevelTimer.EVENT_TIMER_HURRY, () => level.music.playHurryTheme());
+
+    level.events.listen(LevelTimer.EVENT_TIMER_OK, () => {
+        level.music.playTheme();
+    });
+    level.events.listen(LevelTimer.EVENT_TIMER_HURRY, () => {
+        level.music.playHurryTheme();
+    });
 }
 
 function setupBackgrounds(levelSpec, level, backgroundSprites) {

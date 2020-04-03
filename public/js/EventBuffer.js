@@ -6,7 +6,6 @@ export default class EventBuffer {
     emit(name, ...args) {
         const event = {name, args};
         this.events.push(event);
-        console.log(this.events);
     }
 
     process(name, callback) {
