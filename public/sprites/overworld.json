@@ -116,6 +116,17 @@
                 "chance-3",
                 "chance-2"
             ]
+        },
+        {
+            "name": "coin",
+            "frameLen": 0.12,
+            "frames": [
+                "coin-1",
+                "coin-1",
+                "coin-2",
+                "coin-3",
+                "coin-2"
+            ]
         }
     ]
 }
