@@ -25,6 +25,17 @@
                     ]
                 }
             ]
+        },
+        {
+            "tiles": [
+                {
+                    "name": "coin",
+                    "type": "coin",
+                    "ranges": [
+                        [6, 4, 8, 2]
+                    ]
+                }
+            ]
         }
     ],
     "entities": []
