@@ -87,7 +87,7 @@ export default class Entity {
     }
 
     finalize() {
-        this.events.emit(Trait.EVENT_TASK);
+        this.events.emit(Trait.EVENT_TASK, this);
 
         this.traits.forEach(trait => {
             trait.finalize(this);
