@@ -14,4 +14,8 @@ export default class Player extends Trait {
             console.log('Score', this.score);
         });
     }
+
+    addCoins(count) {
+        this.coins += count;
+    }
 }
