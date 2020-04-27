@@ -11,11 +11,15 @@ export default class MusicPlayer {
     }
 
     playTrack(name) {
-        for (const audio of this.tracks.values()) {
-            audio.pause();
-        }
+        this.pause();
         const audio = this.tracks.get(name);
         audio.play();
         return audio;
+    }
+
+    pause() {
+        for (const audio of this.tracks.values()) {
+            audio.pause();
+        }
     }
 }
