@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "serve ./public",
+    "start": "PORT=5000 serve ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
