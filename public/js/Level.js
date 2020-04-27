@@ -14,6 +14,8 @@ function focusPlayer(level) {
 }
 
 export default class Level {
+    static EVENT_GOTO_SCENE = Symbol('go to scene event');
+
     constructor() {
         this.name = "";
 
