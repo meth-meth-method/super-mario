@@ -1,3 +1,6 @@
+import SceneRunner from './SceneRunner.js';
+import Level from './Level.js';
+import LevelScene from './scenes/LevelScene.js';
 import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
@@ -6,6 +9,8 @@ import {createPlayer, createPlayerEnv} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardRenderer} from './layers/dashboard.js';
+import Player from './traits/Player.js';
+import InputRouter from './InputRouter.js';
 
 async function main(canvas) {
     const videoContext = canvas.getContext('2d');
@@ -18,23 +23,47 @@ async function main(canvas) {
 
     const createDashboardLayer = createDashboardRenderer(font);
 
+    const marioPlayer = new Player();
+    marioPlayer.name = 'MARIO';
 
-    const loadLevel = await createLevelLoader(entityFactory);
-
-    const level = await loadLevel('1-2');
-
-    const mario = createPlayer(entityFactory.mario());
-    mario.player.name = "MARIO";
-    level.entities.add(mario);
-
-    const playerEnv = createPlayerEnv(mario);
-    level.entities.add(playerEnv);
-
-    level.comp.layers.push(createCollisionLayer(level));
-    level.comp.layers.push(createDashboardLayer(level));
+    const mario = entityFactory.mario();
+    mario.addTrait(marioPlayer);
 
     const inputRouter = setupKeyboard(window);
     inputRouter.addReceiver(mario);
+
+    const loadLevel = await createLevelLoader(entityFactory);
+
+    const sceneRunner = new SceneRunner();
+
+    async function loadScene(name) {
+        const level = await loadLevel(name);
+
+        mario.pos.set(0, 0);
+        mario.vel.set(0, 0);
+        level.entities.add(mario);
+
+        const playerEnv = createPlayerEnv(mario);
+        level.entities.add(playerEnv);
+
+        const dashboardLayer = createDashboardLayer(level);
+
+        level.comp.layers.push(createCollisionLayer(level));
+        level.comp.layers.push(dashboardLayer);
+
+        level.events.listen(Level.EVENT_GOTO_SCENE, sceneName => {
+            runScene(sceneName);
+        });
+
+        const levelScene = new LevelScene(level);
+        sceneRunner.addScene(levelScene);
+
+        sceneRunner.runNext();
+    }
+
+    function runScene(name) {
+        loadScene(name);
+    }
 
     const gameContext = {
         audioContext,
@@ -46,11 +75,12 @@ async function main(canvas) {
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
         gameContext.deltaTime = deltaTime;
-        level.update(gameContext);
-        level.draw(gameContext);
+        sceneRunner.update(gameContext);
     }
 
     timer.start();
+
+    runScene('debug-progression')
 }
 
 const canvas = document.getElementById('screen');
