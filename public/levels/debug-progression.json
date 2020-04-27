@@ -1,0 +1,34 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "silent",
+
+    "patternSheet": "overworld",
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [
+                            0, 212,
+                            0, 13
+                        ]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [
+                            0, 212,
+                            13, 2
+                        ]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": []
+}
