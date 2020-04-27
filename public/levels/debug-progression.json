@@ -30,5 +30,13 @@
         }
     ],
 
-    "entities": []
+    "entities": [],
+
+    "triggers": [
+        {
+            "pos": [128, 128],
+            "type": "goto",
+            "pointer": "1-2"
+        }
+    ]
 }

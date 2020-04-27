@@ -1,6 +1,7 @@
 import {Matrix} from '../math.js';
 import Entity from '../Entity.js';
 import LevelTimer from '../traits/LevelTimer.js';
+import Trigger from '../traits/Trigger.js';
 import Level from '../Level.js';
 import {createSpriteLayer} from '../layers/sprites.js';
 import {createBackgroundLayer} from '../layers/background.js';
@@ -12,6 +13,22 @@ function createTimer() {
     const timer = new Entity();
     timer.addTrait(new LevelTimer());
     return timer;
+}
+
+function createGotoTrigger(name) {
+    const entity = new Entity();
+    entity.size.set(24, 24);
+    const trigger = new Trigger();
+    trigger.conditions.push((touches, _, level) => {
+        for (const entity of touches) {
+            if (entity.player) {
+                level.events.emit(Level.EVENT_GOTO_SCENE, name);
+                return;
+            }
+        }
+    });
+    entity.addTrait(trigger);
+    return entity;
 }
 
 function loadPattern(name) {
@@ -51,6 +68,19 @@ function setupEntities(levelSpec, level, entityFactory) {
     level.comp.layers.push(spriteLayer);
 }
 
+function setupTriggers(levelSpec, level) {
+    if (!levelSpec.triggers) {
+        return;
+    }
+    for (const triggerSpec of levelSpec.triggers) {
+        if (triggerSpec.type === "goto") {
+            const trigger = createGotoTrigger(triggerSpec.pointer);
+            trigger.pos.set(...triggerSpec.pos);
+            level.entities.add(trigger);
+        }
+    }
+}
+
 export function createLevelLoader(entityFactory) {
     return function loadLevel(name) {
         return loadJSON(`/levels/${name}.json`)
@@ -67,6 +97,7 @@ export function createLevelLoader(entityFactory) {
 
             setupBackgrounds(levelSpec, level, backgroundSprites, patterns);
             setupEntities(levelSpec, level, entityFactory);
+            setupTriggers(levelSpec, level);
             setupBehavior(level);
 
             return level;
