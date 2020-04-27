@@ -1,5 +1,6 @@
 import SceneRunner from './SceneRunner.js';
 import Level from './Level.js';
+import CompositionScene from './scenes/CompositionScene.js';
 import LevelScene from './scenes/LevelScene.js';
 import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
@@ -9,6 +10,7 @@ import {createPlayer, createPlayerEnv} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardRenderer} from './layers/dashboard.js';
+import {createWaitScreenRenderer} from './layers/wait-screen.js';
 import Player from './traits/Player.js';
 import InputRouter from './InputRouter.js';
 
@@ -22,6 +24,7 @@ async function main(canvas) {
     ]);
 
     const createDashboardLayer = createDashboardRenderer(font);
+    const createWaitScreenLayer = createWaitScreenRenderer(font);
 
     const marioPlayer = new Player();
     marioPlayer.name = 'MARIO';
@@ -47,6 +50,7 @@ async function main(canvas) {
         level.entities.add(playerEnv);
 
         const dashboardLayer = createDashboardLayer(level);
+        const waitScreenLayer = createWaitScreenLayer(level);
 
         level.comp.layers.push(createCollisionLayer(level));
         level.comp.layers.push(dashboardLayer);
@@ -54,6 +58,11 @@ async function main(canvas) {
         level.events.listen(Level.EVENT_GOTO_SCENE, sceneName => {
             runScene(sceneName);
         });
+
+        const loadScreenScene = new CompositionScene();
+        loadScreenScene.layers.push(dashboardLayer);
+        loadScreenScene.layers.push(waitScreenLayer);
+        sceneRunner.addScene(loadScreenScene);
 
         const levelScene = new LevelScene(level);
         sceneRunner.addScene(levelScene);
