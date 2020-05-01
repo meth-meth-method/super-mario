@@ -53,4 +53,8 @@ export default class Level extends Scene {
 
         this.totalTime += gameContext.deltaTime;
     }
+
+    pause() {
+        this.music.pause();
+    }
 }
