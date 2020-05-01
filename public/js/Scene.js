@@ -15,4 +15,8 @@ export default class Scene {
 
     update(gameContext) {
     }
+
+    pause() {
+
+    }
 }
