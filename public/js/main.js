@@ -25,10 +25,6 @@ async function main(canvas) {
     mario.player.name = "MARIO";
     level.entities.add(mario);
 
-    const luigi = createPlayer(entityFactory.mario());
-    luigi.pos.x += 128;
-    level.entities.add(luigi);
-
     const playerEnv = createPlayerEnv(mario);
     level.entities.add(playerEnv);
 
@@ -37,7 +33,6 @@ async function main(canvas) {
 
     const inputRouter = setupKeyboard(window);
     inputRouter.addReceiver(mario);
-    inputRouter.addReceiver(luigi);
 
     const gameContext = {
         audioContext,
