@@ -9,6 +9,7 @@ import {createDashboardLayer} from './layers/dashboard.js';
 import SceneRunner from './SceneRunner.js';
 import { createPlayerProgressLayer } from './layers/player-progress.js';
 import CompositionScene from './CompositionScene.js';
+import { createColorLayer } from './layers/color.js';
 
 async function main(canvas) {
     const videoContext = canvas.getContext('2d');
@@ -42,6 +43,7 @@ async function main(canvas) {
         level.entities.add(playerEnv);
 
         const waitScreen = new CompositionScene();
+        waitScreen.comp.layers.push(createColorLayer('#000'));
         waitScreen.comp.layers.push(dashboardLayer);
         waitScreen.comp.layers.push(playerProgressLayer);
         sceneRunner.addScene(waitScreen);
