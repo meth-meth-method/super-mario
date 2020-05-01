@@ -8,16 +8,17 @@ export default class Emitter extends Trait {
         this.emitters = [];
     }
 
-    emit(entity, level) {
+    emit(entity, gameContext, level) {
         for (const emitter of this.emitters) {
-            emitter(entity, level);
+            emitter(entity, gameContext, level);
         }
     }
 
-    update(entity, {deltaTime}, level) {
+    update(entity, gameContext, level) {
+        const {deltaTime} = gameContext;
         this.coolDown -= deltaTime;
         if (this.coolDown <= 0) {
-            this.emit(entity, level);
+            this.emit(entity, gameContext, level);
             this.coolDown = this.interval;
         }
     }
