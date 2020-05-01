@@ -28,7 +28,7 @@ export function createDashboardLayer(font, level) {
         font.print('@x' + playerTrait.coins.toString().padStart(2, '0'), context, 96, LINE2);
 
         font.print('WORLD', context, 152, LINE1);
-        font.print('1-1', context, 160, LINE2);
+        font.print(level.name, context, 160, LINE2);
 
         font.print('TIME', context, 208, LINE1);
         font.print(timerTrait.currentTime.toFixed().toString().padStart(3, '0'), context, 216, LINE2);

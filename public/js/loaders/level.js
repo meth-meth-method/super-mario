@@ -57,6 +57,7 @@ export function createLevelLoader(entityFactory) {
         ]))
         .then(([levelSpec, backgroundSprites, musicPlayer]) => {
             const level = new Level();
+            level.name = name;
             level.music.setPlayer(musicPlayer);
 
             setupBackgrounds(levelSpec, level, backgroundSprites);

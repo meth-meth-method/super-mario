@@ -14,6 +14,8 @@ function focusPlayer(level) {
 
 export default class Level {
     constructor() {
+        this.name = "";
+
         this.gravity = 1500;
         this.totalTime = 0;
 
