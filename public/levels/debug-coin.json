@@ -1,6 +1,7 @@
 {
     "spriteSheet": "overworld",
     "musicSheet": "silent",
+    "patternSheet": "overworld-pattern",
 
     "layers": [
         {
