@@ -24,30 +24,34 @@ async function main(canvas) {
 
     const sceneRunner = new SceneRunner();
 
-    const level = await loadLevel('1-2');
-
-    const playerProgressLayer = createPlayerProgressLayer(font, level);
-    const dashboardLayer = createDashboardLayer(font, level);
 
     const mario = createPlayer(entityFactory.mario());
     mario.player.name = "MARIO";
-    level.entities.add(mario);
-
-    const playerEnv = createPlayerEnv(mario);
-    level.entities.add(playerEnv);
-
-    const waitScreen = new CompositionScene();
-    waitScreen.comp.layers.push(dashboardLayer);
-    waitScreen.comp.layers.push(playerProgressLayer);
-
-    level.comp.layers.push(createCollisionLayer(level));
-    level.comp.layers.push(dashboardLayer);
 
     const inputRouter = setupKeyboard(window);
     inputRouter.addReceiver(mario);
 
-    sceneRunner.addScene(waitScreen);
-    sceneRunner.addScene(level);
+    async function runLevel(name) {
+        const level = await loadLevel(name);
+
+        const playerProgressLayer = createPlayerProgressLayer(font, level);
+        const dashboardLayer = createDashboardLayer(font, level);
+        level.entities.add(mario);
+
+        const playerEnv = createPlayerEnv(mario);
+        level.entities.add(playerEnv);
+
+        const waitScreen = new CompositionScene();
+        waitScreen.comp.layers.push(dashboardLayer);
+        waitScreen.comp.layers.push(playerProgressLayer);
+        sceneRunner.addScene(waitScreen);
+
+        level.comp.layers.push(createCollisionLayer(level));
+        level.comp.layers.push(dashboardLayer);
+        sceneRunner.addScene(level);
+
+        sceneRunner.runNext();
+    }
 
     const gameContext = {
         audioContext,
@@ -63,7 +67,9 @@ async function main(canvas) {
     }
 
     timer.start();
-    sceneRunner.runNext();
+    runLevel('1-2');
+
+    window.runLevel = runLevel;
 }
 
 const canvas = document.getElementById('screen');
