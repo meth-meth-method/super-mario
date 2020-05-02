@@ -1,4 +1,4 @@
-import Scene from "./Scene.js";
+import Scene from './Scene.js';
 
 export default class SceneRunner {
     constructor() {
@@ -16,16 +16,16 @@ export default class SceneRunner {
     runNext() {
         const currentScene = this.scenes[this.sceneIndex];
         if (currentScene) {
-            currentScene.end();
+            currentScene.pause();
         }
         this.sceneIndex++;
     }
 
     update(gameContext) {
         const currentScene = this.scenes[this.sceneIndex];
-        if (!currentScene) {
-            return;
+        if (currentScene) {
+            currentScene.update(gameContext);
+            currentScene.draw(gameContext);
         }
-        currentScene.update(gameContext);
     }
 }

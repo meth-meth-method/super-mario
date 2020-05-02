@@ -6,6 +6,7 @@ export function setupKeyboard(window) {
     const router = new InputRouter();
 
     input.listenTo(window);
+
     input.addMapping('KeyP', keyState => {
         if (keyState) {
             router.route(entity => entity.jump.start());

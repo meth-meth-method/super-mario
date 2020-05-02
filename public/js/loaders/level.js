@@ -15,19 +15,9 @@ function createTimer() {
     return timer;
 }
 
-function createGotoTrigger(name) {
+function createTrigger() {
     const entity = new Entity();
-    entity.size.set(24, 24);
-    const trigger = new Trigger();
-    trigger.conditions.push((touches, _, level) => {
-        for (const entity of touches) {
-            if (entity.player) {
-                level.events.emit(Level.EVENT_GOTO_SCENE, name);
-                return;
-            }
-        }
-    });
-    entity.addTrait(trigger);
+    entity.addTrait(new Trigger());
     return entity;
 }
 
@@ -72,12 +62,16 @@ function setupTriggers(levelSpec, level) {
     if (!levelSpec.triggers) {
         return;
     }
+
     for (const triggerSpec of levelSpec.triggers) {
-        if (triggerSpec.type === "goto") {
-            const trigger = createGotoTrigger(triggerSpec.pointer);
-            trigger.pos.set(...triggerSpec.pos);
-            level.entities.add(trigger);
-        }
+        const entity = createTrigger();
+        entity.trigger.conditions.push((entity, touches, gc, level) => {
+            level.events.emit(Level.EVENT_TRIGGER, triggerSpec, entity, touches);
+        });
+        console.log(entity);
+        entity.size.set(64, 64);
+        entity.pos.set(triggerSpec.pos[0], triggerSpec.pos[1]);
+        level.entities.add(entity);
     }
 }
 

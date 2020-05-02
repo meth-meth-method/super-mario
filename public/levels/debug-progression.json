@@ -1,7 +1,6 @@
 {
     "spriteSheet": "overworld",
     "musicSheet": "silent",
-
     "patternSheet": "overworld-pattern",
 
     "layers": [
@@ -34,9 +33,9 @@
 
     "triggers": [
         {
-            "pos": [128, 128],
             "type": "goto",
-            "pointer": "1-2"
+            "name": "1-1",
+            "pos": [64, 64]
         }
     ]
 }

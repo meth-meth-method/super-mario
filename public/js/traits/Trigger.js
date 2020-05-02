@@ -11,10 +11,10 @@ export default class Trigger extends Trait {
         this.touches.add(them);
     }
 
-    update(_, gameContext, level) {
+    update(entity, gameContext, level) {
         if (this.touches.size > 0) {
             for (const condition of this.conditions) {
-                condition(this.touches, gameContext, level);
+                condition(entity, this.touches, gameContext, level);
             }
             this.touches.clear();
         }

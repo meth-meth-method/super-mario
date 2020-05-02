@@ -20,7 +20,7 @@ export default class MusicController {
         }, {once: true});
     }
 
-    stop() {
-        this.player.pause();
+    pause() {
+        this.player.pauseAll();
     }
 }
