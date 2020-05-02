@@ -1,4 +1,4 @@
-import {Trait} from '../Entity.js';
+import Trait from '../Trait.js';
 import Stomper from '../traits/Stomper.js';
 
 const COIN_LIFE_THRESHOLD = 100;

@@ -1,4 +1,4 @@
-import {Trait} from '../Entity.js';
+import Trait from '../Trait.js';
 
 export default class LevelTimer extends Trait {
     static EVENT_TIMER_HURRY = Symbol('timer hurry');
