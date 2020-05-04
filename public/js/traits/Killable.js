@@ -3,7 +3,7 @@ import Trait from '../Trait.js';
 
 export default class Killable extends Trait {
     constructor() {
-        super('killable');
+        super();
         this.dead = false;
         this.deadTime = 0;
         this.removeAfter = 2;

@@ -2,7 +2,7 @@ import Trait from '../Trait.js';
 
 export default class Emitter extends Trait {
     constructor() {
-        super('emitter');
+        super();
         this.interval = 2;
         this.coolDown = this.interval;
         this.emitters = [];

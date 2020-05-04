@@ -1,8 +1,7 @@
 export default class Trait {
     static EVENT_TASK = Symbol('task');
 
-    constructor(name) {
-        this.NAME = name;
+    constructor() {
         this.listeners = [];
     }
 

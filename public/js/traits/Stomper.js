@@ -5,7 +5,7 @@ export default class Stomper extends Trait {
     static EVENT_STOMP = Symbol('stomp');
 
     constructor() {
-        super('stomper');
+        super();
         this.bounceSpeed = 400;
     }
 

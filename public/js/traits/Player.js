@@ -5,7 +5,7 @@ const COIN_LIFE_THRESHOLD = 100;
 
 export default class Player extends Trait {
     constructor() {
-        super('player');
+        super();
         this.name = "UNNAMED";
         this.coins = 0;
         this.lives = 3;

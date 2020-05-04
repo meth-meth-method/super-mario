@@ -14,7 +14,7 @@ export function loadBullet() {
 
 class Behavior extends Trait {
     constructor() {
-        super('behavior');
+        super();
         this.gravity = new Gravity();
     }
 

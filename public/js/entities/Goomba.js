@@ -13,10 +13,6 @@ export function loadGoomba() {
 
 
 class Behavior extends Trait {
-    constructor() {
-        super('behavior');
-    }
-
     collides(us, them) {
         if (us.traits.get(Killable).dead) {
             return;

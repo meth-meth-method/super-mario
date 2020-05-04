@@ -18,7 +18,7 @@ const STATE_PANIC = Symbol('panic');
 
 class Behavior extends Trait {
     constructor() {
-        super('behavior');
+        super();
 
         this.hideTime = 0;
         this.hideDuration = 5;

@@ -3,7 +3,7 @@ import {Vec2} from '../math.js';
 
 export default class PlayerController extends Trait {
     constructor() {
-        super('playerController');
+        super();
         this.checkpoint = new Vec2(0, 0);
         this.player = null;
     }
