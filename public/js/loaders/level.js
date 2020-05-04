@@ -64,11 +64,12 @@ function setupTriggers(levelSpec, level) {
     }
 
     for (const triggerSpec of levelSpec.triggers) {
-        const entity = createTrigger();
-        entity.trigger.conditions.push((entity, touches, gc, level) => {
+        const trigger = new Trigger();
+        trigger.conditions.push((entity, touches, gc, level) => {
             level.events.emit(Level.EVENT_TRIGGER, triggerSpec, entity, touches);
         });
-        console.log(entity);
+        const entity = new Entity();
+        entity.addTrait(trigger);
         entity.size.set(64, 64);
         entity.pos.set(triggerSpec.pos[0], triggerSpec.pos[1]);
         level.entities.add(entity);

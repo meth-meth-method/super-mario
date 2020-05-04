@@ -25,27 +25,29 @@ function createMarioFactory(sprite, audio) {
     const runAnim = sprite.animations.get('run');
 
     function routeFrame(mario) {
-        if (mario.jump.falling) {
+        if (mario.traits.get(Jump).falling) {
             return 'jump';
         }
 
-        if (mario.go.distance > 0) {
-            if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
+        const go = mario.traits.get(Go);
+        if (go.distance > 0) {
+            if ((mario.vel.x > 0 && go.dir < 0) || (mario.vel.x < 0 && go.dir > 0)) {
                 return 'break';
             }
 
-            return runAnim(mario.go.distance);
+            return runAnim(go.distance);
         }
 
         return 'idle';
     }
 
     function setTurboState(turboOn) {
-        this.go.dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
+        this.traits.get(Go).dragFactor = turboOn ? FAST_DRAG : SLOW_DRAG;
     }
 
     function drawMario(context) {
-        sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
+        const go = this.traits.get(Go);
+        sprite.draw(routeFrame(this), context, 0, 0, go.heading < 0);
     }
 
     return function createMario() {
@@ -60,7 +62,7 @@ function createMarioFactory(sprite, audio) {
         mario.addTrait(new Killable());
         mario.addTrait(new Stomper());
 
-        mario.killable.removeAfter = 0;
+        mario.traits.get(Killable).removeAfter = 0;
 
         mario.turbo = setTurboState;
         mario.draw = drawMario;

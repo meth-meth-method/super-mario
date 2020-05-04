@@ -3,7 +3,7 @@ import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
-import {createPlayer, createPlayerEnv, findPlayers} from './player.js';
+import {makePlayer, createPlayerEnv, findPlayers} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createColorLayer} from './layers/color.js';
 import {createTextLayer} from './layers/text.js';
@@ -28,8 +28,9 @@ async function main(canvas) {
 
     const sceneRunner = new SceneRunner();
 
-    const mario = createPlayer(entityFactory.mario());
-    mario.player.name = "MARIO";
+    const mario = entityFactory.mario();
+    makePlayer(mario, 'MARIO');
+
     const inputRouter = setupKeyboard(window);
     inputRouter.addReceiver(mario);
 

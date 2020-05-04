@@ -1,5 +1,7 @@
 import Keyboard from './KeyboardState.js';
 import InputRouter from './InputRouter.js';
+import Go from './traits/Go.js';
+import Jump from './traits/Jump.js';
 
 export function setupKeyboard(window) {
     const input = new Keyboard();
@@ -9,9 +11,9 @@ export function setupKeyboard(window) {
 
     input.addMapping('KeyP', keyState => {
         if (keyState) {
-            router.route(entity => entity.jump.start());
+            router.route(entity => entity.traits.get(Jump).start());
         } else {
-            router.route(entity => entity.jump.cancel());
+            router.route(entity => entity.traits.get(Jump).cancel());
         }
     });
 
@@ -20,11 +22,11 @@ export function setupKeyboard(window) {
     });
 
     input.addMapping('KeyD', keyState => {
-        router.route(entity => entity.go.dir += keyState ? 1 : -1);
+        router.route(entity => entity.traits.get(Go).dir += keyState ? 1 : -1);
     });
 
     input.addMapping('KeyA', keyState => {
-        router.route(entity => entity.go.dir += keyState ? -1 : 1);
+        router.route(entity => entity.traits.get(Go).dir += keyState ? -1 : 1);
     });
 
     return router;

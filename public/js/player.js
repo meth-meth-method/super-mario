@@ -11,9 +11,10 @@ export function createPlayerEnv(playerEntity) {
     return playerEnv;
 }
 
-export function createPlayer(entity) {
-    entity.addTrait(new Player());
-    return entity;
+export function makePlayer(entity, name) {
+    const player = new Player();
+    player.name = name;
+    entity.addTrait(player);
 }
 
 export function* findPlayers(entities) {
