@@ -1,13 +1,13 @@
 import {findPlayers} from "../player.js";
 
-function getPlayerTrait(level) {
-    for (const entity of findPlayers(level)) {
+function getPlayerTrait(entities) {
+    for (const entity of findPlayers(entities)) {
         return entity.player;
     }
 }
 
-function getTimerTrait(level) {
-    for (const entity of level.entities) {
+function getTimerTrait(entities) {
+    for (const entity of entities) {
         if (entity.levelTimer) {
             return entity.levelTimer;
         }
@@ -18,10 +18,10 @@ export function createDashboardLayer(font, level) {
     const LINE1 = font.size;
     const LINE2 = font.size * 2;
 
-    const timerTrait = getTimerTrait(level);
+    const timerTrait = getTimerTrait(level.entities);
 
     return function drawDashboard(context) {
-        const playerTrait = getPlayerTrait(level);
+        const playerTrait = getPlayerTrait(level.entities);
 
         font.print(playerTrait.name, context, 16, LINE1);
         font.print(playerTrait.score.toString().padStart(6, '0'), context, 16, LINE2);

@@ -3,7 +3,7 @@ import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
-import {createPlayer, createPlayerEnv} from './player.js';
+import {createPlayer, createPlayerEnv, findPlayers} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createColorLayer} from './layers/color.js';
 import {createTextLayer} from './layers/text.js';
@@ -44,11 +44,9 @@ async function main(canvas) {
 
         level.events.listen(Level.EVENT_TRIGGER, (spec, trigger, touches) => {
             if (spec.type === "goto") {
-                for (const entity of touches) {
-                    if (entity.player) {
-                        runLevel(spec.name);
-                        return;
-                    }
+                for (const _ of findPlayers(touches)) {
+                    runLevel(spec.name);
+                    return;
                 }
             }
         });

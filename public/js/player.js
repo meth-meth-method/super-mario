@@ -16,9 +16,9 @@ export function createPlayer(entity) {
     return entity;
 }
 
-export function* findPlayers(level) {
-    for (const entity of level.entities) {
-        if (entity.player) {
+export function* findPlayers(entities) {
+    for (const entity of entities) {
+        if (entity.traits.has(Player)) {
             yield entity;
         }
     }
