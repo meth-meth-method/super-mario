@@ -6,9 +6,11 @@ import {loadEntities} from './entities.js';
 import {createPlayer, createPlayerEnv} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createColorLayer} from './layers/color.js';
+import {createTextLayer} from './layers/text.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
 import SceneRunner from './SceneRunner.js';
+import Scene from './Scene.js';
 import { createPlayerProgressLayer } from './layers/player-progress.js';
 import TimedScene from './TimedScene.js';
 
@@ -32,6 +34,12 @@ async function main(canvas) {
     inputRouter.addReceiver(mario);
 
     async function runLevel(name) {
+        const loadScreen = new Scene();
+        loadScreen.comp.layers.push(createColorLayer('#000'));
+        loadScreen.comp.layers.push(createTextLayer(font, `Loading ${name}...`));
+        sceneRunner.addScene(loadScreen);
+        sceneRunner.runNext();
+
         const level = await loadLevel(name);
 
         level.events.listen(Level.EVENT_TRIGGER, (spec, trigger, touches) => {
