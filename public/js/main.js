@@ -10,7 +10,7 @@ import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
 import SceneRunner from './SceneRunner.js';
 import { createPlayerProgressLayer } from './layers/player-progress.js';
-import CompositionScene from './CompositionScene.js';
+import TimedScene from './TimedScene.js';
 
 async function main(canvas) {
     const videoContext = canvas.getContext('2d');
@@ -54,7 +54,7 @@ async function main(canvas) {
         const playerEnv = createPlayerEnv(mario);
         level.entities.add(playerEnv);
 
-        const waitScreen = new CompositionScene();
+        const waitScreen = new TimedScene();
         waitScreen.countDown = 2;
         waitScreen.comp.layers.push(createColorLayer('#000'));
         waitScreen.comp.layers.push(dashboardLayer);
