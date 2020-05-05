@@ -13,7 +13,7 @@ export function createPlayerEnv(playerEntity) {
 
 export function makePlayer(entity, name) {
     const player = new Player();
-    player.name = name;
+    player.name = "MARIO";
     entity.addTrait(player);
 }
 

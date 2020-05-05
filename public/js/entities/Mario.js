@@ -29,13 +29,12 @@ function createMarioFactory(sprite, audio) {
             return 'jump';
         }
 
-        const go = mario.traits.get(Go);
-        if (go.distance > 0) {
-            if ((mario.vel.x > 0 && go.dir < 0) || (mario.vel.x < 0 && go.dir > 0)) {
+        if (mario.traits.get(Go).distance > 0) {
+            if ((mario.vel.x > 0 && mario.traits.get(Go).dir < 0) || (mario.vel.x < 0 && mario.traits.get(Go).dir > 0)) {
                 return 'break';
             }
 
-            return runAnim(go.distance);
+            return runAnim(mario.traits.get(Go).distance);
         }
 
         return 'idle';
@@ -46,8 +45,7 @@ function createMarioFactory(sprite, audio) {
     }
 
     function drawMario(context) {
-        const go = this.traits.get(Go);
-        sprite.draw(routeFrame(this), context, 0, 0, go.heading < 0);
+        sprite.draw(routeFrame(this), context, 0, 0, this.traits.get(Go).heading < 0);
     }
 
     return function createMario() {

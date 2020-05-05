@@ -1,10 +1,10 @@
-import Entity, {Sides} from '../Entity.js';
+import Entity from '../Entity.js';
 import Trait from '../Trait.js';
 import Killable from '../traits/Killable.js';
-import Stomper from '../traits/Stomper.js';
 import PendulumMove from '../traits/PendulumMove.js';
 import Physics from '../traits/Physics.js';
 import Solid from '../traits/Solid.js';
+import Stomper from '../traits/Stomper.js';
 import {loadSpriteSheet} from '../loaders/sprite.js';
 
 export function loadKoopa() {

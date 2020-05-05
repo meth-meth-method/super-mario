@@ -1,9 +1,10 @@
-import Entity, {Sides} from '../Entity.js';
+import Entity from '../Entity.js';
 import Trait from '../Trait.js';
 import Killable from '../traits/Killable.js';
 import PendulumMove from '../traits/PendulumMove.js';
 import Physics from '../traits/Physics.js';
 import Solid from '../traits/Solid.js';
+import Stomper from '../traits/Stomper.js';
 import {loadSpriteSheet} from '../loaders/sprite.js';
 
 export function loadGoomba() {
@@ -18,7 +19,7 @@ class Behavior extends Trait {
             return;
         }
 
-        if (them.stomper) {
+        if (them.traits.has(Stomper)) {
             if (them.vel.y > us.vel.y) {
                 us.traits.get(Killable).kill();
                 us.traits.get(PendulumMove).speed = 0;

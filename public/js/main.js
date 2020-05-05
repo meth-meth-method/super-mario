@@ -9,9 +9,9 @@ import {createColorLayer} from './layers/color.js';
 import {createTextLayer} from './layers/text.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
+import { createPlayerProgressLayer } from './layers/player-progress.js';
 import SceneRunner from './SceneRunner.js';
 import Scene from './Scene.js';
-import { createPlayerProgressLayer } from './layers/player-progress.js';
 import TimedScene from './TimedScene.js';
 
 async function main(canvas) {
@@ -29,7 +29,8 @@ async function main(canvas) {
     const sceneRunner = new SceneRunner();
 
     const mario = entityFactory.mario();
-    makePlayer(mario, 'MARIO');
+    makePlayer(mario, "MARIO");
+    window.mario = mario;
 
     const inputRouter = setupKeyboard(window);
     inputRouter.addReceiver(mario);
@@ -90,7 +91,7 @@ async function main(canvas) {
 
     timer.start();
 
-    runLevel('debug-progression');
+    runLevel('1-1');
 }
 
 const canvas = document.getElementById('screen');

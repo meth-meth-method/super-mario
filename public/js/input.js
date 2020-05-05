@@ -1,7 +1,7 @@
 import Keyboard from './KeyboardState.js';
 import InputRouter from './InputRouter.js';
-import Go from './traits/Go.js';
 import Jump from './traits/Jump.js';
+import Go from './traits/Go.js';
 
 export function setupKeyboard(window) {
     const input = new Keyboard();

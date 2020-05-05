@@ -1,5 +1,5 @@
-import Player from "../traits/Player.js";
 import {findPlayers} from "../player.js";
+import Player from "../traits/Player.js";
 
 function getPlayer(entities) {
     for (const entity of findPlayers(entities)) {
