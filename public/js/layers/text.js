@@ -6,6 +6,6 @@ export function createTextLayer(font, text) {
         const screenH = Math.floor(context.canvas.height / size);
         const x = screenW / 2 - textW / 2;
         const y = screenH / 2;
-        font.print(text, context, x * size, y * size);
+        font.print(text.toUpperCase(), context, x * size, y * size);
     };
 }
