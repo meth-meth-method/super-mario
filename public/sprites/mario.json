@@ -24,7 +24,39 @@
         },
         {
             "name": "jump",
-            "rect": [80, 0, 16, 16]
+            "rect": [70, 0, 16, 16]
+        },
+        {
+            "name": "die",
+            "rect": [86, 0, 16, 16]
+        },
+        {
+            "name": "climb-1",
+            "rect": [102, 0, 16, 16]
+        },
+        {
+            "name": "climb-2",
+            "rect": [118, 0, 16, 16]
+        },
+        {
+            "name": "swim-1",
+            "rect": [134, 0, 16, 16]
+        },
+        {
+            "name": "swim-2",
+            "rect": [150, 0, 16, 16]
+        },
+        {
+            "name": "swim-3",
+            "rect": [166, 0, 16, 16]
+        },
+        {
+            "name": "swim-4",
+            "rect": [182, 0, 16, 16]
+        },
+        {
+            "name": "swim-5",
+            "rect": [198, 0, 16, 16]
         }
     ],
 
@@ -37,6 +69,31 @@
                 "run-2",
                 "run-3",
                 "run-2"
+            ]
+        },
+        {
+            "name": "climb",
+            "frameLen": 4,
+            "frames": [
+                "climb-1",
+                "climb-2"
+            ]
+        },
+        {
+            "name": "swim-idle",
+            "frameLen": 4,
+            "frames": [
+                "swim-1",
+                "swim-2"
+            ]
+        },
+        {
+            "name": "swim",
+            "frameLen": 6,
+            "frames": [
+                "swim-3",
+                "swim-4",
+                "swim-5"
             ]
         }
     ]
