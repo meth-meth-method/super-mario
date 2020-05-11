@@ -1,0 +1,114 @@
+{
+    "mario": {
+        "hex": [
+            "#b13425",
+            "#e39d25",
+            "#6a6b04"
+        ]
+    },
+    "luigi": {
+        "hex": [
+            "#ffffff",
+            "#e39d25",
+            "#3a8400"
+        ]
+    },
+    "fire": {
+        "hex": [
+            "#f7d6a4",
+            "#e39d25",
+            "#b53121"
+        ]
+    },
+    "invincibility-1": {
+        "hex": [
+            "#b13425",
+            "#ffffff",
+            "#e69c21"
+        ]
+    },
+    "invincibility-2": {
+        "hex": [
+            "#000000",
+            "#ffcec5",
+            "#9c4a00"
+        ]
+    },
+    "invincibility-3": {
+        "hex": [
+            "#3a8400",
+            "#ffffff",
+            "#e69c21"
+        ]
+    },
+    "invincibility-4": {
+        "hex": [
+            "#00424a",
+            "#b5efef",
+            "#007b8c"
+        ]
+    },
+    "invincibility-5": {
+        "hex": [
+            "#007b8c",
+            "#ffcec5",
+            "#9c4a00"
+        ]
+    },
+    "invincibility-6": {
+        "hex": [
+            "#636363",
+            "#ffffff",
+            "#adadad"
+        ]
+    },
+    "invincibility-7": {
+        "hex": [
+            "#000000",
+            "#ffffff",
+            "#adadad"
+        ]
+    },
+    "invincibility-8": {
+        "hex": [
+            "#adadad",
+            "#ffffff",
+            "#e69c21"
+        ]
+    },
+
+    "colorCycles": [
+        {
+            "name": "invincibility-overworld",
+            "colors": [
+                "invincibility-1",
+                "invincibility-2",
+                "invincibility-3"
+            ]
+        },
+        {
+            "name": "invincibility-underworld",
+            "colors": [
+                "invincibility-1",
+                "invincibility-4",
+                "invincibility-5"
+            ]
+        },
+        {
+            "name": "invincibility-castle",
+            "colors": [
+                "invincibility-1",
+                "invincibility-5",
+                "invincibility-6"
+            ]
+        },
+        {
+            "name": "invincibility-underwater",
+            "colors": [
+                "invincibility-1",
+                "invincibility-7",
+                "invincibility-8"
+            ]
+        }
+    ]
+}
