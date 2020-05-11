@@ -17,11 +17,7 @@ function getTimerTrait(entities) {
 }
 
 export function createDashboardLayer(font, level) {
-<<<<<<< HEAD
     const LINE1 = font.size * 2;
-=======
-    const LINE1 = font.size * 2
->>>>>>> 7901cc86928b8e39603a3e382df6287b9d5191b2
     const LINE2 = font.size * 3;
 
     const timerTrait = getTimerTrait(level.entities);
