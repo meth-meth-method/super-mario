@@ -57,6 +57,34 @@
         {
             "name": "swim-5",
             "rect": [208, 0, 16, 16]
+        },
+        {
+            "name": "idle-large",
+            "rect": [0, 16, 16, 32]
+        },
+        {
+            "name": "run-1-large",
+            "rect": [16, 16, 16, 32]
+        },
+        {
+            "name": "run-2-large",
+            "rect": [32, 16, 16, 32]
+        },
+        {
+            "name": "run-3-large",
+            "rect": [48, 16, 16, 32]
+        },
+        {
+            "name": "break-large",
+            "rect": [64, 16, 16, 32]
+        },
+        {
+            "name": "jump-large",
+            "rect": [80, 16, 16, 32]
+        },
+        {
+            "name": "crouch-large",
+            "rect": [96, 16, 16, 32]
         }
     ],
 
@@ -67,8 +95,7 @@
             "frames": [
                 "run-1",
                 "run-2",
-                "run-3",
-                "run-2"
+                "run-3"
             ]
         },
         {
@@ -94,6 +121,15 @@
                 "swim-3",
                 "swim-4",
                 "swim-5"
+            ]
+        },
+        {
+            "name": "run-large",
+            "frameLen": 8,
+            "frames": [
+                "run-1-large",
+                "run-2-large",
+                "run-3-large"
             ]
         }
     ]
