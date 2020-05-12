@@ -1,18 +1,18 @@
 {
-    "imageURL": "/img/characters.gif",
+    "imageURL": "/img/enemies.png",
 
     "frames": [
         {
             "name": "walk-1",
-            "rect": [296, 187, 16, 16]
+            "rect": [80, 0, 16, 16]
         },
         {
             "name": "walk-2",
-            "rect": [315, 187, 16, 16]
+            "rect": [96, 0, 16, 16]
         },
         {
             "name": "flat",
-            "rect": [277, 187, 16, 16]
+            "rect": [112, 0, 16, 16]
         }
     ],
 
