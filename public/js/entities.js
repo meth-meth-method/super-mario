@@ -11,15 +11,18 @@ export function loadEntities(audioContext) {
         return factory => entityFactories[name] = factory;
     }
 
-    return Promise.all([
-        loadMario(audioContext).then(addAs('mario')),
-        loadGoombaBrown(audioContext).then(addAs('goomba-brown')),
-        loadGoombaBlue(audioContext).then(addAs('goomba-blue')),
-        loadKoopaGreen(audioContext).then(addAs('koopa-green')),
-        loadKoopaBlue(audioContext).then(addAs('koopa-blue')),
-        loadBullet(audioContext).then(addAs('bullet')),
-        loadCannon(audioContext).then(addAs('cannon')),
+    function setup(loader, name) {
+        return loader(audioContext).then(addAs(name));
+    }
 
+    return Promise.all([
+        setup(loadMario, 'mario'),
+        setup(loadGoombaBrown, 'goomba-brown'),
+        setup(loadGoombaBlue, 'goomba-blue'),
+        setup(loadKoopaGreen, 'koopa-green'),
+        setup(loadKoopaBlue, 'koopa-blue'),
+        setup(loadBullet, 'bullet'),
+        setup(loadCannon, 'cannon'),
     ])
     .then(() => entityFactories);
 }
