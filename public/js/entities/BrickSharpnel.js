@@ -9,13 +9,22 @@ export function loadBrickSharpnel() {
     .then(createFactory);
 }
 
+function createPool(factory, size) {
+    const pool = [];
+    let count = 0;
+    for (let i = 0; i < size; i++) {
+        pool.push(factory());
+    }
+    return () => pool[count++ % pool.length];
+}
+
 function createFactory(sprite) {
     function draw(context) {
         sprite.draw('bullet', context, 0, 0);
     }
 
     const pool = []
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 2; i++) {
         const entity = new Entity();
         entity.size.set(8, 8);
         entity.addTrait(new LifeLimit());
@@ -25,10 +34,13 @@ function createFactory(sprite) {
         pool.push(entity);
     }
 
-    let count = 0;
-    return function createBrickShrapnel() {
-        const entity = pool[count++ % pool.length];
-        entity.lifetime = 0;
+    return createPool(function createBrickShrapnel() {
+        const entity = new Entity();
+        entity.size.set(8, 8);
+        entity.addTrait(new LifeLimit());
+        entity.addTrait(new Gravity());
+        entity.addTrait(new Velocity());
+        entity.draw = draw;
         return entity;
-    };
+    }, 4);
 }
