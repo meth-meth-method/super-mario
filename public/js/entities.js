@@ -4,7 +4,7 @@ import {loadKoopaGreen, loadKoopaBlue} from './entities/Koopa.js';
 import {loadBullet} from './entities/Bullet.js';
 import {loadCannon} from './entities/Cannon.js';
 
-export function loadEntities(audioContext) {
+export async function loadEntities(audioContext) {
     const entityFactories = {};
 
     function addAs(name) {
@@ -15,7 +15,7 @@ export function loadEntities(audioContext) {
         return loader(audioContext).then(addAs(name));
     }
 
-    return Promise.all([
+    await Promise.all([
         setup(loadMario, 'mario'),
         setup(loadGoombaBrown, 'goomba-brown'),
         setup(loadGoombaBlue, 'goomba-blue'),
@@ -23,6 +23,7 @@ export function loadEntities(audioContext) {
         setup(loadKoopaBlue, 'koopa-blue'),
         setup(loadBullet, 'bullet'),
         setup(loadCannon, 'cannon'),
-    ])
-    .then(() => entityFactories);
+    ]);
+
+    return entityFactories;
 }
