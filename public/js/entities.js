@@ -8,12 +8,8 @@ import {loadBrickSharpnel} from './entities/BrickSharpnel.js';
 export async function loadEntities(audioContext) {
     const entityFactories = {};
 
-    function addAs(name) {
-        return factory => entityFactories[name] = factory;
-    }
-
-    function setup(loader, name) {
-        return loader(audioContext).then(addAs(name));
+    async function setup(loader, name) {
+        entityFactories[name] = await loader(audioContext);
     }
 
     await Promise.all([
