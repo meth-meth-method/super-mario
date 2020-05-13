@@ -12,13 +12,17 @@ export function loadEntities(audioContext) {
         return factory => entityFactories[name] = factory;
     }
 
+    function setup(loader, name) {
+        return loader(audioContext).then(addAs(name));
+    }
+
     return Promise.all([
-        loadMario(audioContext).then(addAs('mario')),
-        loadGoomba(audioContext).then(addAs('goomba')),
-        loadKoopa(audioContext).then(addAs('koopa')),
-        loadBullet(audioContext).then(addAs('bullet')),
-        loadCannon(audioContext).then(addAs('cannon')),
-        loadBrickSharpnel(audioContext).then(addAs('brickSharpnel')),
+        setup(loadMario, 'mario'),
+        setup(loadGoomba, 'goomba'),
+        setup(loadKoopa, 'koopa'),
+        setup(loadBullet, 'bullet'),
+        setup(loadCannon, 'cannon'),
+        setup(loadBrickSharpnel, 'brickSharpnel'),
     ])
     .then(() => entityFactories);
 }
