@@ -14,17 +14,21 @@ function createFactory(sprite) {
         sprite.draw('bullet', context, 0, 0);
     }
 
-    return function createBrickShrapnel() {
+    const pool = []
+    for (let i = 0; i < 20; i++) {
         const entity = new Entity();
         entity.size.set(8, 8);
-
-        const limit = new LifeLimit();
-        limit.time = 2;
-
-        entity.addTrait(limit);
+        entity.addTrait(new LifeLimit());
         entity.addTrait(new Gravity());
         entity.addTrait(new Velocity());
         entity.draw = draw;
+        pool.push(entity);
+    }
+
+    let count = 0;
+    return function createBrickShrapnel() {
+        const entity = pool[count++ % pool.length];
+        entity.lifetime = 0;
         return entity;
     };
 }
