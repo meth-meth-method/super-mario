@@ -1,10 +1,10 @@
 {
-    "imageURL": "/img/characters.gif",
+    "imageURL": "/img/enemies.png",
 
     "frames": [
         {
             "name": "bullet",
-            "rect": [267, 334, 16, 14]
+            "rect": [128, 0, 16, 16]
         }
     ]
 }
