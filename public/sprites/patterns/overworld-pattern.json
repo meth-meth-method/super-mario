@@ -136,7 +136,7 @@
                 ]
             },
             {
-                "name": "cannon-3",
+                "name": "cannon-2",
                 "type": "ground",
                 "ranges": [
                     [0, 1]
