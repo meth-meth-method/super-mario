@@ -240,6 +240,18 @@
                     ]
                 }
             ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "bush-single",
+                    "ranges": [
+                        [
+                            8, 12
+                        ]
+                    ]
+                }
+            ]
         }
     ],
 

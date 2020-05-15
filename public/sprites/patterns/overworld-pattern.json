@@ -143,5 +143,22 @@
                 ]
             }
         ]
+    },
+
+    "bush-single": {
+        "tiles": [
+            {
+                "name": "bush-1",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "bush-3",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
     }
 }

@@ -97,6 +97,18 @@
         {
             "name": "cannon-3",
             "index": [14, 5]
+        },
+        {
+            "name": "bush-1",
+            "index": [6, 8]
+        },
+        {
+            "name": "bush-2",
+            "index": [7, 8]
+        },
+        {
+            "name": "bush-3",
+            "index": [8, 8]
         }
     ],
 
