@@ -252,6 +252,18 @@
                     ]
                 }
             ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "bush-double",
+                    "ranges": [
+                        [
+                            20, 12
+                        ]
+                    ]
+                }
+            ]
         }
     ],
 

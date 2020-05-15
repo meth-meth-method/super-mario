@@ -160,5 +160,28 @@
                 ]
             }
         ]
+    },
+
+    "bush-double": {
+        "tiles": [
+            {
+                "name": "bush-1",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "bush-2",
+                "ranges": [
+                    [1, 0]
+                ]
+            },
+            {
+                "name": "bush-3",
+                "ranges": [
+                    [2, 0]
+                ]
+            }
+        ]
     }
 }
