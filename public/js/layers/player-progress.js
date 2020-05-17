@@ -26,6 +26,6 @@ export function createPlayerProgressLayer(font, level) {
         spriteBufferContext.clearRect(0, 0,
             spriteBuffer.width, spriteBuffer.height);
         entity.draw(spriteBufferContext);
-        context.drawImage(spriteBuffer, size * 12, size * 15);
+        context.drawImage(spriteBuffer, size * 13, size * 15);
     };
 }
