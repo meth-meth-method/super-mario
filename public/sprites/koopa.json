@@ -1,22 +1,22 @@
 {
-    "imageURL": "/img/enemies.png",
+    "imageURL": "/img/sprites.png",
 
     "frames": [
         {
             "name": "walk-1",
-            "rect": [32, 128, 16, 24]
+            "rect": [224, 0, 16, 24]
         },
         {
             "name": "walk-2",
-            "rect": [48, 128, 16, 24]
+            "rect": [240, 0, 16, 24]
         },
         {
             "name": "hiding",
-            "rect": [64, 72, 16, 24]
+            "rect": [208, 168, 16, 24]
         },
         {
             "name": "hiding-with-legs",
-            "rect": [80, 72, 16, 24]
+            "rect": [208, 192, 16, 24]
         }
     ],
 

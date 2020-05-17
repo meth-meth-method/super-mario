@@ -1,90 +1,90 @@
 {
-    "imageURL": "/img/character.png",
+    "imageURL": "/img/sprites.png",
 
     "frames": [
         {
             "name": "idle",
-            "rect": [0, 0, 16, 16]
+            "rect": [0, 88, 16, 16]
         },
         {
             "name": "run-1",
-            "rect": [16, 0, 16, 16]
+            "rect": [16, 88, 16, 16]
         },
         {
             "name": "run-2",
-            "rect": [32, 0, 16, 16]
+            "rect": [32, 88, 16, 16]
         },
         {
             "name": "run-3",
-            "rect": [48, 0, 16, 16]
+            "rect": [48, 88, 16, 16]
         },
         {
             "name": "break",
-            "rect": [64, 0, 16, 16]
+            "rect": [64, 88, 16, 16]
         },
         {
             "name": "jump",
-            "rect": [80, 0, 16, 16]
+            "rect": [80, 88, 16, 16]
         },
         {
             "name": "die",
-            "rect": [96, 0, 16, 16]
+            "rect": [96, 88, 16, 16]
         },
         {
             "name": "climb-1",
-            "rect": [112, 0, 16, 16]
+            "rect": [0, 104, 16, 16]
         },
         {
             "name": "climb-2",
-            "rect": [128, 0, 16, 16]
+            "rect": [16, 104, 16, 16]
         },
         {
             "name": "swim-1",
-            "rect": [144, 0, 16, 16]
+            "rect": [32, 104, 16, 16]
         },
         {
             "name": "swim-2",
-            "rect": [160, 0, 16, 16]
+            "rect": [48, 104, 16, 16]
         },
         {
             "name": "swim-3",
-            "rect": [176, 0, 16, 16]
+            "rect": [64, 104, 16, 16]
         },
         {
             "name": "swim-4",
-            "rect": [192, 0, 16, 16]
+            "rect": [80, 104, 16, 16]
         },
         {
             "name": "swim-5",
-            "rect": [208, 0, 16, 16]
+            "rect": [96, 104, 16, 16]
         },
         {
             "name": "idle-large",
-            "rect": [0, 16, 16, 32]
+            "rect": [112, 88, 16, 32]
         },
         {
             "name": "run-1-large",
-            "rect": [16, 16, 16, 32]
+            "rect": [128, 88, 16, 32]
         },
         {
             "name": "run-2-large",
-            "rect": [32, 16, 16, 32]
+            "rect": [144, 88, 16, 32]
         },
         {
             "name": "run-3-large",
-            "rect": [48, 16, 16, 32]
+            "rect": [160, 88, 16, 32]
         },
         {
             "name": "break-large",
-            "rect": [64, 16, 16, 32]
+            "rect": [176, 88, 16, 32]
         },
         {
             "name": "jump-large",
-            "rect": [80, 16, 16, 32]
+            "rect": [192, 88, 16, 32]
         },
         {
             "name": "crouch-large",
-            "rect": [96, 16, 16, 32]
+            "rect": [0, 120, 16, 32]
         }
     ],
 

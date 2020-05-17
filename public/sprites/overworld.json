@@ -35,15 +35,15 @@
 
         {
             "name": "coin-1",
-            "index": [24, 1]
+            "index": [15, 0]
         },
         {
             "name": "coin-2",
-            "index": [25, 1]
+            "index": [15, 1]
         },
         {
             "name": "coin-3",
-            "index": [26, 1]
+            "index": [15, 2]
         },
 
         {
