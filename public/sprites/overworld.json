@@ -109,7 +109,52 @@
         {
             "name": "bush-3",
             "index": [13, 12]
+        },
+        {
+            "name": "dirt",
+            "index": [13, 0]
+        },
+        {
+            "name": "grass-left",
+            "index": [9, 2]
+        },
+        {
+            "name": "grass",
+            "index": [10, 2]
+        },
+        {
+            "name": "grass-right",
+            "index": [11, 2]
+        },
+        {
+            "name": "dirt",
+            "index": [13, 0]
+        },
+        {
+            "name": "tile-black",
+            "index": [13, 7]
+        },
+        {
+            "name": "castle-roof-closed",
+            "index": [8, 0]
+        },
+        {
+            "name": "castle-roof-open",
+            "index": [9, 0]
+        },
+        {
+            "name": "castle-opening-right",
+            "index": [10, 0]
+        },
+        {
+            "name": "castle-arch",
+            "index": [11, 0]
+        },
+        {
+            "name": "castle-opening-left",
+            "index": [12, 0]
         }
+
     ],
 
     "animations": [

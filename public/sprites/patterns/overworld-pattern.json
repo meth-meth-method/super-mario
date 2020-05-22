@@ -28,6 +28,42 @@
         ]
     },
 
+    "cloud-double": {
+        "tiles": [
+            {
+                "name": "cloud-1-1",
+                "ranges": [[0, 0]]
+            },
+            {
+                "name": "cloud-1-2",
+                "ranges": [
+                    [1, 0],
+                    [2, 0]
+                ]
+            },
+            {
+                "name": "cloud-1-3",
+                "ranges": [[3, 0]]
+            },
+
+            {
+                "name": "cloud-2-1",
+                "ranges": [[0, 1]]
+            },
+            {
+                "name": "cloud-2-2",
+                "ranges": [
+                    [1, 1],
+                    [2, 1]
+                ]
+            },
+            {
+                "name": "cloud-2-3",
+                "ranges": [[3, 1]]
+            }
+        ]
+    },
+
     "pipe-section-vert": {
         "tiles": [
             {
@@ -154,11 +190,18 @@
                 ]
             },
             {
-                "name": "bush-3",
+                "name": "bush-2",
                 "ranges": [
                     [1, 0]
                 ]
+            },
+            {
+                "name": "bush-3",
+                "ranges": [
+                    [2, 0]
+                ]
             }
+
         ]
     },
 
@@ -173,13 +216,74 @@
             {
                 "name": "bush-2",
                 "ranges": [
-                    [1, 0]
+                    [1, 0],
+                    [2, 0]
                 ]
             },
             {
                 "name": "bush-3",
                 "ranges": [
-                    [2, 0]
+                    [3, 0]
+                ]
+            }
+        ]
+    },
+    "castle-small": {
+        "tiles": [
+            {
+                "name": "castle-roof-open",
+                "ranges": [
+                    [1, 0],
+                    [2, 0],
+                    [3, 0],
+                    [0, 2],
+                    [4, 2]
+                ]
+            },
+            {
+                "name": "castle-opening-left",
+                "ranges": [
+                    [1, 1]
+                ]
+            },
+            {
+                "name": "castle-opening-right",
+                "ranges": [
+                    [3, 1]
+                ]
+            },
+            {
+                "name": "bricks",
+                "ranges": [
+                    [0, 3],
+                    [0, 4],
+                    [1, 3],
+                    [1, 4],
+                    [2, 1],
+                    [3, 3],
+                    [3, 4],
+                    [4, 3],
+                    [4, 4]
+                ]
+            },
+            {
+                "name": "castle-roof-closed",
+                "ranges": [
+                    [1, 2],
+                    [2, 2],
+                    [3, 2]
+                ]
+            },
+            {
+                "name": "castle-arch",
+                "ranges": [
+                    [2, 3]
+                ]
+            },
+            {
+                "name": "tile-black",
+                "ranges": [
+                    [2, 4]
                 ]
             }
         ]
