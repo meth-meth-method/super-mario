@@ -22,11 +22,40 @@
                         [
                             0, 16,
                             13, 2
+                        ]
+                    ]
+                },
+                {
+                    "name": "dirt",
+                    "ranges": [
+                        [
+                            19, 2,
+                            13, 2
                         ],
                         [
-                            20, 23,
+                            25, 6,
+                            10, 5
+                        ],
+                        [
+                            27, 3,
+                            6, 3
+                        ],
+                        [
+                            33, 1,
                             13, 2
                         ]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "name": "coin",
+                    "type": "coin",
+                    "ranges": [
+                        [27, 3, 4, 1],
+                        [33, 11]
                     ]
                 }
             ]
@@ -42,7 +71,8 @@
                 {
                     "pattern": "cloud-double",
                     "ranges": [
-                        [3, 3]
+                        [3, 3],
+                        [19, 2]
                     ]
                 },
                 {
@@ -50,9 +80,37 @@
                     "ranges": [
                         [9, 7]
                     ]
+                },
+                                {
+                    "pattern": "grass-top-3w",
+                    "ranges": [
+                        [32, 12]
+                    ]
+                },
+                {
+                    "pattern": "grass-top-4w",
+                    "ranges": [
+                        [18, 12]
+                    ]
+                },
+                {
+                    "pattern": "grass-top-5w",
+                    "ranges": [
+                        [26, 5]
+                    ]
+                },
+                {
+                    "pattern": "grass-top-8w",
+                    "ranges": [
+                        [24, 9]
+                    ]
                 }
+                
             ]
         }
+
+
+        
     ],
 
     "entities": [],
