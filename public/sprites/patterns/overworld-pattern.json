@@ -249,6 +249,76 @@
         ]
     },
 
+    "hill-small": {
+        "tiles": [
+            {
+                "name": "hill-top",
+                "ranges": [
+                    [1, 0]
+                ]
+            },
+            {
+                "name": "hill-left",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "hill-stains-right",
+                "ranges": [
+                    [1, 1]
+                ]
+            },
+            {
+                "name": "hill-right",
+                "ranges": [
+                    [2, 1]
+                ]
+            }
+        ]
+    },
+
+    "hill-large": {
+        "tiles": [
+            {
+                "pattern": "hill-small",
+                "ranges": [
+                    [1, 0]
+                ]
+            },
+            {
+                "name": "hill-left",
+                "ranges": [
+                    [0, 2]
+                ]
+            },
+            {
+                "name": "hill-stains-right",
+                "ranges": [
+                    [1, 2]
+                ]
+            },
+            {
+                "name": "tile-green",
+                "ranges": [
+                    [2, 2]
+                ]
+            },
+            {
+                "name": "hill-stains-left",
+                "ranges": [
+                    [3, 2]
+                ]
+            },
+            {
+                "name": "hill-right",
+                "ranges": [
+                    [4, 2]
+                ]
+            }
+        ]
+    },
+
     "grass-top-3w": {
         "tiles": [
             {
