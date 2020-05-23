@@ -38,7 +38,7 @@ async function main(canvas) {
     async function runLevel(name) {
         const loadScreen = new Scene();
         loadScreen.comp.layers.push(createColorLayer('#000'));
-        loadScreen.comp.layers.push(createTextLayer(font, `Loading ${name}...`));
+        loadScreen.comp.layers.push(createTextLayer(font, `LOADING ${name}...`));
         sceneRunner.addScene(loadScreen);
         sceneRunner.runNext();
 
@@ -91,7 +91,7 @@ async function main(canvas) {
 
     timer.start();
 
-    runLevel('1-1');
+    runLevel('debug-coin');
 }
 
 const canvas = document.getElementById('screen');
