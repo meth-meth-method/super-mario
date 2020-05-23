@@ -135,15 +135,15 @@
             "index": [13, 7]
         },
         {
-            "name": "castle-roof-closed",
+            "name": "castle-top-closed",
             "index": [8, 0]
         },
         {
-            "name": "castle-roof-open",
+            "name": "castle-top-open",
             "index": [9, 0]
         },
         {
-            "name": "castle-opening-right",
+            "name": "castle-window-right",
             "index": [10, 0]
         },
         {
@@ -151,10 +151,17 @@
             "index": [11, 0]
         },
         {
-            "name": "castle-opening-left",
+            "name": "castle-window-left",
             "index": [12, 0]
+        },
+        {
+            "name": "pole-green",
+            "index": [12, 13]
+        },
+        {
+            "name": "pole-finial-green",
+            "index": [15, 9]
         }
-
     ],
 
     "animations": [
