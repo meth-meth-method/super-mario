@@ -544,5 +544,31 @@
                 ]
             }
         ]
+    },
+
+    "flag-pole-green": {
+        "tiles": [
+            {
+                "name": "pole-finial-green",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 10]
+                ]
+            },
+            {
+                "name": "pole-green",
+                "ranges": [
+                    [0, 1, 1, 9]
+                ]
+            }
+
+        ]
     }
+
 }
