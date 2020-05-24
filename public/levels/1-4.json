@@ -1,6 +1,6 @@
 {
     "spriteSheet": "castle",
-    "musicSheet": "silent",
+    "musicSheet": "castle",
     "patternSheet": "castle-pattern",
     "playerPosition": [40, 96],
 
