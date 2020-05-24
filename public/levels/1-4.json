@@ -2,7 +2,7 @@
     "spriteSheet": "castle",
     "musicSheet": "silent",
     "patternSheet": "castle-pattern",
-    "playerPosition": [2144, 0],
+    "playerPosition": [40, 96],
 
     "layers": [
         {
