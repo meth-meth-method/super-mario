@@ -17,6 +17,10 @@
             "index": [1, 2]
         },
         {
+            "name": "empty",
+            "index": [2, 2]
+        },
+        {
             "name": "coin-1",
             "index": [15, 3]
         },
