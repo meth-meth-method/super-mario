@@ -17,8 +17,24 @@
             "index": [1, 2]
         },
         {
+            "name": "chocolate",
+            "index": [3, 2]
+        },
+        {
             "name": "empty",
             "index": [2, 2]
+        },
+        {
+            "name": "chance-1",
+            "index": [4, 2]
+        },
+        {
+            "name": "chance-2",
+            "index": [5, 2]
+        },
+        {
+            "name": "chance-3",
+            "index": [6, 2]
         },
         {
             "name": "coin-1",
@@ -76,6 +92,17 @@
     ],
 
     "animations": [
+        {
+            "name": "chance",
+            "frameLen": 0.16,
+            "frames": [
+                "chance-1",
+                "chance-1",
+                "chance-2",
+                "chance-3",
+                "chance-2"
+            ]
+        },
         {
             "name": "coin",
             "frameLen": 0.16,
