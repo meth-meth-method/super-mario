@@ -21,6 +21,10 @@
             "index": [1, 0]
         },
         {
+            "name": "bricks-top",
+            "index": [14, 0]
+        },
+        {
             "name": "empty",
             "index": [2, 0]
         },
