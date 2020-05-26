@@ -222,6 +222,26 @@
         ]
     },
 
+    "pipe-5h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 4
+                    ]
+                ]
+            }
+        ]
+    },
+
     "cannon-2h": {
         "tiles": [
             {
@@ -706,6 +726,66 @@
         ]
     },
 
+    "chocolate-stack-2h": {
+        "tiles": [
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 1, 0, 2]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stack-3h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stack-2h",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 2]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stack-4h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stack-2h",
+                "ranges": [
+                    [0, 0],
+                    [0, 2]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stack-5h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stack-4h",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 4]
+                ]
+            }
+        ]
+    },
+
     "chocolate-stairs-2h": {
         "tiles": [
             {
@@ -822,6 +902,46 @@
                 ]
             }
             
+        ]
+    },
+
+    "tree-small": {
+        "tiles": [
+            {
+                "name": "tree-small",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "tree-trunk",
+                "ranges": [
+                    [0, 1]
+                ]
+            }
+        ]
+    },
+
+    "tree-large": {
+        "tiles": [
+            {
+                "name": "tree-large-top",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "tree-large-bottom",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "tree-trunk",
+                "ranges": [
+                    [0, 2]
+                ]
+            }
         ]
     }
 
