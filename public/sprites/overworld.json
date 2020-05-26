@@ -187,8 +187,27 @@
         {
             "name": "tile-green",
             "index": [12, 7]
+        },
+        {
+            "name": "tree-large-top",
+            "index": [10, 5]
+        },
+        {
+            "name": "tree-large-bottom",
+            "index": [10, 6]
+        },
+        {
+            "name": "tree-small",
+            "index": [12, 5]
+        },
+        {
+            "name": "tree-trunk",
+            "index": [12, 6]
+        },
+        {
+            "name": "fence",
+            "index": [14, 6]
         }
-
     ],
 
     "animations": [
