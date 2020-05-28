@@ -560,6 +560,32 @@
         ]
     },
 
+    "grass-top-13w": {
+        "tiles": [
+            {
+                "name": "grass-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "grass",
+                "type": "ground",
+                "ranges": [
+                    [1, 11, 0, 1]
+                ]
+            },
+            {
+                "name": "grass-right",
+                "type": "ground",
+                "ranges": [
+                    [12, 0]
+                ]
+            }
+        ]
+    },
+
     "castle-wall-3h": {
         "tiles": [
             {
@@ -786,6 +812,24 @@
         ]
     },
 
+    "chocolate-stack-6h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stack-5h",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 5]
+                ]
+            }
+        ]
+    },
+
     "chocolate-stairs-2h": {
         "tiles": [
             {
@@ -940,6 +984,24 @@
                 "name": "tree-trunk",
                 "ranges": [
                     [0, 2]
+                ]
+            }
+        ]
+    },
+
+    "bridge": {
+        "tiles": [
+            {
+                "name": "bridge",
+                "type": "ground",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "bridge-rail",
+                "ranges": [
+                    [0, 0]
                 ]
             }
         ]
