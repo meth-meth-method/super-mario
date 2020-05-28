@@ -69,6 +69,30 @@
             "index": [1, 6]
         },
         {
+            "name": "pipe-insert-hor-top",
+            "index": [6, 3]
+        },
+        {
+            "name": "pipe-insert-hor-bottom",
+            "index": [6, 4]
+        },
+        {
+            "name": "pipe-hor-top",
+            "index": [7, 3]
+        },
+        {
+            "name": "pipe-hor-bottom",
+            "index": [7, 4]
+        },
+        {
+            "name": "pipe-conn-hor-top",
+            "index": [8, 3]
+        },
+        {
+            "name": "pipe-conn-hor-bottom",
+            "index": [8, 4]
+        },
+        {
             "name": "cloud-1-1",
             "index": [11, 10]
         },
