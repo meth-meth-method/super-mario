@@ -124,6 +124,104 @@
         ]
     },
 
+    "pipe-chrome-section-vert": {
+        "tiles": [
+            {
+                "name": "pipe-chrome-vert-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-chrome-vert-right",
+                "type": "ground",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
+    },
+
+    "pipe-chrome-cap-vert": {
+        "tiles": [
+            {
+                "name": "pipe-chrome-insert-vert-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-chrome-insert-vert-right",
+                "type": "ground",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
+    },
+
+    "pipe-chrome-2h": {
+        "tiles": [
+            {
+                "pattern": "pipe-chrome-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-chrome-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 1
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "pipe-chrome-3h": {
+        "tiles": [
+            {
+                "pattern": "pipe-chrome-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-chrome-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 2
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "pipe-chrome-4h": {
+        "tiles": [
+            {
+                "pattern": "pipe-chrome-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-chrome-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 3
+                    ]
+                ]
+            }
+        ]
+    },
+
     "pipe-section-vert": {
         "tiles": [
             {
@@ -799,6 +897,31 @@
         ]
     },
 
+    "flag-pole-dark-grey": {
+        "tiles": [
+            {
+                "name": "pole-finial-dark-grey",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 10]
+                ]
+            },
+            {
+                "name": "pole-white",
+                "ranges": [
+                    [0, 1, 1, 9]
+                ]
+            }
+
+        ]
+    },
+
     "chocolate-stack-2h": {
         "tiles": [
             {
@@ -862,16 +985,10 @@
     "chocolate-stack-6h": {
         "tiles": [
             {
-                "pattern": "chocolate-stack-5h",
+                "pattern": "chocolate-stack-3h",
                 "ranges": [
-                    [0, 0]
-                ]
-            },
-            {
-                "name": "chocolate",
-                "type": "ground",
-                "ranges": [
-                    [0, 5]
+                    [0, 0],
+                    [0, 3]
                 ]
             }
         ]
@@ -1036,7 +1153,47 @@
         ]
     },
 
-    "bridge": {
+    "tree-white-small": {
+        "tiles": [
+            {
+                "name": "tree-white-small",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "tree-trunk",
+                "ranges": [
+                    [0, 1]
+                ]
+            }
+        ]
+    },
+
+    "tree-white-large": {
+        "tiles": [
+            {
+                "name": "tree-white-large-top",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "tree-white-large-bottom",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "tree-trunk",
+                "ranges": [
+                    [0, 2]
+                ]
+            }
+        ]
+    },
+
+    "bridge-green": {
         "tiles": [
             {
                 "name": "bridge",
@@ -1046,7 +1203,25 @@
                 ]
             },
             {
-                "name": "bridge-rail",
+                "name": "bridge-rail-green",
+                "ranges": [
+                    [0, 0]
+                ]
+            }
+        ]
+    },
+
+    "bridge-white": {
+        "tiles": [
+            {
+                "name": "bridge",
+                "type": "ground",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "bridge-rail-white",
                 "ranges": [
                     [0, 0]
                 ]
