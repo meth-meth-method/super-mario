@@ -1,0 +1,88 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "overworld",
+    "patternSheet": "overworld-pattern",
+    "playerPosition": [56, 160],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 36, 0, 15]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 36, 13, 2]
+
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "cloud-single",
+                    "ranges": [
+                        [24, 3]
+                    ]
+                },
+                {
+                    "pattern": "cloud-double",
+                    "ranges": [
+                        [4, 2]
+                    ]
+                },
+                {
+                    "pattern": "pipe-2h",
+                    "ranges": [
+                        [3, 11]
+                    ]
+                },
+                {
+                    "pattern": "chocolate-stairs-final",
+                    "ranges": [
+                        [5, 5]
+                    ]
+                },
+                {
+                    "pattern": "hill-large",
+                    "ranges": [
+                        [16, 10]
+                    ]
+                },
+                {
+                    "pattern": "hill-small",
+                    "ranges": [
+                        [32, 11]
+                    ]
+                },
+                {
+                    "pattern": "flag-pole-green",
+                    "ranges": [
+                        [22, 2]
+                    ]
+                },
+                {
+                    "pattern": "castle-small",
+                    "ranges": [
+                        [26, 8]
+                    ]
+                },
+                {
+                    "name": "bush-3",
+                    "ranges": [
+                        [31, 12]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [],
+    "triggers": []
+}
