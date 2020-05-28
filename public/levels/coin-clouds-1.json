@@ -1,0 +1,46 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "coin-clouds",
+    "patternSheet": "overworld-pattern",
+    "playerPosition": [80, 192],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 79, 0, 15]
+                    ]
+                }
+
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "name": "cloud-tile",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 4, 13],
+                        [5, 57, 13]
+                    ]
+                },
+                {
+                    "name": "coin",
+                    "type": "coin",
+                    "ranges": [
+                        [15, 16, 6],
+                        [32, 3, 4],
+                        [36, 16, 5],
+                        [53, 3, 4],
+                        [69, 3, 12]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [],
+    "triggers": []
+}

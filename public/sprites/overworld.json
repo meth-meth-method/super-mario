@@ -93,6 +93,10 @@
             "index": [8, 4]
         },
         {
+            "name": "cloud-tile",
+            "index": [14, 8]
+        },
+        {
             "name": "cloud-1-1",
             "index": [11, 10]
         },
