@@ -69,6 +69,22 @@
             "index": [1, 6]
         },
         {
+            "name": "pipe-chrome-insert-vert-left",
+            "index": [2, 3]
+        },
+        {
+            "name": "pipe-chrome-insert-vert-right",
+            "index": [3, 3]
+        },
+        {
+            "name": "pipe-chrome-vert-left",
+            "index": [2, 4]
+        },
+        {
+            "name": "pipe-chrome-vert-right",
+            "index": [3, 4]
+        },
+        {
             "name": "pipe-insert-hor-top",
             "index": [6, 3]
         },
@@ -165,6 +181,10 @@
             "index": [13, 7]
         },
         {
+            "name": "tile-light-blue",
+            "index": [10, 7]
+        },
+        {
             "name": "castle-top-closed",
             "index": [8, 0]
         },
@@ -187,6 +207,14 @@
         {
             "name": "pole-green",
             "index": [12, 13]
+        },
+        {
+            "name": "pole-white",
+            "index": [11, 13]
+        },
+        {
+            "name": "pole-finial-dark-grey",
+            "index": [7, 8]
         },
         {
             "name": "pole-finial-green",
@@ -229,6 +257,18 @@
             "index": [12, 5]
         },
         {
+            "name": "tree-white-large-top",
+            "index": [11, 5]
+        },
+        {
+            "name": "tree-white-large-bottom",
+            "index": [11, 6]
+        },
+        {
+            "name": "tree-white-small",
+            "index": [13, 5]
+        },
+        {
             "name": "tree-trunk",
             "index": [12, 6]
         },
@@ -241,8 +281,16 @@
             "index": [13, 6]
         },
         {
-            "name": "bridge-rail",
+            "name": "bridge-rail-green",
             "index": [14, 11]
+        },
+        {
+            "name": "bridge-rail-white",
+            "index": [14, 10]
+        },
+        {
+            "name": "waves",
+            "index": [0, 7]
         }
     ],
 
