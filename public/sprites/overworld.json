@@ -207,6 +207,14 @@
         {
             "name": "fence",
             "index": [14, 6]
+        },
+        {
+            "name": "bridge",
+            "index": [13, 6]
+        },
+        {
+            "name": "bridge-rail",
+            "index": [14, 11]
         }
     ],
 
