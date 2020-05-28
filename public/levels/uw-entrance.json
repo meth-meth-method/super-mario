@@ -1,6 +1,6 @@
 {
     "spriteSheet": "overworld",
-    "musicSheet": "overworld",
+    "musicSheet": "uw-entrance",
     "patternSheet": "overworld-pattern",
     "playerPosition": [40, 192],
 
@@ -18,7 +18,6 @@
                     "type": "ground",
                     "ranges": [
                         [0, 16, 13, 2]
-
                     ]
                 }
             ]
