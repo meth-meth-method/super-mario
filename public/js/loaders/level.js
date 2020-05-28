@@ -1,5 +1,6 @@
 import {Matrix} from '../math.js';
 import Entity from '../Entity.js';
+import Trait from '../Trait.js';
 import LevelTimer from '../traits/LevelTimer.js';
 import Trigger from '../traits/Trigger.js';
 import Level from '../Level.js';
@@ -14,6 +15,34 @@ function createTimer() {
     timer.addTrait(new LevelTimer());
     return timer;
 }
+
+function createSpawner() {
+    class Spawner extends Trait {
+        constructor() {
+            super();
+            this.entities = [];
+        }
+
+        addEntity(entity) {
+            this.entities.push(entity);
+            this.entities.sort((a, b) => a.pos.x < b.pos.x ? -1 : 1);
+        }
+
+        update(entity, gameContext, level) {
+            const cameraMaxX = level.camera.pos.x + level.camera.size.x;
+            while (this.entities[0]) {
+                if (cameraMaxX > this.entities[0].pos.x) {
+                    level.entities.add(this.entities.shift());
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    return new Spawner();
+}
+
 
 function loadPattern(name) {
     return loadJSON(`/sprites/patterns/${name}.json`);
@@ -41,12 +70,16 @@ function setupBackgrounds(levelSpec, level, backgroundSprites, patterns) {
 }
 
 function setupEntities(levelSpec, level, entityFactory) {
+    const spawner = createSpawner();
     levelSpec.entities.forEach(({name, pos: [x, y]}) => {
         const createEntity = entityFactory[name];
         const entity = createEntity();
         entity.pos.set(x, y);
-        level.entities.add(entity);
+        spawner.addEntity(entity);
     });
+    const entityProxy = new Entity();
+    entityProxy.addTrait(spawner);
+    level.entities.add(entityProxy);
 
     const spriteLayer = createSpriteLayer(level.entities);
     level.comp.layers.push(spriteLayer);
