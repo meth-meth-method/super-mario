@@ -114,7 +114,7 @@
                     ]
                 },
                 {
-                    "pattern": "bridge",
+                    "pattern": "bridge-green",
                     "ranges": [
                         [15, 16, 9],
                         [32, 15, 9],
