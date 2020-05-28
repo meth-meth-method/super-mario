@@ -73,6 +73,10 @@
             "index": [1, 4]
         },
         {
+            "name": "beam-track",
+            "index": [11, 13]
+        },
+        {
             "name": "bridge",
             "index": [13, 4]
         },
