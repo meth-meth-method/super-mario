@@ -242,6 +242,53 @@
         ]
     },
 
+    "pipe-uw-entrance": {
+        "tiles": [
+            {
+                "pattern": "pipe-4h",
+                "ranges": [
+                    [2, 0]
+                ]
+            },
+            {
+                "name": "pipe-insert-hor-top",
+                "ranges": [
+                    [0, 2]
+                ]
+            },
+            {
+                "name": "pipe-insert-hor-bottom",
+                "ranges": [
+                    [0, 3]
+                ]
+            },
+            {
+                "name": "pipe-hor-top",
+                "ranges": [
+                    [1, 2]
+                ]
+            },
+            {
+                "name": "pipe-hor-bottom",
+                "ranges": [
+                    [1, 3]
+                ]
+            },
+            {
+                "name": "pipe-conn-hor-top",
+                "ranges": [
+                    [2, 2]
+                ]
+            },
+            {
+                "name": "pipe-conn-hor-bottom",
+                "ranges": [
+                    [2, 3]
+                ]
+            }
+        ]
+    },
+
     "cannon-2h": {
         "tiles": [
             {
