@@ -185,11 +185,6 @@
         }
     ],
 
-    "entities": [
-        {
-            "name": "koopa",
-            "pos": [304, 160]
-        }
-    ],
+    "entities": [],
     "triggers": []
 }
