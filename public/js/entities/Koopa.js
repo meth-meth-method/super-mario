@@ -7,10 +7,16 @@ import Solid from '../traits/Solid.js';
 import Stomper from '../traits/Stomper.js';
 import {loadSpriteSheet} from '../loaders/sprite.js';
 
-export function loadKoopa() {
-    return loadSpriteSheet('koopa')
+export function loadKoopaGreen() {
+    return loadSpriteSheet('koopa-green')
     .then(createKoopaFactory);
 }
+
+export function loadKoopaBlue() {
+    return loadSpriteSheet('koopa-blue')
+        .then(createKoopaFactory);
+    }
+
 
 const STATE_WALKING = Symbol('walking');
 const STATE_HIDING = Symbol('hiding');
