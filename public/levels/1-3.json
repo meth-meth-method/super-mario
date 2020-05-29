@@ -190,8 +190,16 @@
 
     "entities": [
         {
-            "name": "koopa",
-            "pos": [304, 160]
+            "name": "goomba",
+            "pos": [704, 48]
+        },
+        {
+            "name": "goomba",
+            "pos": [736, 48]
+        },
+        {
+            "name": "goomba",
+            "pos": [1280, 64]
         }
     ],
     "triggers": []
