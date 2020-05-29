@@ -239,6 +239,99 @@
         }
     ],
 
-    "entities": [],
+    "entities": [
+        {
+            "name": "goomba",
+            "pos": [384, 112]
+        },
+        {
+            "name": "koopa",
+            "pos": [496, 192]
+        },
+        {
+            "name": "koopa",
+            "pos": [528, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [672, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [696, 192]
+        },
+        {
+            "name": "koopa",
+            "pos": [880, 128]
+        },
+        {
+            "name": "goomba",
+            "pos": [944, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [968, 192]
+        },
+        {
+            "name": "koopa",
+            "pos": [1056, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1088, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1088, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1112, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1136, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1392, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1416, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1440, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [1640, 128]
+        },
+        {
+            "name": "goomba",
+            "pos": [1832, 160]
+        },
+        {
+            "name": "goomba",
+            "pos": [1920, 192]
+        },
+        {
+            "name": "koopa",
+            "pos": [2192, 192]
+        },
+        {
+            "name": "goomba",
+            "pos": [2592, 192]
+        },
+        {
+            "name": "koopa",
+            "pos": [2616, 192]
+        },
+        {
+            "name": "koopa",
+            "pos": [2960, 192]
+        }
+    ],
     "triggers": []
 }
