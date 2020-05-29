@@ -85,6 +85,7 @@ export function createLevelLoader(entityFactory) {
             const level = new Level();
             level.name = name;
             level.music.setPlayer(musicPlayer);
+            level.playerPosition = levelSpec.playerPosition;
 
             setupBackgrounds(levelSpec, level, backgroundSprites, patterns);
             setupEntities(levelSpec, level, entityFactory);
