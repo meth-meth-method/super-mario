@@ -241,95 +241,95 @@
 
     "entities": [
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [384, 112]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [496, 185]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [528, 185]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [672, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [696, 192]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [880, 121]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [944, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [968, 192]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [1056, 185]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1088, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1088, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1112, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1136, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1392, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1416, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1440, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1640, 128]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1832, 160]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1920, 192]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [2192, 185]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [2592, 192]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [2616, 185]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [2960, 185]
         }
     ],

@@ -190,15 +190,15 @@
 
     "entities": [
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [704, 48]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [736, 48]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1280, 64]
         }
     ],

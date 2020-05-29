@@ -219,71 +219,71 @@
 
     "entities": [
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [352, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [640, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [816, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [840, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1280, 64]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1312, 64]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1552, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1576, 192]
         },
         {
-            "name": "koopa",
+            "name": "koopa-green",
             "pos": [1712, 185]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1824, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1848, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [1984, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [2008, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [2048, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [2072, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [2784, 192]
         },
         {
-            "name": "goomba",
+            "name": "goomba-brown",
             "pos": [2808, 192]
         }
     ],

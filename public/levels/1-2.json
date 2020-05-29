@@ -162,7 +162,76 @@
         }
     ],
 
-    "entities": [],
+    "entities": [
+        {
+            "name": "goomba-blue",
+            "pos": [256, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [272, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [464, 192]
+        },
+        {
+            "name": "koopa-blue",
+            "pos": [704, 185]
+        },
+        {
+            "name": "koopa-blue",
+            "pos": [728, 185]
+        },
+        {
+            "name": "koopa-blue",
+            "pos": [944, 185]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [992, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1024, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1168, 64]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1216, 128]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1240, 128]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1548, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1608, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1632, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [1808, 192]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [2160, 144]
+        },
+        {
+            "name": "goomba-blue",
+            "pos": [2184, 128]
+        }
+    ],
 
     "triggers": [
         {
