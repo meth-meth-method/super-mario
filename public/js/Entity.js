@@ -26,6 +26,7 @@ export default class Entity {
         this.bounds = new BoundingBox(this.pos, this.size, this.offset);
         this.lifetime = 0;
 
+        this.offset.y = -1;
         this.traits = new Map();
     }
 
