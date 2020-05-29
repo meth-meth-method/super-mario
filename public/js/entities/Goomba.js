@@ -36,6 +36,7 @@ function createGoombaFactory(sprite) {
 
     function routeAnim(goomba) {
         if (goomba.traits.get(Killable).dead) {
+            goomba.offset.y = -2;
             return 'flat';
         }
 
