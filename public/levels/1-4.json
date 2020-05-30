@@ -75,7 +75,7 @@
                     ]
                 },
                 {
-                    "name": "empty",
+                    "name": "metal",
                     "type": "ground",
                     "ranges": [
                         [107, 9],
@@ -87,7 +87,7 @@
                     ]
                 },
                 {
-                    "name": "empty-alt",
+                    "name": "metal-alt",
                     "type": "ground",
                     "ranges": [
                         [24, 6],

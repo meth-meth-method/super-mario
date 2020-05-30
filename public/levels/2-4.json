@@ -55,7 +55,7 @@
                     ]
                 },
                 {
-                    "name": "empty-alt",
+                    "name": "metal-alt",
                     "type": "ground",
                     "ranges": [
                         [23, 7],
