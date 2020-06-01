@@ -1,0 +1,80 @@
+{
+    "spriteSheet": "underworld",
+    "musicSheet": "underworld",
+    "patternSheet": "underworld-pattern",
+    "playerPosition": [24, 48],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 16, 0, 13]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 16, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "name": "bricks",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 1, 2, 11],
+                        [3, 2, 5, 2],
+                        [7, 2, 5, 2],
+                        [11, 2, 5, 2],
+                        [3, 1, 7, 2],
+                        [12, 1, 7, 2],
+                        [10, 5],
+                        [9, 7],
+                        [6, 7],
+                        [5, 8],
+                        [4, 9],
+                        [10, 8],
+                        [11, 9],
+                        [10, 8]
+                    ]
+                },
+                {
+                    "name" : "metal",
+                    "type": "ground",
+                    "ranges":[
+                        [5, 5]
+                    ]
+                },
+                {
+                    "name": "coin",
+                    "type": "coin",
+                    "ranges": [
+                        [7, 2, 3],
+                        [6, 4, 4],
+                        [6, 6],
+                        [9, 6],
+                        [5, 7],
+                        [10, 7],
+                        [4, 8],
+                        [11, 8]
+                    ]
+                },
+                {
+                    "pattern": "exit-pipe-12h",
+                    "ranges": [
+                        [13, 2]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [],
+    "triggers": []
+}

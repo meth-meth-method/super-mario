@@ -1,0 +1,149 @@
+{
+    "entrance-stairs": {
+        "tiles": [
+            {
+                "name": "ground",
+                "type": "ground",
+                "ranges": [
+                    [0, 3, 1, 1],
+                    [0, 4, 2, 1],
+                    [0, 5, 3, 1]
+                ]
+            }
+        ]
+    },
+
+    "pipe-section-vert": {
+        "tiles": [
+            {
+                "name": "pipe-vert-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-vert-right",
+                "type": "ground",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
+    },
+
+    "pipe-cap-vert": {
+        "tiles": [
+            {
+                "name": "pipe-insert-vert-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-insert-vert-right",
+                "type": "ground",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
+    },
+
+    "pipe-2h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 1
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "pipe-3h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 2
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "pipe-4h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 3
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "bridge": {
+        "tiles": [
+            {
+                "name": "bridge",
+                "type": "ground",
+                "ranges": [
+                    [0, 13, 1]
+                ]
+            },
+            {
+                "name": "bridge-chain",
+                "ranges": [
+                    [12, 0]
+                ]
+            }
+        ]
+    },
+
+    "toad": {
+        "tiles": [
+            {
+                "name": "toad-1",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "toad-2",
+                "ranges": [
+                    [0, 1]
+                ]
+            }
+        ]
+    }
+
+}

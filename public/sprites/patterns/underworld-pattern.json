@@ -1,0 +1,299 @@
+{
+    "pipe-section-vert": {
+        "tiles": [
+            {
+                "name": "pipe-vert-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-vert-right",
+                "type": "ground",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
+    },
+
+    "pipe-cap-vert": {
+        "tiles": [
+            {
+                "name": "pipe-insert-vert-left",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-insert-vert-right",
+                "type": "ground",
+                "ranges": [
+                    [1, 0]
+                ]
+            }
+        ]
+    },
+
+    "pipe-section-hor": {
+        "tiles": [
+            {
+                "name": "pipe-hor-top",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-hor-bottom",
+                "type": "ground",
+                "ranges": [
+                    [0, 1]
+                ]
+            }
+        ]
+    },
+
+    "pipe-cap-hor": {
+        "tiles": [
+            {
+                "name": "pipe-insert-hor-top",
+                "type": "ground",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-insert-hor-bottom",
+                "type": "ground",
+                "ranges": [
+                    [0, 1]
+                ]
+            }
+        ]
+    },
+
+    "pipe-conn-hor": {
+        "tiles": [
+            {
+                "name": "pipe-conn-hor-top",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "name": "pipe-conn-hor-bottom",
+                "ranges": [
+                    [0, 1]
+                ]
+            }
+        ]
+    },
+
+    "exit-pipe-12h" : {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-hor",
+                "ranges": [
+                    [0, 9]
+                ]
+            },
+            {
+                "pattern": "pipe-section-hor",
+                "ranges": [
+                    [1, 9]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [2, 1, 0, 11]
+                ]
+            },
+            {
+                "pattern": "pipe-conn-hor",
+                "ranges": [
+                    [2, 9]
+                ]
+            }
+        ]
+    },
+
+    "exit-pipe-8h" : {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-hor",
+                "ranges": [
+                    [0, 6]
+                ]
+            },
+            {
+                "pattern": "pipe-section-hor",
+                "ranges": [
+                    [1, 6]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [2, 1, 0, 8]
+                ]
+            },
+            {
+                "pattern": "pipe-conn-hor",
+                "ranges": [
+                    [2, 6]
+                ]
+            }
+        ]
+    },
+
+
+    "pipe-2h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 1
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "pipe-3h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 2
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "pipe-4h": {
+        "tiles": [
+            {
+                "pattern": "pipe-cap-vert",
+                "ranges": [
+                    [0, 0]
+                ]
+            },
+            {
+                "pattern": "pipe-section-vert",
+                "ranges": [
+                    [
+                        0, 1,
+                        1, 3
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stack-2h": {
+        "tiles": [
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 1, 0, 2]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stack-3h": {
+        "tiles": [
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [0, 1, 0, 3]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stack-4h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stack-2h",
+                "ranges": [
+                    [0, 0],
+                    [0, 2]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stairs-2h": {
+        "tiles": [
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [1, 1, 0, 2],
+                    [0, 1]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stairs-3h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stairs-2h",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [2, 1, 0, 3]
+                ]
+            }
+        ]
+    },
+
+    "chocolate-stairs-4h": {
+        "tiles": [
+            {
+                "pattern": "chocolate-stairs-3h",
+                "ranges": [
+                    [0, 1]
+                ]
+            },
+            {
+                "name": "chocolate",
+                "type": "ground",
+                "ranges": [
+                    [3, 1, 0, 4]
+                ]
+            }
+        ]
+    }
+
+}

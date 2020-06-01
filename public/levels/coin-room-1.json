@@ -1,0 +1,57 @@
+{
+    "spriteSheet": "underworld",
+    "musicSheet": "underworld",
+    "patternSheet": "underworld-pattern",
+    "playerPosition": [24, 48],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 16, 0, 13]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 16, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "name": "bricks",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 1, 2, 11],
+                        [4, 7, 2],
+                        [4, 7, 10, 3]
+                    ]
+                },
+                {
+                    "name": "coin",
+                    "type": "coin",
+                    "ranges": [
+                        [5, 5, 5],
+                        [4, 7, 7],
+                        [4, 7, 9]
+                    ]
+                },
+                {
+                    "pattern": "exit-pipe-12h",
+                    "ranges": [
+                        [13, 2]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [],
+    "triggers": []
+}

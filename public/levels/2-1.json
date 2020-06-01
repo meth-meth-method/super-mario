@@ -1,0 +1,337 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "overworld",
+    "patternSheet": "overworld-pattern",
+    "playerPosition": [40, 192],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 214, 0, 15]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 92, 13, 2],
+                        [96, 10, 13, 2],
+                        [109, 30, 13, 2],
+                        [142, 10, 13, 2],
+                        [154, 60, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "name": "bricks-top",
+                    "type": "ground",
+                    "ranges": [
+                        [15, 3, 9],
+                        [28, 4, 5],
+                        [68, 9],
+                        [69, 4, 5],
+                        [81, 5, 5],
+                        [92, 4, 5],
+                        [125, 4, 5],
+                        [161, 9],
+                        [164, 5, 5],
+                        [172, 5],
+                        [185, 2, 9]
+                    ]
+                },
+                {
+                    "name": "chance",
+                    "type": "ground",
+                    "ranges": [
+                        [53, 5, 5],
+                        [53, 5, 9],
+                        [79, 4, 9],
+                        [85, 3, 9],
+                        [170, 9]
+                    ]
+                },
+                {
+                    "name": "metal",
+                    "type": "ground",
+                    "ranges": [
+                        [17, 9],
+                        [28, 5],
+                        [28, 9],
+                        [69, 5],
+                        [125, 5],
+                        [186, 5]
+                    ]
+                },
+                {
+                    "pattern": "castle-large",
+                    "ranges": [
+                        [-2, 2]
+                    ]
+                },
+                {
+                    "pattern": "cloud-single",
+                    "ranges": [
+                        [18, 3],
+                        [27, 2],
+                        [45, 2],
+                        [66, 3],
+                        [75, 2],
+                        [93, 2],
+                        [114, 3],
+                        [123, 2],
+                        [141, 2],
+                        [162, 3],
+                        [171, 2],
+                        [189, 2],
+                        [210, 3]
+                    ]
+                },
+                {
+                    "pattern": "cloud-double",
+                    "ranges": [
+                        [30, 3],
+                        [48, 3],
+                        [78, 3],
+                        [96, 3],
+                        [126, 3],
+                        [144, 3],
+                        [174, 3],
+                        [192, 3]
+                    ]
+                },
+
+                {
+                    "pattern": "tree-small",
+                    "ranges": [
+                        [11, 11],
+                        [40, 11],
+                        [59, 11],
+                        [71, 11],
+                        [72, 11],
+                        [88, 11],
+                        [119, 11],
+                        [120, 11],
+                        [136, 11],
+                        [155, 11],
+                        [167, 11],
+                        [168, 11],
+                        [184, 11],
+                        [203, 11]
+                    ]
+                },
+                {
+                    "pattern": "tree-large",
+                    "ranges": [
+                        [13, 10],
+                        [43, 10],
+                        [61, 10],
+                        [69, 10],
+                        [91, 10],
+                        [109, 10],
+                        [117, 10],
+                        [157, 10],
+                        [165, 10],
+                        [187, 10],
+                        [213, 10]
+                    ]
+                },
+                {
+                    "name": "tree-large-top",
+                    "ranges": [
+                        [21, 10]
+                    ]
+                },
+                {
+                    "name": "fence",
+                    "ranges": [
+                        [14, 4, 12],
+                        [38, 2, 12],
+                        [41, 12],
+                        [62, 4, 12],
+                        [86, 2, 12],
+                        [89, 12],
+                        [110, 4, 12],
+                        [134, 2, 12],
+                        [137, 12],
+                        [158, 4, 12],
+                        [182, 2, 12],
+                        [185, 12],
+                        [209, 12]
+                    ]
+                },
+                {
+                    "pattern": "chocolate-stairs-4h",
+                    "ranges": [
+                        [20, 9]
+                    ]
+                },
+                {
+                    "pattern": "chocolate-stack-2h",
+                    "ranges": [
+                        [35, 11]
+                    ]
+                },                {
+                    "pattern": "chocolate-stack-3h",
+                    "ranges": [
+                        [154, 10]
+                    ]
+                },
+                {
+                    "pattern": "chocolate-stack-4h",
+                    "ranges": [
+                        [34, 9]
+                    ]
+                },
+                {
+                    "pattern": "chocolate-stack-5h",
+                    "ranges": [
+                        [24, 8],
+                        [190, 2, 3],
+                        [190, 2, 8]
+                    ]
+                },
+                {
+                    "pattern": "pipe-2h",
+                    "ranges": [
+                        [115, 11]
+                    ]
+                },                {
+                    "pattern": "pipe-3h",
+                    "ranges": [
+                        [126, 10],
+                        [176, 10]
+                    ]
+                },
+                {
+                    "pattern": "pipe-4h",
+                    "ranges": [
+                        [46, 9],
+                        [74, 9],
+                        [103, 9],
+                        [122, 9]
+                    ]
+                },
+                {
+                    "pattern": "pipe-5h",
+                    "ranges": [
+                        [130, 8]
+                    ]
+                },
+                {
+                    "pattern": "flag-pole-green",
+                    "ranges": [
+                        [200, 2]
+                    ]
+                },
+                {
+                    "pattern": "castle-small",
+                    "ranges": [
+                        [204, 8]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [
+        {
+            "name": "goomba-brown",
+            "pos": [384, 112]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [496, 185]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [528, 185]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [672, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [696, 192]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [880, 121]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [944, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [968, 192]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [1056, 185]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1088, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1088, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1112, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1136, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1392, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1416, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1440, 192]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1640, 128]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1832, 160]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [1920, 192]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [2192, 185]
+        },
+        {
+            "name": "goomba-brown",
+            "pos": [2592, 192]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [2616, 185]
+        },
+        {
+            "name": "koopa-green",
+            "pos": [2960, 185]
+        }
+    ],
+    "triggers": []
+}
