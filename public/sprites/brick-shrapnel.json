@@ -1,0 +1,35 @@
+{
+    "imageURL": "/img/sprites.png",
+
+    "frames": [
+        {
+            "name": "brick-1",
+            "rect": [192, 168, 8, 8]
+        },
+        {
+            "name": "brick-2",
+            "rect": [200, 168, 8, 8]
+        },
+        {
+            "name": "brick-3",
+            "rect": [192, 176, 8, 8]
+        },
+        {
+            "name": "brick-4",
+            "rect": [200, 176, 8, 8]
+        }
+    ],
+
+    "animations": [
+        {
+            "name": "spinning-brick",
+            "frameLen": 0.15,
+            "frames": [
+                "brick-1",
+                "brick-2",
+                "brick-3",
+                "brick-4"
+            ]
+        }
+    ]
+}
