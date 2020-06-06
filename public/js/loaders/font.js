@@ -1,7 +1,7 @@
 import {loadImage} from '../loaders.js';
 import SpriteSheet from '../SpriteSheet.js';
 
-const CHARS = ' 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ©!-x.';
+const CHARS = ' 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ©!-×.';
 
 class Font {
     constructor(sprites, size) {
@@ -10,6 +10,7 @@ class Font {
     }
 
     print(text, context, x, y) {
+        text = text.toUpperCase();
         [...text].forEach((char, pos) => {
             this.sprites.draw(char, context, x + pos * this.size, y);
         });
