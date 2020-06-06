@@ -27,6 +27,7 @@ function addShrapnel(level, gameContext, match) {
 
     const spreadH = 60;
     const spreadV = 400;
+    bricks[0].sounds.add('break');
     bricks[0].vel.set(-spreadH, -spreadV * 1.2);
     bricks[1].vel.set(-spreadH, -spreadV);
     bricks[2].vel.set(spreadH, -spreadV * 1.2);
