@@ -19,7 +19,6 @@ function createFactory(sprite, audio) {
     const spinBrick = sprite.animations.get('spinning-brick');
 
     function draw(context) {
-        console.log(this.pos);
         sprite.draw(spinBrick(this.lifetime), context, 0, 0);
     }
 
