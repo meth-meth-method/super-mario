@@ -51,7 +51,7 @@ export async function loadEntities(audioContext) {
         setup(loadCannon)
             .then(addAs('cannon')),
         setup(loadBrickShrapnel)
-            .then(createPool(2))
+            .then(createPool(4))
             .then(addAs('brickShrapnel')),
     ]);
 
