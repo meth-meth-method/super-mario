@@ -5,6 +5,23 @@ import {loadBullet} from './entities/Bullet.js';
 import {loadCannon} from './entities/Cannon.js';
 import {loadBrickShrapnel} from './entities/BrickShrapnel.js';
 
+function createPool(size) {
+    const pool = [];
+
+    return function createPooledFactory(factory) {
+        for (let i = 0; i < size; i++) {
+            pool.push(factory());
+        }
+
+        let count = 0;
+        return function pooledFactory() {
+            const entity = pool[count++ % pool.length];
+            entity.lifetime = 0;
+            return entity;
+        }
+    }
+}
+
 export async function loadEntities(audioContext) {
     const entityFactories = {};
 
@@ -34,7 +51,8 @@ export async function loadEntities(audioContext) {
         setup(loadCannon)
             .then(addAs('cannon')),
         setup(loadBrickShrapnel)
-            .then(addAs('brickShrapnel'))
+            .then(createPool(2))
+            .then(addAs('brickShrapnel')),
     ]);
 
     return entityFactories;
