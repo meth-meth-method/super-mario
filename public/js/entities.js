@@ -7,18 +7,31 @@ import {loadCannon} from './entities/Cannon.js';
 export async function loadEntities(audioContext) {
     const entityFactories = {};
 
-    async function setup(loader, name) {
-        entityFactories[name] = await loader(audioContext);
+    function setup(loader) {
+        return loader(audioContext);
+    }
+
+    function addAs(name) {
+        return function addFactory(factory) {
+            entityFactories[name] = factory;
+        }
     }
 
     await Promise.all([
-        setup(loadMario, 'mario'),
-        setup(loadGoombaBrown, 'goomba-brown'),
-        setup(loadGoombaBlue, 'goomba-blue'),
-        setup(loadKoopaGreen, 'koopa-green'),
-        setup(loadKoopaBlue, 'koopa-blue'),
-        setup(loadBullet, 'bullet'),
-        setup(loadCannon, 'cannon'),
+        setup(loadMario)
+            .then(addAs('mario')),
+        setup(loadGoombaBrown)
+            .then(addAs('goomba-brown')),
+        setup(loadGoombaBlue)
+            .then(addAs('goomba-blue')),
+        setup(loadKoopaGreen)
+            .then(addAs('koopa-green')),
+        setup(loadKoopaBlue)
+            .then(addAs('koopa-blue')),
+        setup(loadBullet)
+            .then(addAs('bullet')),
+        setup(loadCannon)
+            .then(addAs('cannon')),
     ]);
 
     return entityFactories;
