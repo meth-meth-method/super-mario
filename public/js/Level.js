@@ -17,6 +17,7 @@ function focusPlayer(level) {
 
 export default class Level extends Scene {
     static EVENT_TRIGGER = Symbol('trigger');
+    static EVENT_COMPLETE = Symbol('complete');
 
     constructor() {
         super();
