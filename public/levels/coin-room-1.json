@@ -2,7 +2,7 @@
     "spriteSheet": "underworld",
     "musicSheet": "underworld",
     "patternSheet": "underworld-pattern",
-    "playerPosition": [24, 48],
+    "checkpoints": [24, 48],
 
     "layers": [
         {

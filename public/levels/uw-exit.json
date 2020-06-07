@@ -2,7 +2,7 @@
     "spriteSheet": "overworld",
     "musicSheet": "overworld",
     "patternSheet": "overworld-pattern",
-    "playerPosition": [56, 160],
+    "checkpoints": [56, 160],
 
     "layers": [
         {

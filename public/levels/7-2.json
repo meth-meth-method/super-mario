@@ -2,7 +2,7 @@
     "spriteSheet": "underwater",
     "musicSheet": "underwater",
     "patternSheet": "underwater-pattern",
-    "playerPosition": [40, 16],
+    "checkpoints": [40, 16],
 
     "layers": [
         {
