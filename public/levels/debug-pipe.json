@@ -41,7 +41,14 @@
     "entities": [
         {
             "name": "pipe-portal",
-            "pos": [36, 160]
+            "pos": [36, 174],
+            "props": {
+                "dir": "DOWN",
+                "goesTo": {
+                    "name": "coin-room-1"
+                },
+                "backTo": [64, 64]
+            }
         }
     ]
 }
