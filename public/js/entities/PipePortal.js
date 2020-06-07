@@ -18,6 +18,7 @@ function createFactory(audio) {
         const pipe = new Pipe();
         pipe.direction.copy(Direction[props.dir]);
         const entity = new Entity();
+        entity.props = props;
         entity.audio = audio;
         entity.size.set(24, 24);
         entity.addTrait(pipe);
