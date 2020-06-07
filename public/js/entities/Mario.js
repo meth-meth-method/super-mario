@@ -3,6 +3,7 @@ import Go from '../traits/Go.js';
 import Jump from '../traits/Jump.js';
 import Killable from '../traits/Killable.js';
 import Physics from '../traits/Physics.js';
+import PipeTraveller from '../traits/PipeTraveller.js';
 import Solid from '../traits/Solid.js';
 import Stomper from '../traits/Stomper.js';
 import {loadAudioBoard} from '../loaders/audio.js';
@@ -60,6 +61,7 @@ function createMarioFactory(sprite, audio) {
         mario.addTrait(new Jump());
         mario.addTrait(new Killable());
         mario.addTrait(new Stomper());
+        mario.addTrait(new PipeTraveller());
 
         mario.traits.get(Killable).removeAfter = Infinity;
         mario.traits.get(Jump).velocity = 175;
