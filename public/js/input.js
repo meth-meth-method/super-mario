@@ -3,13 +3,22 @@ import InputRouter from './InputRouter.js';
 import Jump from './traits/Jump.js';
 import Go from './traits/Go.js';
 
+const KEYMAP = {
+    UP: 'KeyW',
+    DOWN: 'KeyS',
+    LEFT: 'KeyA',
+    RIGHT: 'KeyD',
+    A: "KeyP",
+    B: "KeyO",
+};
+
 export function setupKeyboard(window) {
     const input = new Keyboard();
     const router = new InputRouter();
 
     input.listenTo(window);
 
-    input.addMapping('KeyP', keyState => {
+    input.addMapping(KEYMAP.A, keyState => {
         if (keyState) {
             router.route(entity => entity.traits.get(Jump).start());
         } else {
@@ -17,15 +26,15 @@ export function setupKeyboard(window) {
         }
     });
 
-    input.addMapping('KeyO', keyState => {
+    input.addMapping(KEYMAP.B, keyState => {
         router.route(entity => entity.turbo(keyState));
     });
 
-    input.addMapping('KeyD', keyState => {
+    input.addMapping(KEYMAP.RIGHT, keyState => {
         router.route(entity => entity.traits.get(Go).dir += keyState ? 1 : -1);
     });
 
-    input.addMapping('KeyA', keyState => {
+    input.addMapping(KEYMAP.LEFT, keyState => {
         router.route(entity => entity.traits.get(Go).dir += keyState ? -1 : 1);
     });
 
