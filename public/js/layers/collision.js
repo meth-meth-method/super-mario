@@ -4,10 +4,10 @@ function createEntityLayer(entities) {
         entities.forEach(entity => {
             context.beginPath();
             context.rect(
-                entity.bounds.left - camera.pos.x,
-                entity.bounds.top - camera.pos.y,
-                entity.size.x,
-                entity.size.y);
+                Math.floor(entity.bounds.left - camera.pos.x) + .5,
+                Math.floor(entity.bounds.top - camera.pos.y) + .5,
+                entity.size.x - 1,
+                entity.size.y -1);
             context.stroke();
         });
     };
@@ -29,9 +29,10 @@ function createTileCandidateLayer(tileResolver) {
         resolvedTiles.forEach(({x, y}) => {
             context.beginPath();
             context.rect(
-                x * tileSize - camera.pos.x,
-                y * tileSize - camera.pos.y,
-                tileSize, tileSize);
+                Math.floor(x * tileSize - camera.pos.x) + .5,
+                Math.floor(y * tileSize - camera.pos.y) + .5,
+                tileSize - 1,
+                tileSize - 1);
             context.stroke();
         });
 
