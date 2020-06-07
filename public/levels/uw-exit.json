@@ -2,7 +2,9 @@
     "spriteSheet": "overworld",
     "musicSheet": "overworld",
     "patternSheet": "overworld-pattern",
-    "checkpoints": [56, 160],
+    "checkpoints": [
+        [56, 160]
+    ],
 
     "layers": [
         {

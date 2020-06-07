@@ -2,7 +2,9 @@
     "spriteSheet": "castle",
     "musicSheet": "castle",
     "patternSheet": "castle-pattern",
-    "checkpoints": [40, 96],
+    "checkpoints": [
+        [40, 96]
+    ],
 
     "layers": [
         {
