@@ -33,6 +33,8 @@ export default class Pipe extends Trait {
         if (pipeTraveller.direction.equals(this.direction)) {
             pipe.sounds.add('pipe');
 
+            pipeTraveller.distance.set(0, 0);
+
             const state = createTravellerState();
             state.start.copy(traveller.pos);
             state.end.copy(traveller.pos);
@@ -49,8 +51,16 @@ export default class Pipe extends Trait {
             const progress = state.time / this.duration;
             traveller.pos.x = state.start.x + (state.end.x - state.start.x) * progress;
             traveller.pos.y = state.start.y + (state.end.y - state.start.y) * progress;
+
+            const pipeTraveller = traveller.traits.get(PipeTraveller);
+            pipeTraveller.movement.copy(this.direction);
+            pipeTraveller.distance.x = traveller.pos.x - state.start.x;
+            pipeTraveller.distance.y = traveller.pos.y - state.start.y;
+
             if (state.time > this.duration) {
                 this.travellers.delete(traveller);
+                pipeTraveller.movement.set(0, 0);
+                pipeTraveller.distance.set(0, 0);
 
                 level.events.emit(Pipe.EVENT_PIPE_COMPLETE, pipe, traveller);
             }
