@@ -10,8 +10,7 @@ class Font {
     }
 
     print(text, context, x, y) {
-        text = text.toUpperCase();
-        [...text].forEach((char, pos) => {
+        [...text.toUpperCase()].forEach((char, pos) => {
             this.sprites.draw(char, context, x + pos * this.size, y);
         });
     }
