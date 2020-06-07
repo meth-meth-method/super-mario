@@ -56,7 +56,7 @@ async function main(canvas) {
         const playerProgressLayer = createPlayerProgressLayer(font, level);
         const dashboardLayer = createDashboardLayer(font, level);
 
-        mario.pos.set(0, 0);
+        mario.pos.copy(level.checkpoints[0]);
         level.entities.add(mario);
 
         const waitScreen = new TimedScene();

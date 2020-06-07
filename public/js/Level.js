@@ -25,6 +25,8 @@ export default class Level extends Scene {
 
         this.name = "";
 
+        this.checkpoints = [];
+
         this.gravity = 1500;
         this.totalTime = 0;
 
