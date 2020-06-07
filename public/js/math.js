@@ -45,6 +45,10 @@ export class Vec2 {
         this.y = vec2.y;
     }
 
+    equals(vec2) {
+        return this.x === vec2.x && this.y === vec2.y;
+    }
+
     set(x, y) {
         this.x = x;
         this.y = y;
