@@ -64,3 +64,10 @@ export function clamp(value, min, max) {
     }
     return value
 }
+
+export const Direction = {
+    UP: new Vec2(0, -1),
+    DOWN: new Vec2(0, 1),
+    RIGHT: new Vec2(1, 0),
+    LEFT: new Vec2(-1, 0),
+};
