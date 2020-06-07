@@ -10,7 +10,7 @@
         {
             "tiles": [
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [0, 79, 0, 15]
                     ]
@@ -21,7 +21,7 @@
         {
             "tiles": [
                 {
-                    "name": "cloud-tile",
+                    "style": "cloud-tile",
                     "type": "ground",
                     "ranges": [
                         [0, 4, 13],
@@ -29,7 +29,7 @@
                     ]
                 },
                 {
-                    "name": "coin",
+                    "style": "coin",
                     "type": "coin",
                     "ranges": [
                         [15, 16, 6],

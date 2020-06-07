@@ -10,7 +10,7 @@
         {
             "tiles": [
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [0, 160, 0, 15]
                     ]
@@ -20,7 +20,7 @@
         {
             "tiles": [
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "type": "ground",
                     "ranges": [
                         [0, 16, 2, 3],
@@ -50,14 +50,14 @@
                     ]
                 },
                 {
-                    "name": "bricks",
+                    "style": "bricks",
                     "type": "ground",
                     "ranges": [
                         [128, 6, 5]
                     ]
                 },
                 {
-                    "name": "metal-alt",
+                    "style": "metal-alt",
                     "type": "ground",
                     "ranges": [
                         [23, 7],
@@ -80,7 +80,7 @@
                     ]
                 },
                 {
-                    "name": "waves",
+                    "style": "waves",
                     "ranges": [
                         [16, 16, 13],
                         [109, 2, 13],
@@ -89,7 +89,7 @@
                     ]
                 },
                 {
-                    "name": "tile-red",
+                    "style": "tile-red",
                     "ranges": [
                         [16, 16, 14],
                         [109, 2, 14],
@@ -98,14 +98,14 @@
                     ]
                 },
                 {
-                    "name": "chance",
+                    "style": "chance",
                     "type": "ground",
                     "ranges": [
                         [23, 3]
                     ]
                 },
                 {
-                    "name": "coin",
+                    "style": "coin",
                     "type": "coin",
                     "ranges": [
                         [102, 3, 8, 1],
@@ -113,7 +113,7 @@
                     ]
                 },
                 {
-                    "name": "beam-track",
+                    "style": "beam-track",
                     "ranges": [
                         [86, 1, 2, 13],
                         [89, 1, 2, 13]

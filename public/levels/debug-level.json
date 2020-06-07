@@ -10,7 +10,7 @@
         {
             "tiles": [
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [
                             0, 212,
@@ -19,7 +19,7 @@
                     ]
                 },
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "type": "ground",
                     "ranges": [
                         [
@@ -29,7 +29,7 @@
                     ]
                 },
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [
                             75, 2,
@@ -46,7 +46,7 @@
                     ]
                 },
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "type": "ground",
                     "ranges": [
                         [
@@ -87,7 +87,7 @@
         {
             "tiles": [
                 {
-                    "name": "bricks",
+                    "style": "bricks",
                     "type": "brick",
                     "ranges": [
                         [
@@ -135,7 +135,7 @@
                     ]
                 },
                 {
-                    "name": "chance",
+                    "style": "chance",
                     "type": "ground",
                     "ranges": [
                         [2, 2],
@@ -159,7 +159,7 @@
                     ]
                 },
                 {
-                    "name": "chocolate",
+                    "style": "chocolate",
                     "type": "ground",
                     "ranges": [
                         [141, 1, 9],
