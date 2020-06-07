@@ -52,11 +52,9 @@ function setupBehavior(level) {
     });
 }
 
-function setupBackgrounds(levelSpec, level, backgroundSprites, patterns) {
+function setupBackgrounds(levelSpec, level, patterns) {
     levelSpec.layers.forEach(layer => {
         const grid = createGrid(layer.tiles, patterns);
-        const backgroundLayer = createBackgroundLayer(level, grid, backgroundSprites);
-        level.comp.layers.push(backgroundLayer);
         level.tileCollider.addGrid(grid);
     });
 }
@@ -98,9 +96,6 @@ function setupEntities(levelSpec, level, entityFactory) {
     const entityProxy = new Entity();
     entityProxy.addTrait(spawner);
     level.entities.add(entityProxy);
-
-    const spriteLayer = createSpriteLayer(level.entities);
-    level.comp.layers.push(spriteLayer);
 }
 
 function setupTriggers(levelSpec, level) {
@@ -137,13 +132,21 @@ export function createLevelLoader(entityFactory) {
             level.name = name;
             level.music.setPlayer(musicPlayer);
 
-            setupBackgrounds(levelSpec, level, backgroundSprites, patterns);
+            setupBackgrounds(levelSpec, level, patterns);
             setupEntities(levelSpec, level, entityFactory);
             setupTriggers(levelSpec, level);
             setupCheckpoints(levelSpec, level);
 
             setupBehavior(level);
             setupCamera(level);
+
+            for (const resolver of level.tileCollider.resolvers) {
+                const backgroundLayer = createBackgroundLayer(level, resolver.matrix, backgroundSprites);
+                level.comp.layers.push(backgroundLayer);
+            }
+
+            const spriteLayer = createSpriteLayer(level.entities);
+            level.comp.layers.splice(level.comp.layers.length - 1, 0, spriteLayer);
 
             return level;
         });
