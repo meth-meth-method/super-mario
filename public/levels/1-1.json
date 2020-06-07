@@ -174,9 +174,9 @@
                     ]
                 },
                 {
-                    "name": "chocolate",
+                    "pattern": "chocolate-stack-4h",
                     "ranges": [
-                        [152, 1, 9, 4]
+                        [152, 1, 9]
                     ]
                 },
                 {
