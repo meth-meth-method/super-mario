@@ -5,11 +5,15 @@ import MusicController from './MusicController.js';
 import EntityCollider from './EntityCollider.js';
 import Scene from './Scene.js';
 import TileCollider from './TileCollider.js';
+import { clamp } from './math.js';
 import { findPlayers } from './player.js';
 
 function focusPlayer(level) {
     for (const player of findPlayers(level.entities)) {
-        level.camera.pos.x = Math.max(0, player.pos.x - 100);
+        level.camera.pos.x = clamp(
+            player.pos.x - 100,
+            level.camera.min.x,
+            level.camera.max.x - level.camera.size.x);
     }
 }
 
