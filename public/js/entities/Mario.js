@@ -30,6 +30,11 @@ function createMarioFactory(sprite, audio) {
             return 'jump';
         }
 
+        const pipeTraveller = mario.traits.get(PipeTraveller);
+        if (pipeTraveller.movement.x != 0) {
+            return runAnim(pipeTraveller.distance.x * 2);
+        }
+
         const go = mario.traits.get(Go);
         if (go.distance > 0) {
             if ((mario.vel.x > 0 && go.dir < 0) || (mario.vel.x < 0 && go.dir > 0)) {
