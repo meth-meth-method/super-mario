@@ -1,0 +1,47 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "overworld",
+    "patternSheet": "overworld-pattern",
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 212, 0, 15]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 69, 13, 2],
+                        [71, 15, 13, 2],
+                        [89, 64, 13, 2],
+                        [155, 57, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "pipe-2h",
+                    "ranges": [
+                        [2, 11],
+                        [6, 11],
+                        [12, 11]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [
+        {
+            "name": "pipe-portal",
+            "pos": [36, 160]
+        }
+    ]
+}
