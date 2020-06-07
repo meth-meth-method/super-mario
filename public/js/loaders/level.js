@@ -10,13 +10,6 @@ import {loadMusicSheet} from './music.js';
 import {loadSpriteSheet} from './sprite.js';
 import {loadJSON} from '../loaders.js';
 
-function createTimer() {
-    const timer = new Entity();
-    timer.addTrait(new LevelTimer());
-    return timer;
-}
-
-
 function createSpawner() {
     class Spawner extends Trait {
         constructor() {
@@ -46,15 +39,11 @@ function createSpawner() {
     return new Spawner();
 }
 
-
 function loadPattern(name) {
     return loadJSON(`/sprites/patterns/${name}.json`);
 }
 
 function setupBehavior(level) {
-    const timer = createTimer();
-    level.entities.add(timer);
-
     level.events.listen(LevelTimer.EVENT_TIMER_OK, () => {
         level.music.playTheme();
     });
