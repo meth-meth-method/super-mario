@@ -1,6 +1,4 @@
 import Camera from './Camera.js';
-import Compositor from './Compositor.js';
-import EventEmitter from './EventEmitter.js';
 import MusicController from './MusicController.js';
 import EntityCollider from './EntityCollider.js';
 import Scene from './Scene.js';
