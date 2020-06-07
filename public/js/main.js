@@ -3,7 +3,7 @@ import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
-import {makePlayer, createPlayerEnv, findPlayers} from './player.js';
+import {makePlayer, findPlayers} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createColorLayer} from './layers/color.js';
 import {createTextLayer} from './layers/text.js';
@@ -58,9 +58,6 @@ async function main(canvas) {
 
         mario.pos.set(0, 0);
         level.entities.add(mario);
-
-        const playerEnv = createPlayerEnv(mario);
-        level.entities.add(playerEnv);
 
         const waitScreen = new TimedScene();
         waitScreen.countDown = 2;
