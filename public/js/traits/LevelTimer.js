@@ -12,6 +12,10 @@ export default class LevelTimer extends Trait {
         this.hurryEmitted = null;
     }
 
+    reset() {
+        this.currentTime = this.totalTime;
+    }
+
     update(entity, {deltaTime}, level) {
         this.currentTime -= deltaTime * 2.5;
         if (this.hurryEmitted !== true && this.currentTime < this.hurryTime) {

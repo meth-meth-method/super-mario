@@ -3,7 +3,7 @@ import Timer from './Timer.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
-import {makePlayer, findPlayers} from './player.js';
+import {makePlayer, bootstrap, findPlayers} from './player.js';
 import {setupKeyboard} from './input.js';
 import {createColorLayer} from './layers/color.js';
 import {createTextLayer} from './layers/text.js';
@@ -43,6 +43,7 @@ async function main(canvas) {
         sceneRunner.runNext();
 
         const level = await loadLevel(name);
+        bootstrap(mario, level);
 
         level.events.listen(Level.EVENT_TRIGGER, (spec, trigger, touches) => {
             if (spec.type === "goto") {
@@ -55,9 +56,6 @@ async function main(canvas) {
 
         const playerProgressLayer = createPlayerProgressLayer(font, level);
         const dashboardLayer = createDashboardLayer(font, level);
-
-        mario.pos.copy(level.checkpoints[0]);
-        level.entities.add(mario);
 
         const waitScreen = new TimedScene();
         waitScreen.countDown = 2;
