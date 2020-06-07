@@ -54,6 +54,15 @@
         }
     ],
 
-    "entities": [],
+    "entities": [
+        {
+            "name": "pipe-portal",
+            "pos": [206, 184],
+            "props": {
+                "dir": "RIGHT"
+            }
+        }
+    ],
+
     "triggers": []
 }
