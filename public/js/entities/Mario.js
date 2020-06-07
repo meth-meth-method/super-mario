@@ -60,7 +60,7 @@ function createMarioFactory(sprite, audio) {
         mario.addTrait(new Killable());
         mario.addTrait(new Stomper());
 
-        mario.traits.get(Killable).removeAfter = 0;
+        mario.traits.get(Killable).removeAfter = Infinity;
         mario.traits.get(Jump).velocity = 175;
 
         mario.turbo = setTurboState;
