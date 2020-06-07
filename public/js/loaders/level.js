@@ -1,4 +1,4 @@
-import {Matrix} from '../math.js';
+import {Matrix, Vec2} from '../math.js';
 import Entity from '../Entity.js';
 import Trait from '../Trait.js';
 import LevelTimer from '../traits/LevelTimer.js';
@@ -72,7 +72,6 @@ function setupBackgrounds(levelSpec, level, backgroundSprites, patterns) {
     });
 }
 
-
 function setupCamera(level) {
     let maxX = 0;
     let maxTileSize = 0;
@@ -87,6 +86,12 @@ function setupCamera(level) {
         });
     }
     level.camera.max.x = maxX * maxTileSize;
+}
+
+function setupCheckpoints(levelSpec, level) {
+    levelSpec.checkpoints.forEach(([x, y]) => {
+        level.checkpoints.push(new Vec2(x, y));
+    });
 }
 
 function setupEntities(levelSpec, level, entityFactory) {
@@ -143,6 +148,8 @@ export function createLevelLoader(entityFactory) {
             setupBackgrounds(levelSpec, level, backgroundSprites, patterns);
             setupEntities(levelSpec, level, entityFactory);
             setupTriggers(levelSpec, level);
+            setupCheckpoints(levelSpec, level);
+
             setupBehavior(level);
             setupCamera(level);
 
