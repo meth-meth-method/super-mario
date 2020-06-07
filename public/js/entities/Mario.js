@@ -29,8 +29,9 @@ function createMarioFactory(sprite, audio) {
             return 'jump';
         }
 
-        if (mario.traits.get(Go).distance > 0) {
-            if ((mario.vel.x > 0 && mario.traits.get(Go).dir < 0) || (mario.vel.x < 0 && mario.traits.get(Go).dir > 0)) {
+        const go = mario.traits.get(Go);
+        if (go.distance > 0) {
+            if ((mario.vel.x > 0 && go.dir < 0) || (mario.vel.x < 0 && go.dir > 0)) {
                 return 'break';
             }
 
