@@ -7,6 +7,7 @@ export default class Player extends Trait {
     constructor() {
         super();
         this.name = "UNNAMED";
+        this.world = "UNKNOWN";
         this.coins = 0;
         this.lives = 3;
         this.score = 0;
