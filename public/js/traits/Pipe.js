@@ -30,10 +30,12 @@ export default class Pipe extends Trait {
         }
 
         const pipeTraveller = traveller.traits.get(PipeTraveller);
-        if (pipeTraveller.direction.equals(this.direction)) {
+        const shouldEnter = pipeTraveller.autoEnter || pipeTraveller.direction.equals(this.direction);
+        if (shouldEnter) {
             pipe.sounds.add('pipe');
 
             pipeTraveller.distance.set(0, 0);
+            pipeTraveller.autoEnter = false;
 
             const state = createTravellerState();
             state.start.copy(traveller.pos);
