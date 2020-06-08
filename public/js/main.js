@@ -76,10 +76,12 @@ async function main(canvas) {
         videoContext,
         entityFactory,
         deltaTime: null,
+        tick: 0,
     };
 
     const timer = new Timer(1/60);
     timer.update = function update(deltaTime) {
+        gameContext.tick++;
         gameContext.deltaTime = deltaTime;
         sceneRunner.update(gameContext);
     }
