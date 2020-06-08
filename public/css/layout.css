@@ -1,0 +1,27 @@
+body {
+    background: #000;
+    margin: 0;
+}
+
+#screen {
+    display: block;
+    image-rendering: pixelated;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-height: 100vh;
+    --aspect-16-9: calc(9/16 * 100);
+    --aspect-4-3: calc(3/4 * 100);
+}
+
+[data-aspect-ratio="4:3"] {
+    height: calc(var(--aspect-4-3) * 1vw);
+    max-width: calc(100 / var(--aspect-4-3) * 100vh);
+}
+
+[data-aspect-ratio="16:9"] {
+    height: calc(var(--aspect-16-9) * 1vw);
+    max-width: calc(100 / var(--aspect-16-9) * 100vh);
+}
