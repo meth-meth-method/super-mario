@@ -20,6 +20,21 @@ export default class Pipe extends Trait {
         this.travellers = new Map();
     }
 
+    addTraveller(pipe, traveller) {
+        pipe.sounds.add('pipe');
+
+        const pipeTraveller = traveller.traits.get(PipeTraveller);
+        pipeTraveller.distance.set(0, 0);
+        pipeTraveller.autoEnter = false;
+
+        const state = createTravellerState();
+        state.start.copy(traveller.pos);
+        state.end.copy(traveller.pos);
+        state.end.x += this.direction.x * pipe.size.x;
+        state.end.y += this.direction.y * pipe.size.y;
+        this.travellers.set(traveller, state);
+    }
+
     collides(pipe, traveller) {
         if (!traveller.traits.has(PipeTraveller)) {
             return;
@@ -32,17 +47,7 @@ export default class Pipe extends Trait {
         const pipeTraveller = traveller.traits.get(PipeTraveller);
         const shouldEnter = pipeTraveller.autoEnter || pipeTraveller.direction.equals(this.direction);
         if (shouldEnter) {
-            pipe.sounds.add('pipe');
-
-            pipeTraveller.distance.set(0, 0);
-            pipeTraveller.autoEnter = false;
-
-            const state = createTravellerState();
-            state.start.copy(traveller.pos);
-            state.end.copy(traveller.pos);
-            state.end.x += this.direction.x * pipe.size.x;
-            state.end.y += this.direction.y * pipe.size.y;
-            this.travellers.set(traveller, state);
+            this.addTraveller(pipe, traveller);
         }
     }
 
