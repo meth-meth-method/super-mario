@@ -76,6 +76,11 @@ function setupCamera(level) {
 }
 
 function setupCheckpoints(levelSpec, level) {
+    if (!levelSpec.checkpoints) {
+        level.checkpoints.push(new Vec2(0, 0));
+        return;
+    }
+
     levelSpec.checkpoints.forEach(([x, y]) => {
         level.checkpoints.push(new Vec2(x, y));
     });
