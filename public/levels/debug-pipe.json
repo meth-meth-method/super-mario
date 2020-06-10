@@ -54,7 +54,15 @@
                 "goesTo": {
                     "name": "coin-room-1"
                 },
-                "backTo": [64, 64]
+                "backTo": "outlet1"
+            }
+        },
+        {
+            "id": "outlet1",
+            "name": "pipe-portal",
+            "pos": [196, 176],
+            "props": {
+                "dir": "UP"
             }
         }
     ]

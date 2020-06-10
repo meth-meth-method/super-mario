@@ -13,6 +13,7 @@ export const Sides = {
 
 export default class Entity {
     constructor() {
+        this.id = null;
         this.audio = new AudioBoard();
         this.events = new EventBuffer();
         this.sounds = new Set();

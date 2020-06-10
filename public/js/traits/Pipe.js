@@ -25,7 +25,6 @@ export default class Pipe extends Trait {
 
         const pipeTraveller = traveller.traits.get(PipeTraveller);
         pipeTraveller.distance.set(0, 0);
-        pipeTraveller.autoEnter = false;
 
         const state = createTravellerState();
         state.start.copy(traveller.pos);
@@ -45,8 +44,7 @@ export default class Pipe extends Trait {
         }
 
         const pipeTraveller = traveller.traits.get(PipeTraveller);
-        const shouldEnter = pipeTraveller.autoEnter || pipeTraveller.direction.equals(this.direction);
-        if (shouldEnter) {
+        if (pipeTraveller.direction.equals(this.direction)) {
             this.addTraveller(pipe, traveller);
         }
     }
@@ -58,6 +56,7 @@ export default class Pipe extends Trait {
             const progress = state.time / this.duration;
             traveller.pos.x = state.start.x + (state.end.x - state.start.x) * progress;
             traveller.pos.y = state.start.y + (state.end.y - state.start.y) * progress;
+            traveller.vel.set(0, 0);
 
             const pipeTraveller = traveller.traits.get(PipeTraveller);
             pipeTraveller.movement.copy(this.direction);
