@@ -43,6 +43,11 @@ function createMarioFactory(sprite, audio) {
             return 'idle';
         }
 
+        const poleTraveller = mario.traits.get(PoleTraveller);
+        if (poleTraveller.distance) {
+            return 'climb-1';
+        }
+
         if (mario.traits.get(Jump).falling) {
             return 'jump';
         }
