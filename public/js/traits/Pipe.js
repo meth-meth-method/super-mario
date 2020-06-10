@@ -1,4 +1,5 @@
-import { Vec2 } from '../math.js';
+import { Vec2, Direction } from '../math.js';
+import { Sides, Align } from '../Entity.js';
 import Trait from '../Trait.js';
 import PipeTraveller from './PipeTraveller.js';
 
@@ -8,6 +9,24 @@ function createTravellerState() {
         start: new Vec2(),
         end: new Vec2(),
     };
+}
+
+export function connectEntity(pipeEntity, travellerEntity) {
+    const pipeTrait = pipeEntity.traits.get(Pipe);
+    Align.center(pipeEntity, travellerEntity);
+    if (pipeTrait.direction.equals(Direction.UP)) {
+        Align.bottom(pipeEntity, travellerEntity);
+    }
+    else if (pipeTrait.direction.equals(Direction.DOWN)) {
+        Align.top(pipeEntity, travellerEntity);
+    }
+    else if (pipeTrait.direction.equals(Direction.LEFT)) {
+        Align.right(pipeEntity, travellerEntity);
+    }
+    else if (pipeTrait.direction.equals(Direction.RIGHT)) {
+        Align.left(pipeEntity, travellerEntity);
+    }
+    pipeTrait.addTraveller(pipeEntity, travellerEntity);
 }
 
 export default class Pipe extends Trait {
