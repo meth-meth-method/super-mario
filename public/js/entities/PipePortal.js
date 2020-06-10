@@ -20,7 +20,7 @@ function createFactory(audio) {
         const entity = new Entity();
         entity.props = props;
         entity.audio = audio;
-        entity.size.set(24, 24);
+        entity.size.set(24, 30);
         entity.addTrait(pipe);
         return entity;
     };
