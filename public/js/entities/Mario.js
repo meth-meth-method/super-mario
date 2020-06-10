@@ -26,13 +26,16 @@ function createMarioFactory(sprite, audio) {
     const runAnim = sprite.animations.get('run');
 
     function routeFrame(mario) {
-        if (mario.traits.get(Jump).falling) {
-            return 'jump';
-        }
-
         const pipeTraveller = mario.traits.get(PipeTraveller);
         if (pipeTraveller.movement.x != 0) {
             return runAnim(pipeTraveller.distance.x * 2);
+        }
+        if (pipeTraveller.movement.y != 0) {
+            return 'idle';
+        }
+
+        if (mario.traits.get(Jump).falling) {
+            return 'jump';
         }
 
         const go = mario.traits.get(Go);
