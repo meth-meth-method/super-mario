@@ -4,6 +4,28 @@ import BoundingBox from './BoundingBox.js';
 import EventBuffer from './EventBuffer.js';
 import Trait from './Trait.js';
 
+export const Align = {
+    center(target, subject) {
+        subject.bounds.setCenter(target.bounds.getCenter());
+    },
+
+    bottom(target, subject) {
+        subject.bounds.bottom = target.bounds.bottom;
+    },
+
+    top(target, subject) {
+        subject.bounds.top = target.bounds.top;
+    },
+
+    left(target, subject) {
+        subject.bounds.left = target.bounds.left;
+    },
+
+    right(target, subject) {
+        subject.bounds.right = target.bounds.right;
+    },
+};
+
 export const Sides = {
     TOP: Symbol('top'),
     BOTTOM: Symbol('bottom'),
