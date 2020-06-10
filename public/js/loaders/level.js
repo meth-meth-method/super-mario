@@ -88,14 +88,21 @@ function setupCheckpoints(levelSpec, level) {
 
 function setupEntities(levelSpec, level, entityFactory) {
     const spawner = createSpawner();
-    levelSpec.entities.forEach(({name, pos: [x, y], props}) => {
+    levelSpec.entities.forEach(({id, name, pos: [x, y], props}) => {
         const createEntity = entityFactory[name];
         if (!createEntity) {
             throw new Error(`No entity ${name}`);
         }
+
         const entity = createEntity(props);
         entity.pos.set(x, y);
-        spawner.addEntity(entity);
+
+        if (id) {
+            entity.id = id;
+            level.entities.add(entity);
+        } else {
+            spawner.addEntity(entity);
+        }
     });
 
     const entityProxy = new Entity();
