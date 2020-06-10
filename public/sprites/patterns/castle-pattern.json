@@ -3,7 +3,7 @@
         "tiles": [
             {
                 "name": "ground",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 3, 1, 1],
                     [0, 4, 2, 1],
@@ -17,14 +17,14 @@
         "tiles": [
             {
                 "name": "pipe-vert-left",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-vert-right",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [1, 0]
                 ]
@@ -36,14 +36,14 @@
         "tiles": [
             {
                 "name": "pipe-insert-vert-left",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-insert-vert-right",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [1, 0]
                 ]
@@ -115,7 +115,7 @@
         "tiles": [
             {
                 "name": "bridge",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 13, 1]
                 ]

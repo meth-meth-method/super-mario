@@ -20,7 +20,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [
                             0, 212,
@@ -34,7 +34,7 @@
             "tiles": [
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [6, 100, 8, 5]
                     ]

@@ -17,7 +17,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 16, 13, 2]
                     ]
@@ -28,7 +28,7 @@
             "tiles": [
                 {
                     "name": "bricks",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 1, 2, 11],
                         [4, 7, 2],
@@ -37,7 +37,7 @@
                 },
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [5, 5, 5],
                         [4, 7, 7],

@@ -22,7 +22,7 @@
             "tiles": [
                 {
                     "name": "cloud-tile",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 4, 13],
                         [5, 57, 13]
@@ -30,7 +30,7 @@
                 },
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [15, 16, 6],
                         [32, 3, 4],

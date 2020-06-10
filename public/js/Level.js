@@ -15,6 +15,16 @@ function focusPlayer(level) {
     }
 }
 
+class EntityCollection extends Set {
+    get(id) {
+        for (const entity of this) {
+            if (entity.id === id) {
+                return entity;
+            }
+        }
+    }
+}
+
 export default class Level extends Scene {
     static EVENT_TRIGGER = Symbol('trigger');
     static EVENT_COMPLETE = Symbol('complete');
@@ -33,7 +43,7 @@ export default class Level extends Scene {
 
         this.music = new MusicController();
 
-        this.entities = new Set();
+        this.entities = new EntityCollection();
 
         this.entityCollider = new EntityCollider(this.entities);
         this.tileCollider = new TileCollider();
