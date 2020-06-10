@@ -62,8 +62,17 @@ export default class Pipe extends Trait {
             return;
         }
 
-        const pipeTraveller = traveller.traits.get(PipeTraveller);
-        if (pipeTraveller.direction.equals(this.direction)) {
+        if (traveller.traits.get(PipeTraveller).direction.equals(this.direction)) {
+            const tBounds = traveller.bounds;
+            const pBounds = pipe.bounds;
+            if (this.direction.x &&
+                (tBounds.top < pBounds.top || tBounds.bottom > pBounds.bottom)) {
+                return;
+            }
+            if (this.direction.y &&
+                (tBounds.left < pBounds.left || tBounds.right > pBounds.right)) {
+                return;
+            }
             this.addTraveller(pipe, traveller);
         }
     }
