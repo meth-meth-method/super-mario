@@ -26,6 +26,14 @@ export function loadMario(audioContext) {
 function createMarioFactory(sprite, audio) {
     const runAnim = sprite.animations.get('run');
 
+    function getHeading(mario) {
+        const poleTraveller = mario.traits.get(PoleTraveller);
+        if (poleTraveller.distance) {
+            return false;
+        }
+        return mario.traits.get(Go).heading < 0;
+    }
+
     function routeFrame(mario) {
         const pipeTraveller = mario.traits.get(PipeTraveller);
         if (pipeTraveller.movement.x != 0) {
@@ -56,7 +64,7 @@ function createMarioFactory(sprite, audio) {
     }
 
     function drawMario(context) {
-        sprite.draw(routeFrame(this), context, 0, 0, this.traits.get(Go).heading < 0);
+        sprite.draw(routeFrame(this), context, 0, 0, getHeading(this));
     }
 
     return function createMario() {
