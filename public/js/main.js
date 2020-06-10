@@ -14,7 +14,7 @@ import { createPlayerProgressLayer } from './layers/player-progress.js';
 import SceneRunner from './SceneRunner.js';
 import Scene from './Scene.js';
 import TimedScene from './TimedScene.js';
-import PipeTraveller from './traits/PipeTraveller.js';
+import { connectEntity } from './traits/Pipe.js';
 
 async function main(canvas) {
     const videoContext = canvas.getContext('2d');
@@ -72,7 +72,7 @@ async function main(canvas) {
                     nextLevel.events.listen(Level.EVENT_COMPLETE, async () => {
                         const level = await setupLevel(name);
                         const exitPipe = level.entities.get(pipe.props.backTo);
-                        exitPipe.traits.get(Pipe).addTraveller(exitPipe, mario);
+                        connectEntity(exitPipe, mario);
                         sceneRunner.addScene(level);
                         sceneRunner.runNext();
                     });
