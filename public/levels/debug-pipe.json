@@ -41,7 +41,7 @@
     "entities": [
         {
             "name": "pipe-portal",
-            "pos": [20, 174],
+            "pos": [20, 64],
             "props": {
                 "dir": "RIGHT"
             }
