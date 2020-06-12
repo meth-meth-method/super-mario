@@ -40,7 +40,6 @@ export default class Pipe extends Trait {
     }
 
     addTraveller(pipe, traveller) {
-        pipe.sounds.add('pipe');
 
         const pipeTraveller = traveller.traits.get(PipeTraveller);
         pipeTraveller.distance.set(0, 0);
@@ -73,6 +72,7 @@ export default class Pipe extends Trait {
                 (tBounds.left < pBounds.left || tBounds.right > pBounds.right)) {
                 return;
             }
+            pipe.sounds.add('pipe');
             this.addTraveller(pipe, traveller);
         }
     }
