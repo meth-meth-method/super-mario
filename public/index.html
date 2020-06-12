@@ -11,13 +11,24 @@
         #screen {
             display: block;
             image-rendering: pixelated;
-            height: 100vh;
             margin: auto;
+            width: 100vw;
+            max-height: 100vh;
+        }
+
+        .aspect-4-3 {
+            height: 75vw;
+            max-width: 133.3vh;
+        }
+
+        .aspect-16-9 {
+            height: 56.25vw;
+            max-width: 177.7vh;
         }
     </style>
     <script type="module" src="/js/main.js"></script>
 </head>
 <body>
-    <canvas id="screen" width="256" height="240"></canvas>
+    <canvas id="screen" width="256" height="240" class="aspect-4-3"></canvas>
 </body>
 </html>
