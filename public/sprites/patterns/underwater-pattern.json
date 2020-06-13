@@ -19,14 +19,14 @@
         "tiles": [
             {
                 "name": "pipe-insert-hor-top",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-insert-hor-bottom",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 1]
                 ]

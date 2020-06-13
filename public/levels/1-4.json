@@ -21,7 +21,7 @@
             "tiles": [
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 25, 2, 3],
                         [0, 13, 10, 5],
@@ -71,14 +71,14 @@
                 },
                 {
                     "name": "chance",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [31, 6]
                     ]
                 },
                 {
                     "name": "metal",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [107, 9],
                         [108, 5],
@@ -90,7 +90,7 @@
                 },
                 {
                     "name": "metal-alt",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [24, 6],
                         [31, 10],
@@ -107,7 +107,7 @@
                 },
                 {
                     "pattern": "bridge",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [129, 9]
                     ]

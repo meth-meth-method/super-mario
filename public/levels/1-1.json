@@ -17,7 +17,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 69, 13, 2],
                         [71, 15, 13, 2],
@@ -115,14 +115,14 @@
                 },
                 {
                     "name": "metal",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [64, 8]
                     ]
                 },
                 {
                     "name": "bricks-top",
-                    "type": "brick",
+                    "behavior": "brick",
                     "ranges": [
                         [20, 5, 9],
                         [77, 3, 9],
@@ -139,7 +139,7 @@
                 },
                 {
                     "name": "chance",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [16, 9],
                         [22, 5],

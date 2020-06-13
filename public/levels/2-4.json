@@ -21,7 +21,7 @@
             "tiles": [
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 16, 2, 3],
                         [0, 16, 10, 5],
@@ -51,14 +51,14 @@
                 },
                 {
                     "name": "bricks",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [128, 6, 5]
                     ]
                 },
                 {
                     "name": "metal-alt",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [23, 7],
                         [43, 13],
@@ -99,14 +99,14 @@
                 },
                 {
                     "name": "chance",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [23, 3]
                     ]
                 },
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [102, 3, 8, 1],
                         [102, 3, 12, 1]
@@ -121,7 +121,7 @@
                 },
                 {
                     "pattern": "bridge",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [128, 9]
                     ]

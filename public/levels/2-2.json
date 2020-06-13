@@ -32,7 +32,7 @@
             "tiles": [
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 66, 13, 2],
                         [18, 3, 9],
@@ -74,7 +74,7 @@
                 },
                 {
                     "name": "coral",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [11, 1, 10, 3],
                         [33, 1, 8, 5],
@@ -91,7 +91,7 @@
                 },
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [14, 2, 12],
                         [27, 3, 5],
