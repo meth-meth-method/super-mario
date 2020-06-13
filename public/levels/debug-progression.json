@@ -20,7 +20,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [
                             0, 212,

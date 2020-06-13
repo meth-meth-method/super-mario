@@ -17,7 +17,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 16, 13, 2],
                         [129, 37, 13, 2]
@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "chance",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [59, 10]
                     ]
@@ -36,7 +36,7 @@
             "tiles": [
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [27, 3, 4],
                         [33, 11],
@@ -86,7 +86,7 @@
                 },
                 {
                     "name": "chocolate",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [138, 2, 9, 4],
                         [140, 2, 7, 6],

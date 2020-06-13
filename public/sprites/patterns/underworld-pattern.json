@@ -3,14 +3,14 @@
         "tiles": [
             {
                 "name": "pipe-vert-left",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-vert-right",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [1, 0]
                 ]
@@ -22,14 +22,14 @@
         "tiles": [
             {
                 "name": "pipe-insert-vert-left",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-insert-vert-right",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [1, 0]
                 ]
@@ -41,14 +41,14 @@
         "tiles": [
             {
                 "name": "pipe-hor-top",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-hor-bottom",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 1]
                 ]
@@ -60,14 +60,14 @@
         "tiles": [
             {
                 "name": "pipe-insert-hor-top",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
                 "name": "pipe-insert-hor-bottom",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 1]
                 ]
@@ -215,7 +215,7 @@
         "tiles": [
             {
                 "name": "chocolate",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 1, 0, 2]
                 ]
@@ -227,7 +227,7 @@
         "tiles": [
             {
                 "name": "chocolate",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [0, 1, 0, 3]
                 ]
@@ -251,7 +251,7 @@
         "tiles": [
             {
                 "name": "chocolate",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [1, 1, 0, 2],
                     [0, 1]
@@ -270,7 +270,7 @@
             },
             {
                 "name": "chocolate",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [2, 1, 0, 3]
                 ]
@@ -288,7 +288,7 @@
             },
             {
                 "name": "chocolate",
-                "type": "ground",
+                "behavior": "ground",
                 "ranges": [
                     [3, 1, 0, 4]
                 ]

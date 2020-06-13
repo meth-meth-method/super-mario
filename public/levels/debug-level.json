@@ -20,7 +20,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [
                             0, 212,
@@ -47,7 +47,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [
                             5, 3,
@@ -88,7 +88,7 @@
             "tiles": [
                 {
                     "name": "bricks",
-                    "type": "brick",
+                    "behavior": "brick",
                     "ranges": [
                         [
                             27, 5,
@@ -136,7 +136,7 @@
                 },
                 {
                     "name": "chance",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [2, 2],
 
@@ -160,7 +160,7 @@
                 },
                 {
                     "name": "chocolate",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [141, 1, 9],
                         [140, 2, 10],

@@ -17,7 +17,7 @@
                 },
                 {
                     "name": "ground",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 80, 13, 2],
                         [83, 37, 13, 2],
@@ -33,7 +33,7 @@
             "tiles": [
                 {
                     "name": "bricks",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [0, 1 ,2, 11],
                         [6, 132 ,2],
@@ -68,14 +68,14 @@
                 },
                 {
                     "name": "chance",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [10, 5, 9]
                     ]
                 },
                 {
                     "name": "coin",
-                    "type": "coin",
+                    "behavior": "coin",
                     "ranges": [
                         [41, 4, 5],
                         [40, 8],
@@ -87,7 +87,7 @@
                 },
                 {
                     "name": "metal",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [29, 8],
                         [46, 7],
@@ -99,7 +99,7 @@
                 },
                 {
                     "name": "chocolate",
-                    "type": "ground",
+                    "behavior": "ground",
                     "ranges": [
                         [17, 12]
                     ]
