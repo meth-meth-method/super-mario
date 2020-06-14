@@ -40,11 +40,8 @@
 
     "entities": [
         {
-            "name": "pipe-portal",
-            "pos": [20, 64],
-            "props": {
-                "dir": "RIGHT"
-            }
+            "name": "piranha-plant",
+            "pos": [104, 176]
         },
         {
             "name": "pipe-portal",
