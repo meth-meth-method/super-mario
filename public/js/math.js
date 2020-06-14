@@ -49,6 +49,11 @@ export class Vec2 {
         return this.x === vec2.x && this.y === vec2.y;
     }
 
+    distance(v) {
+        const dx = this.x - v.x, dy = this.y - v.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
     set(x, y) {
         this.x = x;
         this.y = y;
