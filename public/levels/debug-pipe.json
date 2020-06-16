@@ -7,13 +7,13 @@
         {
             "tiles": [
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [0, 212, 0, 15]
                     ]
                 },
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "behavior": "ground",
                     "ranges": [
                         [0, 69, 13, 2],

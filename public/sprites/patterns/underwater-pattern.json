@@ -2,13 +2,13 @@
     "water": {
         "tiles": [
             {
-                "name": "waves",
+                "styles": "waves",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
-                "name": "water",
+                "styles": "water",
                 "ranges": [
                     [0, 1, 1, 12]
                 ]
@@ -18,14 +18,14 @@
     "pipe-cap-hor": {
         "tiles": [
             {
-                "name": "pipe-insert-hor-top",
+                "styles": "pipe-insert-hor-top",
                 "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
-                "name": "pipe-insert-hor-bottom",
+                "styles": "pipe-insert-hor-bottom",
                 "behavior": "ground",
                 "ranges": [
                     [0, 1]

@@ -10,13 +10,13 @@
         {
             "tiles": [
                 {
-                    "name": "tile-black",
+                    "style": "tile-black",
                     "ranges": [
                         [0, 214, 0, 15]
                     ]
                 },
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "behavior": "ground",
                     "ranges": [
                         [0, 45, 13, 2],
@@ -39,7 +39,7 @@
                     ]
                 },
                 {
-                    "name": "tree-white-small",
+                    "style": "tree-white-small",
                     "ranges": [
                         [136, 11]
                     ]
@@ -80,7 +80,7 @@
                     ]
                 },
                 {
-                    "name": "fence",
+                    "style": "fence",
                     "ranges": [
                         [14, 4, 12],
                         [41, 12],
@@ -124,7 +124,7 @@
                     ]
                 },
                 {
-                    "name": "bricks-top",
+                    "style": "bricks-top",
                     "behavior": "ground",
                     "ranges":[
                         [26, 3, 9],
@@ -142,7 +142,7 @@
                     ]
                 },
                 {
-                    "name": "chance",
+                    "style": "chance",
                     "behavior": "ground",
                     "ranges": [
                         [16, 9],
@@ -157,7 +157,7 @@
                     ]
                 },
                 {
-                    "name": "metal",
+                    "style": "metal",
                     "ranges":[
                         [90, 5],
                         [131, 5],
@@ -198,14 +198,14 @@
                     ]
                 },
                 {
-                    "name": "waves",
+                    "style": "waves",
                     "ranges": [
                         [77, 8, 12],
                         [86, 2, 12]
                     ]
                 },
                 {
-                    "name": "tile-light-blue",
+                    "style": "tile-light-blue",
                     "ranges": [
                         [77, 8, 13, 2],
                         [86, 2, 13, 2]
