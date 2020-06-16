@@ -25,6 +25,7 @@ export function loadMario(audioContext) {
 
 function createMarioFactory(sprite, audio) {
     const runAnim = sprite.animations.get('run');
+    const climbAnim = sprite.animations.get('climb');
 
     function getHeading(mario) {
         const poleTraveller = mario.traits.get(PoleTraveller);
@@ -45,7 +46,7 @@ function createMarioFactory(sprite, audio) {
 
         const poleTraveller = mario.traits.get(PoleTraveller);
         if (poleTraveller.distance) {
-            return 'climb-1';
+            return climbAnim(poleTraveller.distance);
         }
 
         if (mario.traits.get(Jump).falling) {
