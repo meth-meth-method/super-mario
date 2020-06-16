@@ -1,4 +1,5 @@
-import { Vec2 } from '../math.js';
+import { Vec2, Direction } from '../math.js';
+import { Sides, Align } from '../Entity.js';
 import Trait from '../Trait.js';
 import PipeTraveller from './PipeTraveller.js';
 
@@ -8,6 +9,24 @@ function createTravellerState() {
         start: new Vec2(),
         end: new Vec2(),
     };
+}
+
+export function connectEntity(pipeEntity, travellerEntity) {
+    const pipeTrait = pipeEntity.traits.get(Pipe);
+    Align.center(pipeEntity, travellerEntity);
+    if (pipeTrait.direction.equals(Direction.UP)) {
+        Align.bottom(pipeEntity, travellerEntity);
+    }
+    else if (pipeTrait.direction.equals(Direction.DOWN)) {
+        Align.top(pipeEntity, travellerEntity);
+    }
+    else if (pipeTrait.direction.equals(Direction.LEFT)) {
+        Align.right(pipeEntity, travellerEntity);
+    }
+    else if (pipeTrait.direction.equals(Direction.RIGHT)) {
+        Align.left(pipeEntity, travellerEntity);
+    }
+    pipeTrait.addTraveller(pipeEntity, travellerEntity);
 }
 
 export default class Pipe extends Trait {
@@ -20,6 +39,19 @@ export default class Pipe extends Trait {
         this.travellers = new Map();
     }
 
+    addTraveller(pipe, traveller) {
+
+        const pipeTraveller = traveller.traits.get(PipeTraveller);
+        pipeTraveller.distance.set(0, 0);
+
+        const state = createTravellerState();
+        state.start.copy(traveller.pos);
+        state.end.copy(traveller.pos);
+        state.end.x += this.direction.x * pipe.size.x;
+        state.end.y += this.direction.y * pipe.size.y;
+        this.travellers.set(traveller, state);
+    }
+
     collides(pipe, traveller) {
         if (!traveller.traits.has(PipeTraveller)) {
             return;
@@ -29,18 +61,19 @@ export default class Pipe extends Trait {
             return;
         }
 
-        const pipeTraveller = traveller.traits.get(PipeTraveller);
-        if (pipeTraveller.direction.equals(this.direction)) {
+        if (traveller.traits.get(PipeTraveller).direction.equals(this.direction)) {
+            const tBounds = traveller.bounds;
+            const pBounds = pipe.bounds;
+            if (this.direction.x &&
+                (tBounds.top < pBounds.top || tBounds.bottom > pBounds.bottom)) {
+                return;
+            }
+            if (this.direction.y &&
+                (tBounds.left < pBounds.left || tBounds.right > pBounds.right)) {
+                return;
+            }
             pipe.sounds.add('pipe');
-
-            pipeTraveller.distance.set(0, 0);
-
-            const state = createTravellerState();
-            state.start.copy(traveller.pos);
-            state.end.copy(traveller.pos);
-            state.end.x += this.direction.x * pipe.size.x;
-            state.end.y += this.direction.y * pipe.size.y;
-            this.travellers.set(traveller, state);
+            this.addTraveller(pipe, traveller);
         }
     }
 
@@ -51,6 +84,7 @@ export default class Pipe extends Trait {
             const progress = state.time / this.duration;
             traveller.pos.x = state.start.x + (state.end.x - state.start.x) * progress;
             traveller.pos.y = state.start.y + (state.end.y - state.start.y) * progress;
+            traveller.vel.set(0, 0);
 
             const pipeTraveller = traveller.traits.get(PipeTraveller);
             pipeTraveller.movement.copy(this.direction);

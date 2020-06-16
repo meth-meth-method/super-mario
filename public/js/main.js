@@ -14,6 +14,7 @@ import { createPlayerProgressLayer } from './layers/player-progress.js';
 import SceneRunner from './SceneRunner.js';
 import Scene from './Scene.js';
 import TimedScene from './TimedScene.js';
+import { connectEntity } from './traits/Pipe.js';
 
 async function main(canvas) {
     const videoContext = canvas.getContext('2d');
@@ -67,10 +68,11 @@ async function main(canvas) {
                 sceneRunner.addScene(nextLevel);
                 sceneRunner.runNext();
                 if (pipe.props.backTo) {
-                    const [x, y] = pipe.props.backTo;
+                    console.log(pipe.props);
                     nextLevel.events.listen(Level.EVENT_COMPLETE, async () => {
                         const level = await setupLevel(name);
-                        mario.pos.set(x, y);
+                        const exitPipe = level.entities.get(pipe.props.backTo);
+                        connectEntity(exitPipe, mario);
                         sceneRunner.addScene(level);
                         sceneRunner.runNext();
                     });
