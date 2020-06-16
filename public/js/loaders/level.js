@@ -72,7 +72,7 @@ function setupCamera(level) {
             }
         });
     }
-    level.camera.max.x = maxX * maxTileSize;
+    level.camera.max.x = (maxX + 1) * maxTileSize;
 }
 
 function setupCheckpoints(levelSpec, level) {
