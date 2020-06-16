@@ -10,13 +10,13 @@
         {
             "tiles": [
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [0, 212, 0, 15]
                     ]
                 },
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "behavior": "ground",
                     "ranges": [
                         [0, 69, 13, 2],
@@ -87,7 +87,7 @@
                     ]
                 },
                 {
-                    "name": "bush-3",
+                    "style": "bush-3",
                     "ranges": [
                         [159, 12],
                         [207, 12]
@@ -114,14 +114,14 @@
                     ]
                 },
                 {
-                    "name": "metal",
+                    "style": "metal",
                     "behavior": "ground",
                     "ranges": [
                         [64, 8]
                     ]
                 },
                 {
-                    "name": "bricks-top",
+                    "style": "bricks-top",
                     "behavior": "brick",
                     "ranges": [
                         [20, 5, 9],
@@ -138,7 +138,7 @@
                     ]
                 },
                 {
-                    "name": "chance",
+                    "style": "chance",
                     "behavior": "ground",
                     "ranges": [
                         [16, 9],

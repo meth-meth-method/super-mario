@@ -10,7 +10,7 @@
         {
             "tiles": [
                 {
-                    "name": "sky",
+                    "style": "sky",
                     "ranges": [
                         [
                             0, 212,
@@ -19,7 +19,7 @@
                     ]
                 },
                 {
-                    "name": "ground",
+                    "style": "ground",
                     "behavior": "ground",
                     "ranges": [
                         [
@@ -33,7 +33,7 @@
         {
             "tiles": [
                 {
-                    "name": "coin",
+                    "style": "coin",
                     "behavior": "coin",
                     "ranges": [
                         [6, 100, 8, 5]

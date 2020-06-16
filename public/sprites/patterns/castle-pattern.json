@@ -2,7 +2,7 @@
     "entrance-stairs": {
         "tiles": [
             {
-                "name": "ground",
+                "style": "ground",
                 "behavior": "ground",
                 "ranges": [
                     [0, 3, 1, 1],
@@ -16,14 +16,14 @@
     "pipe-section-vert": {
         "tiles": [
             {
-                "name": "pipe-vert-left",
+                "style": "pipe-vert-left",
                 "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
-                "name": "pipe-vert-right",
+                "style": "pipe-vert-right",
                 "behavior": "ground",
                 "ranges": [
                     [1, 0]
@@ -35,14 +35,14 @@
     "pipe-cap-vert": {
         "tiles": [
             {
-                "name": "pipe-insert-vert-left",
+                "style": "pipe-insert-vert-left",
                 "behavior": "ground",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
-                "name": "pipe-insert-vert-right",
+                "style": "pipe-insert-vert-right",
                 "behavior": "ground",
                 "ranges": [
                     [1, 0]
@@ -114,14 +114,14 @@
     "bridge": {
         "tiles": [
             {
-                "name": "bridge",
+                "style": "bridge",
                 "behavior": "ground",
                 "ranges": [
                     [0, 13, 1]
                 ]
             },
             {
-                "name": "bridge-chain",
+                "style": "bridge-chain",
                 "ranges": [
                     [12, 0]
                 ]
@@ -132,13 +132,13 @@
     "toad": {
         "tiles": [
             {
-                "name": "toad-1",
+                "style": "toad-1",
                 "ranges": [
                     [0, 0]
                 ]
             },
             {
-                "name": "toad-2",
+                "style": "toad-2",
                 "ranges": [
                     [0, 1]
                 ]
