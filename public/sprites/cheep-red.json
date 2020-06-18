@@ -1,0 +1,25 @@
+{
+    "imageURL": "/img/sprites.png",
+
+    "frames": [
+        {
+            "name": "swim-1",
+            "rect": [48, 0, 16, 16]
+        },
+        {
+            "name": "swim-2",
+            "rect": [64, 0, 16, 16]
+        }
+    ],
+
+    "animations": [
+        {
+            "name": "swim",
+            "frameLen": 0.13,
+            "frames": [
+                "swim-1",
+                "swim-2"
+            ]
+        }
+    ]
+}
