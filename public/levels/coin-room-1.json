@@ -1,0 +1,68 @@
+{
+    "spriteSheet": "underworld",
+    "musicSheet": "underworld",
+    "patternSheet": "underworld-pattern",
+    "checkpoints": [
+        [24, 48]
+    ],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "style": "sky",
+                    "ranges": [
+                        [0, 16, 0, 13]
+                    ]
+                },
+                {
+                    "style": "ground",
+                    "behavior": "ground",
+                    "ranges": [
+                        [0, 16, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "style": "bricks",
+                    "behavior": "ground",
+                    "ranges": [
+                        [0, 1, 2, 11],
+                        [4, 7, 2],
+                        [4, 7, 10, 3]
+                    ]
+                },
+                {
+                    "style": "coin",
+                    "behavior": "coin",
+                    "ranges": [
+                        [5, 5, 5],
+                        [4, 7, 7],
+                        [4, 7, 9]
+                    ]
+                },
+                {
+                    "pattern": "exit-pipe-12h",
+                    "ranges": [
+                        [13, 2]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [
+        {
+            "name": "pipe-portal",
+            "pos": [206, 184],
+            "props": {
+                "dir": "RIGHT"
+            }
+        }
+    ],
+
+    "triggers": []
+}

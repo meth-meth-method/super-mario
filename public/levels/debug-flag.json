@@ -1,0 +1,54 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "overworld",
+    "patternSheet": "overworld-pattern",
+    "checkpoints": [
+        [160, 32]
+    ],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "sky",
+                    "ranges": [
+                        [0, 212, 0, 15]
+                    ]
+                },
+                {
+                    "name": "ground",
+                    "type": "ground",
+                    "ranges": [
+                        [0, 69, 13, 2],
+                        [71, 15, 13, 2],
+                        [89, 64, 13, 2],
+                        [155, 57, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "chocolate-stairs-final",
+                    "ranges": [
+                        [2, 5]
+                    ]
+                },
+                {
+                    "pattern": "flag-pole-green",
+                    "ranges": [
+                        [12, 2]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [
+        {
+            "name": "flag-pole",
+            "pos": [192, 48]
+        }
+    ]
+}

@@ -1,25 +1,40 @@
 import Camera from './Camera.js';
-import Compositor from './Compositor.js';
-import EventEmitter from './EventEmitter.js';
 import MusicController from './MusicController.js';
 import EntityCollider from './EntityCollider.js';
 import Scene from './Scene.js';
 import TileCollider from './TileCollider.js';
+import { clamp } from './math.js';
 import { findPlayers } from './player.js';
 
 function focusPlayer(level) {
     for (const player of findPlayers(level.entities)) {
-        level.camera.pos.x = Math.max(0, player.pos.x - 100);
+        level.camera.pos.x = clamp(
+            player.pos.x - 100,
+            level.camera.min.x,
+            level.camera.max.x - level.camera.size.x);
+    }
+}
+
+class EntityCollection extends Set {
+    get(id) {
+        for (const entity of this) {
+            if (entity.id === id) {
+                return entity;
+            }
+        }
     }
 }
 
 export default class Level extends Scene {
     static EVENT_TRIGGER = Symbol('trigger');
+    static EVENT_COMPLETE = Symbol('complete');
 
     constructor() {
         super();
 
         this.name = "";
+
+        this.checkpoints = [];
 
         this.gravity = 1500;
         this.totalTime = 0;
@@ -28,7 +43,7 @@ export default class Level extends Scene {
 
         this.music = new MusicController();
 
-        this.entities = new Set();
+        this.entities = new EntityCollection();
 
         this.entityCollider = new EntityCollider(this.entities);
         this.tileCollider = new TileCollider();
