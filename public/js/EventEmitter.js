@@ -1,18 +1,19 @@
 export default class EventEmitter {
-    constructor() {
-        this.listeners = [];
+    constructor(){
+        this.listeners =[];
     }
 
-    listen(name, callback) {
-        const listener = {name, callback};
+    listen(eventName, callback){
+        const listener = {eventName,callback};
         this.listeners.push(listener);
     }
-
-    emit(name, ...args) {
-        this.listeners.forEach(listener => {
-            if (listener.name === name) {
+    //envoke callback by name
+    //...arg represent the rest of the parameter goes into call back function
+    emit(name,...args){
+        this.listeners.forEach(listener=>{
+            if(listener.eventName==name){
                 listener.callback(...args);
             }
-        });
+        })
     }
 }

@@ -1,77 +1,61 @@
-import Camera from './Camera.js';
-import MusicController from './MusicController.js';
-import EntityCollider from './EntityCollider.js';
-import Scene from './Scene.js';
-import TileCollider from './TileCollider.js';
-import { clamp } from './math.js';
-import { findPlayers } from './player.js';
+import Compositor from './compository.js';
+import EntityCollider from './entityCollider.js';
+import TileCollider from './tileCollider.js';
+import CompositionScene from './compositionScene.js';
 
-function focusPlayer(level) {
-    for (const player of findPlayers(level.entities)) {
-        level.camera.pos.x = clamp(
-            player.pos.x - 100,
-            level.camera.min.x,
-            level.camera.max.x - level.camera.size.x);
-    }
-}
-
-class EntityCollection extends Set {
-    get(id) {
-        for (const entity of this) {
-            if (entity.id === id) {
-                return entity;
-            }
-        }
-    }
-}
-
-export default class Level extends Scene {
-    static EVENT_TRIGGER = Symbol('trigger');
-    static EVENT_COMPLETE = Symbol('complete');
-
-    constructor() {
+export default class Level extends CompositionScene{
+    constructor(){
         super();
-
-        this.name = "";
-
-        this.checkpoints = [];
-
-        this.gravity = 1500;
-        this.totalTime = 0;
-
-        this.camera = new Camera();
-
-        this.music = new MusicController();
-
-        this.entities = new EntityCollection();
-
-        this.entityCollider = new EntityCollider(this.entities);
+        this.compo = new Compositor();
+        this.entities = new Set();
         this.tileCollider = new TileCollider();
+        this.entity_collider = new EntityCollider(this.entities);
+        this.duration = 0;
+        this.count=300;
+   
+
     }
+    
 
-    draw(gameContext) {
-        this.comp.draw(gameContext.videoContext, this.camera);
-    }
 
-    update(gameContext) {
-        this.entities.forEach(entity => {
-            entity.update(gameContext, this);
-        });
+    updateEntity(dt,audioContext){
 
-        this.entities.forEach(entity => {
-            this.entityCollider.check(entity);
-        });
+        this.count -=dt;
 
-        this.entities.forEach(entity => {
-            entity.finalize();
-        });
+        if(this.count<=0){
+            this.events.emit(CompositionScene.GameFinish);
+        }
 
-        focusPlayer(this);
+        
 
-        this.totalTime += gameContext.deltaTime;
-    }
+        this.entities.forEach(entity=>{
+            if(entity.marioCollide){
+                if(entity.playerController.lives<=0){
+                    this.events.emit(CompositionScene.GameFinish);
+                }
+            }
+            
+            //first update entity jump, go speed and then update position
+            console.log('updating after dt.....');
+           
+            entity.updateBytime(dt,this,audioContext); //this pointing to level 
+            //check whether entities collide with tiles
+            if(entity.canDetectTiles){
+                this.tileCollider.test(entity); 
+            }
 
-    pause() {
-        this.music.pause();
+ 
+            //check if overlap or collide with mario
+            this.entity_collider.checkEntityCollideMario(entity);
+            this.entity_collider.checkEntityPushedByMario(entity);
+
+            //"this "is pointing to level
+            this.duration +=dt;
+
+
+        })
+   
     }
 }
+
+

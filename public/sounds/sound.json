@@ -1,0 +1,18 @@
+{
+    "fx":{
+        "jump":{
+            "url":"./audio/jump.ogg"
+
+        },
+        "stomp":{
+            "url":"./audio/stomp.ogg"
+
+        },
+        "shoot": {
+            "url": "./audio/thwomp.ogg"
+        },
+        "coin": {
+            "url": "./audio/coin.ogg"
+        }
+    }
+}

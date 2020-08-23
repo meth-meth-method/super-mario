@@ -1,22 +1,40 @@
-import Compositor from './Compositor.js';
-import EventEmitter from './EventEmitter.js';
+import CompositionScene from './compositionScene.js';
 
-export default class Scene {
-    static EVENT_COMPLETE = Symbol('scene complete');
-
-    constructor() {
-        this.events = new EventEmitter();
-        this.comp = new Compositor();
+export default class SceneRunner{
+    constructor(){
+        this.sceneIndex = -1;
+        this.scenes =[];
     }
 
-    draw(gameContext) {
-        this.comp.draw(gameContext.videoContext);
+    addScene(scene){
+        scene.events.listen(CompositionScene.EventFinish, ()=>{
+            this.runNext();
+        })
+
+        scene.events.listen(CompositionScene.GameFinish, ()=>{
+            this.runNext();
+        })
+       
+        this.scenes.push(scene);
+
+       
     }
 
-    update(gameContext) {
+    runNext(){
+ 
+        this.sceneIndex+=1;
     }
 
-    pause() {
-        console.log("Pause", this);
+    update(context,camera,dt,audioContext){
+
+       
+        const currentScene = this.scenes[this.sceneIndex];
+
+        if(currentScene){
+            
+            currentScene.compo.draw(context,camera); //drawing background, entities and collision layer
+            currentScene.updateEntity(dt,audioContext); // update 
+        }
+
     }
 }

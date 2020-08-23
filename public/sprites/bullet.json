@@ -1,10 +1,10 @@
 {
-    "imageURL": "/img/sprites.png",
-
+    "imageURL": "./image/characters.gif",
     "frames": [
         {
-            "name": "bullet",
-            "rect": [128, 0, 16, 16]
+            "name": "bullet-1",
+            "rect": [266, 335, 16, 16]
         }
+       
     ]
 }

@@ -1,56 +1,73 @@
-import {Sides} from '../Entity.js';
-import Trait from '../Trait.js';
+import Trait from './trait.js'
+export default class Jump extends Trait{
+    constructor(){
+        super('jump');
+        this.duration =0.05 ;
+        this.jump_velocity = 140;
+        this.jumpTime = 0;
+        this.acc_y=500;
 
-export default class Jump extends Trait {
-    constructor() {
-        super();
+        this.ready=false;
 
-        this.ready = 0;
-        this.duration = 0.3;
-        this.engageTime = 0;
         this.requestTime = 0;
-        this.gracePeriod = 0.1;
-        this.speedBoost = 0.3;
-        this.velocity = 200;
-    }
+        this.graceTime =0.3;
 
-    get falling() {
-        return this.ready < 0;
     }
-
-    start() {
-        this.requestTime = this.gracePeriod;
+    //can jump
+    start(){
+        this.requestTime = this.graceTime;
+        
     }
-
-    cancel() {
-        this.engageTime = 0;
-        this.requestTime = 0;
+    cancel(){
+        this.jumpTime=0;
+        this.requestTime=0;
     }
+    //update jump velocity after time dt
+    update(entity,dt,level,audioContext){
+        
 
-    obstruct(entity, side) {
-        if (side === Sides.BOTTOM) {
-            this.ready = 1;
-        } else if (side === Sides.TOP) {
-            this.cancel();
-        }
-    }
+        //gravity
+        entity.velocity.y +=this.acc_y * dt; 
 
-    update(entity, {deltaTime}, level) {
-        if (this.requestTime > 0) {
-            if (this.ready > 0) {
-                entity.sounds.add('jump');
-                this.engageTime = this.duration;
-                this.requestTime = 0;
+        if(this.requestTime >0){
+            if(this.ready){
+                entity.audio.playAudio('jump');
+                this.jumpTime=this.duration;
+                this.requestTime =0;
+                
             }
-
-            this.requestTime -= deltaTime;
+            this.requestTime-= entity.mass *dt;
         }
-
-        if (this.engageTime > 0) {
-            entity.vel.y = -(this.velocity + Math.abs(entity.vel.x) * this.speedBoost);
-            this.engageTime -= deltaTime;
+       
+        if(this.jumpTime>0){
+            //entity.velocity.y -= entity.acc;
+            entity.velocity.y -= this.jump_velocity; //jump upward
+            this.jumpTime -= entity.mass * dt;
         }
+        //when update the new entity, set to false
+        this.ready=false;
 
-        this.ready--;
+        
+
+        
+     
     }
+    
+    obstruct(side){
+        if(side=='bottom'){
+            //after checking the collision, setting to true and then draw it 
+            this.ready=true;
+       
+        }
+        
+    }
+
+    jugem_obstruct(entity){
+        //after checking the collision, setting to true and then draw it 
+        entity.walk.acc_x=30;
+       
+    }
+
+  
+
 }

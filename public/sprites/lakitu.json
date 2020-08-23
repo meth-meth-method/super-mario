@@ -1,0 +1,36 @@
+{
+    "imageURL": "./image/characters.gif",
+    "frames": [
+        {
+            "name": "fly-1",
+            "rect": [218, 295, 16, 16]
+        },
+        {
+            "name": "fly-2",
+            "rect": [257, 286, 16, 24]
+        },
+        {
+            "name": "fly-3",
+            "rect": [238, 286, 16, 24]
+        }
+    
+       
+    ],
+
+    "animations":[
+        {
+            "name": "fly-f",
+            "frameLen": 0.2,
+            "frames": ["fly-1",
+             "fly-2"]
+         },
+         {
+            "name": "fly-b",
+            "frameLen": 0.2,
+            "frames": ["fly-1",
+             "fly-3"]
+         }
+    ]
+}
+
+
