@@ -1,96 +1,62 @@
-import {Vec2} from './math.js';
-import AudioBoard from './AudioBoard.js';
-import BoundingBox from './BoundingBox.js';
-import EventBuffer from './EventBuffer.js';
-import Trait from './Trait.js';
+import Vector from './math.js'
+import BoundingBox from './boundingBox.js';
 
-export const Align = {
-    center(target, subject) {
-        subject.bounds.setCenter(target.bounds.getCenter());
-    },
 
-    bottom(target, subject) {
-        subject.bounds.bottom = target.bounds.bottom;
-    },
-
-    top(target, subject) {
-        subject.bounds.top = target.bounds.top;
-    },
-
-    left(target, subject) {
-        subject.bounds.left = target.bounds.left;
-    },
-
-    right(target, subject) {
-        subject.bounds.right = target.bounds.right;
-    },
-};
-
-export const Sides = {
-    TOP: Symbol('top'),
-    BOTTOM: Symbol('bottom'),
-    LEFT: Symbol('left'),
-    RIGHT: Symbol('right'),
-};
-
-export default class Entity {
-    constructor() {
-        this.id = null;
-        this.audio = new AudioBoard();
-        this.events = new EventBuffer();
-        this.sounds = new Set();
-
-        this.pos = new Vec2(0, 0);
-        this.vel = new Vec2(0, 0);
-        this.size = new Vec2(0, 0);
-        this.offset = new Vec2(0, 0);
+export default class Entity{
+    constructor(name){
+        this.name =name;
+        this.pos=new Vector(0,0);
+        this.velocity=new Vector(0,0);
+        this.size = new Vector(0,0);
+        this.mass = 2.5;
+        this.canBePush = false;
+        this.canDetectTiles = true;
+        this.offset =new Vector(0,0);  // offset positive x is moving to left, offset positive y is
         this.bounds = new BoundingBox(this.pos, this.size, this.offset);
-        this.lifetime = 0;
 
-        this.traits = new Map();
+        this.traits=[];
+        
+
     }
-
-    addTrait(trait) {
-        this.traits.set(trait.constructor, trait);
+    
+   
+    addTrait(trait){
+        this.traits.push(trait);
+        this[trait.NAME] = trait;
+        //important!!! this pointing to the entity object
+    
     }
-
-    collides(candidate) {
+    //update properties that change with time
+    updateBytime(dt,level,audioContext){
         this.traits.forEach(trait => {
-            trait.collides(this, candidate);
+            //traits are position, jump and go
+            trait.update(this,dt,level,audioContext);
+            
         });
     }
-
-    obstruct(side, match) {
+    //update properties that change with entity position
+    //during checking collision, if entity obstruct with tile, then update multiple entity properties jump and dir
+    obstruct(side){
         this.traits.forEach(trait => {
-            trait.obstruct(this, side, match);
+            //traits are position, jump and go
+            trait.obstruct(side);
         });
-    }
 
-    finalize() {
-        this.events.emit(Trait.EVENT_TASK, this);
-
+    } 
+    //update properties that change with entity position
+    //during checking entity collision, if entity obstruct with mario, 
+    //then update multiple entity properties such as score.canDetectTiles and canbepush //this is not related to dt, so did not add it into parameter
+    collides(candidate){
         this.traits.forEach(trait => {
-            trait.finalize(this);
+            //traits are position, jump and go
+            trait.collides_entity(this,candidate);
         });
-
-        this.events.clear();
     }
 
-    playSounds(audioBoard, audioContext) {
-        this.sounds.forEach(name => {
-            audioBoard.playAudio(name, audioContext);
-        });
+    
+    
 
-        this.sounds.clear();
-    }
 
-    update(gameContext, level) {
-        this.traits.forEach(trait => {
-            trait.update(this, gameContext, level);
-        });
-
-        this.playSounds(this.audio, gameContext.audioContext);
-
-        this.lifetime += gameContext.deltaTime;
-    }
 }
+
+

@@ -1,0 +1,10 @@
+{
+    "imageURL": "./image/tiles.png",
+    "frames": [
+        {
+            "name": "cannon-1",
+            "rect": [200, 330, 16, 16]
+        }
+ 
+    ]
+}

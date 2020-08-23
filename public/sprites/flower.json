@@ -1,0 +1,27 @@
+{
+    "imageURL": "./image/characters.gif",
+    "frames": [
+      
+        {
+            "name": "flower-1",
+            "rect": [145, 180, 16, 24]
+        },
+        {
+            "name": "flower-2",
+            "rect": [126, 180, 16, 24]
+        }
+       
+    ],
+
+    "animations":[
+        {
+            "name": "showup",
+            "frameLen": 0.2,
+            "frames": ["flower-1",
+             "flower-2"]
+         }
+         
+    ]
+}
+
+

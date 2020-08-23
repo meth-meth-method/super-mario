@@ -1,59 +1,70 @@
-export default class TileResolver {
-    constructor(matrix, tileSize = 16) {
+export default class TileResolver{
+    constructor(matrix,tillSize=16){
+        this.tileSize = tillSize;
         this.matrix = matrix;
-        this.tileSize = tileSize;
+
+    }
+    toTileIndex(pos){
+        return Math.floor(pos/this.tileSize);
     }
 
-    toIndex(pos) {
-        return Math.floor(pos / this.tileSize);
-    }
-
-    toIndexRange(pos1, pos2) {
-        const pMax = Math.ceil(pos2 / this.tileSize) * this.tileSize;
-        const range = [];
-        let pos = pos1;
-        do {
-            range.push(this.toIndex(pos));
+    toIndexRange(pos1,pos2){
+        
+        const position_max = Math.ceil(pos2/this.tileSize) * this.tileSize;
+        const range =[];
+        let pos =pos1;
+        do{
+            range.push(this.toTileIndex(pos));
             pos += this.tileSize;
-        } while (pos < pMax);
+        }while(pos<position_max);//higher not =<
+
         return range;
     }
+    getTileByIndex(indexX,indexY){
+        //console.log(this); this pointing to the tileresolver at collision layer
+     
+        const tile= this.matrix.get(indexX,indexY);
+ 
+        if(tile){
+            const y_cell= indexY * this.tileSize;
+            const y_floor= y_cell + this.tileSize;
+            const x_left = indexX * this.tileSize;
+            const x_right = x_left + this.tileSize;
 
-    getByIndex(indexX, indexY) {
-        const tile = this.matrix.get(indexX, indexY);
-        if (tile) {
-            const x1 = indexX * this.tileSize;
-            const x2 = x1 + this.tileSize;
-            const y1 = indexY * this.tileSize;
-            const y2 = y1 + this.tileSize;
-            return {
+            return{
                 tile,
+                y_cell,
+                y_floor,
+                x_left,
+                x_right,
                 indexX,
-                indexY,
-                x1,
-                x2,
-                y1,
-                y2,
+                indexY
+                
             };
         }
+        
     }
 
-    searchByPosition(posX, posY) {
-        return this.getByIndex(
-            this.toIndex(posX),
-            this.toIndex(posY));
+    getTileByPosition(posX,posY){
+        return this.getTileByIndex(
+            this.toTileIndex(posX),
+            this.toTileIndex(posY)
+            );
     }
 
-    searchByRange(x1, x2, y1, y2) {
-        const matches = [];
-        this.toIndexRange(x1, x2).forEach(indexX => {
-            this.toIndexRange(y1, y2).forEach(indexY => {
-                const match = this.getByIndex(indexX, indexY);
-                if (match) {
-                    matches.push(match);
+    getTileByRange(x1,x2,y1,y2){
+      
+        const matchedTiles=[];
+        this.toIndexRange(x1,x2).forEach(indexX =>{
+      
+            this.toIndexRange(y1,y2).forEach(indexY=>{
+                const matched = this.getTileByIndex(indexX,indexY);
+                if(matched){
+                    matchedTiles.push(matched);
                 }
             });
         });
-        return matches;
+        return matchedTiles;
+
     }
 }

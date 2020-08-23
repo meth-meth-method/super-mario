@@ -1,42 +1,48 @@
-import Trait from '../Trait.js';
+import Trait from './trait.js'
 
-export default class Go extends Trait {
-    constructor() {
-        super();
-
-        this.dir = 0;
-        this.acceleration = 400;
-        this.deceleration = 300;
-        this.dragFactor = 1/5000;
-
+export default class Go extends Trait{
+    constructor(){
+        super('go');
+        this.dir =0;
+        this.acc_x=250;
         this.distance = 0;
-        this.heading = 1;
+        this.right_hit =false;
+        this.left_hit =false;
     }
+    
+    update(entity,dt,level){
+      
 
-    update(entity, {deltaTime}) {
-        const absX = Math.abs(entity.vel.x);
+        if(this.dir==1){
+           
+            if(entity.velocity.x>80){
+                entity.velocity.x += 0;
+            }else{
+                entity.velocity.x += this.acc_x * this.dir * dt;
+            }
+            this.distance += entity.velocity.x * dt;
 
-        if (this.dir !== 0) {
-            entity.vel.x += this.acceleration * deltaTime * this.dir;
+        }else if (this.dir==-1){
+           
 
-            if (entity.jump) {
-                if (entity.jump.falling === false) {
-                    this.heading = this.dir;
-                }
-            } else {
-                this.heading = this.dir;
+            if(entity.velocity.x<-80){
+                entity.velocity.x += 0;
+            }else{
+                entity.velocity.x += this.acc_x * this.dir * dt;
             }
 
-        } else if (entity.vel.x !== 0) {
-            const decel = Math.min(absX, this.deceleration * deltaTime);
-            entity.vel.x += entity.vel.x > 0 ? -decel : decel;
-        } else {
-            this.distance = 0;
+            this.distance += entity.velocity.x * dt;
+
+        }else{
+           
+           
+            entity.velocity.x=0;
         }
 
-        const drag = this.dragFactor * entity.vel.x * absX;
-        entity.vel.x -= drag;
-
-        this.distance += absX * deltaTime;
+        
     }
+
+
+
+
 }

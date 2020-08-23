@@ -1,61 +1,42 @@
-import Keyboard from './KeyboardState.js';
-import InputRouter from './InputRouter.js';
-import Jump from './traits/Jump.js';
-import PipeTraveller from './traits/PipeTraveller.js';
-import Go from './traits/Go.js';
+import Keyboard from './keyboard.js'; 
+export function setupKeyBoard(entity){
+     //to store it in the dic;
+     const SPACE =32;
+     const input =new Keyboard();
+    
+     input.addMapping(SPACE, keyState=>{
+         if(keyState){
+             //keystate =1, released
+             //console.log('jumping!')
+             entity.jump.start();
+         }else{
+             //keystate =0, keep pressing
+             //console.log('you released down tab')
+             entity.jump.cancel();
+         }
+ 
+     });
+ 
+ 
+     
+     // right button is 39
+    //  input.addMapping(39, keyState=>{
+    //      entity.go.dir =keyState;
+        
+         
+    //  });
+     // left button is 37
+    //  input.addMapping(37, keyState=>{
+    //      entity.go.dir =-keyState;
+    //  });
 
-const KEYMAP = {
-    UP: 'KeyW',
-    DOWN: 'KeyS',
-    LEFT: 'KeyA',
-    RIGHT: 'KeyD',
-    A: "KeyP",
-    B: "KeyO",
-};
-
-export function setupKeyboard(window) {
-    const input = new Keyboard();
-    const router = new InputRouter();
-
-    input.listenTo(window);
-
-    input.addMapping(KEYMAP.A, keyState => {
-        if (keyState) {
-            router.route(entity => entity.traits.get(Jump).start());
-        } else {
-            router.route(entity => entity.traits.get(Jump).cancel());
-        }
+     input.addMapping(39, keyState => {
+        entity.go.dir += keyState ? 1 : -1;
     });
 
-    input.addMapping(KEYMAP.B, keyState => {
-        router.route(entity => entity.turbo(keyState));
+    input.addMapping(37, keyState => {
+        entity.go.dir += keyState ? -1 : 1;
     });
 
-    input.addMapping(KEYMAP.UP, keyState => {
-        router.route(entity => {
-            entity.traits.get(PipeTraveller).direction.y += keyState ? -1 : 1;
-        });
-    });
-
-    input.addMapping(KEYMAP.DOWN, keyState => {
-        router.route(entity => {
-            entity.traits.get(PipeTraveller).direction.y += keyState ? 1 : -1;
-        });
-    });
-
-    input.addMapping(KEYMAP.RIGHT, keyState => {
-        router.route(entity => {
-            entity.traits.get(Go).dir += keyState ? 1 : -1;
-            entity.traits.get(PipeTraveller).direction.x += keyState ? 1 : -1;
-        });
-    });
-
-    input.addMapping(KEYMAP.LEFT, keyState => {
-        router.route(entity => {
-            entity.traits.get(Go).dir += keyState ? -1 : 1;
-            entity.traits.get(PipeTraveller).direction.x += keyState ? -1 : 1;
-        });
-    });
-
-    return router;
+     return input;
 }

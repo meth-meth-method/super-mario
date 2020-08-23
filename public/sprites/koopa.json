@@ -1,0 +1,80 @@
+{
+    "imageURL": "./image/characters.gif",
+    "frames": [
+        {
+            "name": "walk-1",
+            "rect": [296, 206, 16, 24]
+        },
+        {
+            "name": "walk-2",
+            "rect": [315, 206, 16, 24]
+        },
+        {
+            "name": "walk-3",
+            "rect": [200, 206, 16, 24]
+        },
+        {
+            "name": "walk-4",
+            "rect": [181, 205, 16, 24]
+        },
+        {
+            "name": "fly-1",
+            "rect": [259, 206, 16, 24]
+        },
+        {
+            "name": "fly-2",
+            "rect": [278, 206, 16, 24]
+        },
+        {
+            "name": "fly-3",
+            "rect": [220, 206, 16, 24]
+        },
+        {
+            "name": "fly-4",
+            "rect": [239, 206, 16, 24]
+        },
+        {
+            "name": "hiding",
+            "rect": [144, 206, 16, 24]
+        },
+        {
+            "name": "hiding-with-legs",
+            "rect": [163, 206, 16, 24]
+        }
+       
+    ],
+
+    "animations":[
+        
+        {
+            "name": "walk-forward",
+            "frameLen": 0.2,
+            "frames": ["walk-1",
+             "walk-2"]
+         },
+         {
+            "name": "walk-backward",
+            "frameLen": 0.2,
+            "frames": ["walk-3",
+             "walk-4"]
+         },
+         {
+            "name": "fly-forward",
+            "frameLen": 0.2,
+            "frames": ["fly-1",
+             "fly-2"]
+         },
+         {
+            "name": "fly-backward",
+            "frameLen": 0.2,
+            "frames": ["fly-3",
+             "fly-4"]
+         },
+         {
+            "name": "sleep",
+            "frameLen": 0.2,
+            "frames": ["hiding",
+             "hiding-with-legs"]
+         }
+    ]
+}

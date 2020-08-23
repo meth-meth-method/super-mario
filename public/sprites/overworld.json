@@ -1,5 +1,5 @@
 {
-    "imageURL": "/img/tiles.png",
+    "imageURL": "./image/tiles.png",
     "tileW": 16,
     "tileH": 16,
 
@@ -10,312 +10,171 @@
         },
         {
             "name": "sky",
-            "index": [14, 7]
+            "index": [3, 23]
         },
         {
             "name": "chocolate",
-            "index": [3, 0]
+            "index": [0, 1]
         },
         {
             "name": "bricks",
-            "index": [1, 0]
-        },
-        {
-            "name": "bricks-top",
-            "index": [14, 0]
-        },
-        {
-            "name": "metal",
             "index": [2, 0]
         },
+    
         {
             "name": "chance-1",
-            "index": [4, 0]
+            "index": [24, 0]
         },
         {
             "name": "chance-2",
-            "index": [5, 0]
+            "index": [25, 0]
         },
         {
             "name": "chance-3",
-            "index": [6, 0]
+            "index": [26, 0]
         },
+
         {
             "name": "coin-1",
-            "index": [15, 0]
+            "index": [24, 1]
         },
         {
             "name": "coin-2",
-            "index": [15, 1]
+            "index": [25, 1]
         },
         {
             "name": "coin-3",
-            "index": [15, 2]
+            "index": [26, 1]
+        },
+  
+        {
+            "name": "pip-insert-vert-left",
+            "index": [0, 8]
         },
         {
-            "name": "pipe-insert-vert-left",
-            "index": [0, 5]
+            "name": "pip-insert-vert-right",
+            "index": [1, 8]
         },
         {
-            "name": "pipe-insert-vert-right",
-            "index": [1, 5]
+            "name": "pip-vert-left",
+            "index": [0, 9]
         },
         {
-            "name": "pipe-vert-left",
-            "index": [0, 6]
-        },
-        {
-            "name": "pipe-vert-right",
-            "index": [1, 6]
-        },
-        {
-            "name": "pipe-chrome-insert-vert-left",
-            "index": [2, 3]
-        },
-        {
-            "name": "pipe-chrome-insert-vert-right",
-            "index": [3, 3]
-        },
-        {
-            "name": "pipe-chrome-vert-left",
-            "index": [2, 4]
-        },
-        {
-            "name": "pipe-chrome-vert-right",
-            "index": [3, 4]
-        },
-        {
-            "name": "pipe-insert-hor-top",
-            "index": [6, 3]
-        },
-        {
-            "name": "pipe-insert-hor-bottom",
-            "index": [6, 4]
-        },
-        {
-            "name": "pipe-hor-top",
-            "index": [7, 3]
-        },
-        {
-            "name": "pipe-hor-bottom",
-            "index": [7, 4]
-        },
-        {
-            "name": "pipe-conn-hor-top",
-            "index": [8, 3]
-        },
-        {
-            "name": "pipe-conn-hor-bottom",
-            "index": [8, 4]
-        },
-        {
-            "name": "cloud-tile",
-            "index": [14, 8]
+            "name": "pip-vert-right",
+            "index": [1, 9]
         },
         {
             "name": "cloud-1-1",
-            "index": [11, 10]
+            "index": [0, 20]
         },
         {
             "name": "cloud-1-2",
-            "index": [12, 10]
+            "index": [1, 20]
         },
         {
             "name": "cloud-1-3",
-            "index": [13, 10]
+            "index": [2, 20]
         },
         {
             "name": "cloud-2-1",
-            "index": [11, 11]
+            "index": [0, 21]
         },
         {
             "name": "cloud-2-2",
-            "index": [12, 11]
+            "index": [1, 21]
         },
         {
             "name": "cloud-2-3",
-            "index": [13, 11]
+            "index": [2, 21]
         },
         {
             "name": "cannon-1",
-            "index": [14, 3]
-        },
-        {
-            "name": "cannon-2",
-            "index": [14, 4]
-        },
-        {
-            "name": "cannon-3",
-            "index": [14, 5]
-        },
-        {
-            "name": "bush-1",
-            "index": [11, 12]
-        },
-        {
-            "name": "bush-2",
-            "index": [12, 12]
-        },
-        {
-            "name": "bush-3",
-            "index": [13, 12]
-        },
-        {
-            "name": "grass-left",
-            "index": [9, 2]
-        },
-        {
-            "name": "grass",
-            "index": [10, 2]
-        },
-        {
-            "name": "grass-right",
-            "index": [11, 2]
-        },
-        {
-            "name": "dirt",
-            "index": [13, 0]
-        },
-        {
-            "name": "tile-black",
-            "index": [13, 7]
-        },
-        {
-            "name": "tile-light-blue",
-            "index": [10, 7]
-        },
-        {
-            "name": "castle-top-closed",
-            "index": [8, 0]
-        },
-        {
-            "name": "castle-top-open",
             "index": [9, 0]
         },
         {
-            "name": "castle-window-right",
-            "index": [10, 0]
+            "name": "cannon-2",
+            "index": [8, 1]
         },
         {
-            "name": "castle-arch",
-            "index": [11, 0]
+            "name": "cannon-3",
+            "index": [9, 1]
         },
         {
-            "name": "castle-window-left",
+            "name": "shrub-1",
+            "index": [11, 9]
+        },
+        {
+            "name": "shrub-2",
+            "index": [12, 9]
+        },
+        {
+            "name": "shrub-3",
+            "index": [13, 9]
+        },
+        {
+            "name": "mushroom",
+            "index": [16, 0]
+        },
+        {
+            "name": "after-chance",
+            "index": [3, 0]
+        },
+        {
+            "name": "flag-head",
+            "index": [16, 8]
+        },
+        {
+            "name": "flag-body",
+            "index": [16, 9]
+        },
+        {
+            "name": "door-body",
+            "index": [13, 1]
+        },
+        {
+            "name": "door-head",
+            "index": [12, 1]
+        },
+        {
+            "name": "door-right",
+            "index": [12, 1]
+        },
+        {
+            "name": "door-right",
             "index": [12, 0]
         },
         {
-            "name": "pole-green",
-            "index": [12, 13]
+            "name": "door-left",
+            "index": [14, 0]
         },
         {
-            "name": "pole-white",
-            "index": [11, 13]
+            "name": "bricks-head",
+            "index": [11, 0]
         },
         {
-            "name": "pole-finial-dark-grey",
-            "index": [7, 8]
-        },
-        {
-            "name": "pole-finial-green",
-            "index": [8, 8]
-        },
-        {
-            "name": "hill-left",
-            "index": [4, 7]
-        },
-        {
-            "name": "hill-right",
-            "index": [6, 7]
-        },
-        {
-            "name": "hill-top",
-            "index": [7, 7]
-        },
-        {
-            "name": "hill-stains-right",
-            "index": [5, 7]
-        },
-        {
-            "name": "hill-stains-left",
-            "index": [3, 7]
-        },
-        {
-            "name": "tile-green",
-            "index": [12, 7]
-        },
-        {
-            "name": "tree-large-top",
-            "index": [10, 5]
-        },
-        {
-            "name": "tree-large-bottom",
-            "index": [10, 6]
-        },
-        {
-            "name": "tree-small",
-            "index": [12, 5]
-        },
-        {
-            "name": "tree-white-large-top",
-            "index": [11, 5]
-        },
-        {
-            "name": "tree-white-large-bottom",
-            "index": [11, 6]
-        },
-        {
-            "name": "tree-white-small",
-            "index": [13, 5]
-        },
-        {
-            "name": "tree-trunk",
-            "index": [12, 6]
-        },
-        {
-            "name": "fence",
-            "index": [14, 6]
-        },
-        {
-            "name": "bridge",
-            "index": [13, 6]
-        },
-        {
-            "name": "bridge-rail-green",
-            "index": [14, 11]
-        },
-        {
-            "name": "bridge-rail-white",
-            "index": [14, 10]
-        },
-        {
-            "name": "waves",
-            "index": [0, 7]
+            "name": "bricks-head-2",
+            "index": [11, 1]
         }
-    ],
+        
+        
 
-    "animations": [
+    ],
+    "animations":[
         {
-            "name": "chance",
-            "frameLen": 0.16,
-            "frames": [
-                "chance-1",
-                "chance-1",
-                "chance-2",
-                "chance-3",
-                "chance-2"
-            ]
+           "name": "chance",
+           "frameLen": 0.15,
+           "frames": ["chance-1",
+            "chance-1",
+            "chance-2",
+            "chance-3",
+            "chance-3"]
         },
         {
             "name": "coin",
-            "frameLen": 0.16,
-            "frames": [
-                "coin-1",
-                "coin-1",
-                "coin-2",
-                "coin-3",
-                "coin-2"
-            ]
-        }
+            "frameLen": 0.15,
+            "frames": ["coin-1",
+             "coin-2",
+             "coin-3"]
+         }
     ]
 }

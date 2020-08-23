@@ -1,0 +1,42 @@
+{
+    "imageURL": "./image/characters.gif",
+    "frames": [
+        {
+            "name": "fly",
+            "rect": [373, 241, 16, 16]
+        },
+        {
+            "name": "walk-1",
+            "rect": [389, 241, 16, 16]
+        },
+        {
+            "name": "walk-2",
+            "rect": [408, 241, 16, 16]
+        },
+        {
+            "name": "walk-3",
+            "rect": [90, 241, 16, 16]
+        },
+        {
+            "name": "walk-4",
+            "rect": [108, 241, 16, 16]
+        }
+    
+       
+    ],
+
+    "animations":[
+        {
+            "name": "walk-f",
+            "frameLen": 0.2,
+            "frames": ["walk-1",
+             "walk-2"]
+         },
+         {
+            "name": "walk-b",
+            "frameLen": 0.2,
+            "frames": ["walk-3",
+             "walk-4"]
+         }
+    ]
+}
