@@ -1,6 +1,6 @@
 # Code Super Mario Bros. in JavaScript
 
-Create a Super Mario game in vanilla JavaScript from scratch. 
+Create a Super Mario game in vanilla JavaScript from scratch and from python . 
 
 This project is built during my YouTube series [Code Super Mario in JS](https://www.youtube.com/playlist?list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx); a series by my channel [Meth Meth Method](https://www.youtube.com/MethMethMethod).
 
