@@ -13,7 +13,7 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 
 * Clone repository.
 * Run `npm install`.
-* Run `npm start`.
+* Run `npm run start`.
 * Go to `http://localhost:5000`.
 
 
@@ -36,3 +36,8 @@ This project is built during my YouTube series [Code Super Mario in JS](https://
 
 Please contribute if you see something wrong, but I can unforunately not merge your PR directly into 
 `master` as I use Git commits as a script for creating the tutorial and commits out of sequence would throw me off.
+
+## Controls in keyboard
+* Left: A
+* Right: D
+* Jump: P
