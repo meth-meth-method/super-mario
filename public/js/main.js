@@ -98,7 +98,7 @@ async function main(canvas) {
         const dashboardLayer = createDashboardLayer(font, mario);
 
         const waitScreen = new TimedScene();
-        waitScreen.countDown = 0;
+        waitScreen.countDown = 4;
         waitScreen.comp.layers.push(createColorLayer('#000'));
         waitScreen.comp.layers.push(dashboardLayer);
         waitScreen.comp.layers.push(playerProgressLayer);
