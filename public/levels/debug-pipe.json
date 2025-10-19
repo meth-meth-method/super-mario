@@ -1,0 +1,66 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "overworld",
+    "patternSheet": "overworld-pattern",
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "style": "sky",
+                    "ranges": [
+                        [0, 212, 0, 15]
+                    ]
+                },
+                {
+                    "style": "ground",
+                    "behavior": "ground",
+                    "ranges": [
+                        [0, 69, 13, 2],
+                        [71, 15, 13, 2],
+                        [89, 64, 13, 2],
+                        [155, 57, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "pipe-2h",
+                    "ranges": [
+                        [2, 11],
+                        [6, 11],
+                        [12, 11]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [
+        {
+            "name": "piranha-plant",
+            "pos": [104, 176]
+        },
+        {
+            "name": "pipe-portal",
+            "pos": [100, 174],
+            "props": {
+                "dir": "DOWN",
+                "goesTo": {
+                    "name": "coin-room-1"
+                },
+                "backTo": "outlet1"
+            }
+        },
+        {
+            "id": "outlet1",
+            "name": "pipe-portal",
+            "pos": [196, 176],
+            "props": {
+                "dir": "UP"
+            }
+        }
+    ]
+}

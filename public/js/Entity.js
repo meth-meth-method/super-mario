@@ -1,8 +1,30 @@
 import {Vec2} from './math.js';
-import Trait from './Trait.js';
 import AudioBoard from './AudioBoard.js';
 import BoundingBox from './BoundingBox.js';
 import EventBuffer from './EventBuffer.js';
+import Trait from './Trait.js';
+
+export const Align = {
+    center(target, subject) {
+        subject.bounds.setCenter(target.bounds.getCenter());
+    },
+
+    bottom(target, subject) {
+        subject.bounds.bottom = target.bounds.bottom;
+    },
+
+    top(target, subject) {
+        subject.bounds.top = target.bounds.top;
+    },
+
+    left(target, subject) {
+        subject.bounds.left = target.bounds.left;
+    },
+
+    right(target, subject) {
+        subject.bounds.right = target.bounds.right;
+    },
+};
 
 export const Sides = {
     TOP: Symbol('top'),
@@ -13,11 +35,10 @@ export const Sides = {
 
 export default class Entity {
     constructor() {
+        this.id = null;
         this.audio = new AudioBoard();
         this.events = new EventBuffer();
         this.sounds = new Set();
-
-        this.events = new EventBuffer();
 
         this.pos = new Vec2(0, 0);
         this.vel = new Vec2(0, 0);
@@ -43,10 +64,6 @@ export default class Entity {
         this.traits.forEach(trait => {
             trait.obstruct(this, side, match);
         });
-    }
-
-    draw() {
-
     }
 
     finalize() {

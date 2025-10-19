@@ -1,3 +1,5 @@
+import { Vec2 } from "./math.js";
+
 export default class BoundingBox {
     constructor(pos, size, offset) {
         this.pos = pos;
@@ -10,6 +12,31 @@ export default class BoundingBox {
             && this.top < box.bottom
             && this.left < box.right
             && this.right > box.left;
+    }
+
+    getCenter() {
+        return new Vec2(this.meridian, this.equator);
+    }
+
+    setCenter(vec2) {
+        this.meridian = vec2.x;
+        this.equator = vec2.y;
+    }
+
+    get meridian() {
+        return this.pos.x + this.offset.x + this.size.x / 2;
+    }
+
+    set meridian(c) {
+        this.pos.x = c - (this.size.x / 2 + this.offset.x);
+    }
+
+    get equator() {
+        return this.pos.y + this.offset.y + this.size.y / 2;
+    }
+
+    set equator(c) {
+        this.pos.y = c - (this.size.y / 2 + this.offset.y);
     }
 
     get bottom() {

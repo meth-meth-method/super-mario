@@ -1,8 +1,8 @@
-import Entity, {Sides} from '../Entity.js';
+import Entity from '../Entity.js';
 import Trait from '../Trait.js';
 import Killable from '../traits/Killable.js';
-import Stomper from '../traits/Stomper.js';
 import Gravity from '../traits/Gravity.js';
+import Stomper from '../traits/Stomper.js';
 import Velocity from '../traits/Velocity.js';
 import {loadSpriteSheet} from '../loaders/sprite.js';
 
@@ -44,7 +44,7 @@ class Behavior extends Trait {
 
 function createBulletFactory(sprite) {
     function drawBullet(context) {
-        sprite.draw('bullet', context, 0, 0, this.vel.x < 0);
+        sprite.draw('bullet', context, 0, 0, this.vel.x > 0);
     }
 
     return function createBullet() {

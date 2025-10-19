@@ -1,13 +1,13 @@
 {
     "fx": {
         "coin": {
-            "url": "/audio/coin.ogg"
+            "url": "/audio/fx/coin.ogg"
         },
         "jump": {
-            "url": "/audio/jump.ogg"
+            "url": "/audio/fx/jump.ogg"
         },
         "stomp": {
-            "url": "/audio/stomp.ogg"
+            "url": "/audio/fx/stomp.ogg"
         }
     }
 }
