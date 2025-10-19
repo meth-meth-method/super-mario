@@ -27,3 +27,5 @@ jobs:
           path: "public"
           destination: "super-mario.pomle.com"
           parent: false
+          headers: |
+            cache-control: no-cache, max-age=0
