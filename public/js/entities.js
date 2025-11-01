@@ -1,6 +1,7 @@
 import {loadMario} from './entities/Mario.js';
 import {loadGoombaBrown, loadGoombaBlue} from './entities/Goomba.js';
 import {loadKoopaGreen, loadKoopaBlue} from './entities/Koopa.js';
+import {loadCheepSlow, loadCheepFast, loadCheepSlowWavy, loadCheepFastWavy} from './entities/CheepCheep.js';
 import {loadPiranhaPlant} from './entities/PiranhaPlant.js';
 import {loadBullet} from './entities/Bullet.js';
 import {loadCannon} from './entities/Cannon.js';
@@ -51,6 +52,14 @@ export async function loadEntities(audioContext) {
             .then(addAs('koopa-green')),
         setup(loadKoopaBlue)
             .then(addAs('koopa-blue')),
+        setup(loadCheepSlow)
+            .then(addAs('cheep-slow')),
+        setup(loadCheepFast)
+            .then(addAs('cheep-fast')),
+        setup(loadCheepSlowWavy)
+            .then(addAs('cheep-slow-wavy')),
+        setup(loadCheepFastWavy)
+            .then(addAs('cheep-fast-wavy')),
         setup(loadBullet)
             .then(addAs('bullet')),
         setup(loadCannon)
