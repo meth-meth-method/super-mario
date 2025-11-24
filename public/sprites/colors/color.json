@@ -1,0 +1,102 @@
+{
+    "mario": {
+        "hex": [
+            "#bd4131",
+            "#eca732",
+            "#797b00"
+        ]
+    },
+    "luigi": {
+        "hex": [
+            "#ffffff",
+            "#eca732",
+            "#1b9d00"
+        ]
+    },
+    "fire": {
+        "hex": [
+            "#ffd1cb",
+            "#eca732",
+            "#bd4131"
+        ]
+    },
+    "invincibility-1": {
+        "hex": [
+            "#ffd1cb",
+            "#eca732",
+            "#bd4131"
+        ]
+    },
+    "invincibility-2": {
+        "hex": [
+            "#1b9d00",
+            "#ffffff",
+            "#eca732"
+        ]
+    },
+    "invincibility-3": {
+        "hex": [
+            "#bd4131",
+            "#ffffff",
+            "#eca732"
+        ]
+    },
+    "invincibility-4": {
+        "hex": [
+            "#000000",
+            "#ffd1cb",
+            "#a35d00"
+        ]
+    },
+    "invincibility-5": {
+        "hex": [
+            "#004f5c",
+            "#bdedf4",
+            "#008898"
+        ]
+    },
+    "invincibility-6": {
+        "hex": [
+            "#008898",
+            "#ffd1cb",
+            "#a35d00"
+        ]
+    },
+    "invincibility-7": {
+        "hex": [
+            "#737373",
+            "#ffffff",
+            "#737373"
+        ]
+    },
+
+    "colorCycles": [
+        {
+            "name": "invincibility-overworld",
+            "colors": [
+                "invincibility-1",
+                "invincibility-2",
+                "invincibility-3",
+                "invincibility-4"
+            ]
+        },
+        {
+            "name": "invincibility-underworld",
+            "colors": [
+                "invincibility-1",
+                "invincibility-6",
+                "invincibility-3",
+                "invincibility-5"
+            ]
+        },
+        {
+            "name": "invincibility-castle",
+            "colors": [
+                "invincibility-1",
+                "invincibility-6",
+                "invincibility-3",
+                "invincibility-7"
+            ]
+        }
+    ]
+}
