@@ -1,0 +1,31 @@
+name: Deploy to GCS
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - id: "checkout"
+        uses: "actions/checkout@v4"
+
+      - id: "auth"
+        uses: "google-github-actions/auth@v3"
+        with:
+          credentials_json: "${{ secrets.GCS_DEPLOY }}"
+
+      - id: "upload-folder"
+        uses: "google-github-actions/upload-cloud-storage@v3"
+        with:
+          path: "public"
+          destination: "super-mario.pomle.com"
+          parent: false
+          headers: |
+            cache-control: no-cache, max-age=0

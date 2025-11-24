@@ -1,5 +1,6 @@
-import {Matrix} from '../math.js';
+import {Matrix, Vec2} from '../math.js';
 import Entity from '../Entity.js';
+import Trait from '../Trait.js';
 import LevelTimer from '../traits/LevelTimer.js';
 import Trigger from '../traits/Trigger.js';
 import Level from '../Level.js';
@@ -9,16 +10,33 @@ import {loadMusicSheet} from './music.js';
 import {loadSpriteSheet} from './sprite.js';
 import {loadJSON} from '../loaders.js';
 
-function createTimer() {
-    const timer = new Entity();
-    timer.addTrait(new LevelTimer());
-    return timer;
-}
+function createSpawner() {
+    class Spawner extends Trait {
+        constructor() {
+            super();
+            this.entities = [];
+            this.offsetX = 64;
+        }
 
-function createTrigger() {
-    const entity = new Entity();
-    entity.addTrait(new Trigger());
-    return entity;
+        addEntity(entity) {
+            this.entities.push(entity);
+            this.entities.sort((a, b) => a.pos.x < b.pos.x ? -1 : 1);
+        }
+
+        update(entity, gameContext, level) {
+            const cameraMaxX = level.camera.pos.x + level.camera.size.x + this.offsetX;
+            while (this.entities[0]) {
+                if (cameraMaxX > this.entities[0].pos.x) {
+                    level.entities.add(this.entities.shift());
+                } else {
+                    break;
+                }
+            }
+
+        }
+    }
+
+    return new Spawner();
 }
 
 function loadPattern(name) {
@@ -26,9 +44,6 @@ function loadPattern(name) {
 }
 
 function setupBehavior(level) {
-    const timer = createTimer();
-    level.entities.add(timer);
-
     level.events.listen(LevelTimer.EVENT_TIMER_OK, () => {
         level.music.playTheme();
     });
@@ -37,25 +52,62 @@ function setupBehavior(level) {
     });
 }
 
-function setupBackgrounds(levelSpec, level, backgroundSprites, patterns) {
+function setupBackgrounds(levelSpec, level, patterns) {
     levelSpec.layers.forEach(layer => {
         const grid = createGrid(layer.tiles, patterns);
-        const backgroundLayer = createBackgroundLayer(level, grid, backgroundSprites);
-        level.comp.layers.push(backgroundLayer);
         level.tileCollider.addGrid(grid);
     });
 }
 
+function setupCamera(level) {
+    let maxX = 0;
+    let maxTileSize = 0;
+    for (const resolver of level.tileCollider.resolvers) {
+        if (resolver.tileSize > maxTileSize) {
+            maxTileSize = resolver.tileSize;
+        }
+        resolver.matrix.forEach((tile, x, y) => {
+            if (x > maxX) {
+                maxX = x;
+            }
+        });
+    }
+    level.camera.max.x = (maxX + 1) * maxTileSize;
+}
+
+function setupCheckpoints(levelSpec, level) {
+    if (!levelSpec.checkpoints) {
+        level.checkpoints.push(new Vec2(0, 0));
+        return;
+    }
+
+    levelSpec.checkpoints.forEach(([x, y]) => {
+        level.checkpoints.push(new Vec2(x, y));
+    });
+}
+
 function setupEntities(levelSpec, level, entityFactory) {
-    levelSpec.entities.forEach(({name, pos: [x, y]}) => {
+    const spawner = createSpawner();
+    levelSpec.entities.forEach(({id, name, pos: [x, y], props}) => {
         const createEntity = entityFactory[name];
-        const entity = createEntity();
+        if (!createEntity) {
+            throw new Error(`No entity ${name}`);
+        }
+
+        const entity = createEntity(props);
         entity.pos.set(x, y);
-        level.entities.add(entity);
+
+        if (id) {
+            entity.id = id;
+            level.entities.add(entity);
+        } else {
+            spawner.addEntity(entity);
+        }
     });
 
-    const spriteLayer = createSpriteLayer(level.entities);
-    level.comp.layers.push(spriteLayer);
+    const entityProxy = new Entity();
+    entityProxy.addTrait(spawner);
+    level.entities.add(entityProxy);
 }
 
 function setupTriggers(levelSpec, level) {
@@ -65,9 +117,11 @@ function setupTriggers(levelSpec, level) {
 
     for (const triggerSpec of levelSpec.triggers) {
         const trigger = new Trigger();
+
         trigger.conditions.push((entity, touches, gc, level) => {
             level.events.emit(Level.EVENT_TRIGGER, triggerSpec, entity, touches);
         });
+
         const entity = new Entity();
         entity.addTrait(trigger);
         entity.size.set(64, 64);
@@ -90,10 +144,21 @@ export function createLevelLoader(entityFactory) {
             level.name = name;
             level.music.setPlayer(musicPlayer);
 
-            setupBackgrounds(levelSpec, level, backgroundSprites, patterns);
+            setupBackgrounds(levelSpec, level, patterns);
             setupEntities(levelSpec, level, entityFactory);
             setupTriggers(levelSpec, level);
+            setupCheckpoints(levelSpec, level);
+
             setupBehavior(level);
+            setupCamera(level);
+
+            for (const resolver of level.tileCollider.resolvers) {
+                const backgroundLayer = createBackgroundLayer(level, resolver.matrix, backgroundSprites);
+                level.comp.layers.push(backgroundLayer);
+            }
+
+            const spriteLayer = createSpriteLayer(level.entities);
+            level.comp.layers.splice(level.comp.layers.length - 1, 0, spriteLayer);
 
             return level;
         });

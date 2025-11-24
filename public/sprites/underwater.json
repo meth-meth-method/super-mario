@@ -1,0 +1,62 @@
+{
+    "imageURL": "/img/tiles.png",
+    "tileW": 16,
+    "tileH": 16,
+
+    "tiles": [
+        {
+            "name": "ground",
+            "index": [12, 2]
+        },
+        {
+            "name": "sky",
+            "index": [10, 7]
+        },
+        {
+            "name": "water",
+            "index": [9, 7]
+        },
+        {
+            "name": "waves",
+            "index": [1, 7]
+        },
+        {
+            "name": "coral",
+            "index": [13, 2]
+        },
+        {
+            "name": "coin-1",
+            "index": [15, 6]
+        },
+        {
+            "name": "coin-2",
+            "index": [15, 7]
+        },
+        {
+            "name": "coin-3",
+            "index": [15, 8]
+        },
+        {
+            "name": "pipe-insert-hor-top",
+            "index": [9, 5]
+        },
+        {
+            "name": "pipe-insert-hor-bottom",
+            "index": [9, 6]
+        }
+    ],
+
+    "animations": [
+        {
+            "name": "coin",
+            "frameLen": 0.16,
+            "frames": [
+                "coin-1",
+                "coin-1",
+                "coin-2",
+                "coin-3",
+                "coin-2"
+            ]
+        }
+    ]
+}

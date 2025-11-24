@@ -1,0 +1,59 @@
+{
+    "spriteSheet": "overworld",
+    "musicSheet": "uw-entrance",
+    "patternSheet": "overworld-pattern",
+    "checkpoints": [
+        [40, 192]
+    ],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "style": "sky",
+                    "ranges": [
+                        [0, 16, 0, 15]
+                    ]
+                },
+                {
+                    "style": "ground",
+                    "behavior": "ground",
+                    "ranges": [
+                        [0, 16, 13, 2]
+                    ]
+                }
+            ]
+        },
+        {
+            "tiles": [
+                {
+                    "pattern": "cloud-single",
+                    "ranges": [
+                        [9, 7]
+                    ]
+                },
+                {
+                    "pattern": "cloud-double",
+                    "ranges": [
+                        [3, 3]
+                    ]
+                },
+                {
+                    "pattern": "castle-small",
+                    "ranges": [
+                        [0, 8]
+                    ]
+                },
+                {
+                    "pattern": "pipe-uw-entrance",
+                    "ranges": [
+                        [10, 9]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "entities": [],
+    "triggers": []
+}
