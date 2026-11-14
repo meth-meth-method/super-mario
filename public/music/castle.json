@@ -1,8 +1,8 @@
 {
     "main": {
-        "url": "/audio/music/castle.ogg"
+        "url": "audio/music/castle.ogg"
     },
     "hurry": {
-        "url": "/audio/music/hurry.ogg"
+        "url": "audio/music/hurry.ogg"
     }
 }

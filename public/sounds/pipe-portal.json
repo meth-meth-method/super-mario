@@ -1,7 +1,7 @@
 {
     "fx": {
         "pipe": {
-            "url": "/audio/fx/pipe.ogg"
+            "url": "audio/fx/pipe.ogg"
         }
     }
 }
