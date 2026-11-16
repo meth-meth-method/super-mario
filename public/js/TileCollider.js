@@ -69,7 +69,7 @@ export default class TileCollider {
             level,
         };
 
-        const handler = handlers[match.tile.type];
+        const handler = handlers[match.tile.behavior];
         if (handler) {
             handler[index](tileCollisionContext);
         }

@@ -1,0 +1,22 @@
+body {
+    background: #000;
+    margin: 0;
+}
+
+#screen {
+    display: block;
+    image-rendering: pixelated;
+    margin: auto;
+    width: 100vw;
+    max-height: 100vh;
+}
+
+.aspect-4-3 {
+    height: 75vw;
+    max-width: 133.3vh;
+}
+
+.aspect-16-9 {
+    height: 56.25vw;
+    max-width: 177.7vh;
+}
